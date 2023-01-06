@@ -16,7 +16,5 @@ public class rightButton : MonoBehaviour
             HandControl.hand_turned = true;
             HandControl.hand_dir = 2;
         }
-
-        Debug.Log(HandControl.hand_dir);
     }
 }

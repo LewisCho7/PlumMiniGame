@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,18 @@ public class OX : MonoBehaviour
 
     public void Popresult(bool check)
     {
+        StartCoroutine(popresult(check));
+        //StopCoroutine("popresult");
+    }
+
+    private IEnumerator popresult(bool check)
+    {
+        setResultUI(check);
+        yield return new WaitForSeconds(1);
+        TurnDown();
+    }
+    private void setResultUI(bool check)
+    {
         if (check)
         {
             O.SetActive(true);
@@ -25,8 +38,7 @@ public class OX : MonoBehaviour
             X.SetActive(true);
         }
     }
-
-    public void TurnDown()
+    private void TurnDown()
     {
         O.SetActive(false);
         X.SetActive(false);

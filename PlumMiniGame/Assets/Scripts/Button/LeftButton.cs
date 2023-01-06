@@ -15,8 +15,6 @@ public class LeftButton : MonoBehaviour
             hand.GetComponent<HandControl>().right_hand.SetActive(false);
             HandControl.hand_turned = true;
             HandControl.hand_dir = 0;
-
-            Debug.Log(HandControl.hand_dir);
         }
     }
 }
