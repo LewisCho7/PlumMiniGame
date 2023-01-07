@@ -16,8 +16,32 @@ public class PlayerClickEvents : MonoBehaviour
 
     public void Jump() {
         if (isOnGround) {
-            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            //transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(0, 200, 0), 1f);
+            rigid.gravityScale = 0;
+            StartCoroutine(JumpMove(transform.position, new Vector3(0, 200, 0), 0.3f));
+            
+            //StartCoroutine(LerpMove(transform.position, new Vector3(0, -200, 0), 0.2f));
+            rigid.gravityScale = 100;
+        }
+    }
+
+    private IEnumerator JumpMove(Vector3 startPosition, Vector3 distance, float time) {
+
+        float timer = 0;
+        while (transform.position.y < startPosition.y + 200) {
+            timer += Time.deltaTime;
+            float percent = timer / time;
+            transform.position = startPosition + distance * percent;
+            yield return null;
+        }
+
+        var pos = transform.position;
+
+        timer = 0;
+        while (timer <= time) {
+            timer += Time.deltaTime;
+            float percent = timer / time;
+            transform.position = pos + new Vector3(0, -200, 0) * percent;
+            yield return null;
         }
     }
 

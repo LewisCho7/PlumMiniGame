@@ -22,7 +22,7 @@ public class Shooter : MonoBehaviour
         if (index == 0) {
             newObj = Instantiate(bottomObstacles[Choose(new float[] {33.3f, 33.3f, 33.3f})], new Vector2(850, 634), Quaternion.identity);
         } else {
-            newObj = Instantiate(topObstacles[Choose(new float[] {33.3f, 33.3f, 33.3f})], new Vector2(850, 809), Quaternion.identity);
+            newObj = Instantiate(topObstacles[Choose(new float[] {33.3f, 33.3f, 33.3f})], new Vector2(850, 818), Quaternion.identity);
         }
         newObj.GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, 0);
         Destroy(newObj, 5f);
