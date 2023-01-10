@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Run_Player : MonoBehaviour
 {
     public Sprite CharacterSkin;
     static public bool isAlive = false;

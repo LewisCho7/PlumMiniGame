@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooter : MonoBehaviour
+public class Run_Shooter : MonoBehaviour
 {
     public GameObject[] bottomObstacles = new GameObject[3];
     public GameObject[] topObstacles = new GameObject[3];
     public float speed = 320f;
 
     public IEnumerator shootStart() {
-        while (Player.isAlive && GameManager.time <= 30f) {
+        while (Run_Player.isAlive && Run_GameManager.time <= 30f) {
             Shoot(Choose(new float[] {6f, 4f}));
             yield return new WaitForSeconds(2f);
         }

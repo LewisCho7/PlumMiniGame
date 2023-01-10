@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class Run_GameManager : MonoBehaviour
 {
 
     public GameObject player;
@@ -22,12 +22,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         panel.SetActive(false);
         player.SetActive(true);
-        Player.isAlive = true;
-        StartCoroutine(shooter.GetComponent<Shooter>().shootStart());
+        Run_Player.isAlive = true;
+        StartCoroutine(shooter.GetComponent<Run_Shooter>().shootStart());
     }
 
     void Update() {
-        if (Player.isAlive) {
+        if (Run_Player.isAlive) {
             time += Time.deltaTime;
         } else if (time > 0) {
             panel.transform.Find("Image").gameObject.GetComponent<Image>().sprite = GameOverSprite;

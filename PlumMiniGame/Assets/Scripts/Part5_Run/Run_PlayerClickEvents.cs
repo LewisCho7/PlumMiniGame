@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerClickEvents : MonoBehaviour
+public class Run_PlayerClickEvents : MonoBehaviour
 {
     private Rigidbody2D rigid;
     public Sprite slidingSprite;
