@@ -33,6 +33,7 @@ public class Heart : MonoBehaviour
         }
         else
         {
+            yellow_heart.SetActive(false);
             for (int i = 0; i < 3; i++)
             {
                 if (i < GameManager.life)
