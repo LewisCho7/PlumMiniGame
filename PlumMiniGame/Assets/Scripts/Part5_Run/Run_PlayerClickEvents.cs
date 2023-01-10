@@ -16,11 +16,13 @@ public class Run_PlayerClickEvents : MonoBehaviour
 
     public void Jump() {
         if (isOnGround) {
-            rigid.gravityScale = 0;
-            StartCoroutine(JumpMove(transform.position, new Vector3(0, 200, 0), 0.3f));
+            // rigid.gravityScale = 0;
+            // StartCoroutine(JumpMove(transform.position, new Vector3(0, 200, 0), 0.3f));
             
-            //StartCoroutine(LerpMove(transform.position, new Vector3(0, -200, 0), 0.2f));
-            rigid.gravityScale = 100;
+            // //StartCoroutine(LerpMove(transform.position, new Vector3(0, -200, 0), 0.2f));
+            // rigid.gravityScale = 100;
+
+            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
     }
 

@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -994,7 +994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slidingSprite: {fileID: 21300000, guid: aab6adeb524f353409acdc4196a6dc96, type: 3}
   CharacterSkin: {fileID: 21300000, guid: a9f852ce273f0734092237a4a10f534c, type: 3}
-  jumpPower: 600
+  jumpPower: 630
 --- !u!1 &1242079998
 GameObject:
   m_ObjectHideFlags: 0
