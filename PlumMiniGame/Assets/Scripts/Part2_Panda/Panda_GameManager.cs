@@ -7,23 +7,17 @@ public class Panda_GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
 
-    [SerializeField] private Sprite Img_O;
-    [SerializeField] private Sprite Img_X;
-    [SerializeField] private Sprite Img_gameover;
-    [SerializeField] private Sprite Img_start;
-    [SerializeField] private Sprite Img_go;
-    [SerializeField] private Sprite Img_round1;
-    [SerializeField] private Sprite Img_round2;
-    [SerializeField] private Sprite Img_panda_default;
-    [SerializeField] private Sprite Img_panda_eat;
+    [SerializeField] private Sprite[] Imgs = new Sprite[9];
+    enum Sprites {
+        O, X, gameover, start, go, round1, round2, panda_default, panda_eat
 
-    [SerializeField] private GameObject panda1;
-    [SerializeField] private GameObject panda2;
-    [SerializeField] private GameObject panda3;
+    }
+
+    [SerializeField] private GameObject[] pandas;
 
 
     void Start() {
-        StartCoroutine(ShowPanel(Img_round1));
+        StartCoroutine(ShowPanel(Imgs[(int)Sprites.round1]));
     }
 
     void Update() {
@@ -37,17 +31,23 @@ public class Panda_GameManager : MonoBehaviour
         panel.SetActive(true);
         yield return new WaitForSeconds(1f);
 
-        panel.transform.Find("Image").GetComponent<Image>().sprite = Img_start;
+        panel.transform.Find("Image").GetComponent<Image>().sprite = Imgs[(int)Sprites.start];
         yield return new WaitForSeconds(0.5f);
 
         panel.SetActive(false);
     }
 
     // IEnumerator Eat(int cnt, float speed) {
+    //     int mode = Choose(new float[] {4, 6});
 
+    //     if (mode == 0) {
+    //         int index = Choose(new float[] {33.3f, 33.3f, 33.3f});
+
+    //         pandas[index].GetComponent<SpriteRenderer>().sprite = Imgs[(int)Sprites.panda_eat];
+    //     }
     // }
 
-    float Choose (float[] probs) {
+    int Choose (float[] probs) {
 
         float total = 0;
 
