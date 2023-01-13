@@ -5,8 +5,8 @@ using Redcode.Pools;
 
 public class Ski_ObjectSpawner : MonoBehaviour
 {
-    //public GameObject barrierPrefab;
-    //public GameObject itemPrefab;
+    [SerializeField]
+    private Transform playerPos;
 
     public GameObject skiline;
 
@@ -14,49 +14,76 @@ public class Ski_ObjectSpawner : MonoBehaviour
 
     [SerializeField]
     private Ski_Objects barrier;
- /* [SerializeField]
-    private Ski_Objects item;*/
+    [SerializeField]
+    private Ski_Objects item;
+    [SerializeField]
+    private Ski_Objects rescue;
 
     Pool<Ski_Objects> barrierPool;
     Pool<Ski_Objects> itemPool;
+    Pool<Ski_Objects> rescuePool;
 
     private Ski_Objects newBarrier;
     private Ski_Objects newItem;
+    private Ski_Objects newRescue;
 
 
     private float[] randomSpawnPos;
 
+    private bool barrierSpawned;
+    private int barrierIndex;
+
     private void Awake()
     {
-        //barrier = barrierPrefab.GetComponent<Ski_Objects>();
-        //item = itemPrefab.GetComponent<Ski_Objects>();
         skiLine = skiline.GetComponent<SkiLine>();
 
         barrierPool = Pool.Create<Ski_Objects>(barrier, 0);
-        //itemPool = Pool.Create<Ski_Objects>(item, 0);
+        itemPool = Pool.Create<Ski_Objects>(item, 0);  
+        rescuePool = Pool.Create<Ski_Objects>(rescue, 0);
+     
 
         randomSpawnPos = new float[] { 100, 160, 200, 240, 300 };
     }
     private void Start()
     {
-        StartCoroutine(IE_SpawnBarrier());
+        startCoroutines();
+        
+    }
+    private void Update()
+    {
+        if (Ski_GameManager.instance.isGameOver)
+        {
+            StopAllCoroutines();
+        }
     }
 
+    private void startCoroutines()
+    {
+        StartCoroutine(IE_SpawnBarrier());
+        StartCoroutine(IE_SpawnItem());
+        StartCoroutine(IE_SpawnRescue());
+    }
     private IEnumerator IE_SpawnBarrier()
     {
         while (true)
         {
             if(Ski_GameManager.instance.timer < 3)
             {
-                yield return null;
+                yield return new WaitForSeconds(3f);
             }
+
+            barrierSpawned = false;
+            
             int i = Random.Range(0, 5);
             Vector3 spawnPos = new Vector3(skiLine.lastPos.x + randomSpawnPos[i], skiLine.lastPos.y, transform.position.z);
+            barrierIndex = i;
 
             if (Ski_GameManager.instance.timer < 30)
             {
                 newBarrier = barrierPool.Get();
                 newBarrier.transform.position = spawnPos;
+                barrierSpawned = true;
+
                 StartCoroutine(IE_ReleaseBarrier(newBarrier));
                 yield return new WaitForSeconds(3f);
             }
@@ -64,6 +91,8 @@ public class Ski_ObjectSpawner : MonoBehaviour
             {
                 newBarrier = barrierPool.Get();
                 newBarrier.transform.position = spawnPos;
+                barrierSpawned= true;
+
                 StartCoroutine(IE_ReleaseBarrier(newBarrier));
                 yield return new WaitForSeconds(2f);
             }
@@ -71,17 +100,142 @@ public class Ski_ObjectSpawner : MonoBehaviour
 
     }
 
+    private IEnumerator IE_SpawnItem()
+    {
+        while (true)
+        {
+            if (Ski_GameManager.instance.timer < 3)
+            {
+                yield return new WaitForSeconds(3f);
+            }
+            yield return new WaitUntil(() => barrierSpawned == true);
+
+            int prob = Random.Range(0, 10);
+            
+            if(prob < 8)
+            {
+                yield return new WaitForSeconds(3f);
+                continue;
+            }
+
+            int i = Random.Range(0, 5);
+            Vector3 spawnPos;
+
+            if (i == barrierIndex && Ski_GameManager.instance.timer < 30f)
+            {
+                List<float> resizedPos = new List<float>();
+                for (int j = 0; j < 5; j++)
+                {
+                    if (j != i)
+                    {
+                        resizedPos.Add(randomSpawnPos[j]);
+                    }
+                }
+                i = Random.Range(0, 4);
+                spawnPos = new Vector3(skiLine.lastPos.x + resizedPos[i], skiLine.lastPos.y, transform.position.z);
+            }
+            else
+            {
+                spawnPos = new Vector3(skiLine.lastPos.x + randomSpawnPos[i], skiLine.lastPos.y, transform.position.z);
+            }
+
+            newItem = itemPool.Get();
+            newItem.transform.position = spawnPos;
+            StartCoroutine(IE_ReleaseItem(newItem));
+
+            yield return new WaitForSeconds(2.5f);      
+            
+        }
+    }
+
+    private IEnumerator IE_SpawnRescue()
+    {
+        while (true)
+        {
+            if(Ski_GameManager.instance.timer < 3)
+            {
+                yield return new WaitForSeconds(4f);
+            }
+            yield return new WaitUntil(() => barrierSpawned == true);
+
+            int prob = Random.Range(0, 10);
+
+            if (prob < 5)
+            {
+                yield return new WaitForSeconds(3f);
+                continue;
+            }
+
+            int i = Random.Range(0, 5);
+            Vector3 spawnPos;
+
+            if (i == barrierIndex && Ski_GameManager.instance.timer < 30f)
+            {
+                List<float> resizedPos = new List<float>();
+                for (int j = 0; j < 5; j++)
+                {
+                    if (j != i)
+                    {
+                        resizedPos.Add(randomSpawnPos[j]);
+                    }
+                }
+                i = Random.Range(0, 4);
+                spawnPos = new Vector3(skiLine.lastPos.x + resizedPos[i], skiLine.lastPos.y, transform.position.z);
+            }
+            else
+            {
+                spawnPos = new Vector3(skiLine.lastPos.x + randomSpawnPos[i], skiLine.lastPos.y, transform.position.z);
+            }
+
+
+            newRescue = rescuePool.Get();
+            newRescue.transform.position = spawnPos;
+            newRescue.setSprite();
+            newRescue.transform.localScale = new Vector3(70f, 80f, newRescue.transform.position.z);
+            StartCoroutine(IE_ReleaseRescue(newRescue));
+
+            yield return new WaitForSeconds(3f);
+
+        }
+    }
+
     IEnumerator IE_ReleaseBarrier(Ski_Objects barrier)
     {
-        yield return new WaitForSeconds(20f + Ski_GameManager.instance.gameSpeed / 100f);
-        
-        barrierPool.Take(barrier);
+        while (!barrier)
+        {
+
+            if (barrier.transform.position.y > playerPos.position.y + 450f)
+            {
+                barrierPool.Take(barrier);
+
+                yield break;
+            }
+            yield return new WaitForSeconds(5f);
+        }
     }
     IEnumerator IE_ReleaseItem(Ski_Objects item)
     {
-        yield return new WaitForSeconds(25f);
-
-        barrierPool.Take(item);
+        while (!item)
+        {
+            if (item.transform.position.y > playerPos.position.y + 450f)
+            {
+                itemPool.Take(item);
+                yield break;
+            }
+            yield return new WaitForSeconds(5f);
+        }
+    }
+    IEnumerator IE_ReleaseRescue(Ski_Objects rescue)
+    {
+        while (!rescue)
+        {
+            if (rescue.transform.position.y > playerPos.position.y + 450f)
+            {
+                rescuePool.Take(rescue);
+                yield break;
+            }
+            yield return new WaitForSeconds(5f);
+        }
     }
 
     float Choose(float[] probs)

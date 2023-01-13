@@ -4,23 +4,32 @@ using UnityEngine;
 [RequireComponent(typeof(EdgeCollider2D))]
 public class SkiLine : MonoBehaviour
 {
+    // 기울기 변화 담는 배열
     private float[] slope;
 
+    // 오른쪽 선을 담는 gameobject (옆의 선까지 함께 조절)
     [SerializeField]
     private GameObject besideLine;
-    //private SkiLine ski;
 
+    // 선 생성 위치 제한 위한 플레이어 위치
+    [SerializeField]
+    private Transform playerPos;
+
+    // 선 긋기 위한 LineRenderer 컴포넌트
     private LineRenderer lineRenderer;
     private LineRenderer besideLineRenderer;
-
+    
+    // 선에 충돌을 부여할 EdgeCollider2D 컴포넌트
     EdgeCollider2D edgeCollider;
     EdgeCollider2D edgeCollider2;
 
+    // 선을 잇기 위해 마지막 점의 위치와 다음 점의 위치 저장
     public Vector2 lastPos;
     public Vector2 nextPos;
+
+    // 마지막 점의 index
     public int index = 1;
 
-    private float colliderMaxSize = 0;
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -38,8 +47,7 @@ public class SkiLine : MonoBehaviour
     }
     private void Update()
     {
-        /*transform.position += Vector3.up * 4 * 100 * Time.deltaTime;
-        besideLine.transform.position += Vector3.up * 4 * 100 * Time.deltaTime;*/
+
     }
     private void FixedUpdate()
     {
@@ -50,10 +58,15 @@ public class SkiLine : MonoBehaviour
 
     private void AddNewLine()
     {
-        lineRenderer.positionCount++;
-        besideLineRenderer.positionCount++;
 
         lastPos = lineRenderer.GetPosition(index);
+        if(lastPos.y < playerPos.position.y - 1280)
+        {
+            return;
+        }
+
+        lineRenderer.positionCount++;
+        besideLineRenderer.positionCount++;
         CalcNextPos();
         index++;
         lineRenderer.SetPosition(index, nextPos);
@@ -113,7 +126,7 @@ public class SkiLine : MonoBehaviour
 
         while (true)
         {
-            ws = new WaitForSeconds(0.8f - Ski_GameManager.instance.gameSpeed / 1000);
+            ws = new WaitForSeconds(0.1f);
             AddNewLine();
             yield return ws;
         }
@@ -122,16 +135,33 @@ public class SkiLine : MonoBehaviour
 
     private void SetEdgeCollider()
     {
+        
         List<Vector2> edgePoints1 = new List<Vector2>();
         List<Vector2> edgePoints2 = new List<Vector2>();
 
-        if(lineRenderer.positionCount < 300)
+        if(lineRenderer.positionCount < 3)
         {
             for (int i = 0; i < lineRenderer.positionCount; i++)
             {
                 Vector2 lineRendererPoint = lineRenderer.GetPosition(i);
+                
                 edgePoints1.Add(new Vector2(lineRendererPoint.x, lineRendererPoint.y));
                 edgePoints2.Add(new Vector2(lineRendererPoint.x + 400, lineRendererPoint.y));
+        
+
+            }
+        }
+        else if(lineRenderer.positionCount < 300)
+        {
+            for (int i = 0; i < lineRenderer.positionCount; i++)
+            {
+                Vector2 lineRendererPoint = lineRenderer.GetPosition(i);
+                if(lineRendererPoint.y < playerPos.position.y + 100 && lineRendererPoint.y > playerPos.position.y - 100)
+                {
+                    edgePoints1.Add(new Vector2(lineRendererPoint.x, lineRendererPoint.y));
+                    edgePoints2.Add(new Vector2(lineRendererPoint.x + 400, lineRendererPoint.y));
+                }
+                
             }
         }
         else
@@ -139,8 +169,11 @@ public class SkiLine : MonoBehaviour
             for (int i = lineRenderer.positionCount - 300; i < lineRenderer.positionCount; i++)
             {
                 Vector2 lineRendererPoint = lineRenderer.GetPosition(i);
-                edgePoints1.Add(new Vector2(lineRendererPoint.x, lineRendererPoint.y));
-                edgePoints2.Add(new Vector2(lineRendererPoint.x + 400, lineRendererPoint.y));
+                if (lineRendererPoint.y < playerPos.position.y + 100 && lineRendererPoint.y > playerPos.position.y - 100)
+                {
+                    edgePoints1.Add(new Vector2(lineRendererPoint.x, lineRendererPoint.y));
+                    edgePoints2.Add(new Vector2(lineRendererPoint.x + 400, lineRendererPoint.y));
+                }
             }
         }
         

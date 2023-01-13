@@ -45,15 +45,16 @@ public class TreeSpawner : MonoBehaviour
         StartCoroutine(IE_SpawnTree());
     }
 
-    private bool checkLastPos()
+    private void checkLastPos()
     {
         if (lineLastPos == skiLine.lastPos)
         {
-            return true;
+            return;
         }
         else
         {
-            return false;
+            lineLastPos = skiLine.lastPos;
+            return;
         }
     }
 
@@ -64,8 +65,12 @@ public class TreeSpawner : MonoBehaviour
 
         while (true)
         {
-            ws = new WaitForSeconds(0.8f - Ski_GameManager.instance.gameSpeed/1000);
+            ws = new WaitForSeconds(0.1f);
 
+            if(lineLastPos.y < playerPos.position.y - 1280)
+            {
+                yield return null;
+            }
             for(int i = 0; i < spawnpoint.Length; i++)
             {
                 if(skiLine.index < 3)
