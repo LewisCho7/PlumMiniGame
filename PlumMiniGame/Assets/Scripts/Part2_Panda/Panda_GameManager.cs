@@ -5,69 +5,56 @@ using UnityEngine.UI;
 
 public class Panda_GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject panel;
-
     // Sprite 정보가 담긴 배열
-    [SerializeField] private Sprite[] Imgs = new Sprite[8];
-    enum Sprites { O, X, gameover, start, go, round, panda_default, panda_eat }
+    [SerializeField] private Sprite[] Imgs = new Sprite[2];
+    enum Sprites { panda_default, panda_eat }
 
     // 판다 정보가 담긴 배열
     [SerializeField] private GameObject[] Pandas = new GameObject[3];
+    private int[] pandaCnts = {0, 0, 0};
 
-    private bool isEnd;
+    public static bool isEatingRoundStart = false;
+    public static bool isChooseRoundStart = false;
+    public static int answerNum;
+    public static bool isEnd = false;
+    private int currentRound = 0;
+
 
     void Awake() {
-        isEnd = false;
-    }
-
-
-    IEnumerator Start() {
-        //StartCoroutine(ShowPanel(Imgs[(int)Sprites.round1], 1f, false));
-        //StartCoroutine(Eat(8, 0.8f));
-        //Eat(8, 0.8f);
-
-        StartCoroutine(ShowPanel(Imgs[(int)Sprites.round], 1f, true));
-
-        while (!isEnd) {
-            StartCoroutine(ShowPanel(Imgs[(int)Sprites.start], 0.8f, false));
-
-            StartCoroutine(Eat(8, 0.8f));
-
-            yield return new WaitForSeconds(1f);
-
-            isEnd = true;
-        }
+        
     }
 
     void Update() {
+        if (isEatingRoundStart && !isEnd) {
 
+            currentRound++;
+
+            if (currentRound <= 11) StartCoroutine(Eat(8 + currentRound / 3, 0.8f - 0.1f * (currentRound / 3)));
+            else StartCoroutine(Eat(12, 0.5f));
+
+            isEatingRoundStart = false;
+            isChooseRoundStart = true;
+        }
     }
 
-    // panel을 이용한 최상위UI(gameover, start 등) 처리
-    IEnumerator ShowPanel(Sprite img, float time, bool afterActive) {
 
-        panel.transform.Find("Image").GetComponent<Image>().sprite = img;
+    /// <summary>
+    /// 게임 구현 함수 - 이 함수가 하나의 라운드임
+    /// </summary>
+    /// <param name="cnt">판다들이 먹을 먹이의 개수(상황에 따라 +1 가능)</param>
+    /// <param name="speed">판다들이 먹이를 먹는 속도</param>
+    private IEnumerator Eat(int cnt, float speed) {
 
-        panel.SetActive(true);
-        yield return new WaitForSeconds(time);
-        
-        panel.SetActive(afterActive);
-
-        // panel.transform.Find("Image").GetComponent<Image>().sprite = Imgs[(int)Sprites.start];
-        // yield return new WaitForSeconds(0.5f);
-
-        // panel.SetActive(false);
-    }
-
-    // 게임 구현 함수(이 함수가 하나의 라운드)
-    IEnumerator Eat(int cnt, float speed) {
+        int index;
 
         while (cnt > 0) {
             int mode = Choose(new float[] {4, 6});
 
             if (mode == 0) {
                 cnt--;
-                int index = Choose(new float[] {33.3f, 33.3f, 33.3f});
+                index = Choose(new float[] {33.3f, 33.3f, 33.3f});
+
+                pandaCnts[index]++;
 
                 Pandas[index].GetComponent<SpriteRenderer>().sprite = Imgs[(int)Sprites.panda_eat];
                 yield return new WaitForSeconds(0.3f);
@@ -77,12 +64,16 @@ public class Panda_GameManager : MonoBehaviour
                 
             } else {
                 cnt -= 2;
-                int index = Choose(new float[] {33.3f, 33.3f, 33.3f});
+                index = Choose(new float[] {33.3f, 33.3f, 33.3f});
                 
+                // 셋 중에 하나를 뽑으면, 그것을 제외한 2개의 인덱스를 구하는 로직
                 if (index == 2) index = -1;
                 int panda1Index = ++index;
                 if (index == 2) index = -1;
                 int panda2Index = ++index;
+
+                pandaCnts[panda1Index]++;
+                pandaCnts[panda2Index]++;
 
                 Pandas[panda1Index].GetComponent<SpriteRenderer>().sprite 
                 = Pandas[panda2Index].GetComponent<SpriteRenderer>().sprite 
@@ -95,8 +86,7 @@ public class Panda_GameManager : MonoBehaviour
                 yield return new WaitForSeconds(speed - 0.3f);
             }
         }
-        
-        
+
     }
 
     // 랜덤 구현 함수
