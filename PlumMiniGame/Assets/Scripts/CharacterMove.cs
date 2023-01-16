@@ -13,17 +13,18 @@ public class CharacterMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(PlayerMove());
+        StartCoroutine(PlayerJump());
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             gameObject.transform.position += new Vector3(move_speed, 0, 0);
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             gameObject.transform.position -= new Vector3(move_speed, 0, 0);
     }
-    IEnumerator PlayerMove()
+    IEnumerator PlayerJump()
     {
         var jumping_term = new WaitForSeconds(0.8f);
         while (true)

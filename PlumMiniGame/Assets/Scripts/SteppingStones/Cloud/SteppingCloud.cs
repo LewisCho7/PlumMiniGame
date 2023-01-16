@@ -8,7 +8,6 @@ public class SteppingCloud : MonoBehaviour
     {
         if (col.gameObject.name == "Character")
         {
-            Debug.Log("collide");
             if (col.transform.position.y - gameObject.transform.position.y > 140)
             {
                 Destroy(gameObject);
