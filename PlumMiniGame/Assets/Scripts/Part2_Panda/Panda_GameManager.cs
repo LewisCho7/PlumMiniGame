@@ -10,7 +10,7 @@ public class Panda_GameManager : MonoBehaviour
     enum Sprites { panda_default, panda_eat }
 
     // 판다 정보가 담긴 배열
-    [SerializeField] private GameObject[] Pandas = new GameObject[3];
+    [SerializeField] private GameObject[] pandas = new GameObject[3];
     private int[] pandaCnts = {0, 0, 0};
 
     public static bool isEatingRoundStart = false;
@@ -21,34 +21,33 @@ public class Panda_GameManager : MonoBehaviour
 
 
     void Awake() {
-        
+
     }
 
     void Update() {
         if (isEatingRoundStart && !isEnd) {
 
+            isEatingRoundStart = false;
+
             currentRound++;
 
             if (currentRound <= 11) StartCoroutine(Eat(8 + currentRound / 3, 0.8f - 0.1f * (currentRound / 3)));
             else StartCoroutine(Eat(12, 0.5f));
-
-            isEatingRoundStart = false;
-            isChooseRoundStart = true;
         }
     }
-
 
     /// <summary>
     /// 게임 구현 함수 - 이 함수가 하나의 라운드임
     /// </summary>
-    /// <param name="cnt">판다들이 먹을 먹이의 개수(상황에 따라 +1 가능)</param>
+    /// <param name="cnt">판다들이 먹을 먹이의 개수(최댓값이 둘 이상이면 +1 가능)</param>
     /// <param name="speed">판다들이 먹이를 먹는 속도</param>
     private IEnumerator Eat(int cnt, float speed) {
 
         int index;
 
         while (cnt > 0) {
-            int mode = Choose(new float[] {4, 6});
+            // 남은 개수가 1개면 한번만 먹도록 함
+            int mode = cnt == 1 ? 0 : Choose(new float[] {4, 6});
 
             if (mode == 0) {
                 cnt--;
@@ -56,10 +55,10 @@ public class Panda_GameManager : MonoBehaviour
 
                 pandaCnts[index]++;
 
-                Pandas[index].GetComponent<SpriteRenderer>().sprite = Imgs[(int)Sprites.panda_eat];
+                pandas[index].GetComponent<Image>().sprite = Imgs[(int)Sprites.panda_eat];
                 yield return new WaitForSeconds(0.3f);
 
-                Pandas[index].GetComponent<SpriteRenderer>().sprite = Imgs[(int)Sprites.panda_default];
+                pandas[index].GetComponent<Image>().sprite = Imgs[(int)Sprites.panda_default];
                 yield return new WaitForSeconds(speed - 0.3f);
                 
             } else {
@@ -75,18 +74,55 @@ public class Panda_GameManager : MonoBehaviour
                 pandaCnts[panda1Index]++;
                 pandaCnts[panda2Index]++;
 
-                Pandas[panda1Index].GetComponent<SpriteRenderer>().sprite 
-                = Pandas[panda2Index].GetComponent<SpriteRenderer>().sprite 
+                pandas[panda1Index].GetComponent<Image>().sprite 
+                = pandas[panda2Index].GetComponent<Image>().sprite 
                 = Imgs[(int)Sprites.panda_eat];
                 yield return new WaitForSeconds(0.3f);
 
-                Pandas[panda1Index].GetComponent<SpriteRenderer>().sprite 
-                = Pandas[panda2Index].GetComponent<SpriteRenderer>().sprite 
+                pandas[panda1Index].GetComponent<Image>().sprite 
+                = pandas[panda2Index].GetComponent<Image>().sprite 
                 = Imgs[(int)Sprites.panda_default];
                 yield return new WaitForSeconds(speed - 0.3f);
             }
+
+            Debug.Log(pandaCnts[0] + " " + pandaCnts[1] + " " + pandaCnts[2]);
         }
 
+
+        // 최댓값이 하나인지 확인하는 변수
+        bool isMaxOnly = false;
+
+        // 최댓값 중복 확인
+        // 최댓값이 2개 이상이라면, 그 중 하나를 더 뽑아 한번 더 먹더록 함
+        if (pandaCnts[0] == pandaCnts[1]) {
+
+            if (pandaCnts[0] == pandaCnts[2]) answerNum = Choose(new float[] {33.3f, 33.3f, 33.3f});
+            else if (pandaCnts[0] > pandaCnts[2]) answerNum = Choose(new float[] {50, 50});
+            else { answerNum = 2; isMaxOnly = true; }
+        } 
+        else {
+            int maxIndex = pandaCnts[0] > pandaCnts[1] ? 0 : 1;
+
+            if (pandaCnts[maxIndex] == pandaCnts[2]) answerNum = Choose(new float[] {50 * ~maxIndex, 50 * maxIndex, 50});
+            else { answerNum = maxIndex; isMaxOnly = true; }
+        }
+
+        // 최댓값이 중복이었던 경우
+        // 판다가 먹이 먹는 모션 추가로 실행
+        if (!isMaxOnly) {
+            
+            Debug.Log("max value is not single!");
+            pandaCnts[answerNum]++;
+            Debug.Log(pandaCnts[0] + " " + pandaCnts[1] + " " + pandaCnts[2]);
+
+            pandas[answerNum].GetComponent<Image>().sprite = Imgs[(int)Sprites.panda_eat];
+            yield return new WaitForSeconds(0.3f);
+
+            pandas[answerNum].GetComponent<Image>().sprite = Imgs[(int)Sprites.panda_default];
+            yield return new WaitForSeconds(speed - 0.3f);
+        }
+
+        isChooseRoundStart = true;
     }
 
     // 랜덤 구현 함수
