@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour
     public static int life;
 
     public static bool game_on_process;
-    private float timer = 0;
+    public static float timer = 0;
 
     [SerializeField]
     private GameObject take_some_rest;
@@ -23,14 +24,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] 
     private GameObject Heart;
     [SerializeField]
-    private GameObject GameOver_indicator;
-    [SerializeField]
     private GameObject Combo;
     [SerializeField]
     private GameObject Hand;
     void Start()
     {
-        GameOver_indicator.SetActive(false);
         take_some_rest.SetActive(false);
 
         round = 0;
@@ -173,6 +171,6 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Heart.SetActive(false);
-        GameOver_indicator.SetActive(true);
+        SceneManager.LoadScene("EndingScene");
     }
 }
