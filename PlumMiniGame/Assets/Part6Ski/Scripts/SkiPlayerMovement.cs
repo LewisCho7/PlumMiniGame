@@ -36,7 +36,7 @@ public class SkiPlayerMovement : MonoBehaviour
     private IEnumerator IE_StartMovement()
     {
         moveSpeed = 0f;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(6f);
         moveSpeed = 500f;
     }
 }
