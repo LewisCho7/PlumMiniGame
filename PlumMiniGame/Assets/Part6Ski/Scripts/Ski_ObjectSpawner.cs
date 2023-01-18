@@ -75,7 +75,7 @@ public class Ski_ObjectSpawner : MonoBehaviour
             barrierSpawned = false;
             
             int i = Random.Range(0, 5);
-            Vector3 spawnPos = new Vector3(skiLine.lastPos.x + randomSpawnPos[i], skiLine.lastPos.y, transform.position.z);
+            Vector3 spawnPos = new Vector3(skiLine.lastPos.x + randomSpawnPos[i], skiLine.lastPos.y + 45f, transform.position.z);
             barrierIndex = i;
 
             if (Ski_GameManager.instance.timer < 30)
@@ -132,11 +132,11 @@ public class Ski_ObjectSpawner : MonoBehaviour
                     }
                 }
                 i = Random.Range(0, 4);
-                spawnPos = new Vector3(skiLine.lastPos.x + resizedPos[i], skiLine.lastPos.y, transform.position.z);
+                spawnPos = new Vector3(skiLine.lastPos.x + resizedPos[i], skiLine.lastPos.y+45f, transform.position.z);
             }
             else
             {
-                spawnPos = new Vector3(skiLine.lastPos.x + randomSpawnPos[i], skiLine.lastPos.y, transform.position.z);
+                spawnPos = new Vector3(skiLine.lastPos.x + randomSpawnPos[i], skiLine.lastPos.y+45f, transform.position.z);
             }
 
             newItem = itemPool.Get();
@@ -180,11 +180,11 @@ public class Ski_ObjectSpawner : MonoBehaviour
                     }
                 }
                 i = Random.Range(0, 4);
-                spawnPos = new Vector3(skiLine.lastPos.x + resizedPos[i], skiLine.lastPos.y, transform.position.z);
+                spawnPos = new Vector3(skiLine.lastPos.x + resizedPos[i], skiLine.lastPos.y+45f, transform.position.z);
             }
             else
             {
-                spawnPos = new Vector3(skiLine.lastPos.x + randomSpawnPos[i], skiLine.lastPos.y, transform.position.z);
+                spawnPos = new Vector3(skiLine.lastPos.x + randomSpawnPos[i], skiLine.lastPos.y+45f, transform.position.z);
             }
 
 
