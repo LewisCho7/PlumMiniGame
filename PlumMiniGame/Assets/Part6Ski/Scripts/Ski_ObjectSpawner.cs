@@ -42,7 +42,7 @@ public class Ski_ObjectSpawner : MonoBehaviour
         rescuePool = Pool.Create<Ski_Objects>(rescue, 0);
      
 
-        randomSpawnPos = new float[] { 100, 160, 200, 240, 300 };
+        randomSpawnPos = new float[] { 60, 130, 200, 270, 340 };
     }
     private void Start()
     {
