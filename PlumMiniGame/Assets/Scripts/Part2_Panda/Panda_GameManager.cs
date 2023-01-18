@@ -134,6 +134,7 @@ public class Panda_GameManager : MonoBehaviour
         isChooseRoundStart = true;
     }
 
+    // 변수 초기화 함수
     private void Init() {
         pandaCnts = new int[] {0, 0, 0};
         Panda_UIManager.inputAnswer = -1;
