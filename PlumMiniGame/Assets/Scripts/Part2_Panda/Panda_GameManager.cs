@@ -13,23 +13,31 @@ public class Panda_GameManager : MonoBehaviour
     [SerializeField] private GameObject[] pandas = new GameObject[3];
     private int[] pandaCnts = {0, 0, 0};
 
+    // 라운드의 시작 및 상태를 알리는 변수
     public static bool isEatingRoundStart = false;
     public static bool isChooseRoundStart = false;
+
+    // 정답 번호를 저장하는 변수
     public static int answerNum;
+
+    // 게임이 끝났는지 상태를 저장하는 변수
     public static bool isEnd = false;
-    private int currentRound = 0;
 
+    // 현재 라운드를 저장하는 함수
+    public static int currentRound = 0;
 
-    void Awake() {
-
-    }
 
     void Update() {
+        // 매 라운드마다 실행됨
+        // 판다가 먹이를 먹는 로직이 실행됨
         if (isEatingRoundStart && !isEnd) {
 
             isEatingRoundStart = false;
 
             currentRound++;
+
+            // 데이터 초기화
+            Init();
 
             if (currentRound <= 11) StartCoroutine(Eat(8 + currentRound / 3, 0.8f - 0.1f * (currentRound / 3)));
             else StartCoroutine(Eat(12, 0.5f));
@@ -104,7 +112,7 @@ public class Panda_GameManager : MonoBehaviour
             int maxIndex = pandaCnts[0] > pandaCnts[1] ? 0 : 1;
 
             if (pandaCnts[maxIndex] == pandaCnts[2]) answerNum = Choose(new float[] {50 * ~maxIndex, 50 * maxIndex, 50});
-            else { answerNum = maxIndex; isMaxOnly = true; }
+            else { answerNum = pandaCnts[maxIndex] > pandaCnts[2] ? maxIndex : 2; isMaxOnly = true; }
         }
 
         // 최댓값이 중복이었던 경우
@@ -122,7 +130,13 @@ public class Panda_GameManager : MonoBehaviour
             yield return new WaitForSeconds(speed - 0.3f);
         }
 
+        Debug.Log(answerNum);
         isChooseRoundStart = true;
+    }
+
+    private void Init() {
+        pandaCnts = new int[] {0, 0, 0};
+        Panda_UIManager.inputAnswer = -1;
     }
 
     // 랜덤 구현 함수

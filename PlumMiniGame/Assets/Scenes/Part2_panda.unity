@@ -160,7 +160,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &208038546
 MonoBehaviour:
@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 274604086}
   - component: {fileID: 274604085}
   - component: {fileID: 274604084}
+  - component: {fileID: 274604087}
   m_Layer: 5
   m_Name: Panda1
   m_TagString: Untagged
@@ -379,7 +380,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 274604085}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 274604087}
+        m_TargetAssemblyTypeName: Panda_PandaClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &274604085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +431,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274604082}
   m_CullTransparentMesh: 1
+--- !u!114 &274604087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274604082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149c6e74d207e9f49a43a365713332fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &558536017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,7 +1298,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7202d8a55be1b344aac4f4e5c7474f67, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1515,6 +1540,7 @@ GameObject:
   - component: {fileID: 2031309026}
   - component: {fileID: 2031309025}
   - component: {fileID: 2031309024}
+  - component: {fileID: 2031309028}
   m_Layer: 5
   m_Name: Panda2
   m_TagString: Untagged
@@ -1565,7 +1591,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2031309025}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2031309028}
+        m_TargetAssemblyTypeName: Panda_PandaClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2031309025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1624,6 +1662,18 @@ RectTransform:
   m_AnchoredPosition: {x: 3, y: -63}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2031309028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031309023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149c6e74d207e9f49a43a365713332fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2069836390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1686,7 @@ GameObject:
   - component: {fileID: 2069836394}
   - component: {fileID: 2069836393}
   - component: {fileID: 2069836392}
+  - component: {fileID: 2069836395}
   m_Layer: 5
   m_Name: Panda3
   m_TagString: Untagged
@@ -1706,7 +1757,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2069836393}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2069836395}
+        m_TargetAssemblyTypeName: Panda_PandaClickEvent, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2069836393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,3 +1808,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069836390}
   m_CullTransparentMesh: 1
+--- !u!114 &2069836395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069836390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149c6e74d207e9f49a43a365713332fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
