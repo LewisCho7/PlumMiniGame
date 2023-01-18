@@ -201,7 +201,7 @@ public class Ski_ObjectSpawner : MonoBehaviour
 
     IEnumerator IE_ReleaseBarrier(Ski_Objects barrier)
     {
-        while (!barrier)
+        while (barrier)
         {
 
             if (barrier.transform.position.y > playerPos.position.y + 450f)
@@ -215,7 +215,7 @@ public class Ski_ObjectSpawner : MonoBehaviour
     }
     IEnumerator IE_ReleaseItem(Ski_Objects item)
     {
-        while (!item)
+        while (item)
         {
             if (item.transform.position.y > playerPos.position.y + 450f)
             {
@@ -227,7 +227,7 @@ public class Ski_ObjectSpawner : MonoBehaviour
     }
     IEnumerator IE_ReleaseRescue(Ski_Objects rescue)
     {
-        while (!rescue)
+        while (rescue)
         {
             if (rescue.transform.position.y > playerPos.position.y + 450f)
             {

@@ -44,7 +44,13 @@ public class TreeSpawner : MonoBehaviour
         lineLastPos = skiLine.lastPos;
         StartCoroutine(IE_SpawnTree());
     }
-
+    private void Update()
+    {
+        if (Ski_GameManager.instance.isGameOver)
+        {
+            StopAllCoroutines();
+        }
+    }
     private void checkLastPos()
     {
         if (lineLastPos == skiLine.lastPos)

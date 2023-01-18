@@ -47,7 +47,10 @@ public class SkiLine : MonoBehaviour
     }
     private void Update()
     {
-
+        if (Ski_GameManager.instance.isGameOver)
+        {
+            StopAllCoroutines();
+        }
     }
     private void FixedUpdate()
     {
