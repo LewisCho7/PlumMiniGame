@@ -77,26 +77,8 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log(round_time);
                 bool check; 
                 take_some_rest.SetActive(false);
-
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    Hand.GetComponent<HandControl>().left_hand.SetActive(true);
-                    Hand.GetComponent<HandControl>().front_hand.SetActive(false);
-                    Hand.GetComponent<HandControl>().right_hand.SetActive(false);
-                    HandControl.hand_turned = true;
-                    HandControl.hand_dir = 0;
-                }
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    Hand.GetComponent<HandControl>().left_hand.SetActive(false);
-                    Hand.GetComponent<HandControl>().front_hand.SetActive(false);
-                    Hand.GetComponent<HandControl>().right_hand.SetActive(true);
-                    HandControl.hand_turned = true;
-                    HandControl.hand_dir = 2;
-                }
 
                 if (HandControl.hand_turned) //choose his answer
                 {

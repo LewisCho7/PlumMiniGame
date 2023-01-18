@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 
-public class RestartButton : MonoBehaviour
+public class RestartButton : Settings
 {
-    public void RestartButtonClicked()
+    public void Restart()
     {
-        SceneManager.LoadScene("Game_5");
+        RestartButtonClicked();
     }
 }
