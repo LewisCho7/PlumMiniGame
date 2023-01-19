@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraLetterBox : MonoBehaviour
+public class Run_CameraLetterBox : MonoBehaviour
 {
     void Awake() {
         Camera camera = GetComponent<Camera>();
