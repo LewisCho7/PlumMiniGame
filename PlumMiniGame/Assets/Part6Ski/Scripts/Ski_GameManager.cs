@@ -12,6 +12,8 @@ public class Ski_GameManager : MonoBehaviour
     [SerializeField]
     private GameObject countDown;
 
+    public int Score;
+
     public float timer;
 
     public float gameSpeed;
