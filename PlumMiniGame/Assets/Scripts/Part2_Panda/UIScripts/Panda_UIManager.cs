@@ -10,8 +10,8 @@ public class Panda_UIManager : MonoBehaviour
     [SerializeField] private Sprite[] numberSprites = new Sprite[10];
 
     // 다양한 UI를 띄우기 위한 Sprite를 저장하는 배열
-    [SerializeField] private Sprite[] basicSprites = new Sprite[9];
-    enum Sprites { one, two, three, O, X, gameover, start, go, round}
+    [SerializeField] private Sprite[] basicSprites = new Sprite[10];
+    enum Sprites { O = 3, X, gameover, start, go, round, tutorial }
 
     // 제한시간을 나타낼 textUI
     private TextMeshProUGUI timerUI;
@@ -27,9 +27,6 @@ public class Panda_UIManager : MonoBehaviour
     // UI의 Sprite를 변경하기 위해 Image 컴포넌트를 저장하는 변수
     private Image img;
 
-    // 설정창을 띄우기 위한 panel
-    private GameObject settingPanel;
-
     // 정답 고르는 3초를 위한 시간 변수
     private float time = 0;
     // 입력된 정답을 저장할 변수
@@ -44,10 +41,6 @@ public class Panda_UIManager : MonoBehaviour
 
         UIpanel = transform.Find("UIPanel").gameObject;
         img = UIpanel.transform.Find("Image").GetComponent<Image>();
-
-        settingPanel = transform.Find("SettingPanel").gameObject;
-        settingPanel.transform.Find("ExitButton").GetComponent<Image>().alphaHitTestMinimumThreshold
-        = settingPanel.transform.Find("RestartButton").GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
     }
 
     // 게임이 처음 실행될 때 실행
@@ -55,6 +48,13 @@ public class Panda_UIManager : MonoBehaviour
     // round1 -> start 까지 panel에 띄우는 로직
     IEnumerator Start() {
         UIpanel.SetActive(true);
+
+        // 최초 실행이라면 실행
+        // (지금은 무조건 뜨도록 설정)
+        if (true) {
+            img.sprite = basicSprites[(int)Sprites.tutorial];
+            yield return new WaitForSeconds(3);
+        }
 
         for (int i = 2; i >= 0; i--) {
             img.sprite = basicSprites[i];
@@ -136,12 +136,4 @@ public class Panda_UIManager : MonoBehaviour
 
         Panda_GameManager.isEatingRoundStart = true;
     }
-
-    // 설정 onclick 함수
-    public void settingOnClick() {
-        Time.timeScale = 0;
-
-        settingPanel.SetActive(true);
-    }
-
 }

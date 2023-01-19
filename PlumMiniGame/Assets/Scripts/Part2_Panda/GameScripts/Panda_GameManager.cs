@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class Panda_GameManager : MonoBehaviour
 {
+    // 게임 모드
+    // 0 -> easy
+    // 1 -> hard
+    public static int mode = 0;
+
     // Sprite 정보가 담긴 배열
     [SerializeField] private Sprite[] Imgs = new Sprite[2];
     enum Sprites { panda_default, panda_eat }
@@ -39,7 +44,7 @@ public class Panda_GameManager : MonoBehaviour
             // 데이터 초기화
             Init();
 
-            if (currentRound <= 11) StartCoroutine(Eat(8 + currentRound / 3, 0.8f - 0.1f * (currentRound / 3)));
+            if (currentRound <= 11) StartCoroutine(Eat(8 + mode + currentRound / 3, 0.8f - 0.1f * (mode + currentRound / 3)));
             else StartCoroutine(Eat(12, 0.5f));
         }
     }
