@@ -30,7 +30,7 @@ public class SteppingStones : MonoBehaviour
 
     IEnumerator GenerateBrick()
     {
-        var cool_down = new WaitForSeconds(1);
+        var cool_down = new WaitForSeconds(1.5f);
         while (true)
         {
             yield return null;

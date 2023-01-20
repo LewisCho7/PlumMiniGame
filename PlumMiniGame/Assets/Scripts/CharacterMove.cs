@@ -9,11 +9,12 @@ public class CharacterMove : MonoBehaviour
     private float move_speed;
 
     private Rigidbody2D rb;
-
+    private bool jump;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(PlayerJump());
+        jump = true;
     }
 
     void Update()
@@ -26,12 +27,20 @@ public class CharacterMove : MonoBehaviour
     }
     IEnumerator PlayerJump()
     {
-        var jumping_term = new WaitForSeconds(0.8f);
+        //var jumping_term = new WaitForSeconds(0.8f);
         while (true)
         {
             yield return null;
-            rb.velocity = Vector2.up * jump_power;
-            yield return jumping_term;
+            if (jump)
+            {
+                rb.velocity = Vector2.up * jump_power;
+            }
+            jump = false;
+            //yield return jumping_term;
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        jump = true;
     }
 }
