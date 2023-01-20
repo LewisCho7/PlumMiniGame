@@ -28,9 +28,9 @@ public class SkiPlayerMovement : MonoBehaviour
             dx = 0;
         }
 
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -7.5f, 7.5f), transform.position.y);
         transform.position += Vector3.down * Ski_GameManager.instance.gameSpeed * Time.deltaTime;
         rb.velocity = new Vector2(dx, rb.velocity.y);
+        Debug.Log(dx);
 
     }
     private void FixedUpdate()

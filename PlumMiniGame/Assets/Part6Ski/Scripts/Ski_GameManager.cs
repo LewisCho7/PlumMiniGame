@@ -35,7 +35,7 @@ public class Ski_GameManager : MonoBehaviour
     {
         showItem();
         
-        Debug.Log(timer);
+        //Debug.Log(timer);
     }
     private IEnumerator Start()
     {
