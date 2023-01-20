@@ -20,18 +20,16 @@ public class SkiPlayerMovement : MonoBehaviour
     {
         if (!Ski_GameManager.instance.isGameOver)
         {
-            dx = Input.acceleration.x * moveSpeed;
             dx = Input.GetAxisRaw("Horizontal") * moveSpeed;
         }
         else
         {
             dx = 0;
         }
+        //dx = Input.acceleration.x * moveSpeed;
 
         transform.position += Vector3.down * Ski_GameManager.instance.gameSpeed * Time.deltaTime;
-        rb.velocity = new Vector2(dx, rb.velocity.y);
-        Debug.Log(dx);
-
+        rb.velocity = new Vector2(dx, 0f);
     }
     private void FixedUpdate()
     {

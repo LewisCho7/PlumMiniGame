@@ -39,6 +39,7 @@ public class Ski_GameManager : MonoBehaviour
     }
     private IEnumerator Start()
     {
+        Application.targetFrameRate = 60;
         yield return new WaitForSeconds(4f);
         countDown.SetActive(false);
         while (!isGameOver && timerStart)

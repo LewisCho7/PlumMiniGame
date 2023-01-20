@@ -43,10 +43,11 @@ public class SkiLine : MonoBehaviour
     }
     private void Start()
     {
-        StartCoroutine(IE_DrawNewLine());
+        //StartCoroutine(IE_DrawNewLine());
     }
     private void Update()
     {
+        AddNewLine();
         if (Ski_GameManager.instance.isGameOver)
         {
             StopAllCoroutines();
