@@ -26,7 +26,7 @@ public class SkiPlayerMovement : MonoBehaviour
         {
             dx = 0;
         }
-        //dx = Input.acceleration.x * moveSpeed;
+        dx = Input.acceleration.x * moveSpeed;
 
         transform.position += Vector3.down * Ski_GameManager.instance.gameSpeed * Time.deltaTime;
         rb.velocity = new Vector2(dx, 0f);

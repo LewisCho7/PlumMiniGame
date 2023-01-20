@@ -24,18 +24,19 @@ public class Ski_PlayerCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Line"))
         {
             Ski_GameManager.instance.GameOver();
-            Ski_SceneManager.instance.returnScene();
+            Ski_SceneManager.instance.Invoke("returnScene", 2);
 
         }
         if (collision.gameObject.CompareTag("Barrier") && Ski_GameManager.instance.hasItem)
         {
             StartCoroutine(IE_setBarrierFalse(collision.gameObject));
+            Ski_GameManager.instance.Score += 40;
             Ski_GameManager.instance.hasItem = false;
         }
         else if (collision.gameObject.CompareTag("Barrier"))
         {
             Ski_GameManager.instance.GameOver();
-            Ski_SceneManager.instance.returnScene();
+            Ski_SceneManager.instance.Invoke("returnScene", 2);
         }
     }
 

@@ -27,6 +27,8 @@ public class TreeSpawner : MonoBehaviour
 
     private Vector2 lineLastPos;
 
+    private Vector2 lastLineCheck;
+
     private void FixedUpdate()
     {
         checkLastPos();
@@ -68,14 +70,14 @@ public class TreeSpawner : MonoBehaviour
     IEnumerator IE_SpawnTree()
     {
         WaitForSeconds ws;
+        ws = new WaitForSeconds(0.1f);
 
         while (true)
         {
-            ws = new WaitForSeconds(0.1f);
-
-            if(lineLastPos.y < playerPos.position.y - 1280)
+            if(lineLastPos.y < playerPos.position.y - 1280 || lastLineCheck == lineLastPos)
             {
                 yield return null;
+                continue;
             }
             for(int i = 0; i < spawnpoint.Length; i++)
             {
@@ -87,7 +89,8 @@ public class TreeSpawner : MonoBehaviour
                 {
                     tree = TreeMovementPool.Get();
                     tree.transform.parent = gameObject.transform;
-                    tree.transform.position = new Vector3(spawnpoint[i].position.x, spawnpoint[i].position.y + 68f, spawnpoint[i].position.z);                    
+                    tree.transform.position = new Vector3(spawnpoint[i].position.x, spawnpoint[i].position.y + 68f, spawnpoint[i].position.z);
+                    lastLineCheck = lineLastPos;
                     StartCoroutine(IE_ReleaseTree(tree));
                 }
             }

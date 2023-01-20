@@ -12,7 +12,28 @@ public class Ski_GameManager : MonoBehaviour
     [SerializeField]
     private GameObject countDown;
 
-    public int Score;
+    private Ski_ScoreText scoreText;
+
+    private int _score;
+    public int Score
+    {
+        get { return _score; }
+        set {
+            scoreText.changeScoreText();
+            _score = value; 
+        }
+    }
+
+    private int _rescuedNum;
+
+    public int Rescuednum
+    {
+        get { return _rescuedNum; }
+        set { 
+            scoreText.changeRescueText();
+            _rescuedNum = value; 
+        }
+    }
 
     public float timer;
 
@@ -27,8 +48,7 @@ public class Ski_GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        StartCoroutine("init");
-        StartCoroutine("changeSpeed");
+        scoreText = GetComponent<Ski_ScoreText>();
     }
 
     private void Update()
@@ -39,8 +59,11 @@ public class Ski_GameManager : MonoBehaviour
     }
     private IEnumerator Start()
     {
+        StartCoroutine("init");
+        StartCoroutine("changeSpeed");
         Application.targetFrameRate = 60;
         yield return new WaitForSeconds(4f);
+        StartCoroutine(IE_IncreaseScore());
         countDown.SetActive(false);
         while (!isGameOver && timerStart)
         {
@@ -49,7 +72,14 @@ public class Ski_GameManager : MonoBehaviour
         }
     }
    
-
+    private IEnumerator IE_IncreaseScore()
+    {
+        while (!isGameOver)
+        {
+            Score += 20;
+            yield return new WaitForSeconds(1f);
+        }
+    }
     private void showItem()
     {
         if (hasItem)
@@ -86,6 +116,8 @@ public class Ski_GameManager : MonoBehaviour
     { // 난이도 별 차이 두기
         timer = 0f;
         gameSpeed = 0f;
+        Score = 0;
+        Rescuednum = 0;
         hasItem = false;
         yield return new WaitForSeconds(4f);
         timerStart = true;
@@ -102,6 +134,7 @@ public class Ski_GameManager : MonoBehaviour
 
     public void rescue()
     {
-
+        Score += 40;
+        Rescuednum++;
     }
 }
