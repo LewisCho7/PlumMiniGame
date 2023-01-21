@@ -26,6 +26,8 @@ public class SteppingStones : MonoBehaviour
         {
             StartCoroutine(CheckStepIsGenerated());
         }
+        if (!GameManager.game_continue)
+            StopAllCoroutines();
     }
 
     IEnumerator GenerateBrick()

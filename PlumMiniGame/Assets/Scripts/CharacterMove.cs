@@ -28,7 +28,7 @@ public class CharacterMove : MonoBehaviour
     IEnumerator PlayerJump()
     {
         //var jumping_term = new WaitForSeconds(0.8f);
-        while (true)
+        while (GameManager.game_continue)
         {
             yield return null;
             if (jump)

@@ -12,7 +12,7 @@ public class Cloud : MonoBehaviour
     {
         main_camera = GameObject.Find("Main Camera");
         transform.position
-            = new Vector3(Random.Range(-280, 280), main_camera.transform.position.y + 10, 0);
+            = new Vector3(Random.Range(-280, 280), main_camera.transform.position.y + 680, 0);
     }
 
     void Update()

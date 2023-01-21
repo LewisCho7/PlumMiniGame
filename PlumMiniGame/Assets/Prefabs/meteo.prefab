@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 9159406666251604081}
   - component: {fileID: 2461994911384299520}
   - component: {fileID: 8726148407164682484}
-  m_Layer: 0
+  - component: {fileID: 6827034821018668486}
+  m_Layer: 7
   m_Name: meteo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,3 +190,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6827034821018668486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139458828198424902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd28b2b6f9e8c046be8d2cd3e1a15e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  main_camera: {fileID: 0}

@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static float survived_time;
-    public static bool game_continue;
+    public static bool game_continue = true;
 
     [SerializeField]
     private GameObject character;
@@ -15,14 +16,20 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         game_continue = true;
+        StartCoroutine(GameProcess());
     }
 
     // Update is called once per frame
     void Update()
     {
         survived_time += Time.deltaTime;
-        if (!game_continue) StopAllCoroutines();
+        if (!game_continue)
+        {
+            StopCoroutine(GameProcess());
+            StartCoroutine(GameOver());
+        }
 
+        
     }
 
     IEnumerator GameProcess()
@@ -30,12 +37,19 @@ public class GameManager : MonoBehaviour
         while(game_continue)
         {
             yield return null;
-
+            
             if(main_camera.transform.position.y - character.transform.position.y
-                > 700)
+                > 650)
             {
                 game_continue = false;
             }
         }
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return null;
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Ending_Scene");
     }
 }

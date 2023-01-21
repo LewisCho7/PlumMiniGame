@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdMove : MonoBehaviour
+public class Bird : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField]
@@ -20,5 +20,10 @@ public class BirdMove : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameManager.game_continue = false;
     }
 }

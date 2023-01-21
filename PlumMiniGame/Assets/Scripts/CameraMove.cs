@@ -15,6 +15,9 @@ public class CameraMove : MonoBehaviour
 
     void Update()
     {
-        
+        if (!GameManager.game_continue)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+        }
     }
 }
