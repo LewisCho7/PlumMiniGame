@@ -19,7 +19,6 @@ public class Setting : MonoBehaviour
     public void SettingButtonclicked()
     {
         blur.SetActive(!blur.activeSelf);
-
         if(Time.timeScale == 0)
         {
             Time.timeScale = 1;

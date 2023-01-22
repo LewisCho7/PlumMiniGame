@@ -25,6 +25,13 @@ public class Meteo : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameManager.game_continue = false;
+        if (!Character.is_shield)
+        {
+            GameManager.game_continue = false;
+        }
+        else
+        {
+            Character.is_shield = !Character.is_shield;
+        }
     }
 }

@@ -834,6 +834,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2049767991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba22b00fe06f51b4291394a9604403aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d172c0e8ca705b4d8e873ddcf6f6226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blur: {fileID: 25777744}

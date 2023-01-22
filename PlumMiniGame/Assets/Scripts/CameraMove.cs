@@ -20,4 +20,18 @@ public class CameraMove : MonoBehaviour
             rb.velocity = new Vector3(0, 0, 0);
         }
     }
+
+    IEnumerator CameraSpeed()
+    {
+        while (GameManager.game_continue)
+        {
+            yield return null;
+            int y = (((int)GameManager.survived_time + 5) / 5) * (140 / 5);
+            if (y > 280)
+            {
+                y = 280;
+            }
+            rb.velocity = new Vector2(0, y);
+        }
+    }
 }

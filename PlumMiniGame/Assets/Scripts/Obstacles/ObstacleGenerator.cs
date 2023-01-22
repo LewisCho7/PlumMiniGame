@@ -25,21 +25,25 @@ public class ObstacleGenerator : MonoBehaviour
     {
         var cool_down = new WaitForSeconds(2);
         int chance = 0;
-        while (GameManager.game_continue)
+        if(GameManager.survived_time > 41)
         {
-            yield return null;
-            chance = Random.Range(1, 5);
-            if (chance == 1)
+            while (GameManager.game_continue)
             {
-                GenerateBird();
+                yield return null;
+                 chance = Random.Range(1, 5);
+                if (chance == 1)
+                {
+                    GenerateBird();
+                }
+                yield return cool_down;
+                if (chance == 1)
+                {
+                    GenerateMeteo();
+                }
+                yield return cool_down;
             }
-            yield return cool_down;
-            if (chance == 1)
-            {
-                GenerateMeteo();
-            }
-            yield return cool_down;
         }
+
     }
     private void GenerateBird()
     {
