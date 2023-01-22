@@ -12,10 +12,13 @@ public class GameManager : MonoBehaviour
     private GameObject character;
     [SerializeField]
     private GameObject main_camera;
+    [SerializeField]
+    private GameObject blur;
     // Start is called before the first frame update
     void Start()
     {
         game_continue = true;
+        blur.SetActive(false);
         StartCoroutine(GameProcess());
     }
 
@@ -39,7 +42,7 @@ public class GameManager : MonoBehaviour
             yield return null;
             
             if(main_camera.transform.position.y - character.transform.position.y
-                > 650)
+                > 660)
             {
                 game_continue = false;
             }

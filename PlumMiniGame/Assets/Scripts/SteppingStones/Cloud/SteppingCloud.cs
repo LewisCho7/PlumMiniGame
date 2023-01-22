@@ -8,7 +8,7 @@ public class SteppingCloud : MonoBehaviour
     {
         if (col.gameObject.name == "Character")
         {
-            if (col.transform.position.y - gameObject.transform.position.y > 140)
+            if (col.transform.position.y - gameObject.transform.position.y > 80)
             {
                 Destroy(gameObject);
             }
