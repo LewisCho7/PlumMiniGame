@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - Character
+  - Coin
   layers:
   - Default
   - TransparentFX
