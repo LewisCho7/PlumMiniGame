@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SteppingStones : MonoBehaviour
 {
-
+    [SerializeField]
+    private GameObject main_camera;
     [SerializeField]
     private GameObject brick;
     [SerializeField]
@@ -13,6 +14,8 @@ public class SteppingStones : MonoBehaviour
     private GameObject spring;
     [SerializeField]
     private GameObject shield;
+    [SerializeField]
+    private GameObject throne;
 
     private bool step_is_generated;
     private bool cloud_is_generated;
@@ -85,25 +88,26 @@ public class SteppingStones : MonoBehaviour
 
     void GenerateBrickForSure()
     {
-        GameObject new_brick = Instantiate(brick);
-        /*        if (Random.Range(1, 11) < 4)
-                {
-                    GameObject new_spring = Instantiate(spring);
-                    new_spring.transform.position
-                        = new Vector3(new_brick.transform.position.x, new_brick.transform.position.y + 10, 0);
-
-                }*/
-        GameObject new_spring = Instantiate(spring);
-        new_spring.transform.position
-            = new Vector3(new_brick.transform.position.x, new_brick.transform.position.y + 10, 0);
-
-/*        if (Random.Range(1, 11) < 4)
+        var position 
+            = new Vector3(Random.Range(-280, 280), main_camera.transform.position.y + 650, 0);
+        GameObject new_brick = Instantiate(brick, position, Quaternion.identity);
+        if (Random.Range(1, 11) < 4)
         {
-            GameObject new_spring = Instantiate(spring);
-            new_spring.transform.position
-                = new Vector3(new_brick.GetComponent<Brick>().x, new_brick.GetComponent<Brick>().y + 10, 0);
+            position.y += 44;
+            GameObject new_shield = Instantiate(shield, position, Quaternion.identity);
 
-        }*/
+        }
+        if (Random.Range(1, 11) < 4)
+        {
+            position.y += 44;
+            GameObject new_spring = Instantiate(spring, position, Quaternion.identity);
+        }
+
+        if (Random.Range(1, 11) < 4)
+        {
+            position.y -= 21;
+            GameObject new_throne = Instantiate(throne, position, Quaternion.identity);
+        }
         step_is_generated = true;
         Destroy(new_brick, 10f);
     }

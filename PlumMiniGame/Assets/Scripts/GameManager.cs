@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
         while(game_continue)
         {
             yield return null;
-            
-            if(main_camera.transform.position.y - character.transform.position.y
+
+            if (main_camera.transform.position.y - character.transform.position.y
                 > 660)
             {
                 game_continue = false;
