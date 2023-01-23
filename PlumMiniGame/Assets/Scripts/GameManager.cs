@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
     public static float timer = 0;
 
     [SerializeField]
-    private GameObject take_some_rest;
-    [SerializeField]
     private GameObject OX;
     [SerializeField] 
     private GameObject Heart;
@@ -29,8 +27,6 @@ public class GameManager : MonoBehaviour
     private GameObject Hand;
     void Start()
     {
-        take_some_rest.SetActive(false);
-
         round = 0;
         rest_time = 0.5f;
         round_time = 5f;
@@ -69,7 +65,6 @@ public class GameManager : MonoBehaviour
             {
                 round++;
                 Heart.GetComponent<Heart>().HeartUIUpdate();
-                take_some_rest.SetActive(true);
                 RoundTimeUpdate();
                 yield return new WaitForSeconds(2);
 
@@ -78,7 +73,6 @@ public class GameManager : MonoBehaviour
             else
             {
                 bool check; 
-                take_some_rest.SetActive(false);
 
                 if (HandControl.hand_turned) //choose his answer
                 {
