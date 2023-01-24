@@ -118,13 +118,17 @@ public class Panda_UIManager : MonoBehaviour
         }
     }
 
+    [SerializeField] private GameObject RoundPanel;
+
     // round n -> start 띄우는 함수
     private IEnumerator showRoundStartUI(int currentRound) {
 
         timerUI.text = "3";
 
-        img.sprite = basicSprites[(int) Sprites.round];
+        UIpanel.SetActive(false);
+        StartCoroutine(RoundPanel.GetComponent<Panda_RoundPanel>().ShowRoundPanel(1));
         yield return new WaitForSeconds(1);
+        UIpanel.SetActive(true);
 
         img.sprite = basicSprites[(int) Sprites.start];
         yield return new WaitForSeconds(0.8f);

@@ -8,7 +8,7 @@ public class Panda_GameManager : MonoBehaviour
     // 게임 모드
     // 0 -> easy
     // 1 -> hard
-    public static int mode = 0;
+    public static int mode = 1;
 
     // Sprite 정보가 담긴 배열
     [SerializeField] private Sprite[] Imgs = new Sprite[2];

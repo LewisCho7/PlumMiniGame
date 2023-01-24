@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 98
+  controlID: 60
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -45,9 +45,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 403.2
+    x: 317.2
     y: 72
-    width: 766.8
+    width: 852.8
     height: 462.6
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_SerializedViewNames:
   - UnityEditor.DeviceSimulation.SimulatorWindow
   m_SerializedViewValues:
-  - C:\Users\jinhy\PlumMiniGame\PlumMiniGame\Library\PlayModeViewStates\f674470e2934d6f44afab451178278c7
+  - C:\Users\jinhy\PlumMiniGame\PlumMiniGame\Library\PlayModeViewStates\479c44b066b5e364d85b083f1a7a22ad
   m_PlayModeViewName: GameView
   m_ShowGizmos: 0
   m_TargetDisplay: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
-  m_Stats: 0
+  m_Stats: 1
   m_SelectedSizes: 08000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 1
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -97,23 +97,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 766.8
+      width: 852.8
       height: 441.6
-    m_Scale: {x: 0.90351564, y: 0.90351564}
-    m_Translation: {x: 383.4, y: 220.8}
+    m_Scale: {x: 0.8625, y: 0.8625}
+    m_Translation: {x: 426.4, y: 220.8}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -424.3424
-      y: -244.37872
-      width: 848.6848
-      height: 488.75745
+      x: -494.3768
+      y: -256
+      width: 988.7536
+      height: 512
     m_MinimalGUI: 1
-  m_defaultScale: 0.90351564
-  m_LastWindowPixelSize: {x: 1917, y: 1156.5}
+  m_defaultScale: 0.8625
+  m_LastWindowPixelSize: {x: 2132, y: 1156.5}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 99
+  controlID: 61
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 100
+  controlID: 62
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -186,7 +186,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 403.2
+    width: 317.2
     height: 483.6
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
@@ -217,7 +217,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 72
-    width: 402.2
+    width: 316.2
     height: 462.6
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -229,7 +229,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -99.19998, y: -26}
+      snapOffsetDelta: {x: -99.2, y: -26}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -475,9 +475,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 271.22513, y: 622.87036, z: 2.809427}
+    m_Target: {x: 226.54887, y: 597.9927, z: 87.10201}
     speed: 2
-    m_Value: {x: 271.22513, y: 622.87036, z: 2.809427}
+    m_Value: {x: 226.54887, y: 597.9927, z: 87.10201}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -528,9 +528,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 685.86926
+    m_Target: 689.9036
     speed: 2
-    m_Value: 685.86926
+    m_Value: 689.9036
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -570,9 +570,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 403.2
+    x: 317.2
     y: 0
-    width: 768.8
+    width: 854.8
     height: 483.6
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 29
+  controlID: 89
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -674,22 +674,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/Part2_Panda
+    - Assets/Scripts/Part2_Panda/GameScripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Sprites/Part2_Panda
-  m_LastFoldersGridSize: -1
+  - Assets/Scripts/Part2_Panda/GameScripts
+  m_LastFoldersGridSize: 64
   m_LastProjectPath: C:\Users\jinhy\PlumMiniGame\PlumMiniGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 44600000
-    m_LastClickedID: 24644
-    m_ExpandedIDs: 0000000010600000126000001460000000ca9a3b
+    m_SelectedIDs: 84730000
+    m_LastClickedID: 29572
+    m_ExpandedIDs: 00000000e2600000e4600000e6600000fc60000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -705,7 +705,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 9}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -717,7 +717,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000106000001260000014600000
+    m_ExpandedIDs: 00000000e2600000e4600000e6600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -742,10 +742,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 50170000
+    m_LastClickedInstanceID: 5968
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000016600000865e00003a600000
+    m_ExpandedInstanceIDs: c623000016600000865e00003a6000006e6000002c7e00008c600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -858,9 +858,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 50170000
       m_LastClickedID: 0
-      m_ExpandedIDs: 7cf9ffffd0faffff92600000
+      m_ExpandedIDs: a0f8ffff22fbffffc45f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -903,8 +903,8 @@ MonoBehaviour:
     y: 0
     width: 364
     height: 820
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
