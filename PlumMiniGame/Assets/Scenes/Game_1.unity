@@ -1300,6 +1300,7 @@ MonoBehaviour:
   spring: {fileID: 4251080277642525905, guid: d4237de9679c48247a7dfd46890f8500, type: 3}
   shield: {fileID: 6005728579285862942, guid: 07c5e1df6e9b73e4a89b8143a46d64aa, type: 3}
   throne: {fileID: 463764299205327249, guid: e6bc196ecb873f647baf8d942a909b82, type: 3}
+  rescue: {fileID: 2575677661500649567, guid: ac48ec589bcc1154e9a30bd8eddee545, type: 3}
 --- !u!4 &1817269128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8698386091533632088, guid: e3fe37c982444cc4c9bece7bd38d1771, type: 3}

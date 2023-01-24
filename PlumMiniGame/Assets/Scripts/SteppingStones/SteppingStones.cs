@@ -16,6 +16,8 @@ public class SteppingStones : MonoBehaviour
     private GameObject shield;
     [SerializeField]
     private GameObject throne;
+    [SerializeField]
+    private GameObject rescue;
 
     private bool step_is_generated;
     private bool cloud_is_generated;
@@ -91,22 +93,33 @@ public class SteppingStones : MonoBehaviour
         var position 
             = new Vector3(Random.Range(-280, 280), main_camera.transform.position.y + 650, 0);
         GameObject new_brick = Instantiate(brick, position, Quaternion.identity);
+
         if (Random.Range(1, 11) < 4)
         {
             position.y += 44;
             GameObject new_shield = Instantiate(shield, position, Quaternion.identity);
-
+            Destroy(new_shield, 10);
         }
+
         if (Random.Range(1, 11) < 4)
         {
             position.y += 44;
             GameObject new_spring = Instantiate(spring, position, Quaternion.identity);
+            Destroy(new_spring, 10);
         }
 
         if (Random.Range(1, 11) < 4)
         {
             position.y -= 21;
             GameObject new_throne = Instantiate(throne, position, Quaternion.identity);
+            Destroy(new_throne, 10);
+        }
+
+        if (Random.Range(1, 11) < 4)
+        {
+            position.y += 80;
+            GameObject new_rescue = Instantiate(rescue, position, Quaternion.identity);
+            Destroy(new_rescue, 10);
         }
         step_is_generated = true;
         Destroy(new_brick, 10f);
