@@ -4,24 +4,16 @@ using UnityEngine;
 
 public class RoundUI : MonoBehaviour
 {
+    private SpriteRenderer sr;
     [SerializeField]
-    private Sprite[] numbers;
-
-    private SpriteRenderer[] sprites;
+    private Sprite[] numbers = new Sprite[10];
     void Start()
     {
-        numbers = Resources.LoadAll<Sprite>("Sprites/UI/number");
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-
-        string round = GameManager.round.ToString();
-        sprites = new SpriteRenderer[round.Length];
-        int idx = 0;
-        foreach (char c in round)
-        {
-            sprites[idx - 1].sprite = numbers[(int)c - 1];
-        }
+        sr.sprite = numbers[GameManager.round];
     }
 }
