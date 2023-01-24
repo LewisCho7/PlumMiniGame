@@ -37,6 +37,10 @@ public class Throne : MonoBehaviour
             {
                 GameManager.game_continue = false;
             }
+            else
+            {
+                Character.is_shield = false;
+            }
         }
     }
 }
