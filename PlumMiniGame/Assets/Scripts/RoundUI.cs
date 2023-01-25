@@ -14,13 +14,6 @@ public class RoundUI : MonoBehaviour
 
     void Update()
     {
-        if(gameObject.name == "numbers_10")
-        {
-            sr.sprite = numbers[(int)GameManager.round / 10];
-        }
-        else if (gameObject.name == "numbers_1")
-        {
-            sr.sprite = numbers[GameManager.round % 10];
-        }
+        sr.sprite = numbers[GameManager.round];
     }
 }

@@ -24,9 +24,5 @@ public class ComboControl : MonoBehaviour
     {
         if (combo % 5 == 0 && GameManager.life < 6)
             GameManager.life++;
-        else if (combo == 6)
-        {
-            combo = 1;
-        }
     }
 }

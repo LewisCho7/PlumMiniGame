@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
                 {
                     check = CheckAns();
 
-                    if (timer <= (round_time / 2) && check)
+                    if (timer <= (round_time / 2))
                     {
                         ComboControl.combo++;
                         Combo.GetComponent<ComboControl>().ComboUpdate();
