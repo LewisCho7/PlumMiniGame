@@ -5,7 +5,6 @@ using UnityEngine;
 public class Meteo : MonoBehaviour
 {
     Rigidbody2D rb;
-    [SerializeField]
     private GameObject main_camera;
     // Start is called before the first frame update
     void Start()

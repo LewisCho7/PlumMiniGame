@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2980113295068456375}
   - component: {fileID: 2980113295068456372}
   - component: {fileID: 2980113295068456373}
+  - component: {fileID: 605058275255337080}
   m_Layer: 6
   m_Name: Cloud_1
   m_TagString: Untagged
@@ -114,4 +115,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e5bce04157cd5042b3e997f7467f748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  main_camera: {fileID: 0}
+--- !u!114 &605058275255337080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980113295068456371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956f0dfb0b262e84d9c727b6766190c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class Stones : MonoBehaviour
 {
-    [SerializeField]
-    private BoxCollider2D col;
-    [SerializeField]
+    private Collider2D col;
     private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        col = GetComponent<BoxCollider2D>();
+        col = null;
+        try
+        {
+            col = GetComponent<BoxCollider2D>();
+            if (col == null)
+            {
+                throw new MissingComponentException();
+            }
+        }
+        catch (MissingComponentException)
+        {
+            col = GetComponent<CapsuleCollider2D>();
+        }
         player = GameObject.Find("Character");
     }
 

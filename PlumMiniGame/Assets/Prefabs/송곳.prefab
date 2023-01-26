@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1513181428955223864}
   - component: {fileID: 7778979725744322694}
   - component: {fileID: 7398043992324540872}
+  - component: {fileID: 6657511711875961191}
   - component: {fileID: 4729970122411607885}
   m_Layer: 0
   m_Name: "\uC1A1\uACF3"
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1d02d796f4544ee49aca8e6d2399db0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,6 +103,27 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0014793419, y: 390.38266}
   m_Size: {x: 1054.311, y: 575.2145}
   m_Direction: 1
+--- !u!50 &6657511711875961191
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463764299205327249}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!114 &4729970122411607885
 MonoBehaviour:
   m_ObjectHideFlags: 0

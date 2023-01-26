@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static float survived_time;
     public static bool game_continue = true;
-
+    public static int rescued_character = 0;
     [SerializeField]
     private GameObject character;
     [SerializeField]
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        survived_time = 0;
         game_continue = true;
         blur.SetActive(false);
         StartCoroutine(GameProcess());
@@ -31,8 +32,6 @@ public class GameManager : MonoBehaviour
             StopCoroutine(GameProcess());
             StartCoroutine(GameOver());
         }
-
-        
     }
 
     IEnumerator GameProcess()
@@ -41,11 +40,11 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
 
-            if (main_camera.transform.position.y - character.transform.position.y
+/*            if (main_camera.transform.position.y - character.transform.position.y
                 > 660)
             {
                 game_continue = false;
-            }
+            }*/
         }
     }
 

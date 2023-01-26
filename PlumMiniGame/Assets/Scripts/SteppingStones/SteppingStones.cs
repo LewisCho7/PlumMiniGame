@@ -99,28 +99,28 @@ public class SteppingStones : MonoBehaviour
             position.y += 44;
             GameObject new_shield = Instantiate(shield, position, Quaternion.identity);
             Destroy(new_shield, 10);
-        }
+        } //shield
 
         if (Random.Range(1, 11) < 4)
         {
-            position.y += 44;
+            position.y += 71;
             GameObject new_spring = Instantiate(spring, position, Quaternion.identity);
             Destroy(new_spring, 10);
-        }
+        } //spring
 
         if (Random.Range(1, 11) < 4)
         {
-            position.y -= 21;
+            position.y += 20;
             GameObject new_throne = Instantiate(throne, position, Quaternion.identity);
             Destroy(new_throne, 10);
-        }
+        } //throne
 
         if (Random.Range(1, 11) < 4)
         {
-            position.y += 80;
+            position.y += 70;
             GameObject new_rescue = Instantiate(rescue, position, Quaternion.identity);
             Destroy(new_rescue, 10);
-        }
+        } //character
         step_is_generated = true;
         Destroy(new_brick, 10f);
     }
