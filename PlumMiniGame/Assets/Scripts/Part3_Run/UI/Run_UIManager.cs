@@ -22,13 +22,18 @@ public class Run_UIManager : MonoBehaviour
     // 점수 및 재화를 표시하는 textUI
     public static TextMeshProUGUI scoreUI, coinUI;
 
+    private GameObject HPBar;
+
     // UI 바인딩
     void Awake() {
         UIPanel = transform.Find("PanelUI").gameObject;
         panelImage = UIPanel.transform.Find("Image").GetComponent<Image>();
         
         scoreUI = transform.Find("ScoreUI").Find("Text").GetComponent<TextMeshProUGUI>();
-        coinUI = transform.Find("CoinUI").Find("Text").GetComponent<TextMeshProUGUI>();   
+        coinUI = transform.Find("CoinUI").Find("Text").GetComponent<TextMeshProUGUI>();
+
+        HPBar = transform.Find("HPBar").gameObject;
+        HPBar.SetActive(!Run_GameManager.isEasyMode);
     }
 
     // 처음 미니게임 시작 시 호출
@@ -67,9 +72,6 @@ public class Run_UIManager : MonoBehaviour
 
             // 점수 UI 업데이트
             scoreUI.text = (int.Parse(scoreUI.text) + 10).ToString();
-
-            // HARD - 초당 체력 -2
-            if (!Run_GameManager.isEasyMode) Run_Player.Life -= 2;
         }
     }
 

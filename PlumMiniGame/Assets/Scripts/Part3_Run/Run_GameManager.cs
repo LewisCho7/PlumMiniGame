@@ -30,8 +30,6 @@ public class Run_GameManager : MonoBehaviour
     }
 
     void Update() {
-
-        Debug.Log(Run_Player.Life);
         
         // 게임이 시작되면 각 오브젝트 생성 로직 시작
         if (time <= 0 && Run_Player.isAlive) {

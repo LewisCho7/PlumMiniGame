@@ -12,7 +12,7 @@ public class Run_Player : MonoBehaviour
 
     // HARD 모드 전용
     // 플레이어 체력
-    static public int Life;
+    static public float Life;
 
     // 기본 설정
     void Awake() {
@@ -24,9 +24,18 @@ public class Run_Player : MonoBehaviour
         gameObject.AddComponent<PolygonCollider2D>();
     }
 
+    void Update() {
+        if (Life <= 0) isAlive = false;
+
+        if (Run_GameManager.time > 0) {
+            Life -= Time.deltaTime * 2;
+        }
+    }
+
     // 장애물과 충돌 시 호출되는 함수
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag == "Obstacle") {
+            Life = 0;
             isAlive = false;
             transform.gameObject.SetActive(false);
         }
