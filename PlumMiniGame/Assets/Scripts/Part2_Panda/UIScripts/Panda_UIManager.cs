@@ -6,15 +6,9 @@ using TMPro;
 
 public class Panda_UIManager : MonoBehaviour
 {
-    // 숫자 Sprite를 저장하는 배열
-    [SerializeField] private Sprite[] numberSprites = new Sprite[10];
-
     // 다양한 UI를 띄우기 위한 Sprite를 저장하는 배열
-    [SerializeField] private Sprite[] basicSprites = new Sprite[10];
-    enum Sprites { O = 3, X, gameover, start, go, round, tutorial }
-
-    // 제한시간을 나타낼 textUI
-    private TextMeshProUGUI timerUI;
+    [SerializeField] private Sprite[] basicSprites = new Sprite[9];
+    enum Sprites { O = 3, X, gameover, start, go, tutorial }
 
     // 점수를 나타낼 scroeUI
     private TextMeshProUGUI scoreUI;
@@ -27,8 +21,11 @@ public class Panda_UIManager : MonoBehaviour
     // UI의 Sprite를 변경하기 위해 Image 컴포넌트를 저장하는 변수
     private Image img;
 
+    // RoundUI
+    [SerializeField] private GameObject RoundPanel;
+
     // 정답 고르는 3초를 위한 시간 변수
-    private float time = 0;
+    public static float time = 0;
     // 입력된 정답을 저장할 변수
     // default: -1 (고르지 않았다는 의미)
     public static int inputAnswer = -1;
@@ -36,7 +33,6 @@ public class Panda_UIManager : MonoBehaviour
 
 
     void Awake() {
-        timerUI = transform.Find("TimerUI").Find("Text").GetComponent<TextMeshProUGUI>();
         scoreUI = transform.Find("ScoreUI").Find("Text").GetComponent<TextMeshProUGUI>();
 
         UIpanel = transform.Find("UIPanel").gameObject;
@@ -61,7 +57,7 @@ public class Panda_UIManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
-        StartCoroutine(showRoundStartUI(1));
+        StartCoroutine(showRoundStartUI(Panda_GameManager.currentRound++));
     }
 
     void Update() {
@@ -70,18 +66,13 @@ public class Panda_UIManager : MonoBehaviour
 
             // 3초를 넘기면 오답 처리 및 update 함수 종료
             if (time > 3) {
-                timerUI.text = "3";
                 StartCoroutine(showOX(false));
                 return;
             }
 
-            timerUI.text = "" + (3 - time).ToString().Substring(0, 3);
-
             if (inputAnswer == -1) return;
 
             time = 0;
-
-            timerUI.text = "0.0";
 
             StartCoroutine(showOX(inputAnswer == Panda_GameManager.answerNum));
         }
@@ -99,14 +90,14 @@ public class Panda_UIManager : MonoBehaviour
             img.sprite = basicSprites[(int) Sprites.O];
             yield return new WaitForSeconds(1);
 
-            scoreUI.text = "" + Panda_GameManager.currentRound * 30;
+            scoreUI.text = (int.Parse(scoreUI.text) + 30).ToString();
 
             // 휴식시간
             UIpanel.SetActive(false);
             yield return new WaitForSeconds(2);
             UIpanel.SetActive(true);
 
-            StartCoroutine(showRoundStartUI(Panda_GameManager.currentRound));
+            StartCoroutine(showRoundStartUI(Panda_GameManager.currentRound++));
         } else {
             Panda_GameManager.isEnd = true;
 
@@ -118,18 +109,14 @@ public class Panda_UIManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private GameObject RoundPanel;
-
     // round n -> start 띄우는 함수
     private IEnumerator showRoundStartUI(int currentRound) {
 
-        timerUI.text = "3";
-
         UIpanel.SetActive(false);
-        StartCoroutine(RoundPanel.GetComponent<Panda_RoundPanel>().ShowRoundPanel(1));
+        StartCoroutine(RoundPanel.GetComponent<Panda_RoundPanel>().ShowRoundPanel(currentRound));
         yield return new WaitForSeconds(1);
-        UIpanel.SetActive(true);
 
+        UIpanel.SetActive(true);
         img.sprite = basicSprites[(int) Sprites.start];
         yield return new WaitForSeconds(0.8f);
 

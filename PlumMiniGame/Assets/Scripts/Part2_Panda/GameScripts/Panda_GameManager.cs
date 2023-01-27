@@ -8,7 +8,7 @@ public class Panda_GameManager : MonoBehaviour
     // 게임 모드
     // 0 -> easy
     // 1 -> hard
-    public static int mode = 1;
+    public static int mode = 0;
 
     // Sprite 정보가 담긴 배열
     [SerializeField] private Sprite[] Imgs = new Sprite[2];
@@ -29,7 +29,7 @@ public class Panda_GameManager : MonoBehaviour
     public static bool isEnd = false;
 
     // 현재 라운드를 저장하는 함수
-    public static int currentRound = 0;
+    public static int currentRound = 1;
 
 
     void Update() {
@@ -38,8 +38,6 @@ public class Panda_GameManager : MonoBehaviour
         if (isEatingRoundStart && !isEnd) {
 
             isEatingRoundStart = false;
-
-            currentRound++;
 
             // 데이터 초기화
             Init();
