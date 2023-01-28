@@ -17,7 +17,6 @@ public class Panda_PandaClickEvent : MonoBehaviour
         // 답을 이미 선택했다면 함수 종료
         if (Panda_UIManager.inputAnswer != -1) return;
 
-        Debug.Log(transform.name);
         Panda_UIManager.inputAnswer = transform.name[5] - '1';
     }
 }

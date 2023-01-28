@@ -20,6 +20,7 @@ public class Panda_GameManager : MonoBehaviour
 
     // 라운드의 시작 및 상태를 알리는 변수
     public static bool isEatingRoundStart = false;
+    public static bool isEatingRoundRunning = false;
     public static bool isChooseRoundStart = false;
 
     // 정답 번호를 저장하는 변수
@@ -31,13 +32,19 @@ public class Panda_GameManager : MonoBehaviour
     // 현재 라운드를 저장하는 함수
     public static int currentRound = 1;
 
+    public static int score;
+
+    void Awake() {
+        score = 0;
+    }
 
     void Update() {
         // 매 라운드마다 실행됨
         // 판다가 먹이를 먹는 로직이 실행됨
-        if (isEatingRoundStart && !isEnd) {
+        if (isEatingRoundStart) {
 
             isEatingRoundStart = false;
+            isEatingRoundRunning = true;
 
             // 데이터 초기화
             Init();
@@ -134,6 +141,7 @@ public class Panda_GameManager : MonoBehaviour
         }
 
         Debug.Log(answerNum);
+        isEatingRoundRunning = false;
         isChooseRoundStart = true;
     }
 

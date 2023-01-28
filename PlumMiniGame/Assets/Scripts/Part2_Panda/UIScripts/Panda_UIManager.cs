@@ -13,9 +13,6 @@ public class Panda_UIManager : MonoBehaviour
     // 점수를 나타낼 scroeUI
     private TextMeshProUGUI scoreUI;
 
-    // 재화를 나타낼 coinUI
-    private TextMeshProUGUI coinUI;
-
     // UI를 띄우기 위한 panel
     private GameObject UIpanel;
     // UI의 Sprite를 변경하기 위해 Image 컴포넌트를 저장하는 변수
@@ -76,6 +73,8 @@ public class Panda_UIManager : MonoBehaviour
 
             StartCoroutine(showOX(inputAnswer == Panda_GameManager.answerNum));
         }
+
+        scoreUI.text = Panda_GameManager.score.ToString();
     }
 
     // OX를 띄우는 함수
@@ -90,7 +89,7 @@ public class Panda_UIManager : MonoBehaviour
             img.sprite = basicSprites[(int) Sprites.O];
             yield return new WaitForSeconds(1);
 
-            scoreUI.text = (int.Parse(scoreUI.text) + 30).ToString();
+            Panda_GameManager.score += 30;
 
             // 휴식시간
             UIpanel.SetActive(false);
