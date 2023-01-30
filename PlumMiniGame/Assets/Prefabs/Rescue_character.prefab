@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6379940892892846004}
   - component: {fileID: 8852701981290663081}
   - component: {fileID: 1198784473359986364}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rescue_character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
