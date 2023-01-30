@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoundUI : MonoBehaviour
+public class RoundUI_10 : MonoBehaviour
 {
     private SpriteRenderer sr;
     [SerializeField]
@@ -14,7 +14,7 @@ public class RoundUI : MonoBehaviour
 
     void Update()
     {
-        int one = GameManager.round % 10;
-        sr.sprite = numbers[one];
+        int ten = (int)(GameManager.round / 10);
+        sr.sprite = numbers[ten];
     }
 }

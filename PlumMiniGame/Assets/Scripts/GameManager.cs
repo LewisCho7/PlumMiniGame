@@ -7,6 +7,8 @@ using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
 {
+    public static bool hard_mode;
+
     public static int round;
     public static float round_time;
     public static float rest_time;
@@ -27,14 +29,23 @@ public class GameManager : MonoBehaviour
     private GameObject Hand;
     void Start()
     {
+        hard_mode = true;
+
+        if (hard_mode)
+        {
+            round_time = 5;
+        }
+        else
+        {
+            round_time = 8;
+        }
         round = 0;
         rest_time = 0.5f;
-        round_time = 5f;
         life = 3;
 
         game_on_process = false;
 
-        StartCoroutine("GameProcess");
+        StartCoroutine(GameProcess());
     }
     
     // Update is called once per frame
@@ -74,7 +85,7 @@ public class GameManager : MonoBehaviour
             {
                 bool check; 
 
-                if (HandControl.hand_turned) //choose his answer
+                if (HandControl.hand_turned)
                 {
                     check = CheckAns();
 
@@ -134,13 +145,27 @@ public class GameManager : MonoBehaviour
 
     private void RoundTimeUpdate()
     {
-        if (round % 3 == 0)
+        if (hard_mode)
         {
-            if (round_time <= 1)
-                round_time = 0.5f;
-            else
-                round_time--;
+            if (round % 3 == 0)
+            {
+                if (round_time <= 1)
+                  round_time = 0.5f;
+                else
+                    round_time--;
+            }
         }
+        else
+        {
+            if (round % 3 == 0)
+            {
+                if (round_time <= 1)
+                    round_time = 0.8f;
+                else
+                    round_time--;
+            }
+        }
+
     }
 
     private IEnumerator GameOver()

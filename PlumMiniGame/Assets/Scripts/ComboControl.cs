@@ -22,7 +22,20 @@ public class ComboControl : MonoBehaviour
 
     public void ComboUpdate()
     {
-        if (combo % 5 == 0 && GameManager.life < 6)
-            GameManager.life++;
+        if (combo % 5 == 0)
+        {
+            if (GameManager.hard_mode)
+            {
+                if (GameManager.life < 3)
+                    GameManager.life++;
+            }
+            else
+            {
+                if (GameManager.life < 6)
+                {
+                    GameManager.life++;
+                }
+            }
+        }
     }
 }
