@@ -15,6 +15,8 @@ public class Ski_ObjectSpawner : MonoBehaviour
     [SerializeField]
     private Ski_Objects barrier;
     [SerializeField]
+    private Ski_Objects rock;
+    [SerializeField]
     private Ski_Objects item;
     [SerializeField]
     private Ski_Objects rescue;
@@ -22,10 +24,12 @@ public class Ski_ObjectSpawner : MonoBehaviour
     Pool<Ski_Objects> barrierPool;
     Pool<Ski_Objects> itemPool;
     Pool<Ski_Objects> rescuePool;
+    Pool<Ski_Objects> rockPool;
 
     private Ski_Objects newBarrier;
     private Ski_Objects newItem;
     private Ski_Objects newRescue;
+    private Ski_Objects newRock;
 
 
     private float[] randomSpawnPos;
@@ -40,6 +44,7 @@ public class Ski_ObjectSpawner : MonoBehaviour
         barrierPool = Pool.Create<Ski_Objects>(barrier, 0);
         itemPool = Pool.Create<Ski_Objects>(item, 0);  
         rescuePool = Pool.Create<Ski_Objects>(rescue, 0);
+        rockPool = Pool.Create<Ski_Objects>(rock, 0);
      
 
         randomSpawnPos = new float[] { 60, 130, 200, 270, 340 };
@@ -62,6 +67,10 @@ public class Ski_ObjectSpawner : MonoBehaviour
         StartCoroutine(IE_SpawnBarrier());
         StartCoroutine(IE_SpawnItem());
         StartCoroutine(IE_SpawnRescue());
+        if (Ski_GameManager.instance.isHardMode)
+        {
+            StartCoroutine(IE_SpawnRock());
+        }
     }
     private IEnumerator IE_SpawnBarrier()
     {
@@ -99,7 +108,51 @@ public class Ski_ObjectSpawner : MonoBehaviour
         }
 
     }
+    private IEnumerator IE_SpawnRock()
+    {
+        yield return new WaitForSeconds(1f);
+        while (true)
+        {
+            if(Ski_GameManager.instance.timer < 3)
+            {
+                yield return new WaitForSeconds(3f);
+            }
 
+            int j = Random.Range(0, 10);
+            if(j > 2)
+            {
+                yield return new WaitForSeconds(3f);
+                continue;
+            }
+
+            barrierSpawned = false; 
+            
+            int i = Random.Range(0, 5);
+            Vector3 spawnPos = new Vector3(skiLine.lastPos.x + randomSpawnPos[i], skiLine.lastPos.y + 45f, transform.position.z);
+            barrierIndex = i;
+
+
+            if (Ski_GameManager.instance.timer < 30)
+            {
+                newRock = rockPool.Get();
+                newRock.transform.position = spawnPos;
+                barrierSpawned = true;
+
+                StartCoroutine(IE_ReleaseRock(newRock));
+                yield return new WaitForSeconds(3f);
+            }
+            else
+            {
+                newRock = rockPool.Get();
+                newRock.transform.position = spawnPos;
+                barrierSpawned = true;
+
+                StartCoroutine(IE_ReleaseRock(newRock));
+                yield return new WaitForSeconds(2f);
+            }
+        }
+
+    }
     private IEnumerator IE_SpawnItem()
     {
         while (true)
@@ -236,6 +289,23 @@ public class Ski_ObjectSpawner : MonoBehaviour
             }
             yield return new WaitForSeconds(5f);
         }
+    }
+    IEnumerator IE_ReleaseRock(Ski_Objects rock)
+    {
+        while (rock)
+        {
+            if (rock.transform.position.y > playerPos.position.y + 450f)
+            {
+                rockPool.Take(rock);
+                yield break;
+            }
+            yield return new WaitForSeconds(5f);
+        }
+    }
+
+    public void releaseRockNow(Ski_Objects rock)
+    {
+        rockPool.Take(rock);
     }
 
     float Choose(float[] probs)

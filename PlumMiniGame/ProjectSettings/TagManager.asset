@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Barrier
   - Line
+  - Rock
   layers:
   - Default
   - TransparentFX

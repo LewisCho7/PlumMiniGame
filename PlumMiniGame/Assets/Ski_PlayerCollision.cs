@@ -14,6 +14,7 @@ public class Ski_PlayerCollision : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Rescue"))
         {
+
             Ski_GameManager.instance.rescue();
             StartCoroutine(IE_setBarrierFalse(collision.gameObject));
         }
@@ -34,6 +35,11 @@ public class Ski_PlayerCollision : MonoBehaviour
             Ski_GameManager.instance.hasItem = false;
         }
         else if (collision.gameObject.CompareTag("Barrier"))
+        {
+            Ski_GameManager.instance.GameOver();
+            Ski_SceneManager.instance.Invoke("returnScene", 2);
+        }
+        if (collision.gameObject.CompareTag("Rock"))
         {
             Ski_GameManager.instance.GameOver();
             Ski_SceneManager.instance.Invoke("returnScene", 2);

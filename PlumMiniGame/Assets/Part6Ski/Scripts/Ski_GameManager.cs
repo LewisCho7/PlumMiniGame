@@ -12,15 +12,20 @@ public class Ski_GameManager : MonoBehaviour
     [SerializeField]
     private GameObject countDown;
 
+    public GameObject[] buttons;
+
     private Ski_ScoreText scoreText;
+
+    public bool isHardMode;
 
     private int _score;
     public int Score
     {
         get { return _score; }
         set {
+            _score = value;
             scoreText.changeScoreText();
-            _score = value; 
+
         }
     }
 
@@ -28,10 +33,13 @@ public class Ski_GameManager : MonoBehaviour
 
     public int Rescuednum
     {
-        get { return _rescuedNum; }
-        set { 
+        get {
+            return _rescuedNum; }
+        set {
+
+            _rescuedNum = value;
             scoreText.changeRescueText();
-            _rescuedNum = value; 
+
         }
     }
 
@@ -54,7 +62,7 @@ public class Ski_GameManager : MonoBehaviour
     private void Update()
     {
         showItem();
-        
+        Debug.Log(Rescuednum);
         //Debug.Log(timer);
     }
     private IEnumerator Start()
@@ -114,15 +122,30 @@ public class Ski_GameManager : MonoBehaviour
 
     private IEnumerator init()
     { // 난이도 별 차이 두기
+        Time.timeScale = 1f;
         timer = 0f;
         gameSpeed = 0f;
         Score = 0;
         Rescuednum = 0;
         hasItem = false;
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].SetActive(false);
+        }
         yield return new WaitForSeconds(4f);
         timerStart = true;
         gameSpeed = 400f;
 
+    }
+
+    public void pauseGame()
+    {
+        Debug.Log("Game Paused");
+        for(int i = 0; i  < buttons.Length; i++)
+        {
+            buttons[i].SetActive(true);
+        }
+        Time.timeScale = 0f;
     }
 
     public void calculateSpeed()
@@ -134,6 +157,7 @@ public class Ski_GameManager : MonoBehaviour
 
     public void rescue()
     {
+        Debug.Log("Rescued");
         Score += 40;
         Rescuednum++;
     }

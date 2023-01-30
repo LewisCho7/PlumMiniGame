@@ -9,6 +9,7 @@ public class Ski_Objects : MonoBehaviour
 
     private SpriteRenderer rescueSprite;
 
+    
     /*private GameObject barrier;
 
     private GameObject item;*/
@@ -24,7 +25,16 @@ public class Ski_Objects : MonoBehaviour
         int i = Random.Range(0, rescueSprites.Length);
 
         rescueSprite.sprite = rescueSprites[i];
-
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Barrier"))
+        {
+            gameObject.SetActive(false);
+            //StartCoroutine(IE_setRockFalse(gameObject));
+            //spawner.releaseRockNow(this);
+        }
+    }
+    
 }
