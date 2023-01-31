@@ -18,7 +18,7 @@ public class Cloud : MonoBehaviour
     {
         var position = player.transform.position;
 
-        if (position.y - transform.position.y > 80)
+        if (position.y - transform.position.y > 60)
         {
             col.isTrigger = false;
         }
