@@ -23,6 +23,22 @@ public class Stones : MonoBehaviour
             col = GetComponent<CapsuleCollider2D>();
         }
         player = GameObject.Find("Character");
+
+        if (GameManager.survived_time < 20)
+        {
+            gameObject.transform.localScale = new Vector3(0.6f, 1, 1);
+        }
+        else
+        {
+            if(Random.Range(1,11) <= 4)
+            {
+                gameObject.transform.localScale = new Vector3(1.5f, 1, 1);
+            }
+            else
+            {
+                gameObject.transform.localScale = new Vector3(0.6f, 1, 1);
+            }
+        }
     }
 
     // Update is called once per frame

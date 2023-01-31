@@ -32,7 +32,7 @@ public class Background : MonoBehaviour
         {
             yield return null;
             int timer = (int)GameManager.survived_time;
-            Debug.Log(timer);
+
             switch (timer)
             {
                 case 20:
