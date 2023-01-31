@@ -16,7 +16,6 @@ public class Character : MonoBehaviour
         jump_power = 800;
         is_shield = false;
         rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(PlayerJump());
     }
 
     void Update()
@@ -32,10 +31,7 @@ public class Character : MonoBehaviour
         }
 
     }
-    IEnumerator PlayerJump()
-    {
-        yield return null;
-    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         rb.velocity = Vector2.up * jump_power;

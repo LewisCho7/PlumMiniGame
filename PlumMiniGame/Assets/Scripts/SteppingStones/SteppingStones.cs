@@ -41,7 +41,7 @@ public class SteppingStones : MonoBehaviour
 
     IEnumerator GenerateBrick()
     {
-        var cool_down = new WaitForSeconds(1.2f);
+        var cool_down = new WaitForSeconds(1.1f);
         while (true)
         {
             yield return null;
@@ -108,7 +108,7 @@ public class SteppingStones : MonoBehaviour
             Destroy(new_spring, 10);
         } //spring
 
-        if (Random.Range(1, 11) < 4)
+        if (Random.Range(1, 11) < 4 && GameManager.hard_mode)
         {
             position.y += 20;
             GameObject new_throne = Instantiate(throne, position, Quaternion.identity);
