@@ -48,7 +48,7 @@ public class Character : MonoBehaviour
         if (Spring.spring)
         {
             Spring.spring = false;
-            jump_power /= 2;
+            jump_power /= 1.8f;
         }
     }
 }
