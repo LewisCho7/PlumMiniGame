@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/MYROOM.unity
-    guid: 20b0a58f608acb4408a78ad6019f2cc5
-  - enabled: 1
-    path: Assets/Scenes/GameSelectScene.unity
-    guid: 0482f9e5f0034e4459b6a2e11450e77d
+    path: Assets/Scenes/Part6_SkiGame.unity
+    guid: 46991da7358fe6b489e350c3fcb468c5
   m_configObjects: {}
