@@ -9,6 +9,8 @@ public class Character : MonoBehaviour
 
     [SerializeField]
     private float move_speed;
+    [SerializeField]
+    private GameObject shield_on_img;
 
     private Rigidbody2D rb;
     void Start()
@@ -30,6 +32,14 @@ public class Character : MonoBehaviour
             gameObject.transform.position -= new Vector3(move_speed, 0, 0);
         }
 
+        if (is_shield)
+        {
+            shield_on_img.SetActive(true);
+        }
+        else
+        {
+            shield_on_img.SetActive(false);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,6 +50,5 @@ public class Character : MonoBehaviour
             Spring.spring = false;
             jump_power /= 2;
         }
-
     }
 }

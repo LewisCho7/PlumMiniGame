@@ -9,24 +9,12 @@ public class Stones : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        col = null;
-        try
-        {
-            col = GetComponent<BoxCollider2D>();
-            if (col == null)
-            {
-                throw new MissingComponentException();
-            }
-        }
-        catch (MissingComponentException)
-        {
-            col = GetComponent<CapsuleCollider2D>();
-        }
+        col = GetComponent<BoxCollider2D>();
         player = GameObject.Find("Character");
 
         if (GameManager.survived_time < 20)
-        {
-            gameObject.transform.localScale = new Vector3(0.75f, 1, 1);
+        {   
+            gameObject.transform.localScale = new Vector3(0.75f, 0.625f, 1);
         }
         else
         {
@@ -46,7 +34,7 @@ public class Stones : MonoBehaviour
     {
         var position = player.transform.position;
 
-        if(position.y - transform.position.y > 80)
+        if(position.y - transform.position.y > 60)
         {
             col.isTrigger = false;
         }
