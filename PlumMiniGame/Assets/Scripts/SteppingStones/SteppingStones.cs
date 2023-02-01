@@ -60,7 +60,7 @@ public class SteppingStones : MonoBehaviour
 
     IEnumerator GenerateCloud()
     {
-        var cool_down = new WaitForSeconds(5);
+        var cool_down = new WaitForSeconds(3.5f);
         while (true)
         {
             yield return null;
@@ -81,7 +81,7 @@ public class SteppingStones : MonoBehaviour
 
     IEnumerator CheckStepIsGenerated()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         if (!cloud_is_generated && !step_is_generated)
         {
             GenerateBrickForSure();
@@ -94,16 +94,16 @@ public class SteppingStones : MonoBehaviour
             = new Vector3(Random.Range(-280, 280), main_camera.transform.position.y + 650, 0);
         GameObject new_brick = Instantiate(brick, position, Quaternion.identity);
 
-        if (Random.Range(1, 11) < 4)
+        if (Random.Range(1, 11) <= 1)
         {
-            position.y += 44;
+            position.y += 60;
             GameObject new_shield = Instantiate(shield, position, Quaternion.identity);
             Destroy(new_shield, 10);
         } //shield
 
-        if (Random.Range(1, 11) < 4)
+        if (Random.Range(1, 11) <= 1)
         {
-            position.y += 71;
+            position.y += 50;
             GameObject new_spring = Instantiate(spring, position, Quaternion.identity);
             Destroy(new_spring, 10);
         } //spring
@@ -117,7 +117,7 @@ public class SteppingStones : MonoBehaviour
 
         if (Random.Range(1, 11) < 4)
         {
-            position.y += 70;
+            position.y += 62;
             GameObject new_rescue = Instantiate(rescue, position, Quaternion.identity);
             Destroy(new_rescue, 10);
         } //character

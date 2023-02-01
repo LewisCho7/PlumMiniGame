@@ -14,11 +14,18 @@ public class Stones : MonoBehaviour
 
         if (GameManager.survived_time < 20)
         {   
-            gameObject.transform.localScale = new Vector3(0.75f, 0.625f, 1);
+            if(Random.Range(1,11) <= 4)
+            {
+                gameObject.transform.localScale = new Vector3(0.75f, 0.625f, 1);
+            }
+            else
+            {
+                gameObject.transform.localScale = new Vector3(1, 0.625f, 1);
+            }
         }
         else
         {
-            if(Random.Range(1,11) <= 4)
+            if(Random.Range(1,11) <= 2)
             {
                 gameObject.transform.localScale = new Vector3(1, 0.625f, 1);
             }
