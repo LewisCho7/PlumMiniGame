@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 606307825}
   - component: {fileID: 606307823}
   m_Layer: 0
-  m_Name: Sky to Sunset
+  m_Name: Changing_time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,14 +291,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goto_backgrounds:
-  - {fileID: 21300000, guid: a26bcf7ffad29bd46a8ae06ad2b70002, type: 3}
-  - {fileID: 21300000, guid: 1f3a25bfc0f783442aaca9aae33db739, type: 3}
-  - {fileID: 21300000, guid: bc3c18736bb6cf845bd06bba037c214f, type: 3}
+  - {fileID: 21300000, guid: 5711d13603e3f8b439e3c0591c9fc6ac, type: 3}
+  - {fileID: 21300000, guid: cfa46755478e5cd45939ad7880b0dcb1, type: 3}
+  - {fileID: 21300000, guid: 266641e25611a714aa06a6514216f65d, type: 3}
   backgrounds:
-  - {fileID: 21300000, guid: dd01dd193c9bf7a42af167aaa3199f30, type: 3}
-  - {fileID: 21300000, guid: 5ef51ea93728c534485920abd5fa2f56, type: 3}
-  - {fileID: 21300000, guid: 7e63420914e95fd41a587bf7b9e99420, type: 3}
-  - {fileID: 21300000, guid: 854aa010b44d66f4695ebe6d19373575, type: 3}
+  - {fileID: 21300000, guid: 6baae493bfc9c44458bc6ebeae861440, type: 3}
+  - {fileID: 21300000, guid: 9344722c402385b44a2d5900c0e461d3, type: 3}
+  - {fileID: 21300000, guid: 1764bdf67e6bda84285a627b2d3c09dc, type: 3}
+  - {fileID: 21300000, guid: 23345df385fdfed47899f5a50652efe7, type: 3}
   background: {fileID: 1230130145}
 --- !u!212 &606307825
 SpriteRenderer:
@@ -349,7 +349,7 @@ SpriteRenderer:
   m_Size: {x: 720, y: 1280}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &668130485
@@ -913,12 +913,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: dd01dd193c9bf7a42af167aaa3199f30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6baae493bfc9c44458bc6ebeae861440, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 720, y: 1280}
+  m_Size: {x: 7.2, y: 12.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1562,7 +1562,6 @@ MonoBehaviour:
   cloud: {fileID: 2980113295068456371, guid: fd241ccc7202e2e44acfea3a046ffa72, type: 3}
   spring: {fileID: 4251080277642525905, guid: d4237de9679c48247a7dfd46890f8500, type: 3}
   shield: {fileID: 6005728579285862942, guid: 07c5e1df6e9b73e4a89b8143a46d64aa, type: 3}
-  throne: {fileID: 463764299205327249, guid: e6bc196ecb873f647baf8d942a909b82, type: 3}
   rescue: {fileID: 2575677661500649567, guid: ac48ec589bcc1154e9a30bd8eddee545, type: 3}
 --- !u!4 &1817269128 stripped
 Transform:

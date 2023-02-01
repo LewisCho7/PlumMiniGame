@@ -14,8 +14,7 @@ public class SteppingStones : MonoBehaviour
     private GameObject spring;
     [SerializeField]
     private GameObject shield;
-    [SerializeField]
-    private GameObject throne;
+
     [SerializeField]
     private GameObject rescue;
 
@@ -107,13 +106,6 @@ public class SteppingStones : MonoBehaviour
             GameObject new_spring = Instantiate(spring, position, Quaternion.identity);
             Destroy(new_spring, 10);
         } //spring
-
-        if (Random.Range(1, 11) < 4 && GameManager.hard_mode)
-        {
-            position.y += 20;
-            GameObject new_throne = Instantiate(throne, position, Quaternion.identity);
-            Destroy(new_throne, 10);
-        } //throne
 
         if (Random.Range(1, 11) < 4)
         {
