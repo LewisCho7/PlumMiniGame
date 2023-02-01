@@ -9,15 +9,17 @@ public class GameManager : MonoBehaviour
 {
     public static bool hard_mode;
 
-    public static int round;
     public static float round_time;
     public static float rest_time;
-
-    public static bool is_rest = true;
-    public static int life;
-
-    public static bool game_on_process;
     public static float timer = 0;
+
+    public static int round;
+    public static int life;
+    public static int score;
+
+    public static bool is_rest;
+    public static bool game_on_process;
+
 
     [SerializeField]
     private GameObject OX;
@@ -29,7 +31,8 @@ public class GameManager : MonoBehaviour
     private GameObject Hand;
     void Start()
     {
-        hard_mode = true;
+        hard_mode = false;
+        is_rest = true;
 
         if (hard_mode)
         {
@@ -93,17 +96,16 @@ public class GameManager : MonoBehaviour
                     {
                         ComboControl.combo++;
                         Combo.GetComponent<ComboControl>().ComboUpdate();
-                        StartCoroutine(Combo.GetComponent<ComboControl>().ComboUiPopup());
+                        StartCoroutine(Combo.GetComponent<ComboControl>().ComboUiPopup(check));
                     }
                     else
                     {
                         ComboControl.combo = 0;
                     }
-
                     Life(check);
                     OX.GetComponent<OX>().Popresult(check);
 
-                    yield return new WaitForSeconds((round_time - timer));
+                    yield return new WaitForSeconds(1);
                     is_rest = true;
                     timer = 0;
                 }

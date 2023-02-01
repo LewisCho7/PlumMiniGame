@@ -13,11 +13,15 @@ public class ComboControl : MonoBehaviour
         combo = 0;
     }
 
-    public IEnumerator ComboUiPopup()
+    public IEnumerator ComboUiPopup(bool check)
     {
-        gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        gameObject.SetActive(false);
+        if (check)
+        {
+            gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            gameObject.SetActive(false);
+        }
+
     }
 
     public void ComboUpdate()
