@@ -22,7 +22,6 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-       // Debug.Log(jump_power);
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             gameObject.transform.position += new Vector3(move_speed, 0, 0);

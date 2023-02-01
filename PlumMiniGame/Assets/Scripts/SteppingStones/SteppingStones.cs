@@ -41,7 +41,7 @@ public class SteppingStones : MonoBehaviour
 
     IEnumerator GenerateBrick()
     {
-        var cool_down = new WaitForSeconds(1.1f);
+        var cool_down = new WaitForSeconds(1.5f);
         while (true)
         {
             yield return null;
@@ -60,7 +60,7 @@ public class SteppingStones : MonoBehaviour
 
     IEnumerator GenerateCloud()
     {
-        var cool_down = new WaitForSeconds(3.5f);
+        var cool_down = new WaitForSeconds(5f);
         while (true)
         {
             yield return null;
@@ -121,6 +121,7 @@ public class SteppingStones : MonoBehaviour
             GameObject new_rescue = Instantiate(rescue, position, Quaternion.identity);
             Destroy(new_rescue, 10);
         } //character
+
         step_is_generated = true;
         Destroy(new_brick, 10f);
     }

@@ -41,7 +41,6 @@ public class Background : MonoBehaviour
                         = new Vector3(0, background.transform.position.y + 1280, 0);
                     while (gameObject.transform.position.y - background.transform.position.y > 10)
                     {
-                        Debug.Log("СіПЌСп");
                         yield return null;
                     }
                     background.GetComponent<SpriteRenderer>().sprite = backgrounds[1];
