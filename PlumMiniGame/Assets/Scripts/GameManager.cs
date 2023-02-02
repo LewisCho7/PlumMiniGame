@@ -22,13 +22,12 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         Time.timeScale = 1;
-        survived_time = 0;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        survived_time = 0;
         game_continue = true;
         blur.SetActive(false);
         StartCoroutine(GameProcess());

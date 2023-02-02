@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Character : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class Character : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Debug.Log(position.y - transform.position.y);
         rb.velocity = Vector2.up * jump_power;
         if (Spring.spring)
         {
