@@ -7,6 +7,7 @@ public class Cloud : MonoBehaviour
     private CapsuleCollider2D col;
     private SpriteRenderer sr;
     private GameObject player;
+
     [SerializeField]
     private Sprite[] cloud_sprites;
 

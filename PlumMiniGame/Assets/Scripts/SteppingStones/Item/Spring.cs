@@ -20,7 +20,11 @@ public class Spring : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(gameObject);
-        Character.jump_power *= 1.8f;
+        if (!spring)
+        {
+            Character.jump_power *= 1.8f;
+        }
+
         spring = true;
     }
 }

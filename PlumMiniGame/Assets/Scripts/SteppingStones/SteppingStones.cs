@@ -34,18 +34,24 @@ public class SteppingStones : MonoBehaviour
         {
             StartCoroutine(CheckStepIsGenerated());
         }
+        else
+        {
+            StopCoroutine(CheckStepIsGenerated());
+        }
+
+
         if (!GameManager.game_continue)
             StopAllCoroutines();
     }
 
     IEnumerator GenerateBrick()
     {
-        var cool_down = new WaitForSeconds(1.5f);
+        var cool_down = new WaitForSeconds(0.5f);
         while (true)
         {
             yield return null;
             int chance = Random.Range(1, 11);
-            if(chance <= 4)
+            if(chance <= 2)
             {
                 GenerateBrickForSure();
             }
@@ -59,14 +65,15 @@ public class SteppingStones : MonoBehaviour
 
     IEnumerator GenerateCloud()
     {
-        var cool_down = new WaitForSeconds(5f);
+        var cool_down = new WaitForSeconds(3f);
         while (true)
         {
             yield return null;
-            int chance = Random.Range(1, 11);
-            if (chance <= 4)
+            var position
+                = new Vector3(Random.Range(-280, 280), main_camera.transform.position.y + 650, 0);
+            if (Random.Range(1, 11) <= 4)
             {
-                GameObject new_cloud = Instantiate(cloud);
+                GameObject new_cloud = Instantiate(cloud, position, Quaternion.identity);
                 cloud_is_generated = true;
                 Destroy(new_cloud, 10f);
             }
@@ -80,7 +87,7 @@ public class SteppingStones : MonoBehaviour
 
     IEnumerator CheckStepIsGenerated()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.6f);
         if (!cloud_is_generated && !step_is_generated)
         {
             GenerateBrickForSure();

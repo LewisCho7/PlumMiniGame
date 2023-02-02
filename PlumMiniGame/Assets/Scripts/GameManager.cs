@@ -21,12 +21,14 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Application.targetFrameRate = 60;
+        Time.timeScale = 1;
+        survived_time = 0;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        survived_time = 0;
+        
         game_continue = true;
         blur.SetActive(false);
         StartCoroutine(GameProcess());
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
         {
             StopCoroutine(GameProcess());
             StartCoroutine(GameOver());
+            Time.timeScale = 0;
         }
     }
 
@@ -49,18 +52,18 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
 
-/*            if (main_camera.transform.position.y - character.transform.position.y
+            if (main_camera.transform.position.y - character.transform.position.y
                 > 660)
             {
                 game_continue = false;
-            }*/
+            }
         }
     }
 
     IEnumerator GameOver()
     {
         yield return null;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
         SceneManager.LoadScene("Ending_Scene");
     }
 }

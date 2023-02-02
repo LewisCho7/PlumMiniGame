@@ -56,7 +56,7 @@ public class Stones : MonoBehaviour
     {
         var position = player.transform.position;
 
-        if(position.y - transform.position.y > 60)
+        if(position.y - transform.position.y >= 60)
         {
             col.isTrigger = false;
         }
