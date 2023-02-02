@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
     private GameObject main_camera;
+    private GameObject character;
+    private bool score_checked;
     // Start is called before the first frame update
     void Start()
     {
         main_camera = GameObject.Find("Main Camera");
-        gameObject.transform.position = main_camera.transform.position;
+        character = GameObject.Find("Character");
+        gameObject.transform.position
+            = new Vector3(main_camera.transform.position.x - 400, main_camera.transform.position.y + 100);
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector3(100, 0, 0);
     }
@@ -18,7 +22,10 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(character.transform.position.y > transform.position.y && score_checked)
+        {
+            Score.score += 15;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

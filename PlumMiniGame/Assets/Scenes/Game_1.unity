@@ -422,7 +422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 719865679}
-  - component: {fileID: 719865678}
+  - component: {fileID: 719865680}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -430,20 +430,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &719865678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 719865677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3418f30734f6d63478d960a9648e19cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bird: {fileID: 8230188843718421343, guid: fb53580cf6380614785d818770b7ce36, type: 3}
-  meteo: {fileID: 3139458828198424902, guid: 5e3c20ba67c8387458f78c185cb267d1, type: 3}
 --- !u!4 &719865679
 Transform:
   m_ObjectHideFlags: 0
@@ -459,6 +445,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &719865680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719865677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3418f30734f6d63478d960a9648e19cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bird: {fileID: 8230188843718421343, guid: fb53580cf6380614785d818770b7ce36, type: 3}
+  meteo: {fileID: 3139458828198424902, guid: 5e3c20ba67c8387458f78c185cb267d1, type: 3}
 --- !u!4 &741198597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8698386091533632088, guid: e3fe37c982444cc4c9bece7bd38d1771, type: 3}

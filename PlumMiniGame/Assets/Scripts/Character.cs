@@ -31,6 +31,13 @@ public class Character : MonoBehaviour
             gameObject.transform.position -= new Vector3(move_speed, 0, 0);
         }
 
+        Vector3 dir = Vector3.zero;
+        dir.x = Input.acceleration.x;
+        if (dir.sqrMagnitude > 1) dir.Normalize();
+        dir *= Time.deltaTime;
+        dir.y = rb.velocity.y;
+        rb.velocity = new Vector2(dir.x * move_speed, dir.y);
+
         if (is_shield)
         {
             shield_on_img.SetActive(true);

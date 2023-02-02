@@ -124,3 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956f0dfb0b262e84d9c727b6766190c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brick_sprites:
+  - {fileID: 21300000, guid: b625de9702cde95468dae45744efdd65, type: 3}
+  - {fileID: 21300000, guid: 92a5e790806b8b84aac07e97ef1feaf3, type: 3}

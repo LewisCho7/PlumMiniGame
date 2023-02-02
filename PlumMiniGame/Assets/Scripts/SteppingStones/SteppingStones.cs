@@ -45,7 +45,7 @@ public class SteppingStones : MonoBehaviour
         {
             yield return null;
             int chance = Random.Range(1, 11);
-            if(chance < 7)
+            if(chance <= 4)
             {
                 GenerateBrickForSure();
             }
@@ -64,7 +64,7 @@ public class SteppingStones : MonoBehaviour
         {
             yield return null;
             int chance = Random.Range(1, 11);
-            if (chance < 5)
+            if (chance <= 4)
             {
                 GameObject new_cloud = Instantiate(cloud);
                 cloud_is_generated = true;
@@ -98,6 +98,7 @@ public class SteppingStones : MonoBehaviour
             position.y += 60;
             GameObject new_shield = Instantiate(shield, position, Quaternion.identity);
             Destroy(new_shield, 10);
+            position.y -= 60;
         } //shield
 
         if (Random.Range(1, 11) <= 1)
@@ -105,6 +106,7 @@ public class SteppingStones : MonoBehaviour
             position.y += 50;
             GameObject new_spring = Instantiate(spring, position, Quaternion.identity);
             Destroy(new_spring, 10);
+            position.y -= 50;
         } //spring
 
         if (Random.Range(1, 11) < 4)
@@ -112,6 +114,7 @@ public class SteppingStones : MonoBehaviour
             position.y += 62;
             GameObject new_rescue = Instantiate(rescue, position, Quaternion.identity);
             Destroy(new_rescue, 10);
+            position.y -= 62;
         } //character
 
         step_is_generated = true;

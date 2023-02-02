@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3139458828198424902}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 342.67093, y: 161.55536, z: 12.734195}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -202,4 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd28b2b6f9e8c046be8d2cd3e1a15e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  main_camera: {fileID: 0}
+  meteo_sprite:
+  - {fileID: 21300000, guid: 87764c9b5641a474fa06c385bbf2cc77, type: 3}
+  - {fileID: 21300000, guid: 6641507ee567c54439dc7f179a99f4f7, type: 3}

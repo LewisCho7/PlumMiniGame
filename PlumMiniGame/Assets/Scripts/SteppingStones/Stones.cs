@@ -6,11 +6,26 @@ public class Stones : MonoBehaviour
 {
     private Collider2D col;
     private GameObject player;
+    private SpriteRenderer sr;
+    [SerializeField]
+    private Sprite[] brick_sprites;
     // Start is called before the first frame update
     void Start()
     {
         col = GetComponent<BoxCollider2D>();
+        sr = GetComponent<SpriteRenderer>();
+
         player = GameObject.Find("Character");
+
+        if(GameManager.survived_time < 20)
+        {
+            sr.sprite = brick_sprites[0];
+        }
+        else
+        {
+            sr.sprite = brick_sprites[1];
+        }
+
 
         if (GameManager.survived_time < 20)
         {   

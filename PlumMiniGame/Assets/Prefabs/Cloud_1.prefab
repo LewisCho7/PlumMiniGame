@@ -114,3 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e5bce04157cd5042b3e997f7467f748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloud_sprites:
+  - {fileID: 21300000, guid: 287d555ab694bfd4fadd6f556ce74747, type: 3}
+  - {fileID: 21300000, guid: 1e011244d9db49c47a7450fa2ea35cfe, type: 3}

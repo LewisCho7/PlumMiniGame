@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static bool hard_mode = false;
-    public static float survived_time;
     public static bool game_continue = true;
+
     public static int rescued_character = 0;
+
+    public static float survived_time;
     [SerializeField]
     private GameObject character;
     [SerializeField]

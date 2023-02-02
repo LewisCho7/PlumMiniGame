@@ -15,45 +15,41 @@ public class ObstacleGenerator : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+/*    void Update()
     {
-        if(!GameManager.game_continue) 
-            StopAllCoroutines();
-    }
+
+    }*/
 
     IEnumerator ObstacleGenerate()
     {
         var cool_down = new WaitForSeconds(2);
-        int chance = 0;
-        if(GameManager.survived_time > 41)
+        while (GameManager.game_continue)
         {
-            while (GameManager.game_continue)
+            yield return null;
+            if(GameManager.survived_time >= 61)
             {
-                yield return null;
-                 chance = Random.Range(1, 5);
-                if (chance == 1)
+                if (Random.Range(1, 5) == 1)
                 {
                     GenerateBird();
                 }
                 yield return cool_down;
-                if (chance == 1)
+                if (Random.Range(1, 5) == 1)
                 {
                     GenerateMeteo();
                 }
                 yield return cool_down;
             }
         }
-
     }
     private void GenerateBird()
     {
         GameObject new_bird = Instantiate(bird);
-        Destroy(new_bird, 2f);
+        Destroy(new_bird, 10);
     }
 
     private void GenerateMeteo()
     {
         GameObject new_meteo = Instantiate(meteo);
-        Destroy(new_meteo, 5f);
+        Destroy(new_meteo, 10);
     }
 }
