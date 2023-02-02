@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     private GameObject reverse;
     void Start()
     {
-        hard_mode = false;
+        hard_mode = true;
         is_rest = true;
 
         if (hard_mode)

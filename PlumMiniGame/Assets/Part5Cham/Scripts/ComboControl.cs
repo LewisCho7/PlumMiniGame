@@ -26,6 +26,11 @@ public class ComboControl : MonoBehaviour
 
     public void ComboUpdate()
     {
+        if(combo == 6)
+        {
+            combo = 1;
+        }
+
         if (combo % 5 == 0)
         {
             if (GameManager.hard_mode)
