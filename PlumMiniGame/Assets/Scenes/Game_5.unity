@@ -2199,7 +2199,7 @@ GameObject:
   - component: {fileID: 1271219982}
   - component: {fileID: 1271219981}
   m_Layer: 0
-  m_Name: "\uB9AC\uBC84\uC2A4\uB77C\uC6B4\uB4DC"
+  m_Name: Reverse_round
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2810,6 +2810,7 @@ MonoBehaviour:
   Heart: {fileID: 428050120}
   Combo: {fileID: 1117953804}
   Hand: {fileID: 19262678}
+  reverse: {fileID: 1271219980}
 --- !u!4 &1640295591
 Transform:
   m_ObjectHideFlags: 0

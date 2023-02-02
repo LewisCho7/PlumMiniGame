@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     public static bool is_rest;
     public static bool game_on_process;
-
+    public static bool reverse_round;
 
     [SerializeField]
     private GameObject OX;
@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     private GameObject Combo;
     [SerializeField]
     private GameObject Hand;
+    [SerializeField]
+    private GameObject reverse;
     void Start()
     {
         hard_mode = false;
@@ -83,6 +85,15 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(2);
 
                 is_rest = false;
+                if (round > 10 && Random.Range(1, 10) <= 3)
+                {
+                    reverse_round = true;
+                }
+                else
+                {
+                    reverse_round = false;
+                }
+                reverse.SetActive(reverse_round);
             }
             else
             {
@@ -129,11 +140,18 @@ public class GameManager : MonoBehaviour
 
     private bool CheckAns()
     {
-        if (Mathf.Abs(HandControl.hand_dir - Pandas.pandas_dir) == 2)
+        if (!reverse_round && Mathf.Abs(HandControl.hand_dir - Pandas.pandas_dir) == 2) //ordinary round
         {
             return true;
         }
-        else return false;
+        else if(reverse_round && HandControl.hand_dir == Pandas.pandas_dir) //reverse round
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void Life(bool check)
