@@ -21,6 +21,9 @@ public class Panda_UIManager : MonoBehaviour
     // RoundUI
     [SerializeField] private GameObject RoundPanel;
 
+    // ScorePanel
+    [SerializeField] private GameObject ScorePanel;
+
     // 정답 고르는 3초를 위한 시간 변수
     public static float time = 0;
     // 입력된 정답을 저장할 변수
@@ -105,6 +108,11 @@ public class Panda_UIManager : MonoBehaviour
             
             UIpanel.GetComponent<Image>().color = new Color(0, 0, 0, 0.7f);
             img.sprite = basicSprites[(int) Sprites.gameover];
+            yield return new WaitForSeconds(2);
+
+            UIpanel.SetActive(false);
+            ScorePanel.SetActive(true);
+            ScorePanel.transform.Find("ScoreBoard").Find("ScoreText").GetComponent<TextMeshProUGUI>().text = Panda_GameManager.score.ToString();
         }
     }
 
