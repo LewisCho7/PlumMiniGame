@@ -25,7 +25,7 @@ public class Ski_PlayerCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Line"))
         {
             Ski_GameManager.instance.GameOver();
-            Ski_SceneManager.instance.Invoke("returnScene", 2);
+            //Ski_SceneManager.instance.Invoke("returnScene", 2);
 
         }
         if (collision.gameObject.CompareTag("Barrier") && Ski_GameManager.instance.hasItem)
@@ -37,12 +37,12 @@ public class Ski_PlayerCollision : MonoBehaviour
         else if (collision.gameObject.CompareTag("Barrier"))
         {
             Ski_GameManager.instance.GameOver();
-            Ski_SceneManager.instance.Invoke("returnScene", 2);
+            //Ski_SceneManager.instance.Invoke("returnScene", 2);
         }
         if (collision.gameObject.CompareTag("Rock"))
         {
             Ski_GameManager.instance.GameOver();
-            Ski_SceneManager.instance.Invoke("returnScene", 2);
+            //Ski_SceneManager.instance.Invoke("returnScene", 2);
         }
     }
 

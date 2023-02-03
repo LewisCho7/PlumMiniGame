@@ -14,6 +14,9 @@ public class Ski_GameManager : MonoBehaviour
 
     public GameObject[] buttons;
 
+    public GameObject gameOverPanel;
+
+
     private Ski_ScoreText scoreText;
 
     public bool isHardMode;
@@ -118,6 +121,8 @@ public class Ski_GameManager : MonoBehaviour
     {
         isGameOver = true;
         gameSpeed = 0;
+        gameOverPanel.SetActive(true);
+
     }
 
     private IEnumerator init()
@@ -128,6 +133,7 @@ public class Ski_GameManager : MonoBehaviour
         Score = 0;
         Rescuednum = 0;
         hasItem = false;
+        gameOverPanel.SetActive(false);
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].SetActive(false);
@@ -148,12 +154,6 @@ public class Ski_GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void calculateSpeed()
-    {
-
-
-
-    }
 
     public void rescue()
     {
