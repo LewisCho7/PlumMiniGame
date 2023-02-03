@@ -16,7 +16,6 @@ public class Background : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-
         StartCoroutine(BackgroundControl());
     }
 

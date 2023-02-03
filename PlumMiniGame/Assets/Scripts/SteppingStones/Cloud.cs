@@ -7,6 +7,7 @@ public class Cloud : MonoBehaviour
     private CapsuleCollider2D col;
     private SpriteRenderer sr;
     private GameObject player;
+    private bool combo;
 
     [SerializeField]
     private Sprite[] cloud_sprites;
@@ -14,6 +15,8 @@ public class Cloud : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        combo = true;
+
         col = GetComponent<CapsuleCollider2D>();
         sr = GetComponent<SpriteRenderer>();
         player = GameObject.Find("Character");
@@ -48,5 +51,20 @@ public class Cloud : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (combo)
+        {
+            combo = false;
+            StartCoroutine(queueControl());
+        }
+
+    }
+
+    IEnumerator queueControl()
+    {
+        Score.combo.Enqueue(gameObject);
+        yield return new WaitForSeconds(5);
+        if(Score.combo.Count > 0)
+            Score.combo.Dequeue();
     }
 }

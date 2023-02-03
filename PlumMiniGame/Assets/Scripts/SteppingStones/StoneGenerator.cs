@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SteppingStones : MonoBehaviour
+public class StoneGenerator : MonoBehaviour
 {
     [SerializeField]
     private GameObject main_camera;
@@ -18,8 +18,7 @@ public class SteppingStones : MonoBehaviour
     [SerializeField]
     private GameObject rescue;
 
-    private bool step_is_generated;
-    private bool cloud_is_generated;
+    private List<GameObject> list = new List<GameObject>();
 
     [SerializeField]
     private float cool_down;
@@ -33,10 +32,21 @@ public class SteppingStones : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!step_is_generated)
+        var position = main_camera.transform.position;
+        
+        if(list.Count > 3)
         {
-            StartCoroutine(CheckStepIsGenerated());
+            list.RemoveAt(0);
         }
+
+        if(list.Count > 0)
+        {
+            if (list[list.Count - 1].transform.position.y - position.y <= 480)
+            {
+                GenerateBrickForSure();
+            }
+        }
+
 
         if (!GameManager.game_continue)
             StopAllCoroutines();
@@ -51,13 +61,8 @@ public class SteppingStones : MonoBehaviour
             {
                 GenerateBrickForSure();
                 yield return new WaitForSeconds(cool_down);
-                step_is_generated = false;
+
                 yield return new WaitForSeconds(2.5f - cool_down);
-            }
-            else
-            {
-                step_is_generated = false;
-                yield return new WaitForSeconds(2.5f);
             }
         }
     }
@@ -72,27 +77,12 @@ public class SteppingStones : MonoBehaviour
             if (Random.Range(1, 101) <= 40)
             {
                 GameObject new_cloud = Instantiate(cloud, position, Quaternion.identity);
-                cloud_is_generated = true;
+                list.Add(new_cloud);
                 Destroy(new_cloud, 10f);
 
                 yield return new WaitForSeconds(cool_down);
-                cloud_is_generated = false;
                 yield return new WaitForSeconds(2.5f - cool_down);
             }
-            else
-            {
-                cloud_is_generated = false;
-                yield return new WaitForSeconds(2.5f);
-            }
-        }
-    }
-
-    IEnumerator CheckStepIsGenerated()
-    {
-        yield return new WaitForSeconds(cool_down);
-        if (!cloud_is_generated && !step_is_generated)
-        {
-            GenerateBrickForSure();
         }
     }
 
@@ -101,6 +91,7 @@ public class SteppingStones : MonoBehaviour
         var position 
             = new Vector3(Random.Range(-280, 280), main_camera.transform.position.y + 650, 0);
         GameObject new_brick = Instantiate(brick, position, Quaternion.identity);
+        list.Add(new_brick);
 
         if (Random.Range(1, 11) <= 1)
         {
@@ -126,7 +117,6 @@ public class SteppingStones : MonoBehaviour
             position.y -= 62;
         } //character
 
-        step_is_generated = true;
-        Destroy(new_brick, 10f);
+        Destroy(new_brick, 15f);
     }
 }

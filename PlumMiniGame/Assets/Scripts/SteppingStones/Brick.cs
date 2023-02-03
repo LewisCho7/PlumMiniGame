@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 
-public class Stones : MonoBehaviour
+public class Brick : MonoBehaviour
 {
+    private bool combo;
+
     private Collider2D col;
     private GameObject player;
     private SpriteRenderer sr;
@@ -12,6 +15,7 @@ public class Stones : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        combo = true;
         col = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
 
@@ -56,7 +60,7 @@ public class Stones : MonoBehaviour
     {
         var position = player.transform.position;
 
-        if(position.y - transform.position.y >= 60)
+        if(position.y - transform.position.y >= 65)
         {
             col.isTrigger = false;
         }
@@ -64,5 +68,22 @@ public class Stones : MonoBehaviour
         {
             col.isTrigger = true;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (combo)
+        {
+            combo = false;
+            StartCoroutine(queueControl());
+        }
+    }
+
+    IEnumerator queueControl()
+    {
+        Score.combo.Enqueue(gameObject);
+        yield return new WaitForSeconds(5);
+        if (Score.combo.Count > 0)
+            Score.combo.Dequeue();
     }
 }

@@ -26,7 +26,7 @@ public class ObstacleGenerator : MonoBehaviour
         while (GameManager.game_continue)
         {
             yield return null;
-            if(GameManager.survived_time >= 61)
+            if(GameManager.survived_time >= 20)
             {
                 if (Random.Range(1, 5) == 1)
                 {
