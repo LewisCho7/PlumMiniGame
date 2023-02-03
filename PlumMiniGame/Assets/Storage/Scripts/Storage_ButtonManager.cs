@@ -6,6 +6,7 @@ public class Storage_ButtonManager : MonoBehaviour
 {
     public GameObject storage;
     public GameObject list;
+    public GameObject selectButton;
 
     private bool isList;
 
@@ -18,6 +19,7 @@ public class Storage_ButtonManager : MonoBehaviour
         //list 종류에 따라서 바꾸기
         storage.SetActive(true);
         list.SetActive(false);
+        selectButton.SetActive(false);
         isList = false;
     }
 
@@ -27,6 +29,8 @@ public class Storage_ButtonManager : MonoBehaviour
         {
             storage.SetActive(false);
             list.SetActive(true);
+            selectButton.SetActive(false);
+            isList = true;
         }
         else
         {
