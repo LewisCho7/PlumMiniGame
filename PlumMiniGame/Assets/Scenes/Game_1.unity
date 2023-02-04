@@ -1719,10 +1719,10 @@ MonoBehaviour:
   main_camera: {fileID: 2045287279}
   brick: {fileID: 8698386091533632090, guid: e3fe37c982444cc4c9bece7bd38d1771, type: 3}
   cloud: {fileID: 2980113295068456371, guid: fd241ccc7202e2e44acfea3a046ffa72, type: 3}
+  throne_brick: {fileID: 5439964283799801680, guid: f3cef8a7022199c438eeb4fca7d8ed06, type: 3}
   spring: {fileID: 4251080277642525905, guid: d4237de9679c48247a7dfd46890f8500, type: 3}
   shield: {fileID: 6005728579285862942, guid: 07c5e1df6e9b73e4a89b8143a46d64aa, type: 3}
   rescue: {fileID: 2575677661500649567, guid: ac48ec589bcc1154e9a30bd8eddee545, type: 3}
-  cool_down: 0.7
 --- !u!4 &1817269128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8698386091533632088, guid: e3fe37c982444cc4c9bece7bd38d1771, type: 3}
@@ -1945,7 +1945,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014403208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -422, z: 0}
+  m_LocalPosition: {x: 18, y: -436, z: 0}
   m_LocalScale: {x: 0.048828125, y: 0.048828125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1,7 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UIElements;
 
+
+public struct CoolDown
+{
+    public float normal { get; set; }
+    public float hard_brick { get; set; }
+    public float hard_cloud { get; set; }
+    public float hard_throne { get; set; }
+}
 public class StoneGenerator : MonoBehaviour
 {
     [SerializeField]
@@ -11,29 +21,38 @@ public class StoneGenerator : MonoBehaviour
     [SerializeField]
     private GameObject cloud;
     [SerializeField]
+    private GameObject throne_brick;
+    [SerializeField]
     private GameObject spring;
     [SerializeField]
     private GameObject shield;
-
     [SerializeField]
     private GameObject rescue;
 
     private List<GameObject> list = new List<GameObject>();
+    private CoolDown cool_down = new CoolDown();
 
-    [SerializeField]
-    private float cool_down;
     // Start is called before the first frame update
     void Start()
     {
+        cool_down.normal = 2.5f;
+        cool_down.hard_brick = 3.5f;
+        cool_down.hard_cloud = 2.5f;
+        cool_down.hard_throne = 3;
+
         StartCoroutine(GenerateBrick());
         StartCoroutine(GenerateCloud());
+
+        if(GameManager.hard_mode)
+        {
+            StartCoroutine(GenerateThroneBrick());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         var position = main_camera.transform.position;
-        
         if(list.Count > 3)
         {
             list.RemoveAt(0);
@@ -41,12 +60,11 @@ public class StoneGenerator : MonoBehaviour
 
         if(list.Count > 0)
         {
-            if (list[list.Count - 1].transform.position.y - position.y <= 480)
+            if (list[^1].transform.position.y - position.y <= 480)
             {
                 GenerateBrickForSure();
             }
         }
-
 
         if (!GameManager.game_continue)
             StopAllCoroutines();
@@ -60,9 +78,14 @@ public class StoneGenerator : MonoBehaviour
             if(Random.Range(1, 101) <= 60)
             {
                 GenerateBrickForSure();
-                yield return new WaitForSeconds(cool_down);
-
-                yield return new WaitForSeconds(2.5f - cool_down);
+                if (GameManager.hard_mode)
+                {
+                    yield return new WaitForSeconds(cool_down.hard_brick);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(cool_down.normal);
+                }
             }
         }
     }
@@ -80,8 +103,14 @@ public class StoneGenerator : MonoBehaviour
                 list.Add(new_cloud);
                 Destroy(new_cloud, 10f);
 
-                yield return new WaitForSeconds(cool_down);
-                yield return new WaitForSeconds(2.5f - cool_down);
+                if (GameManager.hard_mode)
+                {
+                    yield return new WaitForSeconds(cool_down.hard_cloud);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(cool_down.normal);
+                }
             }
         }
     }
@@ -118,5 +147,22 @@ public class StoneGenerator : MonoBehaviour
         } //character
 
         Destroy(new_brick, 15f);
+    }
+
+    IEnumerator GenerateThroneBrick()
+    {
+        while (GameManager.game_continue)
+        {
+            yield return null;
+            if (Random.Range(1,101) <= 40)
+            {
+                var position 
+                    = new Vector3(Random.Range(-280, 280), main_camera.transform.position.y + 650, 0);
+                var new_throne_brick = Instantiate(throne_brick, position, Quaternion.identity);
+                list.Add(new_throne_brick);
+                Destroy(new_throne_brick, 15f);
+            }
+            yield return new WaitForSeconds(cool_down.hard_throne);
+        }
     }
 }

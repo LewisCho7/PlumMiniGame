@@ -51,7 +51,7 @@ public class Character : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(position.y - transform.position.y);
+        Debug.Log(collision.transform.position.y - transform.position.y);
         rb.velocity = Vector2.up * jump_power;
         if (Spring.spring)
         {

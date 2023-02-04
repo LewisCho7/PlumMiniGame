@@ -7,21 +7,21 @@ public class Score : MonoBehaviour
 {
     public static int score;
 
-    public static Queue<GameObject> combo = new Queue<GameObject>();
+    public static Queue<GameObject> queue = new Queue<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
         StartCoroutine(ScoreUpdateByTime());
-        combo.Clear();
+        queue.Clear();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (combo.Count >= 5)
+        if (queue.Count >= 5)
         {
-            combo.Clear();
+            queue.Clear();
             score += 15;
         }
         GetComponent<TextMeshProUGUI>().text = score.ToString();

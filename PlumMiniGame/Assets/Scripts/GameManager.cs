@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static bool hard_mode = false;
-    public static bool game_continue = true;
+    public static bool hard_mode;
+    public static bool game_continue;
 
     public static int rescued_character = 0;
 
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hard_mode = false;
         survived_time = 0;
         game_continue = true;
         blur.SetActive(false);

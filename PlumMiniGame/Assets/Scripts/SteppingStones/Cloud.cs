@@ -35,7 +35,7 @@ public class Cloud : MonoBehaviour
     {
         var position = player.transform.position;
 
-        if (position.y - transform.position.y > 60)
+        if (position.y - transform.position.y > 65)
         {
             col.isTrigger = false;
         }
@@ -62,9 +62,9 @@ public class Cloud : MonoBehaviour
 
     IEnumerator queueControl()
     {
-        Score.combo.Enqueue(gameObject);
+        Score.queue.Enqueue(gameObject);
         yield return new WaitForSeconds(5);
-        if(Score.combo.Count > 0)
-            Score.combo.Dequeue();
+        if(Score.queue.Count > 0)
+            Score.queue.Dequeue();
     }
 }

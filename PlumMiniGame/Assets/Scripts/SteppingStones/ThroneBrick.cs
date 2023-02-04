@@ -3,37 +3,22 @@ using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 
-public class Brick : MonoBehaviour
+public class ThroneBrick : MonoBehaviour
 {
-    private bool combo;
-
-    private Collider2D col;
     private GameObject player;
-    private SpriteRenderer sr;
-    [SerializeField]
-    private Sprite[] brick_sprites;
+    private EdgeCollider2D col;
+
+    private bool combo;
     // Start is called before the first frame update
     void Start()
     {
-        combo = true;
-        col = GetComponent<BoxCollider2D>();
-        sr = GetComponent<SpriteRenderer>();
-
+        combo = false;
         player = GameObject.Find("Character");
-
-        if(GameManager.survived_time < 20)
-        {
-            sr.sprite = brick_sprites[0];
-        }
-        else
-        {
-            sr.sprite = brick_sprites[1];
-        }
-
+        col = GetComponent<EdgeCollider2D>();
 
         if (GameManager.survived_time < 20)
-        {   
-            if(Random.Range(1,11) <= 4)
+        {
+            if (Random.Range(1, 11) <= 6)
             {
                 gameObject.transform.localScale = new Vector3(0.75f, 0.625f, 1);
             }
@@ -44,7 +29,7 @@ public class Brick : MonoBehaviour
         }
         else
         {
-            if(Random.Range(1,11) <= 2)
+            if (Random.Range(1, 11) <= 3)
             {
                 gameObject.transform.localScale = new Vector3(1, 0.625f, 1);
             }
@@ -59,7 +44,8 @@ public class Brick : MonoBehaviour
     void Update()
     {
         var position = player.transform.position;
-        if(position.y - transform.position.y > 65)
+
+        if (position.y - transform.position.y >= 50)
         {
             col.isTrigger = false;
         }
@@ -71,6 +57,19 @@ public class Brick : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        var position = player.transform.position;
+        if(position.y - transform.position.y > 70)
+        {
+            if (!Character.is_shield)
+            {
+                GameManager.game_continue = false;
+            }
+            else
+            {
+                Character.is_shield = false;
+            }
+        }
+
         if (combo)
         {
             combo = false;
