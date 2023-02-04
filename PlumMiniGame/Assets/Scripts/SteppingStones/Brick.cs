@@ -30,7 +30,6 @@ public class Brick : MonoBehaviour
             sr.sprite = brick_sprites[1];
         }
 
-
         if (GameManager.survived_time < 20)
         {   
             if(Random.Range(1,11) <= 4)
@@ -74,15 +73,25 @@ public class Brick : MonoBehaviour
         if (combo)
         {
             combo = false;
-            StartCoroutine(queueControl());
+            StartCoroutine(QueueControl());
         }
     }
 
-    IEnumerator queueControl()
+    IEnumerator QueueControl()
     {
         Score.queue.Enqueue(gameObject);
         yield return new WaitForSeconds(5);
         if (Score.queue.Count > 0)
-            Score.queue.Dequeue();
+        {
+            try
+            {
+                Score.queue.Dequeue();
+                throw new MissingReferenceException();
+            }
+            catch (MissingReferenceException)
+            {
+
+            }
+        }
     }
 }

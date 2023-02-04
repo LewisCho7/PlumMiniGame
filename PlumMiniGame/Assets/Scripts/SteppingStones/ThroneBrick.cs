@@ -20,22 +20,22 @@ public class ThroneBrick : MonoBehaviour
         {
             if (Random.Range(1, 11) <= 6)
             {
-                gameObject.transform.localScale = new Vector3(0.75f, 0.625f, 1);
+                gameObject.transform.localScale = new Vector3(0.75f, 1.1424f, 1);
             }
             else
             {
-                gameObject.transform.localScale = new Vector3(1, 0.625f, 1);
+                gameObject.transform.localScale = new Vector3(1, 1.1424f, 1);
             }
         }
         else
         {
             if (Random.Range(1, 11) <= 3)
             {
-                gameObject.transform.localScale = new Vector3(1, 0.625f, 1);
+                gameObject.transform.localScale = new Vector3(1, 1.1424f, 1);
             }
             else
             {
-                gameObject.transform.localScale = new Vector3(0.75f, 0.625f, 1);
+                gameObject.transform.localScale = new Vector3(0.75f, 1.1424f, 1);
             }
         }
     }

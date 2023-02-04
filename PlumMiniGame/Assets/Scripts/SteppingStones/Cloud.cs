@@ -21,14 +21,14 @@ public class Cloud : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         player = GameObject.Find("Character");
 
-        if (GameManager.survived_time < 20)
+/*        if (GameManager.survived_time < 20)
         {
             sr.sprite = cloud_sprites[0];
         }
         else
         {
             sr.sprite = cloud_sprites[1];
-        }
+        }*/
     }
 
     void Update()
@@ -55,16 +55,26 @@ public class Cloud : MonoBehaviour
         if (combo)
         {
             combo = false;
-            StartCoroutine(queueControl());
+            StartCoroutine(QueueControl());
         }
 
     }
 
-    IEnumerator queueControl()
+    IEnumerator QueueControl()
     {
         Score.queue.Enqueue(gameObject);
         yield return new WaitForSeconds(5);
         if(Score.queue.Count > 0)
-            Score.queue.Dequeue();
+        {
+            try
+            {
+                Score.queue.Dequeue();
+                throw new MissingReferenceException();
+            }
+            catch (MissingReferenceException)
+            {
+
+            }
+        }
     }
 }

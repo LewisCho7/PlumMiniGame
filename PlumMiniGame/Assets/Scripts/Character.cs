@@ -18,6 +18,10 @@ public class Character : MonoBehaviour
     {
         jump_power = 800;
         is_shield = false;
+        if(gameObject.name == "shield")
+        {
+            gameObject.SetActive(false);
+        }
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -51,7 +55,7 @@ public class Character : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.transform.position.y - transform.position.y);
+        //Debug.Log(collision.transform.position.y - transform.position.y);
         rb.velocity = Vector2.up * jump_power;
         if (Spring.spring)
         {

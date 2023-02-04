@@ -75,7 +75,7 @@ public class StoneGenerator : MonoBehaviour
         while (true)
         {
             yield return null;
-            if(Random.Range(1, 101) <= 60)
+            if(Random.Range(1, 101) <= 45)
             {
                 GenerateBrickForSure();
                 if (GameManager.hard_mode)

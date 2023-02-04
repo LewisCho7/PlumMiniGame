@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hard_mode = false;
+        hard_mode = true;
         survived_time = 0;
         game_continue = true;
         blur.SetActive(false);
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         survived_time += Time.deltaTime;
+        Debug.Log(survived_time);
         if (!game_continue)
         {
             StopCoroutine(GameProcess());
