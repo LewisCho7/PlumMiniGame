@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f6f58874ef5499408ca43ccdf95c5a0
+guid: ba80f37ec61c13145af65d2da92e4c13
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Coin
+      name: Book
       rect:
         serializedVersion: 2
-        x: 340
-        y: 1172
-        width: 280
-        height: 91
+        x: 608
+        y: 284
+        width: 99
+        height: 97
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,92 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1cd5fc4b5d31704abfd422292472368
-      internalID: -1763864417
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Game
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 0
-        width: 285
-        height: 107
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 10d10764e113e0244b65ed8dd01a0215
-      internalID: 583031530
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edit
-      rect:
-        serializedVersion: 2
-        x: 613
-        y: 194
-        width: 93
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a93654609ea54d43a08d36b7aa8cf44
-      internalID: 1839904929
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shop
-      rect:
-        serializedVersion: 2
-        x: 615
-        y: 102
-        width: 91
-        height: 89
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed9030b0813a6e4478fb876f2591b14d
-      internalID: 1548846495
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: More
-      rect:
-        serializedVersion: 2
-        x: 616
-        y: 7
-        width: 86
-        height: 91
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bef7b2c3fb981b3488546677603a9a76
-      internalID: -927046338
+      spriteID: 44de0d78b85e3ca47afccc83d4cdd90e
+      internalID: -1371426423
       vertices: []
       indices: 
       edges: []
@@ -244,11 +160,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Game: 583031530
-      More: -927046338
-      edit: 1839904929
-      Coin: -1763864417
-      Shop: 1548846495
+      Book: -1371426423
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
