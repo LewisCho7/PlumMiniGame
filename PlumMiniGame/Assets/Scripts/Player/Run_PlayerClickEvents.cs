@@ -41,6 +41,9 @@ public class Run_PlayerClickEvents : MonoBehaviour
     // 슬라이딩
     public void Slide() {
 
+        // 애니메이션 컴포넌트 비활성화
+        GetComponent<Animator>().enabled = false;
+
         // 슬라이딩 스킨은 정방향이므로 방향 변경
         transform.localScale = new Vector3(1, 1, 1);
 
@@ -56,6 +59,9 @@ public class Run_PlayerClickEvents : MonoBehaviour
     // 슬라이딩 버튼에서 손 땠을 때 실행하는 함수
     public void SlideOff() {
 
+        // 애니메이션 컴포넌트 활성화
+        GetComponent<Animator>().enabled = true;
+
         // 기본 스킨이 역방향이므로 방향 변경
         transform.localScale = new Vector3(-1, 1, 1);
 
@@ -68,8 +74,9 @@ public class Run_PlayerClickEvents : MonoBehaviour
     // 구출 캐릭터 구출
     public void Rescue() {
 
-        // 버튼이 활성화 상태일때만 실행
         if (!isRescueAvail) return;
+
+        isRescueAvail = false;
 
         // 점수 UI 업데이트 및 fadeout 효과 적용
         Run_GameManager.score += 100;

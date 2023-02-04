@@ -24,10 +24,19 @@ public class Run_Player : MonoBehaviour
         gameObject.AddComponent<PolygonCollider2D>();
     }
 
+    private bool flag = true;
     void Update() {
         if (Life <= 0) isAlive = false;
 
         if (Run_GameManager.time > 0) {
+
+            // 게임 시작하면 애니메이션 시작
+            // 한번만 실행하기 위해 flag 변수 사용
+            if (flag) {
+                GetComponent<Animator>().enabled = true;
+                flag = false;
+            }
+
             Life -= Time.deltaTime * 2;
         }
     }

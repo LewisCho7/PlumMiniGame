@@ -39,14 +39,13 @@ public class Run_CharacterShooter : MonoBehaviour
         GameObject newObj;  // 새로 생성될 오브젝트를 저장하는 변수
 
         // 구출 캐릭터 생성
-        newObj = Instantiate(characterSprites[0], transform.position, Quaternion.identity);
+        newObj = Instantiate(characterSprites[Random.Range(0, 3)], transform.position, Quaternion.identity);
 
         // 시간 흐름에 따른 속도 변화 반영
         int extraSpeed = (int)Run_GameManager.time / 5 * 100;
         extraSpeed = extraSpeed > 500 ? 500 : extraSpeed;
 
         newObj.GetComponent<Rigidbody2D>().velocity = new Vector2(-(500 + extraSpeed), 0);
-        Destroy(newObj, 5f);    // 5초 후 삭제
     }
 
     private int Choose (float[] probs) {
