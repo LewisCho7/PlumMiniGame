@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         survived_time += Time.deltaTime;
-        Debug.Log(survived_time);
+        //Debug.Log(survived_time);
         if (!game_continue)
         {
             StopCoroutine(GameProcess());

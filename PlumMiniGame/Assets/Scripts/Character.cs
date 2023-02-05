@@ -22,7 +22,11 @@ public class Character : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        rb = GetComponent<Rigidbody2D>();
+        else
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+        
     }
 
     void Update()
@@ -41,7 +45,7 @@ public class Character : MonoBehaviour
         if (dir.sqrMagnitude > 1) dir.Normalize();
         dir *= Time.deltaTime;
         dir.y = rb.velocity.y;
-        rb.velocity = new Vector2(dir.x * move_speed, dir.y);
+        rb.velocity = new Vector2(dir.x * move_speed, dir.y); //x-axis movement by tilt
 
         if (is_shield)
         {
