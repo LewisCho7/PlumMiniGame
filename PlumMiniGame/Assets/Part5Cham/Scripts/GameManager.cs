@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     private GameObject Hand;
     [SerializeField]
     private GameObject reverse;
+    [SerializeField]
+    private GameObject panda;
     void Start()
     {
         hard_mode = true;
@@ -114,9 +116,12 @@ public class GameManager : MonoBehaviour
                         ComboControl.combo = 0;
                     }
                     Life(check);
-                    OX.GetComponent<OX>().Popresult(check);
+                    OX.GetComponent<OX>().popresult(check);
 
                     yield return new WaitForSeconds(1);
+
+                    panda.GetComponent<Pandas>().HitPanda(check);
+
                     is_rest = true;
                     timer = 0;
                 }
@@ -124,7 +129,7 @@ public class GameManager : MonoBehaviour
                 if (timer > round_time) //no behavior
                 {
                     Life(false);
-                    OX.GetComponent<OX>().Popresult(false);
+                    OX.GetComponent<OX>().popresult(false);
                     is_rest = true;
                     timer = 0;  
                 }

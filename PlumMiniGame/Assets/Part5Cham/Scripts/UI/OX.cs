@@ -15,13 +15,13 @@ public class OX : MonoBehaviour
         X.SetActive(false);
     }
 
-    public void Popresult(bool check)
+    public void popresult(bool check)
     {
-        StartCoroutine(popresult(check));
+        StartCoroutine(Popresult(check));
         //StopCoroutine("popresult");
     }
 
-    private IEnumerator popresult(bool check)
+    private IEnumerator Popresult(bool check)
     {
         setResultUI(check);
         yield return new WaitForSeconds(1);
