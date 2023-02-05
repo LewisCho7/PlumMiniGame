@@ -23,10 +23,5 @@ public class LeftTimeBar : MonoBehaviour
             timer = 0;
             left_time_slider.value = (GameManager.timer / GameManager.round_time);
         }
-        else
-        {
-            timer += Time.deltaTime;
-            left_time_slider.value = timer / GameManager.rest_time;
-        }
     }
 }

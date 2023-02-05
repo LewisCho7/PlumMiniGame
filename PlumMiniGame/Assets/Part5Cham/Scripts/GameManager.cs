@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
                     yield return new WaitForSeconds(1);
 
                     panda.GetComponent<Pandas>().HitPanda(check);
-
+                    yield return new WaitForSeconds(1);
                     is_rest = true;
                     timer = 0;
                 }
