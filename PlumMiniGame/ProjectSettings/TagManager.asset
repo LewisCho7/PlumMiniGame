@@ -4,11 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Rescue
-  - Item
-  - Barrier
-  - Line
-  - Rock
+  - Obstacle
+  - Character
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -16,9 +14,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Item
-  - Barrier
-  - Line
+  - 
+  - 
+  - 
   - 
   - 
   - 
