@@ -8,11 +8,9 @@ public class LeftTimeBar : MonoBehaviour
 {
     [SerializeField]
     private Slider left_time_slider;
-    private float timer;
     // Start is called before the first frame update
     void Start()
     {
-        timer = 0;
     }
 
     // Update is called once per frame
@@ -20,7 +18,6 @@ public class LeftTimeBar : MonoBehaviour
     {
         if (!GameManager.is_rest)
         {
-            timer = 0;
             left_time_slider.value = (GameManager.timer / GameManager.round_time);
         }
     }
