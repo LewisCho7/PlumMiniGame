@@ -1024,7 +1024,7 @@ MonoBehaviour:
   - {fileID: 1984488975}
   - {fileID: 1409184510}
   gameOverPanel: {fileID: 304890331}
-  isHardMode: 0
+  isHardMode: 1
   timer: 0
   gameSpeed: 0
   isGameOver: 0

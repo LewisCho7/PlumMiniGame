@@ -8,6 +8,7 @@ public class SkiPlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float dx;
     private float moveSpeed;
+    private bool isEditor;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -15,14 +16,22 @@ public class SkiPlayerMovement : MonoBehaviour
     private void Start()
     {
         StartCoroutine(IE_StartMovement());
+#if UNITY_EDITOR
+        isEditor = true;
+#else   
+        isEditor = false;
+#endif
     }
     private void Update()
     {
         if (!Ski_GameManager.instance.isGameOver)
         {
-            //dx = Input.GetAxisRaw("Horizontal") * moveSpeed;
-            dx = Input.acceleration.x * moveSpeed;
-
+            if (isEditor)
+            {
+                dx = Input.GetAxisRaw("Horizontal") * moveSpeed;
+            }
+            else
+                dx = Input.acceleration.x * moveSpeed;
         }
         else
         {
