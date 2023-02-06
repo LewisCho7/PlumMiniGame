@@ -35,8 +35,11 @@ public class GameManager : MonoBehaviour
     private GameObject panda;
     void Start()
     {
+        reverse.SetActive(false);
+
         hard_mode = true;
         is_rest = true;
+        score = 0;
 
         if (hard_mode)
         {
@@ -124,6 +127,11 @@ public class GameManager : MonoBehaviour
                     yield return new WaitForSeconds(1);
                     is_rest = true;
                     timer = 0;
+
+                    if (check)
+                    {
+                        score += 30;
+                    }
                 }
 
                 if (timer > round_time) //no behavior
