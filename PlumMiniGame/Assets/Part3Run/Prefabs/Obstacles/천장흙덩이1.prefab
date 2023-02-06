@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 952217174553171232}
   - component: {fileID: 952217174553171233}
-  - component: {fileID: 2785739223440388909}
   - component: {fileID: 337587696058353762}
+  - component: {fileID: 234764928857093394}
   m_Layer: 0
   m_Name: "\uCC9C\uC7A5\uD759\uB369\uC7741"
   m_TagString: Obstacle
@@ -86,7 +86,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &2785739223440388909
+--- !u!50 &337587696058353762
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952217174553171262}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!60 &234764928857093394
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,54 +132,31 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 30, y: -99}
-      - {x: 32, y: -47}
-      - {x: 44, y: 36}
-      - {x: 50, y: 62}
-      - {x: 50, y: 74}
-      - {x: 46, y: 94}
-      - {x: 44, y: 102}
-      - {x: 35, y: 114}
-      - {x: 40, y: 150}
-      - {x: 38, y: 152}
-      - {x: -46, y: 152}
-      - {x: -48, y: 150}
-      - {x: -50, y: 137}
-      - {x: -50, y: 92}
-      - {x: -49, y: 86}
-      - {x: -48, y: 78}
-      - {x: -39, y: 60}
-      - {x: -42, y: 19}
-      - {x: -42, y: -13}
-      - {x: -40, y: -41}
-      - {x: -37, y: -56}
-      - {x: -24, y: -76}
-      - {x: -23, y: -106}
-      - {x: -19, y: -134}
-      - {x: -8, y: -148}
-      - {x: -1, y: -150}
-      - {x: 8, y: -150}
-      - {x: 20, y: -141}
-      - {x: 27, y: -125}
-      - {x: 29, y: -110}
---- !u!50 &337587696058353762
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 952217174553171262}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+    - - {x: 29, y: -53}
+      - {x: 35, y: -12}
+      - {x: 40, y: 38}
+      - {x: 46, y: 61}
+      - {x: 46, y: 80}
+      - {x: 45, y: 88}
+      - {x: 41, y: 104}
+      - {x: 33, y: 118}
+      - {x: 37, y: 150}
+      - {x: 37, y: 155}
+      - {x: -44, y: 155}
+      - {x: -46, y: 139}
+      - {x: -46, y: 91}
+      - {x: -43, y: 79}
+      - {x: -36, y: 66}
+      - {x: -38, y: 23}
+      - {x: -38, y: -40}
+      - {x: -33, y: -60}
+      - {x: -21, y: -85}
+      - {x: -20, y: -109}
+      - {x: -18, y: -127}
+      - {x: -16, y: -143}
+      - {x: -7, y: -154}
+      - {x: -4, y: -155}
+      - {x: 10, y: -155}
+      - {x: 18, y: -146}
+      - {x: 26, y: -127}
+      - {x: 28, y: -116}

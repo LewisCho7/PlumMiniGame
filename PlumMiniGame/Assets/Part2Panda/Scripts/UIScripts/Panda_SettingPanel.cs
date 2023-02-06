@@ -18,7 +18,7 @@ public class Panda_SettingPanel : MonoBehaviour
     }
 
     public void ExitButtonOnClick() {
-
+        SceneManager.LoadScene("GameSelectScene");
     }
 
     public void RestartButtonOnClick() {

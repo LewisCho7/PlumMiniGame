@@ -19,11 +19,14 @@ public class Run_CharacterShooter : MonoBehaviour
             // 1초, 13초, 25초에 구출 캐릭터를 생성하기 위한 로직
             if (Run_GameManager.time >= 1 && !isCalled) {
                 isCalled = true;
-                for (int i = 0; i < 2; i++) {
+                for (int i = 0; i < 2 && Run_Player.isAlive; i++) {
                     Shoot();
                     yield return new WaitForSeconds(12);
                 }
             }
+
+            // 도중에 죽었다면 중지
+            if (!Run_Player.isAlive) break;
 
             // EASY - 33.3초 이후에는 50% 확률로 4.2초의 텀을 두고 생성함
             // HARD - 30초 이후에는 동일 확률로 8.4초의 텀을 두고 생성함
