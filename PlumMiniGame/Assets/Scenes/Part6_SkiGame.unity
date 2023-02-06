@@ -998,6 +998,7 @@ GameObject:
   - component: {fileID: 295253794}
   - component: {fileID: 295253796}
   - component: {fileID: 295253797}
+  - component: {fileID: 295253798}
   m_Layer: 0
   m_Name: Ski_GameManager
   m_TagString: Untagged
@@ -1071,6 +1072,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 746975834}
   rescueText: {fileID: 964958666}
+--- !u!114 &295253798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295253793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcc609e8dd452f48a311dbcb84fca83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &297744119
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,7 +2553,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 750951842}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 295253798}
+        m_TargetAssemblyTypeName: GameSceneManager, Assembly-CSharp
+        m_MethodName: myRoomSceneLoad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &750951842
 MonoBehaviour:
   m_ObjectHideFlags: 0

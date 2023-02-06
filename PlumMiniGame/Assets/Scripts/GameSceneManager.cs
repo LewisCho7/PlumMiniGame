@@ -25,4 +25,41 @@ public class GameSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("StorageScene");
     }
+
+
+    // 게임 넘버 전달해야됨
+    public void jumpGameLoad()
+    {
+        // 게임 넘버 전달해야됨
+        SceneManager.LoadScene("");
+
+    }
+    public void eatGameLoad()
+    {
+        // 게임 넘버 전달해야됨
+
+        SceneManager.LoadScene("Part2_panda");
+
+    }
+    public void runGameLoad()
+    {
+        // 게임 넘버 전달해야됨
+
+        SceneManager.LoadScene("Part3_Run");
+
+    }
+    public void chamGameLoad()
+    {
+        // 게임 넘버 전달해야됨
+
+        SceneManager.LoadScene("Game_5");
+
+    }
+    public void skiGameLoad()
+    {
+        // 게임 넘버 전달해야됨
+
+        SceneManager.LoadScene("Part6_SkiGame");
+    }
+
 }
