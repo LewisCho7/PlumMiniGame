@@ -10,6 +10,7 @@ public class GameSceneManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        Time.timeScale = 1;
     }
     public void gameSelectSceneLoad()
     {
@@ -27,37 +28,37 @@ public class GameSceneManager : MonoBehaviour
     }
 
 
-    // °ÔÀÓ ³Ñ¹ö Àü´ÞÇØ¾ßµÊ
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ßµï¿½
     public void jumpGameLoad()
     {
-        // °ÔÀÓ ³Ñ¹ö Àü´ÞÇØ¾ßµÊ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ßµï¿½
         SceneManager.LoadScene("");
 
     }
     public void eatGameLoad()
     {
-        // °ÔÀÓ ³Ñ¹ö Àü´ÞÇØ¾ßµÊ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ßµï¿½
 
         SceneManager.LoadScene("Part2_panda");
 
     }
     public void runGameLoad()
     {
-        // °ÔÀÓ ³Ñ¹ö Àü´ÞÇØ¾ßµÊ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ßµï¿½
 
         SceneManager.LoadScene("Part3_Run");
 
     }
     public void chamGameLoad()
     {
-        // °ÔÀÓ ³Ñ¹ö Àü´ÞÇØ¾ßµÊ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ßµï¿½
 
         SceneManager.LoadScene("Game_5");
 
     }
     public void skiGameLoad()
     {
-        // °ÔÀÓ ³Ñ¹ö Àü´ÞÇØ¾ßµÊ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ßµï¿½
 
         SceneManager.LoadScene("Part6_SkiGame");
     }
