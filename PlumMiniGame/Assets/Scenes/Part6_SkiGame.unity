@@ -411,7 +411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 132, y: -389}
+  m_AnchoredPosition: {x: -123, y: -389}
   m_SizeDelta: {x: 236, y: 126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &93191535
@@ -1271,7 +1271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &304890332
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2507,7 +2507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -123, y: -395}
+  m_AnchoredPosition: {x: 132, y: -395}
   m_SizeDelta: {x: 246, y: 138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &750951841
@@ -2556,7 +2556,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 295253798}
         m_TargetAssemblyTypeName: GameSceneManager, Assembly-CSharp
-        m_MethodName: myRoomSceneLoad
+        m_MethodName: gameSelectSceneLoad
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
