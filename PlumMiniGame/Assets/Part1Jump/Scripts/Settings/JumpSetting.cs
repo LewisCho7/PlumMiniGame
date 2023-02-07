@@ -6,19 +6,20 @@ using UnityEngine.SceneManagement;
 public class JumpSetting : MonoBehaviour
 {
     [SerializeField]
-    private GameObject blur;
-    private void Start()
+    private GameObject blur_img;
+    void Start()
     {
-        blur.SetActive(false);
+        blur_img.SetActive(false);
     }
+
     public void RestartButtonClicked()
     {
         SceneManager.LoadScene("Part1_jump");
     }
 
-    public void SettingButtonclicked()
+    public void SettingButtonClicked()
     {
-        blur.SetActive(!blur.activeSelf);
+        blur_img.SetActive(!blur_img.activeSelf);
         if (Time.timeScale == 0)
         {
             Time.timeScale = 1;

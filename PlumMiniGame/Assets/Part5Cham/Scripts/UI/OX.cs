@@ -6,19 +6,18 @@ using UnityEngine;
 public class OX : MonoBehaviour
 {
     [SerializeField]
-    private GameObject O;
-    [SerializeField]
-    private GameObject X;
+    private Sprite[] ox;
+    private SpriteRenderer sr;
     void Start()
     {
-        O.SetActive(false);
-        X.SetActive(false);
+        sr = GetComponent<SpriteRenderer>();
+        gameObject.SetActive(false);
     }
 
     public void Popresult(bool check)
     {
+        gameObject.SetActive(true);
         StartCoroutine(popresult(check));
-        //StopCoroutine("popresult");
     }
 
     private IEnumerator popresult(bool check)
@@ -31,16 +30,15 @@ public class OX : MonoBehaviour
     {
         if (check)
         {
-            O.SetActive(true);
+            sr.sprite = ox[0];
         }
         else
         {
-            X.SetActive(true);
+            sr.sprite = ox[1];
         }
     }
     private void TurnDown()
     {
-        O.SetActive(false);
-        X.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

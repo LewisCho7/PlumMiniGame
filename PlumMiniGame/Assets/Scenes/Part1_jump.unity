@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce01695aa1b789441add3970da7b1b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blur: {fileID: 2131792942}
+  blur_img: {fileID: 2131792942}
 --- !u!1001 &342891870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce01695aa1b789441add3970da7b1b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blur: {fileID: 2131792942}
+  blur_img: {fileID: 2131792942}
 --- !u!114 &463653954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1486,7 +1486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce01695aa1b789441add3970da7b1b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blur: {fileID: 2131792942}
+  blur_img: {fileID: 2131792942}
 --- !u!114 &1112146983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,8 +1532,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1112146982}
-        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
-        m_MethodName: SettingButtonclicked
+        m_TargetAssemblyTypeName: JumpSetting, Assembly-CSharp
+        m_MethodName: SettingButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
