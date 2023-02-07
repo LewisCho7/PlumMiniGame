@@ -27,10 +27,10 @@ public class Background : MonoBehaviour
 
     IEnumerator BackgroundControl()
     {
-        while (GameManager.game_continue)
+        while (JumpGameManager.game_continue)
         {
             yield return null;
-            int timer = (int)GameManager.survived_time;
+            int timer = (int)JumpGameManager.survived_time;
             switch (timer)
             {
                 case 20:

@@ -14,7 +14,7 @@ public class RoundUI : MonoBehaviour
 
     void Update()
     {
-        int one = GameManager.round % 10;
+        int one = ChamGameManager.round % 10;
         sr.sprite = numbers[one];
     }
 }

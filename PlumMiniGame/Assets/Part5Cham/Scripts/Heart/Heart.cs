@@ -20,12 +20,12 @@ public class Heart : MonoBehaviour
 
     public void HeartUIUpdate()
     {
-        if (GameManager.life > 3)
+        if (ChamGameManager.life > 3)
         {
             yellow_heart.SetActive(true);
             for (int i = 0; i < 3; i++)
             {
-                if (i < GameManager.life-3)
+                if (i < ChamGameManager.life-3)
                     yellow_heart.GetComponent<YellowHeart>().yellow_arr[i].SetActive(true);
                 else
                     yellow_heart.GetComponent<YellowHeart>().yellow_arr[i].SetActive(false);
@@ -36,7 +36,7 @@ public class Heart : MonoBehaviour
             yellow_heart.SetActive(false);
             for (int i = 0; i < 3; i++)
             {
-                if (i < GameManager.life)
+                if (i < ChamGameManager.life)
                     red_heart.GetComponent<RedHeart>().red_arr[i].SetActive(true);
                 else
                     red_heart.GetComponent<RedHeart>().red_arr[i].SetActive(false);

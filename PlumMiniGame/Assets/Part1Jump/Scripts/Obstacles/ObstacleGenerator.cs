@@ -23,10 +23,10 @@ public class ObstacleGenerator : MonoBehaviour
     IEnumerator ObstacleGenerate()
     {
         var cool_down = new WaitForSeconds(2);
-        while (GameManager.game_continue)
+        while (JumpGameManager.game_continue)
         {
             yield return null;
-            if(GameManager.survived_time >= 20)
+            if(JumpGameManager.survived_time >= 20)
             {
                 if (Random.Range(1, 5) == 1)
                 {

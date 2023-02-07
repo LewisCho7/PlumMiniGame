@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class JumpGameManager : MonoBehaviour
 {
     public static bool hard_mode;
     public static bool game_continue;

@@ -31,7 +31,7 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.game_continue)
+        if (JumpGameManager.game_continue)
         {
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {

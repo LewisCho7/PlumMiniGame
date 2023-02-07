@@ -42,7 +42,7 @@ public class Meteo : MonoBehaviour
         {
             if (!Character.is_shield)
             {
-                GameManager.game_continue = false;
+                JumpGameManager.game_continue = false;
             }
             else
             {

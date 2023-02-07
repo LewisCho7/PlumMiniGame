@@ -43,7 +43,7 @@ public class StoneGenerator : MonoBehaviour
         StartCoroutine(GenerateBrick());
         StartCoroutine(GenerateCloud());
 
-        if(GameManager.hard_mode)
+        if(JumpGameManager.hard_mode)
         {
             StartCoroutine(GenerateThroneBrick());
         }
@@ -66,7 +66,7 @@ public class StoneGenerator : MonoBehaviour
             }
         }
 
-        if (!GameManager.game_continue)
+        if (!JumpGameManager.game_continue)
             StopAllCoroutines();
     }
 
@@ -78,7 +78,7 @@ public class StoneGenerator : MonoBehaviour
             if(Random.Range(1, 101) <= 45)
             {
                 GenerateBrickForSure();
-                if (GameManager.hard_mode)
+                if (JumpGameManager.hard_mode)
                 {
                     yield return new WaitForSeconds(cool_down.hard_brick);
                 }
@@ -103,7 +103,7 @@ public class StoneGenerator : MonoBehaviour
                 list.Add(new_cloud);
                 Destroy(new_cloud, 10f);
 
-                if (GameManager.hard_mode)
+                if (JumpGameManager.hard_mode)
                 {
                     yield return new WaitForSeconds(cool_down.hard_cloud);
                 }
@@ -151,7 +151,7 @@ public class StoneGenerator : MonoBehaviour
 
     IEnumerator GenerateThroneBrick()
     {
-        while (GameManager.game_continue)
+        while (JumpGameManager.game_continue)
         {
             yield return null;
             if (Random.Range(1,101) <= 40)

@@ -16,7 +16,7 @@ public class CameraMove : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.game_continue)
+        if (!JumpGameManager.game_continue)
         {
             rb.velocity = new Vector3(0, 0, 0);
         }
@@ -24,7 +24,7 @@ public class CameraMove : MonoBehaviour
 
     IEnumerator CameraSpeed()
     {
-        while (GameManager.game_continue)
+        while (JumpGameManager.game_continue)
         {
             yield return null;
 
@@ -32,7 +32,7 @@ public class CameraMove : MonoBehaviour
             while ( y < 280)
             {
                 yield return null;
-                y = (((int)GameManager.survived_time + 5) / 5) * (140 / 5);
+                y = (((int)JumpGameManager.survived_time + 5) / 5) * (140 / 5);
                 rb.velocity = new Vector2(0, y);
             }
         }

@@ -29,6 +29,6 @@ public class RescueCharacter : MonoBehaviour
             timer += Time.deltaTime;
         }
         Destroy(gameObject);
-        GameManager.rescued_character++;
+        JumpGameManager.rescued_character++;
     }
 }

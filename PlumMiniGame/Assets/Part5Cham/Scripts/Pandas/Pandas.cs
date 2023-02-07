@@ -23,7 +23,7 @@ public class Pandas : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.is_rest)
+        if (ChamGameManager.is_rest)
         {
             pandas_left.SetActive(false);
             pandas_front.SetActive(true);

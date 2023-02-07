@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 
-public class GameManager : MonoBehaviour
+public class ChamGameManager : MonoBehaviour
 {
     public static bool hard_mode;
 
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject OX;
-    [SerializeField] 
+    [SerializeField]
     private GameObject Heart;
     [SerializeField]
     private GameObject Combo;
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(GameProcess());
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                bool check; 
+                bool check;
 
                 if (HandControl.hand_turned)
                 {
@@ -126,10 +126,10 @@ public class GameManager : MonoBehaviour
                     Life(false);
                     OX.GetComponent<OX>().Popresult(false);
                     is_rest = true;
-                    timer = 0;  
+                    timer = 0;
                 }
             }
-            
+
             if (life == 0)
             {
                 game_on_process = true;
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         {
             return true;
         }
-        else if(reverse_round && HandControl.hand_dir == Pandas.pandas_dir) //reverse round
+        else if (reverse_round && HandControl.hand_dir == Pandas.pandas_dir) //reverse round
         {
             return true;
         }
@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
             if (round % 3 == 0)
             {
                 if (round_time <= 1)
-                  round_time = 0.5f;
+                    round_time = 0.5f;
                 else
                     round_time--;
             }

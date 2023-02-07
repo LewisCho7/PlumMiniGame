@@ -33,16 +33,16 @@ public class ComboControl : MonoBehaviour
 
         if (combo % 5 == 0)
         {
-            if (GameManager.hard_mode)
+            if (ChamGameManager.hard_mode)
             {
-                if (GameManager.life < 3)
-                    GameManager.life++;
+                if (ChamGameManager.life < 3)
+                    ChamGameManager.life++;
             }
             else
             {
-                if (GameManager.life < 6)
+                if (ChamGameManager.life < 6)
                 {
-                    GameManager.life++;
+                    ChamGameManager.life++;
                 }
             }
         }

@@ -18,10 +18,10 @@ public class LeftTimeBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.is_rest)
+        if (!ChamGameManager.is_rest)
         {
             timer = 0;
-            left_time_slider.value = (GameManager.timer / GameManager.round_time);
+            left_time_slider.value = (ChamGameManager.timer / ChamGameManager.round_time);
         }
         else
         {

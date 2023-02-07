@@ -17,7 +17,7 @@ public class Brick : MonoBehaviour
         combo = true;
         sr = GetComponent<SpriteRenderer>();
             
-        if(GameManager.survived_time < 20)
+        if(JumpGameManager.survived_time < 20)
         {
             sr.sprite = brick_sprites[0];
         }
@@ -26,7 +26,7 @@ public class Brick : MonoBehaviour
             sr.sprite = brick_sprites[1];
         }
 
-        if (GameManager.survived_time < 20)
+        if (JumpGameManager.survived_time < 20)
         {   
             if(Random.Range(1,11) <= 4)
             {

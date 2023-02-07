@@ -34,7 +34,7 @@ public class Bird : MonoBehaviour
         {
             if (!Character.is_shield)
             {
-                GameManager.game_continue = false;
+                JumpGameManager.game_continue = false;
                 Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
                 if (rb != null)
                 {

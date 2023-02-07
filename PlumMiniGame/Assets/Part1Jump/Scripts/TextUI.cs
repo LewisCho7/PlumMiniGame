@@ -35,13 +35,13 @@ public class TextUI : MonoBehaviour
             = score.ToString();
 
         rescue_ui.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text
-            = GameManager.rescued_character.ToString();
+            = JumpGameManager.rescued_character.ToString();
     }
 
     IEnumerator ScoreUpdateByTime()
     {
         var cool_down = new WaitForSeconds(1);
-        while (GameManager.game_continue)
+        while (JumpGameManager.game_continue)
         {
             yield return null;
             score += 10;

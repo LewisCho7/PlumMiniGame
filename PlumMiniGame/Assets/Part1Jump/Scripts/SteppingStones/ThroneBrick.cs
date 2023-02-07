@@ -20,7 +20,7 @@ public class ThroneBrick : MonoBehaviour
         player = GameObject.Find("Character");
         col = GetComponent<EdgeCollider2D>();
 
-        if (GameManager.survived_time < 20)
+        if (JumpGameManager.survived_time < 20)
         {
             if (Random.Range(1, 11) <= 6)
             {
@@ -44,7 +44,7 @@ public class ThroneBrick : MonoBehaviour
         }
 
         sr = GetComponent<SpriteRenderer>();
-        if(GameManager.survived_time < 20)
+        if(JumpGameManager.survived_time < 20)
         {
             sr.sprite = thrones[0];
         }
@@ -67,7 +67,7 @@ public class ThroneBrick : MonoBehaviour
         {
             if (!Character.is_shield)
             {
-                GameManager.game_continue = false;
+                JumpGameManager.game_continue = false;
             }
             else
             {

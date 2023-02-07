@@ -24,7 +24,7 @@ public class HandControl : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.is_rest)
+        if (ChamGameManager.is_rest)
         {
             hand_turned = false;
             left_hand.SetActive(false);
