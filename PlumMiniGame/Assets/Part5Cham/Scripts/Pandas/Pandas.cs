@@ -5,29 +5,26 @@ using UnityEngine;
 public class Pandas : MonoBehaviour
 {
     [SerializeField]
-    GameObject pandas_left;
+    Sprite[] panda_turn;
     [SerializeField]
-    GameObject pandas_front;
-    [SerializeField]
-    GameObject pandas_right;
+    Sprite[] hit_motion;
+
+    SpriteRenderer sr;
 
     private bool turned = false;
 
     public static int pandas_dir;
     void Start()
     {
-        pandas_left.SetActive(false);
-        pandas_right.SetActive(false);
-
+        sr = GetComponent<SpriteRenderer>(); 
+        sr.sprite = panda_turn[1];
     }
 
     void Update()
     {
         if (ChamGameManager.is_rest)
         {
-            pandas_left.SetActive(false);
-            pandas_front.SetActive(true);
-            pandas_right.SetActive(false);
+            sr.sprite = panda_turn[1];
             turned = false;
         }
         else
@@ -37,7 +34,6 @@ public class Pandas : MonoBehaviour
                 pandas_dir = FaceTurning();
                 turned = true;
             }
-            
         }
     }
 
@@ -46,16 +42,34 @@ public class Pandas : MonoBehaviour
         int dir = Random.Range(0, 2);
         if (dir == 0)
         {
-            pandas_left.SetActive(true);
-            pandas_front.SetActive(false);
-            pandas_right.SetActive(false);
+            sr.sprite = panda_turn[0];
         }
         else if (dir == 1)
         {
-            pandas_left.SetActive(false);
-            pandas_front.SetActive(false);
-            pandas_right.SetActive(true);
+            sr.sprite = panda_turn[2];
         }
         return dir == 0 ? dir : 2;
+    }
+
+    public void HitPanda(bool check)
+    {
+        StartCoroutine(HitPanda_Coroutine(check));
+    }
+
+    public IEnumerator HitPanda_Coroutine(bool check)
+    {
+        yield return null;
+
+        if (check)
+        {
+            sr.sprite = hit_motion[0];
+            yield return new WaitForSeconds(0.5f);
+            sr.sprite = hit_motion[1];
+            yield return new WaitForSeconds(0.5f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(1);
+        }
     }
 }

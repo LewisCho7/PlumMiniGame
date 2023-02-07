@@ -46,5 +46,6 @@ public class ComboControl : MonoBehaviour
                 }
             }
         }
+        GameManager.score += combo * 10;
     }
 }
