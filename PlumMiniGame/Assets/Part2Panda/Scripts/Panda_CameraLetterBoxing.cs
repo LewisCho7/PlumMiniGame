@@ -18,4 +18,6 @@ public class Panda_CameraLetterBoxing : MonoBehaviour
         }
         camera.rect = rect;
     }
+
+    void OnPreCull() => GL.Clear(true, true, Color.black);
 }
