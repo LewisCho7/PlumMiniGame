@@ -38,18 +38,10 @@ public class Cloud : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.relativeVelocity.y <= 10 && collision.gameObject.name == "Character")
-        {
-            Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                Vector2 velocity = rb.velocity;
-                velocity.y = Character.jump_power;
-                rb.velocity = velocity;
-            }
-            Destroy(gameObject);
-        }
 
+        Character.CharacterJump(collision);
+        if (collision.relativeVelocity.y <= 10 && collision.gameObject.name == "Character")
+            Destroy(gameObject);
         if (combo)
         {
             combo = false;
@@ -59,13 +51,13 @@ public class Cloud : MonoBehaviour
 
     IEnumerator QueueControl()
     {
-        Score.queue.Enqueue(gameObject);
+        TextUI.queue.Enqueue(gameObject);
         yield return new WaitForSeconds(5);
-        if(Score.queue.Count > 0)
+        if(TextUI.queue.Count > 0)
         {
             try
             {
-                Score.queue.Dequeue();
+                TextUI.queue.Dequeue();
                 throw new MissingReferenceException();
             }
             catch (MissingReferenceException)

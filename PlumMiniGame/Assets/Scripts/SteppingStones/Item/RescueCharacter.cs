@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Rescue : MonoBehaviour
+public class RescueCharacter : MonoBehaviour
 {
     private SpriteRenderer sr;
     // Start is called before the first frame update

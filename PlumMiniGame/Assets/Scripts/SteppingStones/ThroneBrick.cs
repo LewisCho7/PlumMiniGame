@@ -75,17 +75,7 @@ public class ThroneBrick : MonoBehaviour
             }
         }
 
-        if (collision.relativeVelocity.y <= 10 && collision.gameObject.name == "Character")
-        {
-            Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                Vector2 velocity = rb.velocity;
-                velocity.y = Character.jump_power;
-                rb.velocity = velocity;
-            }
-        }
-
+        Character.CharacterJump(collision);
         if (combo)
         {
             combo = false;
@@ -95,9 +85,9 @@ public class ThroneBrick : MonoBehaviour
 
     IEnumerator queueControl()
     {
-        Score.queue.Enqueue(gameObject);
+        TextUI.queue.Enqueue(gameObject);
         yield return new WaitForSeconds(5);
-        if (Score.queue.Count > 0)
-            Score.queue.Dequeue();
+        if (TextUI.queue.Count > 0)
+            TextUI.queue.Dequeue();
     }
 }

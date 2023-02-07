@@ -59,4 +59,18 @@ public class Character : MonoBehaviour
             }
         }
     }
+
+    public static void CharacterJump(Collision2D collision)
+    {
+        if (collision.relativeVelocity.y <= 0)
+        {
+            Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                Vector2 velocity = rb.velocity;
+                velocity.y = jump_power;
+                rb.velocity = velocity;
+            }
+        }
+    }
 }

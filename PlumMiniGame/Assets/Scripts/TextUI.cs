@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Score : MonoBehaviour
+public class TextUI : MonoBehaviour
 {
     public static int score;
 
     public static Queue<GameObject> queue = new Queue<GameObject>();
+
+    [SerializeField]
+    private GameObject score_ui;
+    [SerializeField]
+    private GameObject rescue_ui;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +30,12 @@ public class Score : MonoBehaviour
             queue.Clear();
             score += 15;
         }
-        GetComponent<TextMeshProUGUI>().text = score.ToString();
+
+        score_ui.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text 
+            = score.ToString();
+
+        rescue_ui.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text
+            = GameManager.rescued_character.ToString();
     }
 
     IEnumerator ScoreUpdateByTime()

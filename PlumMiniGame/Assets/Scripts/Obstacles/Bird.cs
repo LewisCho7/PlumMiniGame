@@ -24,7 +24,7 @@ public class Bird : MonoBehaviour
     {
         if(character.transform.position.y > transform.position.y && score_checked)
         {
-            Score.score += 15;
+            TextUI.score += 15;
         }
     }
 
