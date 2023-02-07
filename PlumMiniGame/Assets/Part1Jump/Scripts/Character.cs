@@ -47,7 +47,12 @@ public class Character : MonoBehaviour
             if (dir.sqrMagnitude > 1) dir.Normalize();
             dir *= Time.deltaTime;
             dir.y = rb.velocity.y;
-            rb.velocity = new Vector2(dir.x * move_speed, dir.y); //x-axis movement by tilt
+            rb.velocity = new Vector2(dir.x * 700, dir.y); //x-axis movement by tilt
+
+            if (JumpGameManager.game_continue)
+            {
+
+            }
 
             if (is_shield)
             {
