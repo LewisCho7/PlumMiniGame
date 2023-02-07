@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Settings : MonoBehaviour
+public class ChamSettings : MonoBehaviour
 {
     [SerializeField]
     private GameObject blur_img;
@@ -25,13 +25,8 @@ public class Settings : MonoBehaviour
         }
     }
 
-    protected void RestartButtonClicked()
+    public void RestartButtonClicked()
     {
-        SceneManager.LoadScene("Game_5");
-    }
-
-    protected void ExitButtonClicked()
-    {
-        //게임 나가기
+        SceneManager.LoadScene("Part5_cham");
     }
 }

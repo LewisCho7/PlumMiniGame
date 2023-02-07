@@ -2645,8 +2645,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1420759896}
-        m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
-        m_MethodName: Restart
+        m_TargetAssemblyTypeName: ChamSettings, Assembly-CSharp
+        m_MethodName: RestartButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2703,7 +2703,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1420759891}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15310ca8a3b912d41bef97b3dd81e9ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e7ff4edd5882c24bb9ca75f75132a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blur_img: {fileID: 363516761}
@@ -3842,8 +3842,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2006382124}
-        m_TargetAssemblyTypeName: ExitButton, Assembly-CSharp
-        m_MethodName: Exit
+        m_TargetAssemblyTypeName: GameSceneManager, Assembly-CSharp
+        m_MethodName: gameSelectSceneLoad
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3900,10 +3900,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2006382119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d6d7f8d27549eb4d8c01f80563503f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 9dcc609e8dd452f48a311dbcb84fca83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blur_img: {fileID: 363516761}
 --- !u!1 &2017349476
 GameObject:
   m_ObjectHideFlags: 0

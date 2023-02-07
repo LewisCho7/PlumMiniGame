@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 212239764}
   - component: {fileID: 212239763}
   - component: {fileID: 212239762}
-  - component: {fileID: 212239761}
+  - component: {fileID: 212239765}
   m_Layer: 0
   m_Name: restart
   m_TagString: Untagged
@@ -163,19 +163,6 @@ RectTransform:
   m_AnchoredPosition: {x: -126, y: -361}
   m_SizeDelta: {x: 236, y: 126}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &212239761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212239759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15310ca8a3b912d41bef97b3dd81e9ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blur_img: {fileID: 0}
 --- !u!114 &212239762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,9 +207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 212239761}
-        m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
-        m_MethodName: Restart
+      - m_Target: {fileID: 212239765}
+        m_TargetAssemblyTypeName: JumpSetting, Assembly-CSharp
+        m_MethodName: RestartButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -270,6 +257,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212239759}
   m_CullTransparentMesh: 1
+--- !u!114 &212239765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212239759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce01695aa1b789441add3970da7b1b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blur: {fileID: 2131792942}
 --- !u!1001 &342891870
 PrefabInstance:
   m_ObjectHideFlags: 0
