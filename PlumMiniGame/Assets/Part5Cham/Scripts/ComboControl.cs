@@ -46,6 +46,6 @@ public class ComboControl : MonoBehaviour
                 }
             }
         }
-        GameManager.score += combo * 10;
+        ChamGameManager.score += combo * 10;
     }
 }
