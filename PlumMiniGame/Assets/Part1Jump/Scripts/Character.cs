@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 public class Character : MonoBehaviour
 {
 
+    public static float tilt_coefficient;
     public static float jump_power;
     public static bool is_shield;
     private bool is_editor;
@@ -14,7 +15,7 @@ public class Character : MonoBehaviour
     private GameObject shield_on_img;
 
     private Rigidbody2D rb;
-
+    
 
     void Start()
     {
@@ -57,7 +58,7 @@ public class Character : MonoBehaviour
                 dir.x = Input.acceleration.x;
                 dir *= Time.deltaTime;
                 dir.y = rb.velocity.y;
-                rb.velocity = new Vector2(dir.x * move_speed * 700, dir.y); //x-axis movement by tilt
+                rb.velocity = new Vector2(dir.x * move_speed * tilt_coefficient, dir.y); //x-axis movement by tilt
             }
 
             if (is_shield)

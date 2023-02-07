@@ -44,8 +44,8 @@ public class TextUI : MonoBehaviour
         while (JumpGameManager.game_continue)
         {
             yield return null;
-            score += 10;
             yield return cool_down;
+            score += 10;
         }
     }
 }
