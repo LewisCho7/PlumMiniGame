@@ -8,6 +8,10 @@ public class ThroneBrick : MonoBehaviour
     private GameObject player;
     private EdgeCollider2D col;
 
+    private SpriteRenderer sr;
+    [SerializeField]
+    private Sprite[] thrones;
+
     private bool combo;
     // Start is called before the first frame update
     void Start()
@@ -38,21 +42,22 @@ public class ThroneBrick : MonoBehaviour
                 gameObject.transform.localScale = new Vector3(0.75f, 1.1424f, 1);
             }
         }
+
+        sr = GetComponent<SpriteRenderer>();
+        if(GameManager.survived_time < 20)
+        {
+            sr.sprite = thrones[0];
+        }
+        else
+        {
+            sr.sprite = thrones[1];
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        var position = player.transform.position;
 
-        if (position.y - transform.position.y >= 50)
-        {
-            col.isTrigger = false;
-        }
-        else
-        {
-            col.isTrigger = true;
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -67,6 +72,17 @@ public class ThroneBrick : MonoBehaviour
             else
             {
                 Character.is_shield = false;
+            }
+        }
+
+        if (collision.relativeVelocity.y <= 10 && collision.gameObject.name == "Character")
+        {
+            Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                Vector2 velocity = rb.velocity;
+                velocity.y = Character.jump_power;
+                rb.velocity = velocity;
             }
         }
 

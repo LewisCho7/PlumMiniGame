@@ -6,21 +6,17 @@ using UnityEngine;
 public class Brick : MonoBehaviour
 {
     private bool combo;
-
-    private Collider2D col;
-    private GameObject player;
     private SpriteRenderer sr;
+
     [SerializeField]
     private Sprite[] brick_sprites;
+
     // Start is called before the first frame update
     void Start()
     {
         combo = true;
-        col = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
-
-        player = GameObject.Find("Character");
-
+            
         if(GameManager.survived_time < 20)
         {
             sr.sprite = brick_sprites[0];
@@ -57,19 +53,22 @@ public class Brick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var position = player.transform.position;
-        if(position.y - transform.position.y > 65)
-        {
-            col.isTrigger = false;
-        }
-        else
-        {
-            col.isTrigger = true;
-        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.relativeVelocity.y <= 10 && collision.gameObject.name == "Character")
+        {
+            Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                Vector2 velocity = rb.velocity;
+                velocity.y = Character.jump_power;
+                rb.velocity = velocity;
+            }
+        }
+
         if (combo)
         {
             combo = false;

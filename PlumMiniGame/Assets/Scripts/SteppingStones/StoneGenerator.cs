@@ -130,13 +130,13 @@ public class StoneGenerator : MonoBehaviour
             position.y -= 60;
         } //shield
 
-        if (Random.Range(1, 11) <= 1)
+/*        if (Random.Range(1, 11) <= 1)
         {
             position.y += 50;
             GameObject new_spring = Instantiate(spring, position, Quaternion.identity);
             Destroy(new_spring, 10);
             position.y -= 50;
-        } //spring
+        }*/ //spring
 
         if (Random.Range(1, 11) <= 1)
         {

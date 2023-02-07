@@ -22,14 +22,15 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         Time.timeScale = 1;
+        game_continue = true;
+        survived_time = 0;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         hard_mode = true;
-        survived_time = 0;
-        game_continue = true;
+
         blur.SetActive(false);
         StartCoroutine(GameProcess());
     }
@@ -38,7 +39,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         survived_time += Time.deltaTime;
-        //Debug.Log(survived_time);
         if (!game_continue)
         {
             StopCoroutine(GameProcess());
@@ -53,8 +53,7 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
 
-            if (main_camera.transform.position.y - character.transform.position.y
-                > 660)
+            if (main_camera.transform.position.y - character.transform.position.y > 660)
             {
                 game_continue = false;
             }

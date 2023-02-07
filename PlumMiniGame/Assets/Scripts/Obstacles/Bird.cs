@@ -30,14 +30,23 @@ public class Bird : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Time.timeScale = 0;
-        if (!Character.is_shield)
+        if (collision.gameObject.name == "Character")
         {
-            GameManager.game_continue = false;
-        }
-        else
-        {
-            Character.is_shield = !Character.is_shield;
+            if (!Character.is_shield)
+            {
+                GameManager.game_continue = false;
+                Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    Vector2 velocity = rb.velocity;
+                    velocity.y = Character.jump_power;
+                    rb.velocity = velocity;
+                }
+            }
+            else
+            {
+                Character.is_shield = !Character.is_shield;
+            }
         }
     }
 }

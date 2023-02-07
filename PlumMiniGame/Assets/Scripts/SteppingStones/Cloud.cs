@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
-    private CapsuleCollider2D col;
+    private BoxCollider2D col;
     private SpriteRenderer sr;
     private GameObject player;
     private bool combo;
@@ -17,7 +17,7 @@ public class Cloud : MonoBehaviour
     {
         combo = true;
 
-        col = GetComponent<CapsuleCollider2D>();
+        col = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
         player = GameObject.Find("Character");
 
@@ -33,22 +33,20 @@ public class Cloud : MonoBehaviour
 
     void Update()
     {
-        var position = player.transform.position;
 
-        if (position.y - transform.position.y > 65)
-        {
-            col.isTrigger = false;
-        }
-        else
-        {
-            col.isTrigger = true;
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Character")
+        if (collision.relativeVelocity.y <= 10 && collision.gameObject.name == "Character")
         {
+            Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                Vector2 velocity = rb.velocity;
+                velocity.y = Character.jump_power;
+                rb.velocity = velocity;
+            }
             Destroy(gameObject);
         }
 
@@ -57,7 +55,6 @@ public class Cloud : MonoBehaviour
             combo = false;
             StartCoroutine(QueueControl());
         }
-
     }
 
     IEnumerator QueueControl()

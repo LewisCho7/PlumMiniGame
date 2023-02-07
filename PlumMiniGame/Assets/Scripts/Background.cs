@@ -22,7 +22,7 @@ public class Background : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            
+
     }
 
     IEnumerator BackgroundControl()
@@ -31,7 +31,6 @@ public class Background : MonoBehaviour
         {
             yield return null;
             int timer = (int)GameManager.survived_time;
-
             switch (timer)
             {
                 case 20:
@@ -57,6 +56,7 @@ public class Background : MonoBehaviour
                     yield return new WaitForSeconds(1);
                     break;
                 case 120:
+                    sr.sprite = goto_backgrounds[2];
                     gameObject.transform.position
                        = new Vector3(0, background.transform.position.y + 1280, 0);
                     while (gameObject.transform.position.y - background.transform.position.y > 10)
