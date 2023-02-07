@@ -6,6 +6,10 @@ public class Setting : MonoBehaviour
 {
     [SerializeField]
     private GameObject blur;
+    private void Start()
+    {
+        blur.SetActive(false);
+    }
     public virtual void RestartButtonClicked()
     {
 
@@ -19,7 +23,7 @@ public class Setting : MonoBehaviour
     public void SettingButtonclicked()
     {
         blur.SetActive(!blur.activeSelf);
-        if(Time.timeScale == 0)
+        if (Time.timeScale == 0)
         {
             Time.timeScale = 1;
         }

@@ -7,18 +7,14 @@ public class Settings : MonoBehaviour
 {
     [SerializeField]
     private GameObject blur_img;
-    [SerializeField]
-    private GameObject buttons;
-
     void Start()
     {
-        buttons.SetActive(false);
+        blur_img.SetActive(false);
     }
 
     public void SettingButtonClicked()
     {
         blur_img.SetActive(!blur_img.activeSelf);
-        buttons.SetActive(!buttons.activeSelf);
         if (Time.timeScale == 0)
         {
             Time.timeScale= 1;

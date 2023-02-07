@@ -1048,7 +1048,7 @@ RectTransform:
   m_GameObject: {fileID: 457327214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39301217, y: 0.39301217, z: 0}
+  m_LocalScale: {x: 0.3930122, y: 0.3930122, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 586516751}
@@ -1056,7 +1056,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 342.1, y: 653.9}
+  m_AnchoredPosition: {x: 342.09998, y: 653.9001}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &457327216
@@ -1071,8 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7ff4edd5882c24bb9ca75f75132a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blur_img: {fileID: 363516761}
-  buttons: {fileID: 572129077}
+  blur_img: {fileID: 586516750}
 --- !u!114 &457327217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2721,7 +2720,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blur_img: {fileID: 363516761}
-  buttons: {fileID: 572129077}
 --- !u!1 &1421883270
 GameObject:
   m_ObjectHideFlags: 0
@@ -3841,7 +3839,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blur_img: {fileID: 363516761}
-  buttons: {fileID: 572129077}
 --- !u!1 &2017349476
 GameObject:
   m_ObjectHideFlags: 0
