@@ -29,6 +29,8 @@ public class Run_GameManager : MonoBehaviour
         time = 0;
         score = 0;
 
+        Application.targetFrameRate = 60;
+
         // for test
         click = player.GetComponent<Run_PlayerClickEvents>();
     }
