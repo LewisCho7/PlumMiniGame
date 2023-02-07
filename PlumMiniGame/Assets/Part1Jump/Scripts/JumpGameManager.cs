@@ -11,13 +11,15 @@ public class JumpGameManager : MonoBehaviour
     public static int rescued_character = 0;
 
     public static float survived_time;
+
     [SerializeField]
     private GameObject character;
     [SerializeField]
     private GameObject main_camera;
     [SerializeField]
     private GameObject blur;
-
+    [SerializeField]
+    private GameObject dead_ui;
     void Awake()
     {
         Application.targetFrameRate = 60;
@@ -29,6 +31,8 @@ public class JumpGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dead_ui.SetActive(false);
+
         hard_mode = true;
 
         blur.SetActive(false);
@@ -64,6 +68,6 @@ public class JumpGameManager : MonoBehaviour
     {
         yield return null;
         yield return new WaitForSecondsRealtime(1);
-        SceneManager.LoadScene("Ending_Scene");
+        dead_ui.SetActive(true);
     }
 }

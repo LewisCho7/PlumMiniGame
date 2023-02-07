@@ -31,8 +31,13 @@ public class ChamGameManager : MonoBehaviour
     private GameObject Hand;
     [SerializeField]
     private GameObject reverse;
+    [SerializeField]
+    private GameObject dead_ui;
     void Start()
     {
+        dead_ui.SetActive(false);
+        reverse.SetActive(false);
+
         hard_mode = true;
         is_rest = true;
 
@@ -192,6 +197,6 @@ public class ChamGameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Heart.SetActive(false);
-        SceneManager.LoadScene("EndingScene");
+        dead_ui.SetActive(true);
     }
 }
