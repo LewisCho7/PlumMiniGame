@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Part1_jump.unity
     guid: 31d2c7a93370a6d4aaba16c24143ff05
+  - enabled: 1
+    path: Assets/Scenes/Part3_Run.unity
+    guid: fd3b80afda8db654d827834f3a19109b
   m_configObjects: {}

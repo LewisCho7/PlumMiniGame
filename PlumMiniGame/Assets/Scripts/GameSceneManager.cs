@@ -32,7 +32,7 @@ public class GameSceneManager : MonoBehaviour
     public void jumpGameLoad()
     {
         // ���� �ѹ� �����ؾߵ�
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Part1_jump");
 
     }
     public void eatGameLoad()
@@ -53,7 +53,7 @@ public class GameSceneManager : MonoBehaviour
     {
         // ���� �ѹ� �����ؾߵ�
 
-        SceneManager.LoadScene("Game_5");
+        SceneManager.LoadScene("Part5_cham");
 
     }
     public void skiGameLoad()

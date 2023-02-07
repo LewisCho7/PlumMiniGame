@@ -2134,7 +2134,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 300
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2219,7 +2219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slidingSprite: {fileID: 21300000, guid: 6b5b36eb04a8dc54082533b1716e6b8b, type: 3}
   CharacterSkin: {fileID: 21300000, guid: d582f3c919f9b1d47a51058d2990018c, type: 3}
-  jumpPower: 1200
+  jumpPower: 1050
 --- !u!95 &1097810492
 Animator:
   serializedVersion: 5
