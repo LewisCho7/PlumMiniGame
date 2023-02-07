@@ -30,6 +30,8 @@ public class ChamGameManager : MonoBehaviour
     [SerializeField]
     private GameObject Hand;
     [SerializeField]
+    private GameObject panda;
+    [SerializeField]
     private GameObject reverse;
     [SerializeField]
     private GameObject dead_ui;
@@ -120,8 +122,10 @@ public class ChamGameManager : MonoBehaviour
                     }
                     Life(check);
                     OX.GetComponent<OX>().Popresult(check);
-
                     yield return new WaitForSeconds(1);
+                    panda.GetComponent<Pandas>().HitPanda(check);
+                    yield return new WaitForSeconds(1);
+
                     is_rest = true;
                     timer = 0;
                 }
