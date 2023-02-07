@@ -19,11 +19,13 @@ public class LeftTimeBar : MonoBehaviour
     {
         if (!ChamGameManager.is_rest)
         {
+            left_time_slider.transform.GetChild(1).gameObject.SetActive(true);
             left_time_slider.value = (ChamGameManager.timer / ChamGameManager.round_time);
         }
         else
         {
             left_time_slider.value = 0;
+            left_time_slider.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 }
