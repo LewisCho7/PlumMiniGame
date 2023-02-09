@@ -19,7 +19,8 @@ public class JumpSetting : MonoBehaviour
 
     public void SettingButtonClicked()
     {
-        blur_img.SetActive(!blur_img.activeSelf);
+        if(blur_img != null)
+            blur_img.SetActive(!blur_img.activeSelf);
         if (Time.timeScale == 0)
         {
             Time.timeScale = 1;

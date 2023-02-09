@@ -98,7 +98,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 567
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -138,8 +138,8 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -98.20276, y: 35.32847}
-  - {x: 97.94602, y: 36.560913}
-  - {x: 97.432526, y: 35.328514}
+  - {x: 97.94602, y: 35.32847}
+  - {x: 97.432526, y: 35.32847}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

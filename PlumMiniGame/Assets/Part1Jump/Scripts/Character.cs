@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
 
     void Start()
     {
+        tilt_coefficient = 100;
         jump_power = 800;
         is_shield = false;
         if(gameObject.name == "shield")
@@ -56,7 +57,6 @@ public class Character : MonoBehaviour
             {
                 Vector3 dir = Vector3.zero;
                 dir.x = Input.acceleration.x;
-                dir *= Time.deltaTime;
                 dir.y = rb.velocity.y;
                 rb.velocity = new Vector2(dir.x * move_speed * tilt_coefficient, dir.y); //x-axis movement by tilt
             }

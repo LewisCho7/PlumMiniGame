@@ -35,17 +35,11 @@ public class Bird : MonoBehaviour
             if (!Character.is_shield)
             {
                 JumpGameManager.game_continue = false;
-                Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
-                if (rb != null)
-                {
-                    Vector2 velocity = rb.velocity;
-                    velocity.y = Character.jump_power;
-                    rb.velocity = velocity;
-                }
             }
             else
             {
                 Character.is_shield = !Character.is_shield;
+                Character.CharacterJump(collision);
             }
         }
     }

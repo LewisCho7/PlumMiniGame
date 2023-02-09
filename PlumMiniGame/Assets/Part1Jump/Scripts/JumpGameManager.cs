@@ -17,8 +17,6 @@ public class JumpGameManager : MonoBehaviour
     [SerializeField]
     private GameObject main_camera;
     [SerializeField]
-    private GameObject blur;
-    [SerializeField]
     private GameObject dead_ui;
     void Awake()
     {
@@ -35,7 +33,6 @@ public class JumpGameManager : MonoBehaviour
 
         hard_mode = true;
 
-        blur.SetActive(false);
         StartCoroutine(GameProcess());
     }
 

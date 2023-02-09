@@ -46,7 +46,7 @@ public class Meteo : MonoBehaviour
             }
             else
             {
-                Character.is_shield = !Character.is_shield;
+                Character.is_shield = false;
             }
         }
     }
