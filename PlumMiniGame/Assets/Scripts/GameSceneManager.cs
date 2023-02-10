@@ -10,6 +10,7 @@ public class GameSceneManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        Time.timeScale = 1;
     }
     public void gameSelectSceneLoad()
     {
@@ -25,4 +26,41 @@ public class GameSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("StorageScene");
     }
+
+
+    // ���� �ѹ� �����ؾߵ�
+    public void jumpGameLoad()
+    {
+        // ���� �ѹ� �����ؾߵ�
+        SceneManager.LoadScene("Part1_jump");
+
+    }
+    public void eatGameLoad()
+    {
+        // ���� �ѹ� �����ؾߵ�
+
+        SceneManager.LoadScene("Part2_panda");
+
+    }
+    public void runGameLoad()
+    {
+        // ���� �ѹ� �����ؾߵ�
+
+        SceneManager.LoadScene("Part3_Run");
+
+    }
+    public void chamGameLoad()
+    {
+        // ���� �ѹ� �����ؾߵ�
+
+        SceneManager.LoadScene("Part5_cham");
+
+    }
+    public void skiGameLoad()
+    {
+        // ���� �ѹ� �����ؾߵ�
+
+        SceneManager.LoadScene("Part6_SkiGame");
+    }
+
 }
