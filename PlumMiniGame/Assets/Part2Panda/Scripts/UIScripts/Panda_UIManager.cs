@@ -101,10 +101,10 @@ public class Panda_UIManager : MonoBehaviour
 
             StartCoroutine(showRoundStartUI(Panda_GameManager.currentRound++));
         } else {
-            Panda_GameManager.isEnd = true;
-
             img.sprite = basicSprites[(int) Sprites.X];
             yield return new WaitForSeconds(1);
+            
+            Panda_GameManager.isEnd = true;
             
             UIpanel.GetComponent<Image>().color = new Color(0, 0, 0, 0.7f);
             img.sprite = basicSprites[(int) Sprites.gameover];

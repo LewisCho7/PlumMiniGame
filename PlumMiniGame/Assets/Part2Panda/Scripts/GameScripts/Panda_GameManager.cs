@@ -34,7 +34,16 @@ public class Panda_GameManager : MonoBehaviour
 
     public static int score;
 
+    // 변수 초기화
     void Awake() {
+        pandaCnts = new int[] {0, 0, 0};
+
+        isEatingRoundStart = false;
+        isEatingRoundRunning = false;
+        isChooseRoundStart = false;
+
+        isEnd = false;
+        currentRound = 1;
         score = 0;
     }
 
