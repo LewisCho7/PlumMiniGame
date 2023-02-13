@@ -73,11 +73,8 @@ public class Panda_GameManager : MonoBehaviour
 
                 pandaCnts[index]++;
 
-                pandas[index].GetComponent<Image>().sprite = Imgs[(int)Sprites.panda_eat];
-                yield return new WaitForSeconds(0.3f);
-
-                pandas[index].GetComponent<Image>().sprite = Imgs[(int)Sprites.panda_default];
-                yield return new WaitForSeconds(speed - 0.3f);
+                StartCoroutine(EatingMotion(pandas[index], speed));
+                yield return new WaitForSeconds(speed);
                 
             } else {
                 cnt -= 2;
@@ -92,15 +89,9 @@ public class Panda_GameManager : MonoBehaviour
                 pandaCnts[panda1Index]++;
                 pandaCnts[panda2Index]++;
 
-                pandas[panda1Index].GetComponent<Image>().sprite 
-                = pandas[panda2Index].GetComponent<Image>().sprite 
-                = Imgs[(int)Sprites.panda_eat];
-                yield return new WaitForSeconds(0.3f);
-
-                pandas[panda1Index].GetComponent<Image>().sprite 
-                = pandas[panda2Index].GetComponent<Image>().sprite 
-                = Imgs[(int)Sprites.panda_default];
-                yield return new WaitForSeconds(speed - 0.3f);
+                StartCoroutine(EatingMotion(pandas[panda1Index], speed));
+                StartCoroutine(EatingMotion(pandas[panda2Index], speed));
+                yield return new WaitForSeconds(speed);
             }
 
             Debug.Log(pandaCnts[0] + " " + pandaCnts[1] + " " + pandaCnts[2]);
@@ -133,16 +124,22 @@ public class Panda_GameManager : MonoBehaviour
             pandaCnts[answerNum]++;
             Debug.Log(pandaCnts[0] + " " + pandaCnts[1] + " " + pandaCnts[2]);
 
-            pandas[answerNum].GetComponent<Image>().sprite = Imgs[(int)Sprites.panda_eat];
-            yield return new WaitForSeconds(0.3f);
-
-            pandas[answerNum].GetComponent<Image>().sprite = Imgs[(int)Sprites.panda_default];
-            yield return new WaitForSeconds(speed - 0.3f);
+            StartCoroutine(EatingMotion(pandas[answerNum], speed));
+            yield return new WaitForSeconds(speed);
         }
 
         Debug.Log(answerNum);
         isEatingRoundRunning = false;
         isChooseRoundStart = true;
+    }
+
+    private IEnumerator EatingMotion(GameObject panda, float speed) {
+        panda.GetComponent<Image>().sprite = Imgs[(int)Sprites.panda_eat];
+        panda.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(0.3f);
+
+        panda.GetComponent<Image>().sprite = Imgs[(int)Sprites.panda_default];
+        yield return new WaitForSeconds(speed - 0.3f);
     }
 
     // 변수 초기화 함수
