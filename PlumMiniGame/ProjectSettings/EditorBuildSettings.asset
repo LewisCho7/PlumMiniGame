@@ -35,4 +35,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Part3_Run.unity
     guid: fd3b80afda8db654d827834f3a19109b
+  - enabled: 1
+    path: Assets/Scenes/Store/CharacterStore.unity
+    guid: 699a7ae57ca1d9b45a879b798307e9b1
+  - enabled: 1
+    path: Assets/Scenes/Store/FurnitureStore.unity
+    guid: 86d23b01b457cc04f84d32ac8c105bc1
+  - enabled: 1
+    path: Assets/Scenes/Store/MainStore.unity
+    guid: 6b8b78eab62c90f4c80947862305749a
   m_configObjects: {}
