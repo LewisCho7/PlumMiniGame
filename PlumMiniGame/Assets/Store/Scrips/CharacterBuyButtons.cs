@@ -36,9 +36,22 @@ public class CharacterBuyButtons : MonoBehaviour
         ButtonsDisappear();
     }
 
-    public void Char1Buy(int id)
+    public void CharBuy(int id)
     {
-        GameManager.instance.RescuedCharacter.Add(id);
-        DataManager.instance.SaveGame();
+        if (!find(id))
+        {
+            GameManager.instance.RescuedCharacter.Add(id);
+            DataManager.instance.SaveGame();
+        }
+
+    }
+
+    private bool find(int id)
+    {
+        foreach (int i in GameManager.instance.RescuedCharacter)
+        {
+            if(i == id) return true;
+        }
+        return false;
     }
 }
