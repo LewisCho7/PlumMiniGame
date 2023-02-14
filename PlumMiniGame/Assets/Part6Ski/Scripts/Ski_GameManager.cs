@@ -85,6 +85,7 @@ public class Ski_GameManager : MonoBehaviour
    
     private IEnumerator IE_IncreaseScore()
     {
+        yield return new WaitForSeconds(2f);
         while (!isGameOver)
         {
             Score += 20;

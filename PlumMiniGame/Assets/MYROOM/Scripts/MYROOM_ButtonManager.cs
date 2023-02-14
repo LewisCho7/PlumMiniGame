@@ -8,7 +8,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
 {
     public GameObject mainCanvas;
     public GameObject editCanvas;
-    public GameObject furniture;
+    public List<GameObject> furnitures;
     public GameObject editButtons;
 
     public Button moreButton;
@@ -61,7 +61,11 @@ public class MYROOM_ButtonManager : MonoBehaviour
         isEditMode = true;
         mainCanvas.SetActive(false);
         editCanvas.SetActive(true);
-        // 모든 캐릭터 setActive(false);
+        // 모든 가구 setInteractable
+        foreach(GameObject furn in furnitures)
+        {
+            furn.GetComponent<Button>().interactable = true;
+        }
     }
 
     public void onClickBack()
@@ -70,15 +74,19 @@ public class MYROOM_ButtonManager : MonoBehaviour
         mainCanvas.SetActive(true);
         editCanvas.SetActive(false);
         editButtons.SetActive(false);
-
+        foreach (GameObject furn in furnitures)
+        {
+            furn.GetComponent<Button>().interactable = false;
+        }
         // 저장 시스템 구현
     }
 
-    public void onClickFurniture()
+    public void onClickFurniture(int index)
     {
         // furniture 바꿔주기 --> script 필요
+
         editButtons.SetActive(true);
-        objectPos = furniture.GetComponent<RectTransform>();
+        objectPos = furnitures[index].GetComponent<RectTransform>();
         editButtons.GetComponent<RectTransform>().anchoredPosition = objectPos.anchoredPosition + new Vector2(0, 150);
     }
 
