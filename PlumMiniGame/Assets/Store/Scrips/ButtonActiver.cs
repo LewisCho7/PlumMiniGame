@@ -11,7 +11,7 @@ public class ButtonActiver : MonoBehaviour
     {
         for(int i=0; i<char_buybuttons.Length; i++) 
         {
-            if (find(i))
+            if (Find(i))
             {
                 DisableBuyButtons();
             }
@@ -23,7 +23,7 @@ public class ButtonActiver : MonoBehaviour
     {
         
     }
-    private bool find(int id)
+    private bool Find(int id)
     {
         foreach (int i in GameManager.instance.RescuedCharacter)
         {

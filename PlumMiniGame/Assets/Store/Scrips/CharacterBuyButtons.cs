@@ -10,6 +10,8 @@ public class CharacterBuyButtons : MonoBehaviour
     private GameObject common;
     [SerializeField]
     private GameObject rare;
+    [SerializeField]
+    private GameObject rare_result;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,15 @@ public class CharacterBuyButtons : MonoBehaviour
             buttons[i].SetActive(false);
         }
     }
-
+    public void BlurClicked()
+    {
+        common.SetActive(false);
+        rare.SetActive(false);
+        for (int i = 0; i < 2; i++)
+        {
+            buttons[i].SetActive(true);
+        }
+    }
     public void CommonButtonClicked()
     {
         ButtonsDisappear();
@@ -34,19 +44,39 @@ public class CharacterBuyButtons : MonoBehaviour
     public void RareButtonClicked()
     {
         ButtonsDisappear();
+        rare.SetActive(true);
+        rare_result.SetActive(false);
     }
 
-    public void CharBuy(int id)
+    public void NormalCharBuy(int id)
     {
-        if (!find(id))
+        if(GameManager.instance.CurrentCoin >= 150)
+        {
+            GameManager.instance.CurrentCoin -= 150;
+            if (!Find(id))
+            {
+                GameManager.instance.RescuedCharacter.Add(id);
+                DataManager.instance.SaveGame();
+            }
+        }
+
+    }
+    public void RareCharBuy(GameObject popping)
+    {
+        popping.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -30));
+
+        int id = Random.Range(6, 16);
+
+        if (!Find(id))
         {
             GameManager.instance.RescuedCharacter.Add(id);
             DataManager.instance.SaveGame();
         }
 
+        rare_result.SetActive(true);
     }
 
-    private bool find(int id)
+    private bool Find(int id)
     {
         foreach (int i in GameManager.instance.RescuedCharacter)
         {
