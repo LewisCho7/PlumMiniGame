@@ -67,6 +67,18 @@ public class ChamGameManager : MonoBehaviour
         {
             timer += Time.deltaTime;
         }
+        else
+        {
+            if (round > 10 && Random.Range(1, 10) <= 3)
+            {
+                reverse_round = true;
+            }
+            else
+            {
+                reverse_round = false;
+            }
+        }
+
         if (game_on_process && life == 0)
         {
             StopCoroutine(GameProcess());
@@ -88,8 +100,8 @@ public class ChamGameManager : MonoBehaviour
             {
                 round++;
                 Heart.GetComponent<Heart>().HeartUIUpdate();
-                RoundTimeUpdate();
-                reverse.SetActive(false);
+                RoundTimeUpdate();                
+                yield return new WaitForSeconds(2);
 
                 if (round > 10 && Random.Range(1, 10) <= 3)
                 {
@@ -99,13 +111,10 @@ public class ChamGameManager : MonoBehaviour
                 {
                     reverse_round = false;
                 }
-                
-                yield return new WaitForSeconds(2);
                 is_rest = false;
             }
             else
             {
-                reverse.SetActive(reverse_round);
                 bool check;
 
                 if (HandControl.hand_turned)
