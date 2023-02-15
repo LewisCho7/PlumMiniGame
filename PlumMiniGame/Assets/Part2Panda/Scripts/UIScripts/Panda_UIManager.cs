@@ -10,6 +10,10 @@ public class Panda_UIManager : MonoBehaviour
     [SerializeField] private Sprite[] basicSprites = new Sprite[9];
     enum Sprites { O = 3, X, gameover, start, go, tutorial }
 
+    // UI와 함께 등장하는 audio 정보
+    [SerializeField] private AudioClip[] Audio = new AudioClip[3];
+    enum AudioClips {Correct, Wrong, GameOver}
+
     // 점수를 나타낼 scroeUI
     private TextMeshProUGUI scoreUI;
 
@@ -17,6 +21,8 @@ public class Panda_UIManager : MonoBehaviour
     private GameObject UIpanel;
     // UI의 Sprite를 변경하기 위해 Image 컴포넌트를 저장하는 변수
     private Image img;
+    // UI의 사운드를 담당하는 AudioSource 컴포넌트
+    private AudioSource audioSource;
 
     // RoundUI
     [SerializeField] private GameObject RoundPanel;
@@ -37,6 +43,7 @@ public class Panda_UIManager : MonoBehaviour
 
         UIpanel = transform.Find("UIPanel").gameObject;
         img = UIpanel.transform.Find("Image").GetComponent<Image>();
+        audioSource = UIpanel.GetComponent<AudioSource>();
     }
 
     // 게임이 처음 실행될 때 실행
@@ -57,6 +64,7 @@ public class Panda_UIManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
+        UIpanel.SetActive(false);
         StartCoroutine(showRoundStartUI(Panda_GameManager.currentRound++));
     }
 
@@ -89,6 +97,8 @@ public class Panda_UIManager : MonoBehaviour
         UIpanel.SetActive(true);
 
         if (isCorrect) {
+            audioSource.clip = Audio[(int) AudioClips.Correct];
+            audioSource.Play();
             img.sprite = basicSprites[(int) Sprites.O];
             yield return new WaitForSeconds(1);
 
@@ -97,16 +107,19 @@ public class Panda_UIManager : MonoBehaviour
             // 휴식시간
             UIpanel.SetActive(false);
             yield return new WaitForSeconds(2);
-            UIpanel.SetActive(true);
 
             StartCoroutine(showRoundStartUI(Panda_GameManager.currentRound++));
         } else {
+            audioSource.clip = Audio[(int) AudioClips.Wrong];
+            audioSource.Play();
             img.sprite = basicSprites[(int) Sprites.X];
             yield return new WaitForSeconds(1);
             
             Panda_GameManager.isEnd = true;
             
             UIpanel.GetComponent<Image>().color = new Color(0, 0, 0, 0.7f);
+            audioSource.clip = Audio[(int) AudioClips.GameOver];
+            audioSource.Play();
             img.sprite = basicSprites[(int) Sprites.gameover];
             yield return new WaitForSeconds(2);
 
@@ -119,7 +132,6 @@ public class Panda_UIManager : MonoBehaviour
     // round n -> start 띄우는 함수
     private IEnumerator showRoundStartUI(int currentRound) {
 
-        UIpanel.SetActive(false);
         StartCoroutine(RoundPanel.GetComponent<Panda_RoundPanel>().ShowRoundPanel(currentRound));
         yield return new WaitForSeconds(1);
 
