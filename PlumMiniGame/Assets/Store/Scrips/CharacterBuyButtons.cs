@@ -50,10 +50,14 @@ public class CharacterBuyButtons : MonoBehaviour
 
     public void NormalCharBuy(int id)
     {
-        if (!find(id))
+        if(GameManager.instance.CurrentCoin >= 150)
         {
-            GameManager.instance.RescuedCharacter.Add(id);
-            DataManager.instance.SaveGame();
+            GameManager.instance.CurrentCoin -= 150;
+            if (!Find(id))
+            {
+                GameManager.instance.RescuedCharacter.Add(id);
+                DataManager.instance.SaveGame();
+            }
         }
 
     }
@@ -61,10 +65,18 @@ public class CharacterBuyButtons : MonoBehaviour
     {
         popping.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -30));
 
+        int id = Random.Range(6, 16);
+
+        if (!Find(id))
+        {
+            GameManager.instance.RescuedCharacter.Add(id);
+            DataManager.instance.SaveGame();
+        }
+
         rare_result.SetActive(true);
     }
 
-    private bool find(int id)
+    private bool Find(int id)
     {
         foreach (int i in GameManager.instance.RescuedCharacter)
         {
