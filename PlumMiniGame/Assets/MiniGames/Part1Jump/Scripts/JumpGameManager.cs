@@ -34,8 +34,8 @@ public class JumpGameManager : MonoBehaviour
     {
         dead_ui.SetActive(false);
 
-        hard_mode = true;
-        first_play = true;
+        hard_mode = DataManager.instance.isHardMode;
+        first_play = DataManager.instance.saveData.isFirstPlay[0];
 
         StartCoroutine(Tutorial());
     }
@@ -77,12 +77,12 @@ public class JumpGameManager : MonoBehaviour
         yield return null;
 
         Time.timeScale = 0;
-        while (first_play)
+        while (DataManager.instance.saveData.isFirstPlay[0])
         {
             yield return null;
             if (Input.GetMouseButtonDown(0))
             {
-                first_play = false;
+                DataManager.instance.saveData.isFirstPlay[0] = false;
                 tutorial.SetActive(false);
                 Time.timeScale = 1;
                 break;
