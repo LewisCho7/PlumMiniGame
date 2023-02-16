@@ -82,6 +82,9 @@ public class Run_PlayerClickEvents : MonoBehaviour
         Run_GameManager.score += 100;
         StartCoroutine(FadeOut(rescueCharacter));
 
+        // 구출 사운드 재생
+        GetComponent<AudioSource>().Play();
+
         // HARD - 체력 추가
         if (!Run_GameManager.isEasyMode) {
             if (Run_Player.Life + 20 > 100) Run_Player.Life = 100;

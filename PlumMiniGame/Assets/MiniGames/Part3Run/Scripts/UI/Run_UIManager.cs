@@ -26,6 +26,10 @@ public class Run_UIManager : MonoBehaviour
 
     private GameObject HPBar;
 
+
+    [SerializeField] private GameObject SoundManager;
+    [SerializeField] private AudioClip GameOverSound;
+
     // UI 바인딩
     void Awake() {
         UIPanel = transform.Find("PanelUI").gameObject;
@@ -97,6 +101,13 @@ public class Run_UIManager : MonoBehaviour
         if (Run_GameManager.time > 0 && !Run_Player.isAlive) {
             StartCoroutine(GameOver());
             Run_GameManager.time = 0;
+
+
+            AudioSource audio = SoundManager.GetComponent<AudioSource>();
+
+            audio.clip = GameOverSound;
+            audio.loop = false;
+            audio.Play();
         }
     }
 
