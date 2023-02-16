@@ -20,7 +20,6 @@ public class ChamGameManager : MonoBehaviour
     public static bool is_rest;
     public static bool game_on_process;
     public static bool reverse_round;
-    public static bool first_play;
     
     [SerializeField]
     private GameObject OX;
@@ -43,9 +42,8 @@ public class ChamGameManager : MonoBehaviour
         dead_ui.SetActive(false);
         reverse.SetActive(false);
 
-        hard_mode = false;
+        hard_mode = DataManager.instance.isHardMode;
         is_rest = true;
-        first_play = true;
 
         if (hard_mode)
         {
@@ -215,12 +213,12 @@ public class ChamGameManager : MonoBehaviour
     {
         yield return null;
        
-        while (first_play)
+        while (DataManager.instance.saveData.isFirstPlay[4])
         {
             yield return null;
             if (Input.GetMouseButtonDown(0))
             {
-                first_play = false;
+                DataManager.instance.saveData.isFirstPlay[0] = false;
                 tutorial.SetActive(false);
                 break;
             }
