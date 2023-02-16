@@ -7,6 +7,7 @@ public class JumpGameManager : MonoBehaviour
 {
     public static bool hard_mode;
     public static bool game_continue;
+    public static bool first_play;
 
     public static int rescued_character = 0;
 
@@ -18,6 +19,8 @@ public class JumpGameManager : MonoBehaviour
     private GameObject main_camera;
     [SerializeField]
     private GameObject dead_ui;
+    [SerializeField]
+    private GameObject tutorial;
     void Awake()
     {
         Application.targetFrameRate = 60;
@@ -32,8 +35,9 @@ public class JumpGameManager : MonoBehaviour
         dead_ui.SetActive(false);
 
         hard_mode = true;
+        first_play = true;
 
-        StartCoroutine(GameProcess());
+        StartCoroutine(Tutorial());
     }
 
     // Update is called once per frame
@@ -66,5 +70,25 @@ public class JumpGameManager : MonoBehaviour
         yield return null;
         yield return new WaitForSecondsRealtime(1);
         dead_ui.SetActive(true);
+    }
+
+    private IEnumerator Tutorial()
+    {
+        yield return null;
+
+        Time.timeScale = 0;
+        while (first_play)
+        {
+            yield return null;
+            if (Input.GetMouseButtonDown(0))
+            {
+                first_play = false;
+                tutorial.SetActive(false);
+                Time.timeScale = 1;
+                break;
+            }
+        }
+
+        StartCoroutine(GameProcess());
     }
 }
