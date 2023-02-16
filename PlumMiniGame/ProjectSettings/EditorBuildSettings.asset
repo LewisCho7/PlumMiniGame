@@ -18,21 +18,33 @@ EditorBuildSettings:
     path: Assets/Scenes/StorageScene.unity
     guid: 28fbc87fd2c14c34ea6ba1abecb7325a
   - enabled: 1
-    path: Assets/Scenes/Part2_panda.unity
+    path: Assets/Scenes/MiniGame/Part2_panda.unity
     guid: 7e4306bc7cb5cd241bc09692f41743b4
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Part5_cham.unity
+    path: Assets/Scenes/MiniGame/Part5_cham.unity
     guid: d760855e49d41e647b0dab8e7d7ecade
   - enabled: 1
-    path: Assets/Scenes/Part6_SkiGame.unity
+    path: Assets/Scenes/MiniGame/Part6_SkiGame.unity
     guid: 46991da7358fe6b489e350c3fcb468c5
   - enabled: 1
-    path: Assets/Scenes/Part1_jump.unity
+    path: Assets/Scenes/MiniGame/Part1_jump.unity
     guid: 31d2c7a93370a6d4aaba16c24143ff05
   - enabled: 1
-    path: Assets/Scenes/Part3_Run.unity
+    path: Assets/Scenes/MiniGame/Part3_Run.unity
     guid: fd3b80afda8db654d827834f3a19109b
+  - enabled: 1
+    path: Assets/Scenes/Store/CharacterStore.unity
+    guid: 699a7ae57ca1d9b45a879b798307e9b1
+  - enabled: 1
+    path: Assets/Scenes/Store/FurnitureStore.unity
+    guid: 86d23b01b457cc04f84d32ac8c105bc1
+  - enabled: 1
+    path: Assets/Scenes/Store/MainStore.unity
+    guid: 6b8b78eab62c90f4c80947862305749a
+  - enabled: 1
+    path: Assets/Scenes/CollectionScene.unity
+    guid: def6984c11d59114a8e939192baa0515
   m_configObjects: {}

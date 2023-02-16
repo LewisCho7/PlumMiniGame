@@ -27,6 +27,10 @@ public class GameSceneManager : MonoBehaviour
         SceneManager.LoadScene("StorageScene");
     }
 
+    public void StoreSceneLoad()
+    {
+        SceneManager.LoadScene("MainStore");
+    }
 
     // ���� �ѹ� �����ؾߵ�
     public void jumpGameLoad()
