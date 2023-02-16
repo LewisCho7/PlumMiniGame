@@ -47,8 +47,15 @@ public class Run_UIManager : MonoBehaviour
         // panel 활성화
         UIPanel.SetActive(true);
 
-        panelImage.sprite = BasicSprites[(int) Sprites.tutorial];
-        yield return new WaitForSeconds(3);
+        // 첫 실행이라면 튜토리얼 실행
+        if (DataManager.instance.saveData.isFirstPlay[2]) {
+
+            DataManager.instance.saveData.isFirstPlay[2] = false;
+            DataManager.instance.SaveGame();
+
+            panelImage.sprite = BasicSprites[(int) Sprites.tutorial];
+            yield return new WaitForSeconds(3);
+        }
 
         // 카운트 다운 출력
         for (int i = 2; i >= 0; i--) {

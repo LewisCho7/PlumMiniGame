@@ -53,8 +53,11 @@ public class Panda_UIManager : MonoBehaviour
         UIpanel.SetActive(true);
 
         // 최초 실행이라면 실행
-        // (지금은 무조건 뜨도록 설정)
-        if (true) {
+        if (DataManager.instance.saveData.isFirstPlay[1]) {
+
+            DataManager.instance.saveData.isFirstPlay[1] = false;
+            DataManager.instance.SaveGame();
+
             img.sprite = basicSprites[(int)Sprites.tutorial];
             yield return new WaitForSeconds(3);
         }
