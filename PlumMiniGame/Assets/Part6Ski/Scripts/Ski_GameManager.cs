@@ -15,6 +15,7 @@ public class Ski_GameManager : MonoBehaviour
     public GameObject[] buttons;
 
     public GameObject gameOverPanel;
+    public GameObject gameOverImage;
 
 
     private Ski_ScoreText scoreText;
@@ -65,7 +66,6 @@ public class Ski_GameManager : MonoBehaviour
     private void Update()
     {
         showItem();
-        Debug.Log(Rescuednum);
         //Debug.Log(timer);
     }
     private IEnumerator Start()
@@ -73,6 +73,7 @@ public class Ski_GameManager : MonoBehaviour
         StartCoroutine("init");
         StartCoroutine("changeSpeed");
         Application.targetFrameRate = 60;
+        isHardMode = DataManager.instance.isHardMode;
         yield return new WaitForSeconds(4f);
         StartCoroutine(IE_IncreaseScore());
         countDown.SetActive(false);
@@ -122,8 +123,9 @@ public class Ski_GameManager : MonoBehaviour
     {
         isGameOver = true;
         gameSpeed = 0;
-        gameOverPanel.SetActive(true);
+        //gameOverPanel.SetActive(true);
 
+        StartCoroutine(IE_GameOver());
     }
 
     private IEnumerator init()
@@ -158,8 +160,15 @@ public class Ski_GameManager : MonoBehaviour
 
     public void rescue()
     {
-        Debug.Log("Rescued");
         Score += 40;
         Rescuednum++;
+    }
+    private IEnumerator IE_GameOver()
+    {
+        gameOverImage.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        gameOverImage.SetActive(false);
+        gameOverPanel.SetActive(true);
+
     }
 }

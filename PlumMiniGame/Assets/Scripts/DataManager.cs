@@ -7,37 +7,57 @@ using System.IO;
 [System.Serializable]
 public class SaveData
 {
-    public bool isFirstExecute;
-    public int unlockedGameNum;
-    public bool[] isFirstPlay;
-    public int[] highScore;
-    public int currentCharacter; // 선택 언제?
+    public bool isFirstExecute; // 게임 최초 실행 (튜토리얼)
+    public int unlockedGameNum; // 잠금 해제된 게임 수
+    public bool[] isFirstPlay; // 각 게임별 최초 실행 여부 (튜토리얼)
+    public int[] highScore;    // 각 게임별 최고 점수
+    public int currentCharacter; // 현재 대표 캐릭터
 
-    public float currentBonus;
-    public int currentCoin;
+    public float currentBonus; // 현재 점수 보너스
+    public int currentCoin;    // 현재 보유 코인
 
     public List<int> furnatureList;
+    // 가구 리스트
     public List<int> rescuedCharacter;
+    // 구출한 캐릭터 목록
     public int dupNum;
+    // 삼각형 유리조각으로 변경
+
+
 }
+
 
 
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
     string path;
-    SaveData saveData;
+    public SaveData saveData;
+    public bool isHardMode;
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
-            instance = this;            
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(this.gameObject);   // 이미 존재한다면 새로 생성된 오브젝트 제거
+            }
         }
     }
     private void Start()
     {
+#if UNITY_EDITOR
         path = Path.Combine(Application.dataPath, "database.json");
+
+#else   
+        path = Path.Combine(Application.persistentDataPath, "database.json");
+#endif
         LoadGame();
     }
 
@@ -53,17 +73,16 @@ public class DataManager : MonoBehaviour
         {
             string loadJson = File.ReadAllText(path);
             saveData = JsonUtility.FromJson<SaveData>(loadJson);
-            if(saveData != null)
+            /*if(saveData != null)
             {
                 LoadData();
-            }
+            }*/
         }
-
     }
 
     public void SaveGame()
     {
-        saveData = new SaveData();
+        /*saveData = new SaveData();
         saveData.isFirstExecute = GameManager.instance.IsFirstExecute;
         saveData.unlockedGameNum = GameManager.instance.UnlockedGameNum;
         saveData.currentCharacter = GameManager.instance.CurrentCharacter;
@@ -89,7 +108,7 @@ public class DataManager : MonoBehaviour
         for (int i = 0; i < saveData.rescuedCharacter.Count; i++)
         {
             saveData.rescuedCharacter.Add(GameManager.instance.RescuedCharacter[i]);
-        }
+        }*/
 
         string json = JsonUtility.ToJson(saveData);
         File.WriteAllText(path, json);
@@ -107,7 +126,7 @@ public class DataManager : MonoBehaviour
         saveData.furnatureList = new List<int>();
         saveData.rescuedCharacter = new List<int>();
         saveData.dupNum = 0;
-        LoadData();
+        //LoadData();
         string json = JsonUtility.ToJson(saveData);
         File.WriteAllText(path, json);
     }

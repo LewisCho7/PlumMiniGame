@@ -8,6 +8,8 @@ public class Select_Difficulty : MonoBehaviour
     public GameObject[] difficulty; 
     private SpriteRenderer sp;
 
+    public static bool isHard;
+
     private void Awake()
     {
         sp = GetComponent<SpriteRenderer>();
@@ -18,19 +20,19 @@ public class Select_Difficulty : MonoBehaviour
     }
     public void setNormalMode()
     {
-        GameManager.instance.isHardMode = false;
+        DataManager.instance.isHardMode = false;
         changeMode();
     }
 
     public void setHardMode()
     {
-        GameManager.instance.isHardMode = true;
+        DataManager.instance.isHardMode = true;
         changeMode();
     }
 
     private void changeMode()
     {
-        if (GameManager.instance.isHardMode == false)
+        if (DataManager.instance.isHardMode == false)
         {
             Debug.Log("false");
             sp.sprite = backgroundSprites[0];
