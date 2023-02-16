@@ -6,7 +6,7 @@ using UnityEngine.UI;
 // 전체적인 게임 흐름을 관할하는 스크립트
 public class Run_GameManager : MonoBehaviour
 {
-    public static bool isEasyMode = true;
+    public static bool isEasyMode;
 
     // 3가지 생성 오브젝트 (장애물, 구출 캐릭터, 코인)
     public GameObject obstacleShooter, characterShooter;
@@ -25,6 +25,8 @@ public class Run_GameManager : MonoBehaviour
 
 
     void Awake() {
+
+        isEasyMode = !DataManager.instance.isHardMode;
 
         time = 0;
         score = 0;

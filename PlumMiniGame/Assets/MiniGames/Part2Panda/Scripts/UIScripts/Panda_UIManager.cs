@@ -31,14 +31,19 @@ public class Panda_UIManager : MonoBehaviour
     [SerializeField] private GameObject ScorePanel;
 
     // 정답 고르는 3초를 위한 시간 변수
-    public static float time = 0;
+    public static float time;
+    
     // 입력된 정답을 저장할 변수
     // default: -1 (고르지 않았다는 의미)
-    public static int inputAnswer = -1;
+    public static int inputAnswer;
 
 
 
     void Awake() {
+
+        time = 0;
+        inputAnswer = -1;
+
         scoreUI = transform.Find("ScoreUI").Find("Text").GetComponent<TextMeshProUGUI>();
 
         UIpanel = transform.Find("UIPanel").gameObject;
@@ -53,8 +58,11 @@ public class Panda_UIManager : MonoBehaviour
         UIpanel.SetActive(true);
 
         // 최초 실행이라면 실행
-        // (지금은 무조건 뜨도록 설정)
-        if (true) {
+        if (DataManager.instance.saveData.isFirstPlay[1]) {
+
+            DataManager.instance.saveData.isFirstPlay[1] = false;
+            DataManager.instance.SaveGame();
+
             img.sprite = basicSprites[(int)Sprites.tutorial];
             yield return new WaitForSeconds(3);
         }

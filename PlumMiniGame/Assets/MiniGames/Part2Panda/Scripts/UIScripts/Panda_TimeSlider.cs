@@ -9,9 +9,12 @@ public class Panda_TimeSlider : MonoBehaviour
     private GameObject fill;
     private AudioSource audioSource;
 
-    private bool flag = true;
+    private bool flag;
 
     void Awake() {
+
+        flag = true;
+
         slider = GetComponent<Slider>();
         fill = transform.Find("Fill Area").gameObject;
         audioSource = GetComponent<AudioSource>();
@@ -20,6 +23,10 @@ public class Panda_TimeSlider : MonoBehaviour
     void Update()
     {
         slider.value = 3 - Panda_UIManager.time;
+
+        if (Time.timeScale == 0) {
+            audioSource.Pause();
+        }
 
         if (slider.value < 3 && slider.value > 0 && flag) {
             audioSource.Play();
