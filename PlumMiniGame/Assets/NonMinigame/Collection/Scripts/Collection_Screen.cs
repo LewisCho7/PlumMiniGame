@@ -9,44 +9,64 @@ public class Collection_Screen : MonoBehaviour
     List<int> myCharacters;
     List<Dictionary<string, object>> CSVData;
     
-    private Image CharacterAsset;
+    private Image CharacterSprite, GradeSprite;
     private TextMeshProUGUI Name, Characteristic, Ability, Story;
-    private string Grade;
+    private GameObject Represent;
 
-    private int temp;
+    [SerializeField] private Sprite[] GradeAssets = new Sprite[3];
+
     private int currentIndex;
 
     void Awake() {
         myCharacters = DataManager.instance.saveData.rescuedCharacter;
+        myCharacters.Add(1);
+        myCharacters.Add(6);
         myCharacters.Add(13);
         CSVData = CSVReader.Read("CharacterData");
 
-        CharacterAsset = transform.Find("Character").GetComponent<Image>();
+        CharacterSprite = transform.Find("Character").GetComponent<Image>();
         Name = transform.Find("Name").GetComponent<TextMeshProUGUI>();
         Characteristic = transform.Find("Characteristic").GetComponent<TextMeshProUGUI>();
         Ability = transform.Find("Ability").GetComponent<TextMeshProUGUI>();
         Story = transform.Find("Story").GetComponent<TextMeshProUGUI>();
+        GradeSprite = transform.Find("Grade").GetComponent<Image>();
+        Represent = transform.Find("Represent").gameObject;
 
-        temp = -1;
+
         currentIndex = 0;
+
+        // 데이터 띄우기
+        LoadData(myCharacters[currentIndex]);
     }
 
-    
-    void Update() {
 
-        // 페이지 변경이 없었으면 동작X
-        if (temp == currentIndex) return;
+    private void LoadData(int ID) {
 
-        temp = currentIndex;
-        var data = FindData(myCharacters[currentIndex]);
+        var data = FindData(ID);
 
-        if (data != null) {
-            Name.text = data["이름"].ToString();
-            Characteristic.text = data["특징"].ToString();
-            Ability.text = data["능력"].ToString();
-            Story.text = data["스토리"].ToString();
-            Grade = data["등급"].ToString();
-        }
+        if (data == null) return;
+
+        // 캐릭터 이미지 띄우기
+        CharacterSprite.sprite = Resources.Load<Sprite>("CharacterSprites/" + ID);
+
+        // 텍스트 띄우기
+        Name.text = data["이름"].ToString();
+        Characteristic.text = data["특징"].ToString();
+        Ability.text = data["능력"].ToString();
+        Story.text = data["스토리"].ToString();
+
+
+        // 등급 띄우기
+        string grade = data["등급"].ToString();
+        int index;
+        if (grade == "common") index = 0;
+        else if (grade == "rare") index = 1;
+        else index = 2;
+        GradeSprite.sprite = GradeAssets[index];
+
+        // 대표 캐릭터 UI 띄우기
+        //Represent.SetActive(DataManager.instance.saveData.currentCharacter == ID);
+        Represent.SetActive(13 == ID);
     }
 
 
@@ -60,5 +80,16 @@ public class Collection_Screen : MonoBehaviour
         // 없으면 null 리턴
         Debug.Log("에러: ID(" + ID.ToString() + ")에 해당하는 데이터가 없습니다.");
         return null;
+    }
+
+
+    public void OnClickLeftBtn() {
+        if (currentIndex > 0) currentIndex--;
+        LoadData(myCharacters[currentIndex]);
+    }
+
+    public void OnClickRightBtn() {
+        if (currentIndex < myCharacters.Count - 1) currentIndex++;
+        LoadData(myCharacters[currentIndex]);
     }
 }
