@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Collection_Screen : MonoBehaviour
@@ -82,6 +83,10 @@ public class Collection_Screen : MonoBehaviour
         return null;
     }
 
+
+    public void OnClickBackBtn() {
+        SceneManager.LoadScene("MYROOM");
+    }
 
     public void OnClickLeftBtn() {
         if (currentIndex > 0) currentIndex--;

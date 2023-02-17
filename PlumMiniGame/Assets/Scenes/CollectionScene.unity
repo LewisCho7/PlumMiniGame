@@ -691,6 +691,7 @@ GameObject:
   - component: {fileID: 599133566}
   - component: {fileID: 599133565}
   - component: {fileID: 599133564}
+  - component: {fileID: 599133567}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -764,6 +765,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &599133567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599133563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7c4d783303c17419ff9ae77a75c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &722117867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,7 +1385,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1173339439}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2111940287}
+        m_TargetAssemblyTypeName: Collection_Screen, Assembly-CSharp
+        m_MethodName: OnClickBackBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1173339439
 MonoBehaviour:
   m_ObjectHideFlags: 0
