@@ -26,6 +26,10 @@ public class Run_UIManager : MonoBehaviour
 
     private GameObject HPBar;
 
+
+    [SerializeField] private GameObject SoundManager;
+    [SerializeField] private AudioClip GameOverSound;
+
     // UI 바인딩
     void Awake() {
         UIPanel = transform.Find("PanelUI").gameObject;
@@ -47,8 +51,15 @@ public class Run_UIManager : MonoBehaviour
         // panel 활성화
         UIPanel.SetActive(true);
 
-        panelImage.sprite = BasicSprites[(int) Sprites.tutorial];
-        yield return new WaitForSeconds(3);
+        // 첫 실행이라면 튜토리얼 실행
+        if (DataManager.instance.saveData.isFirstPlay[2]) {
+
+            DataManager.instance.saveData.isFirstPlay[2] = false;
+            DataManager.instance.SaveGame();
+
+            panelImage.sprite = BasicSprites[(int) Sprites.tutorial];
+            yield return new WaitForSeconds(3);
+        }
 
         // 카운트 다운 출력
         for (int i = 2; i >= 0; i--) {
@@ -90,6 +101,13 @@ public class Run_UIManager : MonoBehaviour
         if (Run_GameManager.time > 0 && !Run_Player.isAlive) {
             StartCoroutine(GameOver());
             Run_GameManager.time = 0;
+
+
+            AudioSource audio = SoundManager.GetComponent<AudioSource>();
+
+            audio.clip = GameOverSound;
+            audio.loop = false;
+            audio.Play();
         }
     }
 

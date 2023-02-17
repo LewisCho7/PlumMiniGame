@@ -20,7 +20,7 @@ public class ChamGameManager : MonoBehaviour
     public static bool is_rest;
     public static bool game_on_process;
     public static bool reverse_round;
-
+    
     [SerializeField]
     private GameObject OX;
     [SerializeField]
@@ -35,12 +35,14 @@ public class ChamGameManager : MonoBehaviour
     private GameObject reverse;
     [SerializeField]
     private GameObject dead_ui;
+    [SerializeField]
+    private GameObject tutorial;
     void Start()
     {
         dead_ui.SetActive(false);
         reverse.SetActive(false);
 
-        hard_mode = true;
+        hard_mode = DataManager.instance.isHardMode;
         is_rest = true;
 
         if (hard_mode)
@@ -57,7 +59,7 @@ public class ChamGameManager : MonoBehaviour
 
         game_on_process = false;
 
-        StartCoroutine(GameProcess());
+        StartCoroutine(Tutorial());
     }
 
     // Update is called once per frame
@@ -66,17 +68,6 @@ public class ChamGameManager : MonoBehaviour
         if (!is_rest)
         {
             timer += Time.deltaTime;
-        }
-        else
-        {
-            if (round > 10 && Random.Range(1, 10) <= 3)
-            {
-                reverse_round = true;
-            }
-            else
-            {
-                reverse_round = false;
-            }
         }
 
         if (game_on_process && life == 0)
@@ -100,7 +91,9 @@ public class ChamGameManager : MonoBehaviour
             {
                 round++;
                 Heart.GetComponent<Heart>().HeartUIUpdate();
-                RoundTimeUpdate();                
+                RoundTimeUpdate();
+                reverse.SetActive(false);
+
                 yield return new WaitForSeconds(2);
 
                 if (round > 10 && Random.Range(1, 10) <= 3)
@@ -116,6 +109,7 @@ public class ChamGameManager : MonoBehaviour
             else
             {
                 bool check;
+                reverse.SetActive(reverse_round);
 
                 if (HandControl.hand_turned)
                 {
@@ -213,5 +207,23 @@ public class ChamGameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         Heart.SetActive(false);
         dead_ui.SetActive(true);
+    }
+
+    private IEnumerator Tutorial()
+    {
+        yield return null;
+       
+        while (DataManager.instance.saveData.isFirstPlay[4])
+        {
+            yield return null;
+            if (Input.GetMouseButtonDown(0))
+            {
+                DataManager.instance.saveData.isFirstPlay[0] = false;
+                tutorial.SetActive(false);
+                break;
+            }
+        }
+
+        StartCoroutine(GameProcess());
     }
 }
