@@ -67,8 +67,9 @@ public class Ski_ObjectSpawner : MonoBehaviour
         StartCoroutine(IE_SpawnBarrier());
         StartCoroutine(IE_SpawnItem());
         StartCoroutine(IE_SpawnRescue());
-        if (Ski_GameManager.instance.isHardMode)
+        if (DataManager.instance.isHardMode)
         {
+            Debug.Log("isHardMode");
             StartCoroutine(IE_SpawnRock());
         }
     }
