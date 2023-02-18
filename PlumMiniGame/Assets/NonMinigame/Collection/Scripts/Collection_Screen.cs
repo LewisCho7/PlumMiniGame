@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Collection_Screen : MonoBehaviour
@@ -16,13 +15,19 @@ public class Collection_Screen : MonoBehaviour
 
     [SerializeField] private Sprite[] GradeAssets = new Sprite[3];
 
-    private int currentIndex;
+    public static int currentIndex;
+
+    private AudioSource sound;
 
     void Awake() {
+
+        // for test
+        DataManager.instance.saveData.rescuedCharacter = new List<int>() {1, 6, 13};
+        DataManager.instance.saveData.currentCharacter = 1;
+        DataManager.instance.SaveGame();
+        
+
         myCharacters = DataManager.instance.saveData.rescuedCharacter;
-        myCharacters.Add(1);
-        myCharacters.Add(6);
-        myCharacters.Add(13);
         CSVData = CSVReader.Read("CharacterData");
 
         CharacterSprite = transform.Find("Character").GetComponent<Image>();
@@ -32,6 +37,8 @@ public class Collection_Screen : MonoBehaviour
         Story = transform.Find("Story").GetComponent<TextMeshProUGUI>();
         GradeSprite = transform.Find("Grade").GetComponent<Image>();
         Represent = transform.Find("Represent").gameObject;
+
+        sound = GetComponent<AudioSource>();
 
 
         currentIndex = 0;
@@ -66,8 +73,7 @@ public class Collection_Screen : MonoBehaviour
         GradeSprite.sprite = GradeAssets[index];
 
         // 대표 캐릭터 UI 띄우기
-        //Represent.SetActive(DataManager.instance.saveData.currentCharacter == ID);
-        Represent.SetActive(13 == ID);
+        Represent.SetActive(DataManager.instance.saveData.currentCharacter == ID);
     }
 
 
@@ -84,17 +90,15 @@ public class Collection_Screen : MonoBehaviour
     }
 
 
-    public void OnClickBackBtn() {
-        SceneManager.LoadScene("MYROOM");
-    }
-
     public void OnClickLeftBtn() {
         if (currentIndex > 0) currentIndex--;
         LoadData(myCharacters[currentIndex]);
+        sound.Play();
     }
 
     public void OnClickRightBtn() {
         if (currentIndex < myCharacters.Count - 1) currentIndex++;
         LoadData(myCharacters[currentIndex]);
+        sound.Play();
     }
 }
