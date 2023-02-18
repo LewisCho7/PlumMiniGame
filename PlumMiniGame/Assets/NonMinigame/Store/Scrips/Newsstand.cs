@@ -13,17 +13,25 @@ public class Newsstand : MonoBehaviour
     {
         first_floor.GetComponent<SpriteRenderer>().sortingOrder = 4;
         second_floor.GetComponent<SpriteRenderer>().sortingOrder = 3;
+
+        second_floor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
     }
 
     public void FirstFloorClicked()
     {
         first_floor.GetComponent<SpriteRenderer>().sortingOrder = 4;
         second_floor.GetComponent<SpriteRenderer>().sortingOrder = 3;
+
+        first_floor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        second_floor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
     }
 
     public void SecondFloorClicked()
     {
         first_floor.GetComponent<SpriteRenderer>().sortingOrder = 3;
         second_floor.GetComponent<SpriteRenderer>().sortingOrder = 4;
+
+        first_floor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        second_floor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 }

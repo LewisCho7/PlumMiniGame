@@ -37,6 +37,16 @@ public class GameSceneManager : MonoBehaviour
         SceneManager.LoadScene("MainStore");
     }
 
+    public void FurnitureStoreLoad()
+    {
+        SceneManager.LoadScene("FurnitureStore");
+    }
+
+    public void CharacterStoreLoad()
+    {
+        SceneManager.LoadScene("CharacterStore");
+    }
+
     // ���� �ѹ� �����ؾߵ�
     public void jumpGameLoad()
     {

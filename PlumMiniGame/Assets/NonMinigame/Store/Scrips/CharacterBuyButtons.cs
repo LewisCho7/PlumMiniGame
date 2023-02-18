@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterBuyButtons : MonoBehaviour
 {
@@ -12,6 +14,12 @@ public class CharacterBuyButtons : MonoBehaviour
     private GameObject rare;
     [SerializeField]
     private GameObject rare_result;
+    [SerializeField]
+    private Sprite[] rare_portrait;
+
+    private string[] character_name
+        = { "플루", "돌이", "캐리", "해피", "아리", "앙리", "부기", 
+            "캥붕", "자바", "세리"};
     // Start is called before the first frame update
     void Start()
     {
@@ -67,11 +75,13 @@ public class CharacterBuyButtons : MonoBehaviour
 
         int id = Random.Range(6, 16);
 
-        if (!Find(id))
+        RareResult(id);
+
+/*        if (!Find(id))
         {
             GameManager.instance.RescuedCharacter.Add(id);
             DataManager.instance.SaveGame();
-        }
+        }*/
 
         rare_result.SetActive(true);
     }
@@ -83,5 +93,25 @@ public class CharacterBuyButtons : MonoBehaviour
             if(i == id) return true;
         }
         return false;
+    }
+
+    private void RareResult(int id)
+    {
+        rare.transform.GetChild(0).transform.GetChild(3).
+            transform.GetChild(0).gameObject.GetComponent<Image>().sprite = rare_portrait[id - 6]; //portrait
+
+        rare.transform.GetChild(0).transform.GetChild(3).
+            transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = character_name[id - 6]; //name
+
+        if (id <= 12)
+        {
+            rare.transform.GetChild(0).transform.GetChild(3).
+                transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = "Rare";
+        }
+        else
+        {
+            rare.transform.GetChild(0).transform.GetChild(3).
+                transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = "Unique";
+        }
     }
 }
