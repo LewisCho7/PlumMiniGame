@@ -58,12 +58,12 @@ public class CharacterBuyButtons : MonoBehaviour
 
     public void NormalCharBuy(int id)
     {
-        if(GameManager.instance.CurrentCoin >= 150)
+        if (GameManager.instance.CurrentCoin >= 150)
         {
             GameManager.instance.CurrentCoin -= 150;
             if (!Find(id))
             {
-                GameManager.instance.RescuedCharacter.Add(id);
+                DataManager.instance.saveData.rescuedCharacter.Add(id);
                 DataManager.instance.SaveGame();
             }
         }
@@ -73,45 +73,40 @@ public class CharacterBuyButtons : MonoBehaviour
     {
         popping.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -30));
 
-        int id = Random.Range(6, 16);
-
-        RareResult(id);
-
-/*        if (!Find(id))
-        {
-            GameManager.instance.RescuedCharacter.Add(id);
-            DataManager.instance.SaveGame();
-        }*/
-
-        rare_result.SetActive(true);
+        if(DataManager.instance.saveData.currentCoin >= 400)
+            RareResult();
+            rare_result.SetActive(true);
     }
+    private void RareResult()
+    {
+        DataManager.instance.saveData.currentCoin -= 400;
 
+        int id = Random.Range(1, 101);
+        id = (id <= 91) ? (id % 7) : ((id % 3) + 7);
+
+        rare.transform.GetChild(0).transform.GetChild(3).
+            transform.GetChild(0).gameObject.GetComponent<Image>().sprite = rare_portrait[id];
+        rare.transform.GetChild(0).transform.GetChild(3).
+            transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = character_name[id];
+        rare.transform.GetChild(0).transform.GetChild(3).
+            transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = "Rare";
+
+        if (!Find(id))
+        {
+            DataManager.instance.saveData.rescuedCharacter.Add(id);
+            DataManager.instance.SaveGame();
+        }
+        else
+        {
+            //가챠로 뽑은 캐릭터가 있으면??
+        }
+    }
     private bool Find(int id)
     {
-        foreach (int i in GameManager.instance.RescuedCharacter)
+        foreach (int i in DataManager.instance.saveData.rescuedCharacter)
         {
             if(i == id) return true;
         }
         return false;
-    }
-
-    private void RareResult(int id)
-    {
-        rare.transform.GetChild(0).transform.GetChild(3).
-            transform.GetChild(0).gameObject.GetComponent<Image>().sprite = rare_portrait[id - 6]; //portrait
-
-        rare.transform.GetChild(0).transform.GetChild(3).
-            transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = character_name[id - 6]; //name
-
-        if (id <= 12)
-        {
-            rare.transform.GetChild(0).transform.GetChild(3).
-                transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = "Rare";
-        }
-        else
-        {
-            rare.transform.GetChild(0).transform.GetChild(3).
-                transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = "Unique";
-        }
     }
 }
