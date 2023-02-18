@@ -16,11 +16,13 @@ public class Ski_GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
     public GameObject gameOverImage;
-
+    public GameObject tutorial;
 
     private Ski_ScoreText scoreText;
 
     public bool isHardMode;
+
+    private int waitTime = 4;
 
     private int _score;
     public int Score
@@ -61,29 +63,45 @@ public class Ski_GameManager : MonoBehaviour
     {
         instance = this;
         scoreText = GetComponent<Ski_ScoreText>();
+        countDown.SetActive(false);
     }
 
     private void Update()
     {
         showItem();
-        //Debug.Log(timer);
+        Debug.Log(timer);
+        if(!isGameOver && timerStart)
+        {
+            timer += Time.deltaTime;
+        }
     }
-    private IEnumerator Start()
+    private void Start()
     {
+        StartCoroutine("IE_CountDown"); // 23/02/19 코루틴에 대한 이해!!!
         StartCoroutine("init");
         StartCoroutine("changeSpeed");
         Application.targetFrameRate = 60;
         isHardMode = DataManager.instance.isHardMode;
-        yield return new WaitForSeconds(4f);
         StartCoroutine(IE_IncreaseScore());
-        countDown.SetActive(false);
-        while (!isGameOver && timerStart)
-        {
-            yield return null;
-            timer += Time.deltaTime;
-        }
+        DataManager.instance.saveData.isFirstPlay[4] = false;
+        DataManager.instance.SaveGame();   
+
     }
    
+    private IEnumerator IE_CountDown()
+    {
+        if (DataManager.instance.saveData.isFirstPlay[4])
+        {
+            waitTime = 7;
+            tutorial.SetActive(true);
+            yield return new WaitForSeconds(3f);
+            tutorial.SetActive(false);
+        }
+        countDown.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        countDown.SetActive(false);
+    }
+
     private IEnumerator IE_IncreaseScore()
     {
         yield return new WaitForSeconds(2f);
@@ -141,7 +159,7 @@ public class Ski_GameManager : MonoBehaviour
         {
             buttons[i].SetActive(false);
         }
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(waitTime);
         timerStart = true;
         gameSpeed = 400f;
 

@@ -17,3 +17,4 @@ public class Coin : MonoBehaviour
         GetComponent<TextMeshProUGUI>().text = GameManager.instance.CurrentCoin.ToString();
     }
 }
+   

@@ -38,7 +38,12 @@ public class SkiPlayerMovement : MonoBehaviour
             dx = 0;
         }
 
-        transform.position += Vector3.down * Ski_GameManager.instance.gameSpeed * Time.deltaTime;
+
+        if (Ski_GameManager.instance.timer > 0f)
+        {
+            transform.position += Vector3.down * Ski_GameManager.instance.gameSpeed * Time.deltaTime;
+
+        }
         rb.velocity = new Vector2(dx, 0f);
     }
     private void FixedUpdate()
@@ -48,6 +53,10 @@ public class SkiPlayerMovement : MonoBehaviour
     private IEnumerator IE_StartMovement()
     {
         moveSpeed = 0f;
+        if (DataManager.instance.saveData.isFirstPlay[4])
+        {
+            yield return new WaitForSeconds(3f);
+        }
         yield return new WaitForSeconds(6f);
         moveSpeed = 700f;
     }

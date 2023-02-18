@@ -86,8 +86,16 @@ public class MYROOM_ButtonManager : MonoBehaviour
         // furniture 바꿔주기 --> script 필요
 
         editButtons.SetActive(true);
-        objectPos = furnitures[index].GetComponent<RectTransform>();
-        editButtons.GetComponent<RectTransform>().anchoredPosition = objectPos.anchoredPosition + new Vector2(0, 150);
+        objectPos = furnitures[index-3].GetComponent<RectTransform>();
+        if(index == 9)
+        {
+            editButtons.GetComponent<RectTransform>().anchoredPosition = objectPos.anchoredPosition + new Vector2(-100, 0);
+        }
+        else
+        {
+            editButtons.GetComponent<RectTransform>().anchoredPosition = objectPos.anchoredPosition + new Vector2(-100, 100);
+
+        }
     }
 
     public void onClickCancel()

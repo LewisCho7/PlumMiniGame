@@ -19,9 +19,9 @@ public class SaveData
     public float currentBonus; // 현재 점수 보너스
     public int currentCoin;    // 현재 보유 코인
 
-    public List<int> furnatureList;
+    public List<string> furnatureList;
     // 가구 리스트
-    public List<int> myRoomFurnitures;
+    public List<string> myRoomFurnitures;
 
     public List<int> rescuedCharacter;
     // 구출한 캐릭터 목록
@@ -97,8 +97,8 @@ public class DataManager : MonoBehaviour
         saveData.currentCharacter = 0;
         saveData.currentBonus = 1.0f;
         saveData.currentCoin = 0;
-        saveData.furnatureList = new List<int>();
-        saveData.myRoomFurnitures = new List<int>();
+        saveData.furnatureList = new List<string>();
+        saveData.myRoomFurnitures = new List<string>();
         saveData.rescuedCharacter = new List<int>();
         saveData.dupNum = 0;
         string json = JsonUtility.ToJson(saveData);
