@@ -10,6 +10,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
     public GameObject editCanvas;
     public List<GameObject> furnitures;
     public GameObject editButtons;
+    private GameObject selectedFurn;
 
     public Button moreButton;
     public Button shopButton;
@@ -22,13 +23,14 @@ public class MYROOM_ButtonManager : MonoBehaviour
     public RectTransform bookPos;
     private RectTransform objectPos;
 
+
     private bool isStretched;
     private bool isEditMode;
 
     private void Start()
     {
-      isStretched = false;
-      isEditMode = false;
+        isStretched = false;
+        isEditMode = false;
     }
 
     public void onClickMore()
@@ -41,7 +43,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
             shopButton.interactable = true;
             editButton.interactable = true;
             bookButton.interactable = true;
-            isStretched=true;
+            isStretched = true;
         }
         else
         {
@@ -54,7 +56,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
 
             isStretched = false;
         }
-        
+
     }
     public void onClickEdit()
     {
@@ -62,7 +64,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
         mainCanvas.SetActive(false);
         editCanvas.SetActive(true);
         // 모든 가구 setInteractable
-        foreach(GameObject furn in furnitures)
+        foreach (GameObject furn in furnitures)
         {
             furn.GetComponent<Button>().interactable = true;
         }
@@ -86,8 +88,9 @@ public class MYROOM_ButtonManager : MonoBehaviour
         // furniture 바꿔주기 --> script 필요
 
         editButtons.SetActive(true);
-        objectPos = furnitures[index-3].GetComponent<RectTransform>();
-        if(index == 9)
+        objectPos = furnitures[index - 3].GetComponent<RectTransform>();
+        selectedFurn = furnitures[index - 3];
+        if (index == 9)
         {
             editButtons.GetComponent<RectTransform>().anchoredPosition = objectPos.anchoredPosition + new Vector2(-100, 0);
         }
@@ -116,5 +119,17 @@ public class MYROOM_ButtonManager : MonoBehaviour
         editButtons.SetActive(false);
         GameSceneManager.instance.storageSceneLoad();
         // 누른 가구 정보 전달
+    }
+
+    public void onClickKeep()
+    {
+        // 보관하는 함수
+        editButtons.SetActive(false);
+        selectedFurn.SetActive(false);
+        if (DataManager.instance.saveData.myRoomFurnitures.Contains(selectedFurn.GetComponent<FurnitureObjects>().spriteID)){
+            DataManager.instance.saveData.myRoomFurnitures.Remove(selectedFurn.GetComponent<FurnitureObjects>().spriteID);
+            DataManager.instance.SaveGame();
+        }
+
     }
 }

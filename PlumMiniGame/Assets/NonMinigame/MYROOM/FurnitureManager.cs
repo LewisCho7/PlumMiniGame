@@ -16,6 +16,7 @@ public class FurnitureManager : MonoBehaviour
     {
         addFromData();
         showFurnitures();
+ 
     }
 
 
@@ -29,21 +30,35 @@ public class FurnitureManager : MonoBehaviour
                 furnitures.Add(id);
             }
         }
+        furnitures.Sort();
     }
 
     private void showFurnitures()
     {
-        furnitures.Sort();
         foreach(string id in furnitures)
         {
             string id1 = id.Substring(0, 2);
             for (int i = 3; i <= 13; i++)
             {
-                furnitureObjects[i-1].SetActive(id1 == (i < 10 ? "0" : "") + i);
+                if(id1 == (i < 10 ? "0" : "") + i)
+                {
+                    furnitureObjects[i - 1].SetActive(true);
+                    furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID = id;
+                }
             }
 
         }
     }
     
+  /* private void setSpriteID()
+    {
+        for(int i = 0; i < furnitureObjects.Length; i++)
+        {
+            if (furnitureObjects[i].activeSelf)
+            {
+                foreach
+            }
+        }
+    }*/
 
 }
