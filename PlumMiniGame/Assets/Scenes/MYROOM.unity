@@ -1529,10 +1529,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC5EC\uAE30\uAC00 \uC6A9\uC0AC\uB2D8\uACFC \uB3D9\uB8CC\uB4E4\uC758 \uC9D1\uC774\uC5D0\uC694!\n\n
-    \uD654\uBA74 \uC544\uB798\uC758 \uC0C1\uC810\uC5D0\uC11C \uAC00\uAD6C\uB97C \uC0AC\uACE0,\n
-    \uAFB8\uBBF8\uAE30\uB97C \uD130\uCE58\uD574 \uAC00\uAD6C\uB97C \uAFB8\uBC00 \uC218
-    \uC788\uC5B4\uC694!"
+  m_text: "\uC5EC\uAE30\uAC00 \uC6A9\uC0AC\uB2D8\uACFC \uB3D9\uB8CC\uB4E4\uC758 \uC9D1\uC774\uC5D0\uC694!\n\n\uD654\uBA74
+    \uC544\uB798\uC758 \uC0C1\uC810\uC5D0\uC11C \uAC00\uAD6C\uB97C \uC0AC\uACE0,\n\uAFB8\uBBF8\uAE30\uB97C
+    \uD130\uCE58\uD574 \uAC00\uAD6C\uB97C \uAFB8\uBC00 \uC218 \uC788\uC5B4\uC694!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
   m_sharedMaterial: {fileID: -8116625327696945027, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
@@ -3235,7 +3234,7 @@ RectTransform:
   - {fileID: 1288899970}
   - {fileID: 635578292}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3833,7 +3832,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1288899969
 GameObject:
@@ -6698,9 +6697,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uADF8\uB9AC\uACE0 \uC704\uC5D0\uB294 \uC6A9\uC0AC\uB2D8\uC774 \uAC00\uC9C0\uACE0
-    \uC788\uB294 \uCF54\uC778\uC774 \uD45C\uC2DC\uB418\uC5B4 \uC788\uC5B4\uC694.\n\n
-    \uC774 \uCF54\uC778\uC73C\uB85C \uC0C1\uC810\uC5D0\uC11C \uAC00\uAD6C\uB97C \uC0B4
-    \uC218 \uC788\uB2F5\uB2C8\uB2E4."
+    \uC788\uB294 \uCF54\uC778\uC774 \uD45C\uC2DC\uB418\uC5B4 \uC788\uC5B4\uC694.\n\n\uC774
+    \uCF54\uC778\uC73C\uB85C \uC0C1\uC810\uC5D0\uC11C \uAC00\uAD6C\uB97C \uC0B4 \uC218
+    \uC788\uB2F5\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
   m_sharedMaterial: {fileID: -8116625327696945027, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
@@ -6853,64 +6852,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965147190}
   m_CullTransparentMesh: 1
---- !u!1 &1994520298
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1994520300}
-  - component: {fileID: 1994520299}
-  m_Layer: 0
-  m_Name: DataManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1994520299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994520298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5156b9dc80df9714ba51e95cfe26dac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveData:
-    isFirstExecute: 0
-    unlockedNormalGameNum: 0
-    unlockedHardGameNum: 0
-    isFirstPlay: 
-    highScore: 
-    currentCharacter: 0
-    currentBonus: 0
-    currentCoin: 0
-    furnatureList: []
-    myRoomFurnitures: []
-    rescuedCharacter: 
-    dupNum: 0
-  isHardMode: 0
---- !u!4 &1994520300
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994520298}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2069341485
 GameObject:
   m_ObjectHideFlags: 0
