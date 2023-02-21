@@ -35,6 +35,8 @@ public class MYROOM_ButtonManager : MonoBehaviour
 
     public void onClickMore()
     {
+        ButtonSoundManager.instance.sound.Play();
+
         if (!isStretched)
         {
             shopPos.DOAnchorPos(new Vector2(293, -460), 0.5f).From(new Vector2(293, -566.59f));
@@ -60,10 +62,12 @@ public class MYROOM_ButtonManager : MonoBehaviour
     }
     public void onClickEdit()
     {
+        ButtonSoundManager.instance.sound.Play();
+
         isEditMode = true;
         mainCanvas.SetActive(false);
         editCanvas.SetActive(true);
-        // ¸ðµç °¡±¸ setInteractable
+        // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ setInteractable
         foreach (GameObject furn in furnitures)
         {
             furn.GetComponent<Button>().interactable = true;
@@ -72,6 +76,8 @@ public class MYROOM_ButtonManager : MonoBehaviour
 
     public void onClickBack()
     {
+        ButtonSoundManager.instance.sound.Play();
+
         isEditMode = false;
         mainCanvas.SetActive(true);
         editCanvas.SetActive(false);
@@ -80,12 +86,14 @@ public class MYROOM_ButtonManager : MonoBehaviour
         {
             furn.GetComponent<Button>().interactable = false;
         }
-        // ÀúÀå ½Ã½ºÅÛ ±¸Çö
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void onClickFurniture(int index)
     {
-        // furniture ¹Ù²ãÁÖ±â --> script ÇÊ¿ä
+        // furniture ï¿½Ù²ï¿½ï¿½Ö±ï¿½ --> script ï¿½Ê¿ï¿½
+
+        ButtonSoundManager.instance.sound.Play();
 
         editButtons.SetActive(true);
         objectPos = furnitures[index - 3].GetComponent<RectTransform>();
@@ -103,27 +111,31 @@ public class MYROOM_ButtonManager : MonoBehaviour
 
     public void onClickCancel()
     {
+        ButtonSoundManager.instance.sound.Play();
         editButtons.SetActive(false);
     }
 
     public void onClickStorage()
     {
-        // ÇöÀç º¯°æ»çÇ× ÀúÀå
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        ButtonSoundManager.instance.sound.Play();
         editButtons.SetActive(false);
         GameSceneManager.instance.storageSceneLoad();
     }
 
     public void onClickChange()
     {
-        // ÇöÀç º¯°æ»çÇ× ÀúÀå
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        ButtonSoundManager.instance.sound.Play();
         editButtons.SetActive(false);
         GameSceneManager.instance.storageSceneLoad();
-        // ´©¸¥ °¡±¸ Á¤º¸ Àü´Þ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void onClickKeep()
     {
-        // º¸°üÇÏ´Â ÇÔ¼ö
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
+        ButtonSoundManager.instance.sound.Play();
         editButtons.SetActive(false);
         selectedFurn.SetActive(false);
         if (DataManager.instance.saveData.myRoomFurnitures.Contains(selectedFurn.GetComponent<FurnitureObjects>().spriteID)){
