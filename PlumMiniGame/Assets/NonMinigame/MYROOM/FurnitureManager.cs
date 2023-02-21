@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FurnitureManager : MonoBehaviour
 {
     private List<string> furnitures = new List<string>();
     public GameObject[] furnitureObjects;
+    private Image spriteImage;
 
     /*private enum FurnitureType
     {
@@ -36,14 +38,19 @@ public class FurnitureManager : MonoBehaviour
     private void showFurnitures()
     {
         foreach(string id in furnitures)
-        {
+        {   
             string id1 = id.Substring(0, 2);
+            // int i = 1 부터 시작 + 기본 벽지 에셋 saveData에 추가
             for (int i = 3; i <= 13; i++)
             {
                 if(id1 == (i < 10 ? "0" : "") + i)
                 {
                     furnitureObjects[i - 1].SetActive(true);
                     furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID = id;
+
+                    spriteImage = furnitureObjects[i - 1].GetComponent<Image>();
+                    spriteImage.sprite = Resources.Load<Sprite>("FurnitureSprites/" + id);
+                    spriteImage.SetNativeSize();
                 }
             }
 
