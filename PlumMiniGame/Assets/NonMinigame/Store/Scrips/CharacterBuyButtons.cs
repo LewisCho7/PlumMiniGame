@@ -73,9 +73,14 @@ public class CharacterBuyButtons : MonoBehaviour
     {
         popping.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -30));
 
-        if(DataManager.instance.saveData.currentCoin >= 400)
-            RareResult();
-            rare_result.SetActive(true);
+        /*        if (DataManager.instance.saveData.currentCoin >= 400)
+                {
+                    rare_result.SetActive(true);
+                    RareResult();
+                }*/
+
+        rare_result.SetActive(true);
+        RareResult();
     }
     private void RareResult()
     {
@@ -83,7 +88,7 @@ public class CharacterBuyButtons : MonoBehaviour
 
         int id = Random.Range(1, 101);
         id = (id <= 91) ? (id % 7) : ((id % 3) + 7);
-
+        Debug.Log(id);
         rare.transform.GetChild(0).transform.GetChild(3).
             transform.GetChild(0).gameObject.GetComponent<Image>().sprite = rare_portrait[id];
         rare.transform.GetChild(0).transform.GetChild(3).
@@ -93,7 +98,7 @@ public class CharacterBuyButtons : MonoBehaviour
 
         if (!Find(id))
         {
-            DataManager.instance.saveData.rescuedCharacter.Add(id);
+            DataManager.instance.saveData.rescuedCharacter.Add(id + 6);
             DataManager.instance.SaveGame();
         }
         else
