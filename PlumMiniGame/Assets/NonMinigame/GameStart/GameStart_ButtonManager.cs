@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameStart_ButtonManager : MonoBehaviour
 {
+
+    [SerializeField] private AudioSource sound;
+
     public void onClickStart()
     {
         // ���� ����� ���� ù ���� -> Ʃ��
         //SceneManager.LoadScene("MYROOM");
+
+        sound.Play();
 
         if (DataManager.instance.saveData.isFirstExecute) {
             LoadingSceneManager.LoadScene("TutorialScene");
