@@ -37,6 +37,8 @@ public class Panda_GameManager : MonoBehaviour
     // 변수 초기화
     void Awake() {
 
+        Application.targetFrameRate = 60;
+
         mode = DataManager.instance.isHardMode ? 1 : 0;
 
         pandaCnts = new int[] {0, 0, 0};

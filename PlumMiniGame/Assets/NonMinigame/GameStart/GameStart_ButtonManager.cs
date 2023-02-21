@@ -7,7 +7,13 @@ public class GameStart_ButtonManager : MonoBehaviour
 {
     public void onClickStart()
     {
-        // ÀúÀå °á°ú¿¡ µû¶ó Ã¹ ½ÇÇà -> Æ©Åä
-        SceneManager.LoadScene("MYROOM");
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¹ ï¿½ï¿½ï¿½ï¿½ -> Æ©ï¿½ï¿½
+        //SceneManager.LoadScene("MYROOM");
+
+        if (DataManager.instance.saveData.isFirstExecute) {
+            LoadingSceneManager.LoadScene("TutorialScene");
+        } else {
+            LoadingSceneManager.LoadScene("MYROOM");
+        }
     }
 }

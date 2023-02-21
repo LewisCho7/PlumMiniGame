@@ -14,15 +14,14 @@ public class Panda_UIManager : MonoBehaviour
     [SerializeField] private AudioClip[] Audio = new AudioClip[3];
     enum AudioClips {Correct, Wrong, GameOver}
 
-    // 점수를 나타낼 scroeUI
-    private TextMeshProUGUI scoreUI;
-
     // UI를 띄우기 위한 panel
     private GameObject UIpanel;
     // UI의 Sprite를 변경하기 위해 Image 컴포넌트를 저장하는 변수
     private Image img;
     // UI의 사운드를 담당하는 AudioSource 컴포넌트
     private AudioSource audioSource;
+
+    [SerializeField] private GameObject CountDownPanel;
 
     // RoundUI
     [SerializeField] private GameObject RoundPanel;
@@ -38,13 +37,10 @@ public class Panda_UIManager : MonoBehaviour
     public static int inputAnswer;
 
 
-
     void Awake() {
 
         time = 0;
         inputAnswer = -1;
-
-        scoreUI = transform.Find("ScoreUI").Find("Text").GetComponent<TextMeshProUGUI>();
 
         UIpanel = transform.Find("UIPanel").gameObject;
         img = UIpanel.transform.Find("Image").GetComponent<Image>();
@@ -72,6 +68,10 @@ public class Panda_UIManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
+        // UIpanel.SetActive(false);
+        // CountDownPanel.SetActive(true);
+        // yield return new WaitForSeconds(3);
+
         UIpanel.SetActive(false);
         StartCoroutine(showRoundStartUI(Panda_GameManager.currentRound++));
     }
@@ -92,8 +92,6 @@ public class Panda_UIManager : MonoBehaviour
 
             StartCoroutine(showOX(inputAnswer == Panda_GameManager.answerNum));
         }
-
-        scoreUI.text = Panda_GameManager.score.ToString();
     }
 
     // OX를 띄우는 함수
@@ -129,7 +127,7 @@ public class Panda_UIManager : MonoBehaviour
             audioSource.clip = Audio[(int) AudioClips.GameOver];
             audioSource.Play();
             img.sprite = basicSprites[(int) Sprites.gameover];
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1.5f);
 
             UIpanel.SetActive(false);
             ScorePanel.SetActive(true);

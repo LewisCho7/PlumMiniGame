@@ -21,11 +21,6 @@ public class Collection_Screen : MonoBehaviour
 
     void Awake() {
 
-        // for test
-        DataManager.instance.saveData.rescuedCharacter = new List<int>() {1, 6, 13};
-        DataManager.instance.saveData.currentCharacter = 1;
-        DataManager.instance.SaveGame();
-        
 
         myCharacters = DataManager.instance.saveData.rescuedCharacter;
         CSVData = CSVReader.Read("CharacterData");

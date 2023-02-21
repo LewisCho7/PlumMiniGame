@@ -5,14 +5,17 @@ using UnityEngine;
 public class Select_Difficulty : MonoBehaviour
 {
     public Sprite[] backgroundSprites;
-    public GameObject[] difficulty; 
+    public GameObject[] difficulty;
+    public GameObject selectSceneManager;
     private SpriteRenderer sp;
+    private Select_Manager manager;
 
     public static bool isHard;
 
     private void Awake()
     {
         sp = GetComponent<SpriteRenderer>();
+        manager = selectSceneManager.GetComponent<Select_Manager>();
     }
     private void Start()
     {
@@ -45,5 +48,7 @@ public class Select_Difficulty : MonoBehaviour
             difficulty[0].SetActive(false);
             difficulty[1].SetActive(true);
         }
+
+        manager.unlockedGameSet();
     }
 }

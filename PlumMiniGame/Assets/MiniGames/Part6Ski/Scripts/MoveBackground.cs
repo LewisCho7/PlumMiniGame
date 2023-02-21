@@ -9,11 +9,15 @@ public class MoveBackground : MonoBehaviour
     {
         
     }
-
+     
     // Update is called once per frame
     void Update()
     {
         if(Ski_GameManager.instance.timer > 2f)
-        transform.position += Vector3.down * Ski_GameManager.instance.gameSpeed* Time.deltaTime;
+        {
+            transform.position += Vector3.down * Ski_GameManager.instance.gameSpeed * Time.deltaTime;
+
+        }
+
     }
 }
