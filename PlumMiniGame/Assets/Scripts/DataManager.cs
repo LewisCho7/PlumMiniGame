@@ -96,7 +96,7 @@ public class DataManager : MonoBehaviour
         saveData.highScore = new int[5] { 0, 0, 0, 0, 0 };
         saveData.currentCharacter = 0;
         saveData.currentBonus = 1.0f;
-        saveData.currentCoin = 0;
+        saveData.currentCoin = 100000;
         saveData.furnatureList = new List<string>();
         saveData.myRoomFurnitures = new List<string>();
         saveData.rescuedCharacter = new List<int>();

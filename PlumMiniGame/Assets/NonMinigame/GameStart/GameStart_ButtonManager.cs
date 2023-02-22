@@ -10,6 +10,8 @@ public class GameStart_ButtonManager : MonoBehaviour
         // ���� ����� ���� ù ���� -> Ʃ��
         //SceneManager.LoadScene("MYROOM");
 
+        ButtonSoundManager.instance.sound.Play();
+
         if (DataManager.instance.saveData.isFirstExecute) {
             LoadingSceneManager.LoadScene("TutorialScene");
         } else {

@@ -58,12 +58,12 @@ public class CharacterBuyButtons : MonoBehaviour
 
     public void NormalCharBuy(int id)
     {
-        if (GameManager.instance.CurrentCoin >= 150)
+        if (!Find(id)) 
         {
-            GameManager.instance.CurrentCoin -= 150;
-            if (!Find(id))
+            DataManager.instance.saveData.currentCoin -= 150;
+            if (DataManager.instance.saveData.currentCoin >= 150)
             {
-                DataManager.instance.saveData.rescuedCharacter.Add(id);
+                DataManager.instance.saveData.rescuedCharacter.Add(id + 1);
                 DataManager.instance.SaveGame();
             }
         }
@@ -73,14 +73,11 @@ public class CharacterBuyButtons : MonoBehaviour
     {
         popping.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -30));
 
-        /*        if (DataManager.instance.saveData.currentCoin >= 400)
-                {
-                    rare_result.SetActive(true);
-                    RareResult();
-                }*/
-
-        rare_result.SetActive(true);
-        RareResult();
+        if (DataManager.instance.saveData.currentCoin >= 400)
+        {
+            rare_result.SetActive(true);
+            RareResult();
+        }
     }
     private void RareResult()
     {
