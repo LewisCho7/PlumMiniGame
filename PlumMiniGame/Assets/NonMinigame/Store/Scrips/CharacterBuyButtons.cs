@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -63,7 +64,7 @@ public class CharacterBuyButtons : MonoBehaviour
             DataManager.instance.saveData.currentCoin -= 150;
             if (DataManager.instance.saveData.currentCoin >= 150)
             {
-                DataManager.instance.saveData.rescuedCharacter.Add(id + 1);
+                DataManager.instance.saveData.rescuedCharacter.Add(id);
                 DataManager.instance.SaveGame();
             }
         }
@@ -83,24 +84,24 @@ public class CharacterBuyButtons : MonoBehaviour
     {
         DataManager.instance.saveData.currentCoin -= 400;
 
-        int id = Random.Range(1, 101);
-        id = (id <= 91) ? (id % 7) : ((id % 3) + 7);
+        int random_variable = Random.Range(1, 101);
+        int id = (random_variable <= 91) ? (random_variable % 7) : ((random_variable % 3) + 7);
         Debug.Log(id);
         rare.transform.GetChild(0).transform.GetChild(3).
             transform.GetChild(0).gameObject.GetComponent<Image>().sprite = rare_portrait[id];
         rare.transform.GetChild(0).transform.GetChild(3).
             transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = character_name[id];
         rare.transform.GetChild(0).transform.GetChild(3).
-            transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = "Rare";
+            transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = (random_variable <= 91) ? "RARE" : "UNIQUE";
 
-        if (!Find(id))
+        if (!Find(id+6))
         {
             DataManager.instance.saveData.rescuedCharacter.Add(id + 6);
             DataManager.instance.SaveGame();
         }
         else
         {
-            //가챠로 뽑은 캐릭터가 있으면??
+            DataManager.instance.saveData.dupNum += 20;
         }
     }
     private bool Find(int id)

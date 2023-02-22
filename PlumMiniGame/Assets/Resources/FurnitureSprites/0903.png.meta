@@ -127,7 +127,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 0903_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 668
+        width: 1080
+        height: 598
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49bc09edc778e6e41a619582f2891caa
+      internalID: -820904630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +159,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      0903_7: -820904630
+      0903_10: -204403296
+      0903_9: -160520158
+      0903_12: 1213784917
+      0903_6: -1903809253
+      0903_5: -676409066
+      0903_11: -1296978108
+      0903_13: 309349592
+      0903_8: 1111200299
+      0903_1: 1774157345
+      0903_4: 103444460
+      0903_0: 577727176
+      0903_2: 388161565
+      0903_3: -418028357
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
