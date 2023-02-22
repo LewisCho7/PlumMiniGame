@@ -8,25 +8,25 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class SaveData
 {
-    public bool isFirstExecute; // °ÔÀÓ ÃÖÃÊ ½ÇÇà (Æ©Åä¸®¾ó)
-    public int unlockedNormalGameNum; // Àá±Ý ÇØÁ¦µÈ ³ë¸» ³­ÀÌµµ °ÔÀÓ ¼ö
-    public int unlockedHardGameNum; // Àá±Ý ÇØÁ¦µÈ ÇÏµå ³­ÀÌµµ °ÔÀÓ ¼ö
+    public bool isFirstExecute; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Æ©ï¿½ä¸®ï¿½ï¿½)
+    public int unlockedNormalGameNum; // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ë¸» ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    public int unlockedHardGameNum; // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ïµï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-    public bool[] isFirstPlay; // °¢ °ÔÀÓº° ÃÖÃÊ ½ÇÇà ¿©ºÎ (Æ©Åä¸®¾ó)
-    public int[] highScore;    // °¢ °ÔÀÓº° ÃÖ°í Á¡¼ö
-    public int currentCharacter; // ÇöÀç ´ëÇ¥ Ä³¸¯ÅÍ
+    public bool[] isFirstPlay; // ï¿½ï¿½ ï¿½ï¿½ï¿½Óºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Æ©ï¿½ä¸®ï¿½ï¿½)
+    public int[] highScore;    // ï¿½ï¿½ ï¿½ï¿½ï¿½Óºï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public int currentCharacter; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ Ä³ï¿½ï¿½ï¿½ï¿½
 
-    public float currentBonus; // ÇöÀç Á¡¼ö º¸³Ê½º
-    public int currentCoin;    // ÇöÀç º¸À¯ ÄÚÀÎ
+    public float currentBonus; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½
+    public int currentCoin;    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     public List<string> furnatureList;
-    // °¡±¸ ¸®½ºÆ®
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
     public List<string> myRoomFurnitures;
 
     public List<int> rescuedCharacter;
-    // ±¸ÃâÇÑ Ä³¸¯ÅÍ ¸ñ·Ï
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     public int dupNum;
-    // »ï°¢Çü À¯¸®Á¶°¢À¸·Î º¯°æ
+    // ï¿½ï°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 }
@@ -51,7 +51,7 @@ public class DataManager : MonoBehaviour
         {
             if (instance != this)
             {
-                Destroy(this.gameObject);   // ÀÌ¹Ì Á¸ÀçÇÑ´Ù¸é »õ·Î »ý¼ºµÈ ¿ÀºêÁ§Æ® Á¦°Å
+                Destroy(this.gameObject);   // ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
             }
         }
     }
@@ -96,13 +96,12 @@ public class DataManager : MonoBehaviour
         saveData.highScore = new int[5] { 0, 0, 0, 0, 0 };
         saveData.currentCharacter = 0;
         saveData.currentBonus = 1.0f;
-        saveData.currentCoin = 0;
+        saveData.currentCoin = 100000;
         saveData.furnatureList = new List<string>();
         saveData.myRoomFurnitures = new List<string>();
         saveData.rescuedCharacter = new List<int>();
         saveData.dupNum = 0;
         string json = JsonUtility.ToJson(saveData);
         File.WriteAllText(path, json);
-        SceneManager.LoadScene("TutorialScene");
     }
 }
