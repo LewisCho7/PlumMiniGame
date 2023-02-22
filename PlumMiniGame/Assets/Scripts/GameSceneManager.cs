@@ -15,42 +15,42 @@ public class GameSceneManager : MonoBehaviour
     public void gameSelectSceneLoad()
     {
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("GameSelectScene");
+        StartCoroutine(SceneConvertAnimation.instance.LoadScene("GameSelectScene"));
     }
 
     public void myRoomSceneLoad()
     {
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("MYROOM");
+        StartCoroutine(SceneConvertAnimation.instance.LoadScene("MYROOM"));
     }
     public void storageSceneLoad()
     {
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("StorageScene");
+        StartCoroutine(SceneConvertAnimation.instance.LoadScene("StorageScene"));
     }
 
     public void CollectionSceneLoad() 
     {
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("CollectionScene");
+        StartCoroutine(SceneConvertAnimation.instance.LoadScene("CollectionScene"));
     }
 
     public void StoreSceneLoad()
     {
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("MainStore");
+        StartCoroutine(SceneConvertAnimation.instance.LoadScene("MainStore"));
     }
 
     public void FurnitureStoreLoad()
     {
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("FurnitureStore");
+        StartCoroutine(SceneConvertAnimation.instance.LoadScene("FurnitureStore"));
     }
 
     public void CharacterStoreLoad()
     {
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("CharacterStore");
+        StartCoroutine(SceneConvertAnimation.instance.LoadScene("CharacterStore"));
     }
 
     // ���� �ѹ� �����ؾߵ�
