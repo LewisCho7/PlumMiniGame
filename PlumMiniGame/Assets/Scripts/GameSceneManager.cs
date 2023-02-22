@@ -58,35 +58,33 @@ public class GameSceneManager : MonoBehaviour
     {
         // ���� �ѹ� �����ؾߵ�
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("Part1_jump");
-
+        LoadingSceneManager.LoadScene("Part1_jump");
     }
     public void eatGameLoad()
     {
         // ���� �ѹ� �����ؾߵ�
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("Part2_panda");
-
+        LoadingSceneManager.LoadScene("Part2_panda");
     }
     public void runGameLoad()
     {
         // ���� �ѹ� �����ؾߵ�
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("Part3_Run");
+        LoadingSceneManager.LoadScene("Part3_Run");
 
     }
     public void chamGameLoad()
     {
         // ���� �ѹ� �����ؾߵ�
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("Part5_cham");
+        LoadingSceneManager.LoadScene("Part5_cham");
 
     }
     public void skiGameLoad()
     {
         // ���� �ѹ� �����ؾߵ�
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("Part6_SkiGame");
+        LoadingSceneManager.LoadScene("Part6_SkiGame");
     }
 
 }
