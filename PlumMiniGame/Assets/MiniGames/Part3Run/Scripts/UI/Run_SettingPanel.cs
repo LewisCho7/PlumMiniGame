@@ -24,6 +24,8 @@ public class Run_SettingPanel : MonoBehaviour
     }
 
     public void ExitButtonOnClick() {
+        ButtonSoundManager.instance.sound.Play();
+        //StartCoroutine(SceneConvertAnimation.instance.LoadScene("GameSelectScene"));
         SceneManager.LoadScene("GameSelectScene");
     }
 

@@ -2724,10 +2724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3203e32d0d76c9946924464d7c51e62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterSprites:
-  - {fileID: 696934575769731214, guid: bb5d1a9a343f5c3439681a45f26e2187, type: 3}
-  - {fileID: 6737485479569290592, guid: d15073e9ca0e2ef4e87e5972cc57017a, type: 3}
-  - {fileID: 6054639303813145526, guid: d94f5b0f0e8d4e2489ee44cd8b5e5228, type: 3}
+  RescueCharacter: {fileID: 6737485479569290592, guid: d15073e9ca0e2ef4e87e5972cc57017a, type: 3}
 --- !u!4 &1421440627
 Transform:
   m_ObjectHideFlags: 0

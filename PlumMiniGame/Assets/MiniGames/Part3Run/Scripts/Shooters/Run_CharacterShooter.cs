@@ -5,8 +5,14 @@ using UnityEngine;
 // 구출 캐릭터를 생성하는 스크립트
 public class Run_CharacterShooter : MonoBehaviour
 {
-    // 구출 캐릭터 prefab 배열
-    [SerializeField] private GameObject[] characterSprites = new GameObject[3];
+    // 구출 캐릭터 prefab
+    [SerializeField] private GameObject RescueCharacter;
+
+    List<Dictionary<string, object>> CSVData;
+
+    void Awake() {
+        CSVData = CSVReader.Read("CharacterData");
+    }
 
     // 발사 시작 함수
     public IEnumerator shootStart() {
@@ -42,7 +48,9 @@ public class Run_CharacterShooter : MonoBehaviour
         GameObject newObj;  // 새로 생성될 오브젝트를 저장하는 변수
 
         // 구출 캐릭터 생성
-        newObj = Instantiate(characterSprites[Random.Range(0, 3)], transform.position, Quaternion.identity);
+        Sprite skin = Resources.Load<Sprite>("CharacterSprites/" + Random.Range(1, 16));
+        RescueCharacter.GetComponent<SpriteRenderer>().sprite = skin;
+        newObj = Instantiate(RescueCharacter, transform.position, Quaternion.identity);
 
         // 시간 흐름에 따른 속도 변화 반영
         int extraSpeed = (int)Run_GameManager.time / 5 * 100;
