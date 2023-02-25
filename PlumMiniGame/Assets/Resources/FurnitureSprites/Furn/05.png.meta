@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC637\uC7A5_1"
+      name: 1
       rect:
         serializedVersion: 2
         x: 0
@@ -137,7 +137,7 @@ TextureImporter:
         width: 270
         height: 427
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,7 +150,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC637\uC7A5_2"
+      name: 2
       rect:
         serializedVersion: 2
         x: 360
@@ -158,7 +158,7 @@ TextureImporter:
         width: 258
         height: 384
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,15 +171,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC637\uC7A5_11"
+      name: 4
       rect:
         serializedVersion: 2
         x: 382
-        y: 95
+        y: 97
         width: 242
         height: 385
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,15 +192,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC637\uC7A5_12"
+      name: 3
       rect:
         serializedVersion: 2
         x: 17
-        y: 101
+        y: 103
         width: 242
         height: 374
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -224,22 +224,22 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       "\uC637\uC7A5_15": -2003951283
-      "\uC637\uC7A5_11": 29131941
+      3: 448353111
       "\uC637\uC7A5_8": 350969407
       "\uC637\uC7A5_5": 14478606
       "\uC637\uC7A5_6": -1824385925
       "\uC637\uC7A5_7": 1182416178
       "\uC637\uC7A5_14": 2102230043
       "\uC637\uC7A5_4": -485487912
+      2: -1731547429
       "\uC637\uC7A5_13": 1144497555
       "\uC637\uC7A5_16": -160629262
-      "\uC637\uC7A5_12": 448353111
+      4: 29131941
       "\uC637\uC7A5_3": 1187924418
       "\uC637\uC7A5_0": 807811970
       "\uC637\uC7A5_18": 1534412848
-      "\uC637\uC7A5_2": -1731547429
+      1: -2082328033
       "\uC637\uC7A5_17": 609138664
-      "\uC637\uC7A5_1": -2082328033
       "\uC637\uC7A5_9": -1778502211
       "\uC637\uC7A5_10": 1759788049
   spritePackingTag: 

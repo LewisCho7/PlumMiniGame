@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uCE68\uB300_\uCD5C\uC885_0"
+      name: 1
       rect:
         serializedVersion: 2
         x: 120
@@ -137,7 +137,7 @@ TextureImporter:
         width: 394
         height: 336
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,7 +150,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uCE68\uB300_\uCD5C\uC885_1"
+      name: 2
       rect:
         serializedVersion: 2
         x: 624
@@ -158,7 +158,7 @@ TextureImporter:
         width: 398
         height: 457
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,7 +171,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uCE68\uB300_\uCD5C\uC885_2"
+      name: 4
       rect:
         serializedVersion: 2
         x: 78
@@ -179,7 +179,7 @@ TextureImporter:
         width: 396
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,7 +192,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uCE68\uB300_\uCD5C\uC885_3"
+      name: 3
       rect:
         serializedVersion: 2
         x: 606
@@ -200,7 +200,7 @@ TextureImporter:
         width: 408
         height: 420
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,12 +223,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uCE68\uB300_\uCD5C\uC885_0": 1521941828
+      3: 980759678
       "\uCE68\uB300_\uCD5C\uC885_5": 1629207629
-      "\uCE68\uB300_\uCD5C\uC885_3": 980759678
+      2: 270427063
+      4: 125842752
       "\uCE68\uB300_\uCD5C\uC885_4": -499143036
-      "\uCE68\uB300_\uCD5C\uC885_2": 125842752
-      "\uCE68\uB300_\uCD5C\uC885_1": 270427063
+      1: 1521941828
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

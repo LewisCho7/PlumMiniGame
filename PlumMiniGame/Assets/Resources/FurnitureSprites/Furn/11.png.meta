@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uAFB8\uBBF8\uAE302_0"
+      name: 3
       rect:
         serializedVersion: 2
         x: 163
@@ -137,7 +137,7 @@ TextureImporter:
         width: 59
         height: 51
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,7 +150,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAFB8\uBBF8\uAE302_1"
+      name: 1
       rect:
         serializedVersion: 2
         x: 280
@@ -158,7 +158,7 @@ TextureImporter:
         width: 60
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,7 +171,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAFB8\uBBF8\uAE302_3"
+      name: 2
       rect:
         serializedVersion: 2
         x: 409
@@ -179,7 +179,7 @@ TextureImporter:
         width: 65
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,10 +202,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uAFB8\uBBF8\uAE302_1": 497167607
+      3: -1275646329
+      2: 445143427
       "\uAFB8\uBBF8\uAE302_2": -1111384966
-      "\uAFB8\uBBF8\uAE302_3": 445143427
-      "\uAFB8\uBBF8\uAE302_0": -1275646329
+      1: 497167607
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

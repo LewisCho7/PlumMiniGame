@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC120\uBC182_0"
+      name: 1
       rect:
         serializedVersion: 2
         x: 426
@@ -137,7 +137,7 @@ TextureImporter:
         width: 255
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,7 +150,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC120\uBC182_2"
+      name: 2
       rect:
         serializedVersion: 2
         x: 144
@@ -158,7 +158,7 @@ TextureImporter:
         width: 186
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,7 +171,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC120\uBC182_6"
+      name: 4
       rect:
         serializedVersion: 2
         x: 114
@@ -179,7 +179,7 @@ TextureImporter:
         width: 192
         height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,7 +192,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC120\uBC182_7"
+      name: 3
       rect:
         serializedVersion: 2
         x: 456
@@ -200,7 +200,7 @@ TextureImporter:
         width: 205
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,14 +223,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uC120\uBC182_6": 1510791671
-      "\uC120\uBC182_0": -456780101
+      3: -1425013674
+      2: 1418751451
       "\uC120\uBC182_3": 1019793502
-      "\uC120\uBC182_7": -1425013674
+      4: 1510791671
       "\uC120\uBC182_4": 1132764648
       "\uC120\uBC182_8": -938987048
       "\uC120\uBC182_9": -1016003857
-      "\uC120\uBC182_2": 1418751451
+      1: -456780101
       "\uC120\uBC182_1": 607704800
       "\uC120\uBC182_5": -1788780298
   spritePackingTag: 

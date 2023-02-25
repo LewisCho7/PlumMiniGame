@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uCC3D\uBB382_0"
+      name: 2
       rect:
         serializedVersion: 2
         x: 220
@@ -137,7 +137,7 @@ TextureImporter:
         width: 146
         height: 132
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,7 +150,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uCC3D\uBB382_1"
+      name: 1
       rect:
         serializedVersion: 2
         x: 522
@@ -158,7 +158,7 @@ TextureImporter:
         width: 138
         height: 138
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,15 +171,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uCC3D\uBB382_2"
+      name: 4
       rect:
         serializedVersion: 2
-        x: 186
+        x: 184
         y: 600
         width: 174
         height: 163
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,7 +192,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uCC3D\uBB382_3"
+      name: 3
       rect:
         serializedVersion: 2
         x: 490
@@ -200,7 +200,7 @@ TextureImporter:
         width: 170
         height: 173
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,10 +223,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uCC3D\uBB382_0": -1968574735
-      "\uCC3D\uBB382_2": -1074204019
-      "\uCC3D\uBB382_1": -1431749478
-      "\uCC3D\uBB382_3": 66064247
+      3: 66064247
+      2: -1968574735
+      4: -1074204019
+      1: -1431749478
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

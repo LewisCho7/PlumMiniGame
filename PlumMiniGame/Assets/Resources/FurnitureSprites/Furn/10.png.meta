@@ -129,15 +129,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uAFB8\uBBF8\uAE301_2_4"
+      name: 2
       rect:
         serializedVersion: 2
         x: 262
         y: 804
-        width: 140
+        width: 114
         height: 216
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,15 +150,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAFB8\uBBF8\uAE301_2_6"
+      name: 1
       rect:
         serializedVersion: 2
         x: 516
         y: 818
-        width: 102
+        width: 84
         height: 172
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,7 +171,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAFB8\uBBF8\uAE301_2_7"
+      name: 4
       rect:
         serializedVersion: 2
         x: 276
@@ -179,7 +179,7 @@ TextureImporter:
         width: 120
         height: 179
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,7 +192,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAFB8\uBBF8\uAE301_2_8"
+      name: 3
       rect:
         serializedVersion: 2
         x: 486
@@ -200,7 +200,7 @@ TextureImporter:
         width: 108
         height: 264
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,15 +223,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      3: 680116389
       "\uAFB8\uBBF8\uAE301_2_5": -1795030767
       "\uAFB8\uBBF8\uAE301_2_1": -656308418
+      2: -21499330
+      4: -357560694
       "\uAFB8\uBBF8\uAE301_2_3": 1049137024
-      "\uAFB8\uBBF8\uAE301_2_7": -357560694
-      "\uAFB8\uBBF8\uAE301_2_8": 680116389
-      "\uAFB8\uBBF8\uAE301_2_4": -21499330
+      1: -900188002
       "\uAFB8\uBBF8\uAE301_2_2": 2031416462
       "\uAFB8\uBBF8\uAE301_2_0": 955071689
-      "\uAFB8\uBBF8\uAE301_2_6": -900188002
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
