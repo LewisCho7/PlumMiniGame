@@ -18,7 +18,7 @@ public class FurnitureManager : MonoBehaviour
     {
         addFromData();
         showFurnitures();
- 
+        
     }
 
 
@@ -41,16 +41,30 @@ public class FurnitureManager : MonoBehaviour
         {   
             string id1 = id.Substring(0, 2);
             // int i = 1 부터 시작 + 기본 벽지 에셋 saveData에 추가
-            for (int i = 3; i <= 13; i++)
+            for (int i = 1; i <= 13; i++)
             {
                 if(id1 == (i < 10 ? "0" : "") + i)
                 {
                     furnitureObjects[i - 1].SetActive(true);
                     furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID = id;
 
-                    spriteImage = furnitureObjects[i - 1].GetComponent<Image>();
-                    spriteImage.sprite = Resources.Load<Sprite>("FurnitureSprites/" + id);
-                    spriteImage.SetNativeSize();
+                    if(id1 == "01" || id1 == "02")
+                    {
+                        Sprite sprite = Resources.Load<Sprite>("FurnitureSprites/" + id);
+                        furnitureObjects[i-1].GetComponent<SpriteRenderer>().sprite = sprite;
+                        break;
+                    }
+                    else
+                    {
+                        spriteImage = furnitureObjects[i - 1].GetComponent<Image>();
+
+                        Sprite[] sprites = Resources.LoadAll<Sprite>("FurnitureSprites/Furn/" + id1);
+                        int id2 = int.Parse(id.Substring(2, 2));
+                        Debug.Log(id2);
+                        spriteImage.sprite = sprites[id2 - 1];
+                        spriteImage.SetNativeSize();
+                        break;
+                    }
                 }
             }
 

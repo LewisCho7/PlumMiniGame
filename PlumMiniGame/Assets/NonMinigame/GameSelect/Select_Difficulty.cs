@@ -23,12 +23,14 @@ public class Select_Difficulty : MonoBehaviour
     }
     public void setNormalMode()
     {
+        ButtonSoundManager.instance.sound.Play();
         DataManager.instance.isHardMode = false;
         changeMode();
     }
 
     public void setHardMode()
     {
+        ButtonSoundManager.instance.sound.Play();
         DataManager.instance.isHardMode = true;
         changeMode();
     }

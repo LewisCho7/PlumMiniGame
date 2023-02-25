@@ -14,9 +14,10 @@ public class Storage_Furniture : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public void onClickFurn()
+    public void onClickFurn(string id)
     {
         selectButton.SetActive(true);
         selectButton.GetComponent<RectTransform>().anchoredPosition = rectTransform.anchoredPosition + new Vector2(0, -90f);
+        Storage_ButtonManager.instance.selectedID = id;
     }
 }
