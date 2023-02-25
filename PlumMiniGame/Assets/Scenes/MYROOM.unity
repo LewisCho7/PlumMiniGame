@@ -1232,6 +1232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 542088325}
   - component: {fileID: 542088324}
+  - component: {fileID: 542088326}
   m_Layer: 0
   m_Name: BasicWall
   m_TagString: Untagged
@@ -1306,6 +1307,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &542088326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542088323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2cf9ab70708acb45b89066cf2b2e2d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnNum: 1
+  spriteID: 
 --- !u!1 &550675117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,7 +2000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2110,6 +2125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 868540159}
   - component: {fileID: 868540158}
+  - component: {fileID: 868540160}
   m_Layer: 0
   m_Name: BasicFloor
   m_TagString: Untagged
@@ -2184,6 +2200,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &868540160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868540157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2cf9ab70708acb45b89066cf2b2e2d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnNum: 2
+  spriteID: 
 --- !u!1 &902296508
 GameObject:
   m_ObjectHideFlags: 0
