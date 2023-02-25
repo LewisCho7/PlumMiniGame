@@ -21,8 +21,15 @@ public class GameSceneManager : MonoBehaviour
     public void myRoomSceneLoad()
     {
         ButtonSoundManager.instance.sound.Play();
+        SceneManager.LoadScene("MYROOM");
+    }
+
+    public void myRoomSceneLoadAni()
+    {
+        ButtonSoundManager.instance.sound.Play();
         StartCoroutine(SceneConvertAnimation.instance.LoadScene("MYROOM"));
     }
+    
     public void storageSceneLoad()
     {
         ButtonSoundManager.instance.sound.Play();
