@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5645d1aa2043b3a469a7097448ced57b
+guid: 67e1f2b37d950a940a54db9a8f39f391
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,7 +127,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "\uCE68\uB300_\uCD5C\uC885_0"
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 774
+        width: 394
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e345a99afdf7f564b8be5ce0292b15ea
+      internalID: 1521941828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCE68\uB300_\uCD5C\uC885_1"
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 720
+        width: 398
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83152fcfedb2f845987de832a09ec43
+      internalID: 270427063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCE68\uB300_\uCD5C\uC885_2"
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 222
+        width: 396
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4319790fe967ff8449c579dce674f85d
+      internalID: 125842752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCE68\uB300_\uCD5C\uC885_3"
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 210
+        width: 408
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1930465d4bbbb1f4d863eec16047446f
+      internalID: 980759678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +222,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "\uCE68\uB300_\uCD5C\uC885_0": 1521941828
+      "\uCE68\uB300_\uCD5C\uC885_5": 1629207629
+      "\uCE68\uB300_\uCD5C\uC885_3": 980759678
+      "\uCE68\uB300_\uCD5C\uC885_4": -499143036
+      "\uCE68\uB300_\uCD5C\uC885_2": 125842752
+      "\uCE68\uB300_\uCD5C\uC885_1": 270427063
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

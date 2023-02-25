@@ -49,7 +49,10 @@ public class FurnitureManager : MonoBehaviour
                     furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID = id;
 
                     spriteImage = furnitureObjects[i - 1].GetComponent<Image>();
-                    spriteImage.sprite = Resources.Load<Sprite>("FurnitureSprites/" + id);
+                    Sprite[] sprites = Resources.LoadAll<Sprite>("FurnitureSprites/Furn/" + id1);
+                    int id2 = int.Parse(id.Substring(2, 2));
+                    Debug.Log(id2);
+                    spriteImage.sprite = sprites[id2 - 1];
                     spriteImage.SetNativeSize();
                 }
             }
