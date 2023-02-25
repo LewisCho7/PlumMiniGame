@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Tilemaps;
+//using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +13,8 @@ public class CharacterBuyButtons : MonoBehaviour
     private GameObject common;
     [SerializeField]
     private GameObject rare;
+    [SerializeField]
+    private GameObject rare_select;
     [SerializeField]
     private GameObject rare_result;
     [SerializeField]
@@ -26,11 +28,12 @@ public class CharacterBuyButtons : MonoBehaviour
     {
         common.SetActive(false);
         rare.SetActive(false);
+        rare_select.SetActive(false);
     }
 
     private void ButtonsDisappear()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
             buttons[i].SetActive(false);
         }
@@ -39,7 +42,9 @@ public class CharacterBuyButtons : MonoBehaviour
     {
         common.SetActive(false);
         rare.SetActive(false);
-        for (int i = 0; i < 2; i++)
+        rare_select.SetActive(false);
+
+        for (int i = 0; i < 3; i++)
         {
             buttons[i].SetActive(true);
         }
@@ -50,11 +55,22 @@ public class CharacterBuyButtons : MonoBehaviour
         common.SetActive(true);
     }
 
-    public void RareButtonClicked()
+    public void RareRandomClicked()
     {
         ButtonsDisappear();
         rare.SetActive(true);
         rare_result.SetActive(false);
+
+        rare.transform.GetChild(0).transform
+            .transform.GetChild(2).rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+
+    }
+
+    public void RareBuyClicked()
+    {
+        ButtonsDisappear();
+        rare_select.SetActive(true);
     }
 
     public void NormalCharBuy(int id)
@@ -68,11 +84,23 @@ public class CharacterBuyButtons : MonoBehaviour
                 DataManager.instance.SaveGame();
             }
         }
-
     }
+
+    public void SelectedCharacterBuy(int id)
+    {
+        int price = (id <= 12) ? 100 : 200;
+        if(!Find(id) && DataManager.instance.saveData.dupNum >= price) 
+        {
+            DataManager.instance.saveData.rescuedCharacter.Add(id);
+            DataManager.instance.SaveGame();
+        }
+    }
+
     public void RareCharBuy(GameObject popping)
     {
-        popping.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -30));
+
+        popping.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 30));
+        
 
         if (DataManager.instance.saveData.currentCoin >= 400)
         {
