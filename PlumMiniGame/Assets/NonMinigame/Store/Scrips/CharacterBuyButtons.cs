@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 //using UnityEditor.Tilemaps;
 using UnityEngine;
@@ -18,7 +19,10 @@ public class CharacterBuyButtons : MonoBehaviour
     [SerializeField]
     private GameObject rare_result;
     [SerializeField]
+    private GameObject warning;
+    [SerializeField]
     private Sprite[] rare_portrait;
+    
 
     private string[] character_name
         = { "플루", "돌이", "캐리", "해피", "아리", "앙리", "부기", 
@@ -29,6 +33,7 @@ public class CharacterBuyButtons : MonoBehaviour
         common.SetActive(false);
         rare.SetActive(false);
         rare_select.SetActive(false);
+        warning.SetActive(false);
     }
 
     private void ButtonsDisappear()
@@ -75,14 +80,24 @@ public class CharacterBuyButtons : MonoBehaviour
 
     public void NormalCharBuy(int id)
     {
-        if (!Find(id)) 
+        if (DataManager.instance.saveData.currentCoin >= 150 && !Find(id)) 
         {
             DataManager.instance.saveData.currentCoin -= 150;
-            if (DataManager.instance.saveData.currentCoin >= 150)
-            {
-                DataManager.instance.saveData.rescuedCharacter.Add(id);
-                DataManager.instance.SaveGame();
-            }
+            DataManager.instance.saveData.rescuedCharacter.Add(id);
+            DataManager.instance.SaveGame();
+        }
+        else if (DataManager.instance.saveData.currentCoin >= 150 && !Find(id))
+        {
+            warning.SetActive(true);
+            warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+                = "이미 구출한 인질입니다!";
+
+        }
+        else if (DataManager.instance.saveData.dupNum < 150)
+        {
+            warning.SetActive(true);
+            warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+                = "코인이 부족합니다!";
         }
     }
 
@@ -93,6 +108,19 @@ public class CharacterBuyButtons : MonoBehaviour
         {
             DataManager.instance.saveData.rescuedCharacter.Add(id);
             DataManager.instance.SaveGame();
+        }
+        else if (DataManager.instance.saveData.currentCoin >= price && !Find(id))
+        {
+            warning.SetActive(true);
+            warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+                = "이미 구출한 인질입니다!";
+
+        }
+        else if (DataManager.instance.saveData.dupNum < price)
+        {
+            warning.SetActive(true);
+            warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+                = "조각이 부족합니다!";
         }
     }
 
@@ -132,6 +160,12 @@ public class CharacterBuyButtons : MonoBehaviour
             DataManager.instance.saveData.dupNum += 20;
         }
     }
+
+    public void Close()
+    {
+        warning.SetActive(false);
+    }
+
     private bool Find(int id)
     {
         foreach (int i in DataManager.instance.saveData.rescuedCharacter)

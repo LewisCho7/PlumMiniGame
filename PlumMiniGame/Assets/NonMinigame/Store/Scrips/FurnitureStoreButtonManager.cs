@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using TMPro;
 using UnityEngine;
 
 public class FurnitureStoreButtonManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class FurnitureStoreButtonManager : MonoBehaviour
     private GameObject[] stand_floor;
     [SerializeField]
     private GameObject theme_selector;
+    [SerializeField]
+    private GameObject warning;
 
     private bool floor_move;
     private int current_floor;
@@ -29,6 +32,8 @@ public class FurnitureStoreButtonManager : MonoBehaviour
             theme_selector.transform.GetChild(i).gameObject.SetActive(false);
             i++;
         }
+
+        warning.SetActive(false);
 
         current_floor = 0;
     }
@@ -86,6 +91,19 @@ public class FurnitureStoreButtonManager : MonoBehaviour
             DataManager.instance.saveData.currentCoin -= price;
             DataManager.instance.saveData.furnatureList.Add(id_string);
         }
+        else if(DataManager.instance.saveData.currentCoin >= price && !Find(id_string))
+        {
+            warning.SetActive(true);
+            warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+                = "이미 구매했습니다!";
+
+        }
+        else if (DataManager.instance.saveData.currentCoin < price)
+        {
+            warning.SetActive(true);
+            warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+                = "코인이 부족합니다!";
+        }
     }
 
     public void BackButton()
@@ -100,6 +118,11 @@ public class FurnitureStoreButtonManager : MonoBehaviour
             theme_selector.transform.GetChild(i).gameObject.SetActive(false);
             i++;
         }
+    }
+
+    public void Close()
+    {
+        warning.SetActive(false);
     }
 
     private bool Find(string id)
