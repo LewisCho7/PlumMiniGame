@@ -142,7 +142,7 @@ public class CharacterBuyButtons : MonoBehaviour
 
         int random_variable = Random.Range(1, 101);
         int id = (random_variable <= 91) ? (random_variable % 7) : ((random_variable % 3) + 7);
-        Debug.Log(id);
+
         rare.transform.GetChild(0).transform.GetChild(3).
             transform.GetChild(0).gameObject.GetComponent<Image>().sprite = rare_portrait[id];
         rare.transform.GetChild(0).transform.GetChild(3).
