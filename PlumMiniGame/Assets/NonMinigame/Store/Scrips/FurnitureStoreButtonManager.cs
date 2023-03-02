@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FurnitureStoreButtonManager : MonoBehaviour
@@ -19,6 +20,8 @@ public class FurnitureStoreButtonManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        warning.SetActive(false);
+
         floor_move = true;
         stand_floor[0].GetComponent<SpriteRenderer>().sortingOrder = 4;
         stand_floor[1].GetComponent<SpriteRenderer>().sortingOrder = 3;
@@ -26,20 +29,27 @@ public class FurnitureStoreButtonManager : MonoBehaviour
 
         stand_floor[1].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
 
-        int i = 0;
-        while (theme_selector.transform.GetChild(i) != null)
+        
+        try
         {
-            theme_selector.transform.GetChild(i).gameObject.SetActive(false);
-            i++;
+            int i = 0;
+            while (theme_selector.transform.GetChild(i) != null)
+            {
+                theme_selector.transform.GetChild(i).gameObject.SetActive(false);
+                i++;
+            }
         }
-
-        warning.SetActive(false);
+        catch
+        {
+            
+        }
 
         current_floor = 0;
     }
 
     public void FirstFloorClicked()
     {
+        ButtonSoundManager.instance.sound.Play();
         if (floor_move)
         {   
             stand_floor[0].GetComponent<SpriteRenderer>().sortingOrder = 4;
@@ -56,6 +66,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
 
     public void SecondFloorClicked()
     {
+        ButtonSoundManager.instance.sound.Play();
         if (floor_move)
         {
             stand_floor[0].GetComponent<SpriteRenderer>().sortingOrder = 3;
@@ -73,6 +84,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
 
     public void FurnitureSelected(int id)
     {
+        ButtonSoundManager.instance.sound.Play();
         stand_floor[(int)id / 12].transform.GetChild(0).
             transform.GetChild(0).gameObject.SetActive(false);
 
@@ -82,6 +94,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
 
     public void FurnitureBuy(int id)
     {
+        ButtonSoundManager.instance.sound.Play();
         int price = (id % 10 <= 2) ? 100 : 200;
         price = (id % 10 == 4) ? 500 : price;
         string id_string = (id < 1000) ? "0" + id.ToString() : id.ToString();
@@ -108,6 +121,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
 
     public void BackButton()
     {
+        ButtonSoundManager.instance.sound.Play();
         floor_move = true;
         stand_floor[current_floor].transform.GetChild(0).
             transform.GetChild(0).gameObject.SetActive(true);
@@ -122,6 +136,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
 
     public void Close()
     {
+        ButtonSoundManager.instance.sound.Play();
         warning.SetActive(false);
     }
 
