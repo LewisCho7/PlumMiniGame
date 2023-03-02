@@ -28,8 +28,6 @@ public class Run_Player : MonoBehaviour
 
     void Update() {
 
-        Debug.Log(Life);
-
         if (Life <= 0) isAlive = false;
 
         if (Run_GameManager.time > 0) {
