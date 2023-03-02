@@ -25,7 +25,11 @@ public class Run_Player : MonoBehaviour
     }
 
     private bool flag = true;
+
     void Update() {
+
+        Debug.Log(Life);
+
         if (Life <= 0) isAlive = false;
 
         if (Run_GameManager.time > 0) {
@@ -37,7 +41,7 @@ public class Run_Player : MonoBehaviour
                 flag = false;
             }
 
-            Life -= Time.deltaTime * 2;
+            if (!Run_GameManager.isEasyMode) Life -= Time.deltaTime * 2;
         }
     }
 
