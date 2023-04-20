@@ -16,6 +16,7 @@ public class Storage_Furniture : MonoBehaviour
 
     public void onClickFurn(string id)
     {
+        ButtonSoundManager.instance.sound.Play();
         selectButton.SetActive(true);
         selectButton.GetComponent<RectTransform>().anchoredPosition = rectTransform.anchoredPosition + new Vector2(0, -90f);
         Storage_ButtonManager.instance.selectedID = id;

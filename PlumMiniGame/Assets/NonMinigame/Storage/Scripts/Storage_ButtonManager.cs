@@ -26,6 +26,7 @@ public class Storage_ButtonManager : MonoBehaviour
     }
     public void onClickList(int StorageIndex)
     {
+        ButtonSoundManager.instance.sound.Play();
         //list 종류에 따라서 바꾸기
         int_id = StorageIndex;
         //string_id = (StorageIndex < 10) ? ("0" + StorageIndex.ToString()) : StorageIndex.ToString();
@@ -38,6 +39,7 @@ public class Storage_ButtonManager : MonoBehaviour
 
     public void onClickBack()
     {
+        ButtonSoundManager.instance.sound.Play();
         if (!isList)
         {
             storage[int_id - 1].SetActive(false);
@@ -54,6 +56,7 @@ public class Storage_ButtonManager : MonoBehaviour
     }
     public void onClickSelect()
     {
+        ButtonSoundManager.instance.sound.Play();
         string id1 = selectedID.Substring(0, 2);
         foreach(string id in DataManager.instance.saveData.myRoomFurnitures)
         {
