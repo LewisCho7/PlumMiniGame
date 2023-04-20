@@ -14,6 +14,7 @@ public class ChamSettings : MonoBehaviour
 
     public void SettingButtonClicked()
     {
+        ButtonSoundManager.instance.sound.Play();
         blur_img.SetActive(!blur_img.activeSelf);
         if (Time.timeScale == 0)
         {
@@ -27,6 +28,7 @@ public class ChamSettings : MonoBehaviour
 
     public void RestartButtonClicked()
     {
+        ButtonSoundManager.instance.sound.Play();
         SceneManager.LoadScene("Part5_cham");
     }
 }

@@ -24,6 +24,8 @@ public class Run_PlayerClickEvents : MonoBehaviour
     // 플레이어와 충돌한 구출 캐릭터 정보를 저장하는 변수
     private GameObject rescueCharacter;
 
+    [SerializeField] private GameObject RescueEffect;
+
 
     void Awake() {
         rigid = GetComponent<Rigidbody2D>();
@@ -90,6 +92,14 @@ public class Run_PlayerClickEvents : MonoBehaviour
             if (Run_Player.Life + 20 > 100) Run_Player.Life = 100;
             else Run_Player.Life += 20;
         }
+
+        StartCoroutine(ShowRescueEffect(0.8f));
+    }
+
+    private IEnumerator ShowRescueEffect(float time) {
+        RescueEffect.SetActive(true);
+        yield return new WaitForSeconds(time);
+        RescueEffect.SetActive(false);
     }
 
     // 땅과 접촉했을 때 알려주는 함수

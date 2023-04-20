@@ -24,8 +24,11 @@ public class JumpGameManager : MonoBehaviour
     void Awake()
     {
         Application.targetFrameRate = 60;
-        Time.timeScale = 1;
+        Time.timeScale = 0;
+        
+        hard_mode = DataManager.instance.isHardMode;
         game_continue = true;
+        
         survived_time = 0;
     }
 
@@ -33,11 +36,7 @@ public class JumpGameManager : MonoBehaviour
     void Start()
     {
         dead_ui.SetActive(false);
-
-        hard_mode = DataManager.instance.isHardMode;
-        first_play = DataManager.instance.saveData.isFirstPlay[0];
-
-        StartCoroutine(Tutorial());
+        StartCoroutine(GameProcess());
     }
 
     // Update is called once per frame
@@ -48,12 +47,16 @@ public class JumpGameManager : MonoBehaviour
         {
             StopCoroutine(GameProcess());
             StartCoroutine(GameOver());
-            Time.timeScale = 0;
         }
     }
 
     IEnumerator GameProcess()
     {
+        while (DataManager.instance.saveData.isFirstPlay[0])
+        {
+            yield return null;
+        }
+
         while(game_continue)
         {
             yield return null;
@@ -65,30 +68,19 @@ public class JumpGameManager : MonoBehaviour
         }
     }
 
+    public void TutorialDisappear()
+    {
+        tutorial.SetActive(false);
+        DataManager.instance.saveData.isFirstPlay[0] = false;
+        Time.timeScale = 1;
+    }
+    
     IEnumerator GameOver()
     {
         yield return null;
         yield return new WaitForSecondsRealtime(1);
         dead_ui.SetActive(true);
-    }
 
-    private IEnumerator Tutorial()
-    {
-        yield return null;
-
-        Time.timeScale = 0;
-        while (DataManager.instance.saveData.isFirstPlay[0])
-        {
-            yield return null;
-            if (Input.GetMouseButtonDown(0))
-            {
-                DataManager.instance.saveData.isFirstPlay[0] = false;
-                tutorial.SetActive(false);
-                Time.timeScale = 1;
-                break;
-            }
-        }
-
-        StartCoroutine(GameProcess());
+        main_camera.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 }

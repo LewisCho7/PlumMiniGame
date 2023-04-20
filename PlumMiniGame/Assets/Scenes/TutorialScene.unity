@@ -469,7 +469,7 @@ MonoBehaviour:
   m_text: "\uC774\uBE0C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
-  m_sharedMaterial: {fileID: 4598904606526037674, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
+  m_sharedMaterial: {fileID: -8116625327696945027, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -606,7 +606,7 @@ MonoBehaviour:
     \uC120\uD0DD\uD574\uC8FC\uC138\uC694!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
-  m_sharedMaterial: {fileID: 4598904606526037674, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
+  m_sharedMaterial: {fileID: -8116625327696945027, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_text: "\uC9C0\uBC14"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
-  m_sharedMaterial: {fileID: 4598904606526037674, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
+  m_sharedMaterial: {fileID: -8116625327696945027, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1616,6 +1616,7 @@ GameObject:
   - component: {fileID: 1541443672}
   - component: {fileID: 1541443671}
   - component: {fileID: 1541443670}
+  - component: {fileID: 1541443673}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1689,6 +1690,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1541443673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541443669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7c4d783303c17419ff9ae77a75c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1789679074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,7 +1896,7 @@ MonoBehaviour:
   m_text: "\uD504\uB7FC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
-  m_sharedMaterial: {fileID: 4598904606526037674, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
+  m_sharedMaterial: {fileID: -8116625327696945027, guid: aa3eabfc002543a49860e33cc5c7fce2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

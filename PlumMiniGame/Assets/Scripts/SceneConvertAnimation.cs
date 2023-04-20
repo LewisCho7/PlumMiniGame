@@ -37,13 +37,13 @@ public class SceneConvertAnimation : MonoBehaviour
         canvas.sortingOrder = 1;
 
         int i = 0;
-        while (i < 50)
+        while (i < 25)
         {
             i += 1;
-            float f = i / 50.0f;
+            float f = i / 25.0f;
             Color c = new Color(0, 0, 0, f);
             fade.color = c;
-            yield return new WaitForSeconds(0.001f);
+            yield return new WaitForSeconds(0.0001f);
         }
 
         SceneManager.LoadScene(scene);
@@ -51,14 +51,14 @@ public class SceneConvertAnimation : MonoBehaviour
 
     public IEnumerator FadeIn() {
 
-        int i = 50;
+        int i = 25;
         while (i > 0)
         {
             i -= 1;
-            float f = i / 50.0f;
+            float f = i / 25.0f;
             Color c = new Color(0, 0, 0, f);
             fade.color = c;
-            yield return new WaitForSeconds(0.001f);
+            yield return new WaitForSeconds(0.0001f);
         }
 
         canvas.sortingOrder = -1;

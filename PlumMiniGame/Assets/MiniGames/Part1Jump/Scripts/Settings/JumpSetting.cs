@@ -14,12 +14,14 @@ public class JumpSetting : MonoBehaviour
 
     public void RestartButtonClicked()
     {
+        ButtonSoundManager.instance.sound.Play();
         SceneManager.LoadScene("Part1_jump");
     }
 
     public void SettingButtonClicked()
     {
-        if(blur_img != null)
+        ButtonSoundManager.instance.sound.Play();
+        if (blur_img != null)
             blur_img.SetActive(!blur_img.activeSelf);
         if (Time.timeScale == 0)
         {

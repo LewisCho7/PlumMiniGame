@@ -14,6 +14,7 @@ public class GameSceneManager : MonoBehaviour
     }
     public void gameSelectSceneLoad()
     {
+        Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
         StartCoroutine(SceneConvertAnimation.instance.LoadScene("GameSelectScene"));
     }
@@ -21,34 +22,47 @@ public class GameSceneManager : MonoBehaviour
     public void myRoomSceneLoad()
     {
         ButtonSoundManager.instance.sound.Play();
+        SceneManager.LoadScene("MYROOM");
+    }
+
+    public void myRoomSceneLoadAni()
+    {
+        Time.timeScale = 1;
+        ButtonSoundManager.instance.sound.Play();
         StartCoroutine(SceneConvertAnimation.instance.LoadScene("MYROOM"));
     }
+    
     public void storageSceneLoad()
     {
+        Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
         StartCoroutine(SceneConvertAnimation.instance.LoadScene("StorageScene"));
     }
 
     public void CollectionSceneLoad() 
     {
+        Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
         StartCoroutine(SceneConvertAnimation.instance.LoadScene("CollectionScene"));
     }
 
     public void StoreSceneLoad()
     {
+        Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
         StartCoroutine(SceneConvertAnimation.instance.LoadScene("MainStore"));
     }
 
     public void FurnitureStoreLoad()
     {
+        Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
         StartCoroutine(SceneConvertAnimation.instance.LoadScene("FurnitureStore"));
     }
 
     public void CharacterStoreLoad()
     {
+        Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
         StartCoroutine(SceneConvertAnimation.instance.LoadScene("CharacterStore"));
     }
@@ -57,6 +71,7 @@ public class GameSceneManager : MonoBehaviour
     public void jumpGameLoad()
     {
         // ���� �ѹ� �����ؾߵ�
+        Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
         LoadingSceneManager.LoadScene("Part1_jump");
     }
@@ -76,6 +91,7 @@ public class GameSceneManager : MonoBehaviour
     public void chamGameLoad()
     {
         // ���� �ѹ� �����ؾߵ�
+        Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
         LoadingSceneManager.LoadScene("Part5_cham");
 
