@@ -33,6 +33,7 @@ public class MYROOMTutorial : MonoBehaviour
 
     public void onClickNext()
     {
+        ButtonSoundManager.instance.sound.Play();
         if (tutorialIndex == 7)
         {
             tutorialPanel.SetActive(false);
