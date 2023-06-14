@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class FurnitureStoreButtonManager : MonoBehaviour
     private GameObject theme_selector;
     [SerializeField]
     private GameObject warning;
+    [SerializeField]
+    private GameObject purchase_confirm;
 
     private bool floor_move;
     private int current_floor;
@@ -21,6 +24,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
     void Start()
     {
         warning.SetActive(false);
+        purchase_confirm.SetActive(false);
 
         floor_move = true;
         stand_floor[0].GetComponent<SpriteRenderer>().sortingOrder = 4;
@@ -101,10 +105,10 @@ public class FurnitureStoreButtonManager : MonoBehaviour
 
         if (DataManager.instance.saveData.currentCoin >= price && !Find(id_string))
         {
-            DataManager.instance.saveData.currentCoin -= price;
-            DataManager.instance.saveData.furnatureList.Add(id_string);
+            purchase_confirm.SetActive(true);
+            FurnitureWarningManager.current_item_id = id;
         }
-        else if(DataManager.instance.saveData.currentCoin >= price && !Find(id_string))
+        else if(DataManager.instance.saveData.currentCoin >= price && Find(id_string))
         {
             warning.SetActive(true);
             warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
@@ -133,13 +137,6 @@ public class FurnitureStoreButtonManager : MonoBehaviour
             i++;
         }
     }
-
-    public void Close()
-    {
-        ButtonSoundManager.instance.sound.Play();
-        warning.SetActive(false);
-    }
-
     private bool Find(string id)
     {
         foreach (string i in DataManager.instance.saveData.furnatureList)

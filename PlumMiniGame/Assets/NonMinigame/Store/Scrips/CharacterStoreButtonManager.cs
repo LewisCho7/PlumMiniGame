@@ -13,13 +13,15 @@ public class CharacterStoreButtonManager : MonoBehaviour
     [SerializeField]
     private GameObject common;
     [SerializeField]
-    private GameObject rare;
+    private GameObject[] rare_coin;
+    [SerializeField]
+    private GameObject[] rare_result;
     [SerializeField]
     private GameObject rare_select;
     [SerializeField]
-    private GameObject rare_result;
-    [SerializeField]
     private GameObject warning;
+    [SerializeField]
+    private GameObject char_buy_confirm;
     [SerializeField]
     private Sprite[] rare_portrait;
     
@@ -31,9 +33,11 @@ public class CharacterStoreButtonManager : MonoBehaviour
     void Start()
     {
         common.SetActive(false);
-        rare.SetActive(false);
         rare_select.SetActive(false);
         warning.SetActive(false);
+        char_buy_confirm.SetActive(false);
+        foreach(GameObject g in rare_coin) { g.SetActive(false); }
+        foreach (GameObject g in rare_result) { g.SetActive(false); }
     }
 
     private void ButtonsDisappear()
@@ -47,9 +51,17 @@ public class CharacterStoreButtonManager : MonoBehaviour
     {
         ButtonSoundManager.instance.sound.Play();
         common.SetActive(false);
-        rare.SetActive(false);
+        UnityEngine.Debug.Log("blur");
+        
         rare_select.SetActive(false);
-
+        foreach (GameObject g in rare_coin) 
+        {
+            g.SetActive(false);
+        }
+        foreach (GameObject g in rare_result)
+        {
+            g.SetActive(false);
+        }
         for (int i = 0; i < 3; i++)
         {
             buttons[i].SetActive(true);
@@ -66,11 +78,13 @@ public class CharacterStoreButtonManager : MonoBehaviour
     {
         ButtonSoundManager.instance.sound.Play();
         ButtonsDisappear();
-        rare.SetActive(true);
-        rare_result.SetActive(false);
+        foreach (GameObject g in rare_coin) 
+        { 
+            g.SetActive(true); 
+        }
 
-        rare.transform.GetChild(0).transform
-            .transform.GetChild(2).rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        rare_coin[1].transform.GetChild(0)
+            .transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
     public void RareBuyClicked()
@@ -85,11 +99,13 @@ public class CharacterStoreButtonManager : MonoBehaviour
         ButtonSoundManager.instance.sound.Play();
         if (DataManager.instance.saveData.currentCoin >= 150 && !Find(id)) 
         {
+            /*char_buy_confirm.SetActive(true);
+            CharacterConfirmManager.current_item_id = id;*/
             DataManager.instance.saveData.currentCoin -= 150;
             DataManager.instance.saveData.rescuedCharacter.Add(id);
             DataManager.instance.SaveGame();
         }
-        else if (DataManager.instance.saveData.currentCoin >= 150 && !Find(id))
+        else if (DataManager.instance.saveData.currentCoin >= 150 && Find(id))
         {
             warning.SetActive(true);
             warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
@@ -110,10 +126,11 @@ public class CharacterStoreButtonManager : MonoBehaviour
         int price = (id <= 12) ? 100 : 200;
         if(!Find(id) && DataManager.instance.saveData.dupNum >= price) 
         {
+            DataManager.instance.saveData.dupNum -= price;
             DataManager.instance.saveData.rescuedCharacter.Add(id);
             DataManager.instance.SaveGame();
         }
-        else if (DataManager.instance.saveData.currentCoin >= price && !Find(id))
+        else if (DataManager.instance.saveData.currentCoin >= price && Find(id))
         {
             warning.SetActive(true);
             warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
@@ -131,13 +148,20 @@ public class CharacterStoreButtonManager : MonoBehaviour
     public void RareCharBuy(GameObject popping)
     {
         ButtonSoundManager.instance.sound.Play();
-        popping.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 30));
         
-
-        if (DataManager.instance.saveData.currentCoin >= 400)
+        if (DataManager.instance.saveData.dupNum >= 400)
         {
-            rare_result.SetActive(true);
+            popping.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 30));
+            foreach (GameObject g in rare_result)
+            {
+                g.SetActive(true);
+            }
             RareResult();
+        }
+        else
+        {
+            warning.SetActive(true);
+            warning.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "재화가 부족합니다!";
         }
     }
     private void RareResult()
@@ -147,12 +171,9 @@ public class CharacterStoreButtonManager : MonoBehaviour
         int random_variable = Random.Range(1, 101);
         int id = (random_variable <= 91) ? (random_variable % 7) : ((random_variable % 3) + 7);
 
-        rare.transform.GetChild(0).transform.GetChild(3).
-            transform.GetChild(0).gameObject.GetComponent<Image>().sprite = rare_portrait[id];
-        rare.transform.GetChild(0).transform.GetChild(3).
-            transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = character_name[id];
-        rare.transform.GetChild(0).transform.GetChild(3).
-            transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = (random_variable <= 91) ? "RARE" : "UNIQUE";
+        rare_result[1].GetComponent<Image>().sprite = rare_portrait[id];
+        rare_result[2].GetComponent<TextMeshProUGUI>().text = character_name[id];
+        rare_result[3].GetComponent<TextMeshProUGUI>().text = (random_variable <= 91) ? "RARE" : "UNIQUE";
 
         if (!Find(id+6))
         {
