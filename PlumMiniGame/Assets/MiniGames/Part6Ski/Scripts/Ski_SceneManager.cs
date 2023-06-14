@@ -12,12 +12,14 @@ public class Ski_SceneManager : MonoBehaviour
     }
     public void returnScene()
     {
+        ButtonSoundManager.instance.sound.Play();
         Debug.Log("returnedScene");
         SceneManager.LoadScene("Part6_SkiGame");
     }
 
     public void restartScene()
     {
+        ButtonSoundManager.instance.sound.Play();
         SceneManager.LoadScene("Ski_RestartScene");
     }
 }

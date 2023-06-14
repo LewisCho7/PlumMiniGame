@@ -14,6 +14,7 @@ public class Run_SettingPanel : MonoBehaviour
     }
 
     public void SettingButtonOnClick() {
+        ButtonSoundManager.instance.sound.Play();
 
         // 음악 중지
         SoundManager.GetComponent<AudioSource>().Pause();
@@ -30,6 +31,7 @@ public class Run_SettingPanel : MonoBehaviour
     }
 
     public void RestartButtonOnClick() {
+        ButtonSoundManager.instance.sound.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene("Part3_Run");
     }

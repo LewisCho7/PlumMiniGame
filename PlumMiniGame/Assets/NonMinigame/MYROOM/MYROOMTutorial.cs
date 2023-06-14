@@ -41,6 +41,7 @@ public class MYROOMTutorial : MonoBehaviour
 
     public void onClickNext()
     {
+        ButtonSoundManager.instance.sound.Play();
         if (tutorialIndex == 7)
         {
             BGMSoundManager.instance.sound.clip = myRoomBgm;
