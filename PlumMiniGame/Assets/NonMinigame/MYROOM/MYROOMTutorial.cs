@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MYROOMTutorial : MonoBehaviour
 {
+    [SerializeField]
+    private AudioClip myRoomBgm;
+
     public List<GameObject> tutorialLists;
     public GameObject tutorialPanel;
 
@@ -18,6 +21,11 @@ public class MYROOMTutorial : MonoBehaviour
         }
         else
         {
+            BGMSoundManager.instance.sound.clip = myRoomBgm;
+            if (!BGMSoundManager.instance.sound.isPlaying)
+            {
+                BGMSoundManager.instance.sound.Play();
+            }
             gameObject.SetActive(false);
         }
         
@@ -35,6 +43,9 @@ public class MYROOMTutorial : MonoBehaviour
     {
         if (tutorialIndex == 7)
         {
+            BGMSoundManager.instance.sound.clip = myRoomBgm;
+            BGMSoundManager.instance.sound.Play();
+
             tutorialPanel.SetActive(false);
             DataManager.instance.saveData.isFirstExecute = false;
             DataManager.instance.SaveGame();

@@ -3205,6 +3205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a501cf75ed664464194d5ae69d32d58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRoomBgm: {fileID: 8300000, guid: 7d93f0d755ba66145871f886aef2870d, type: 3}
   tutorialLists:
   - {fileID: 282941037}
   - {fileID: 343940636}
