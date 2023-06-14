@@ -19871,6 +19871,17 @@ MonoBehaviour:
   selectButton: {fileID: 31048939}
   background: {fileID: 645565149}
   selectedID: 
+  lockedItemObject: {fileID: 678163865}
+  lockedItems:
+  - {fileID: 1265521372}
+  - {fileID: 894210647}
+  - {fileID: 1442405633}
+  - {fileID: 1294325872}
+  - {fileID: 805948072}
+  - {fileID: 1922189545}
+  - {fileID: 423637133}
+  - {fileID: 888743196}
+  - {fileID: 2046260694}
 --- !u!4 &1732112322
 Transform:
   m_ObjectHideFlags: 0

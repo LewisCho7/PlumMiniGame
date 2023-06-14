@@ -10,6 +10,9 @@ public class Storage_ButtonManager : MonoBehaviour
     public GameObject selectButton;
     public GameObject background;
     public string selectedID;
+    public GameObject lockedItemObject;
+    public List<GameObject> lockedItems;
+
 
 
     private int int_id;
@@ -31,8 +34,19 @@ public class Storage_ButtonManager : MonoBehaviour
         int_id = StorageIndex;
         //string_id = (StorageIndex < 10) ? ("0" + StorageIndex.ToString()) : StorageIndex.ToString();
         background.SetActive(true);
+
+        // id별 창고 활성화
         storage[int_id - 1].SetActive(true);
+
+        // lockeditem 활성화
+        lockedItemObject.SetActive(true);
+
+        // id별 현재 존재 가구 조사 함수 실행
+        setUnlockedItem(int_id);
+
+        //가구 list 비활성화
         list.SetActive(false);
+
         selectButton.SetActive(false);
         isList = false;
     }
@@ -46,6 +60,7 @@ public class Storage_ButtonManager : MonoBehaviour
             background.SetActive(false);
             list.SetActive(true);
             selectButton.SetActive(false);
+            lockedItemObject.SetActive(false);
             isList = true;
         }
         else
@@ -69,5 +84,23 @@ public class Storage_ButtonManager : MonoBehaviour
         DataManager.instance.saveData.myRoomFurnitures.Add(selectedID);
         DataManager.instance.SaveGame();
         GameSceneManager.instance.myRoomSceneLoad();
+    }
+
+    private void setUnlockedItem(int int_id)
+    {
+        foreach (GameObject i in lockedItems){
+            i.SetActive(true);
+        }
+        string string_id;
+        string_id = (int_id < 10) ? ("0" + int_id.ToString()) : int_id.ToString();
+
+        foreach (string id in DataManager.instance.saveData.furnatureList)
+        {
+            if(id.Substring(0,2) == string_id)
+            {
+                lockedItems[int.Parse(id.Substring(2, 2)) - 1].SetActive(false);
+            }
+        }
+    
     }
 }

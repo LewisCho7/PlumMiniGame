@@ -73,18 +73,21 @@ public class GameSceneManager : MonoBehaviour
         // ���� �ѹ� �����ؾߵ�
         Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
+        BGMSoundManager.instance.sound.Stop();
         LoadingSceneManager.LoadScene("Part1_jump");
     }
     public void eatGameLoad()
     {
         // ���� �ѹ� �����ؾߵ�
         ButtonSoundManager.instance.sound.Play();
+        BGMSoundManager.instance.sound.Stop();
         LoadingSceneManager.LoadScene("Part2_panda");
     }
     public void runGameLoad()
     {
         // ���� �ѹ� �����ؾߵ�
         ButtonSoundManager.instance.sound.Play();
+        BGMSoundManager.instance.sound.Stop();
         LoadingSceneManager.LoadScene("Part3_Run");
 
     }
@@ -93,6 +96,7 @@ public class GameSceneManager : MonoBehaviour
         // ���� �ѹ� �����ؾߵ�
         Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
+        BGMSoundManager.instance.sound.Stop();
         LoadingSceneManager.LoadScene("Part5_cham");
 
     }
@@ -100,6 +104,7 @@ public class GameSceneManager : MonoBehaviour
     {
         // ���� �ѹ� �����ؾߵ�
         ButtonSoundManager.instance.sound.Play();
+        BGMSoundManager.instance.sound.Stop();
         LoadingSceneManager.LoadScene("Part6_SkiGame");
     }
 

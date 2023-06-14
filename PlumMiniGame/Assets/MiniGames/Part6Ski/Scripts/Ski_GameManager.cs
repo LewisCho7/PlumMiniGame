@@ -77,7 +77,7 @@ public class Ski_GameManager : MonoBehaviour
     }
     private void Start()
     {
-        StartCoroutine("IE_CountDown"); // 23/02/19 ÄÚ·çÆ¾¿¡ ´ëÇÑ ÀÌÇØ!!!
+        StartCoroutine("IE_CountDown"); // 23/02/19 ï¿½Ú·ï¿½Æ¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!!!
         StartCoroutine("init");
         StartCoroutine("changeSpeed");
         Application.targetFrameRate = 60;
@@ -104,7 +104,7 @@ public class Ski_GameManager : MonoBehaviour
 
     private IEnumerator IE_IncreaseScore()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(waitTime);
         while (!isGameOver)
         {
             Score += 20;
@@ -147,7 +147,7 @@ public class Ski_GameManager : MonoBehaviour
     }
 
     private IEnumerator init()
-    { // ³­ÀÌµµ º° Â÷ÀÌ µÎ±â
+    { // ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½
         Time.timeScale = 1f;
         timer = 0f;
         gameSpeed = 0f;
@@ -167,6 +167,7 @@ public class Ski_GameManager : MonoBehaviour
 
     public void pauseGame()
     {
+        ButtonSoundManager.instance.sound.Play();
         Debug.Log("Game Paused");
         for(int i = 0; i  < buttons.Length; i++)
         {

@@ -18,6 +18,7 @@ public class Panda_SettingPanel : MonoBehaviour
     }
 
     public void SettingButtonOnClick() {
+        ButtonSoundManager.instance.sound.Play();
         Time.timeScale = 0;
         transform.gameObject.SetActive(true);
 
@@ -25,10 +26,12 @@ public class Panda_SettingPanel : MonoBehaviour
     }
 
     public void ExitButtonOnClick() {
+        ButtonSoundManager.instance.sound.Play();
         SceneManager.LoadScene("GameSelectScene");
     }
 
     public void RestartButtonOnClick() {
+        ButtonSoundManager.instance.sound.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene("Part2_panda");
     }

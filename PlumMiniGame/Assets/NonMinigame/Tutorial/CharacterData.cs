@@ -15,6 +15,7 @@ public class CharacterData : MonoBehaviour
 
     public void onClickbutton(int id)
     {
+        ButtonSoundManager.instance.sound.Play();
         selectedCharacterNum = id;
         _sceneManager.loadMyRoom();
         DataManager.instance.saveData.currentCharacter = id + 1;
