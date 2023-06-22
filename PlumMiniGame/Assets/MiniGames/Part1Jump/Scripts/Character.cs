@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,8 +16,8 @@ public class Character : MonoBehaviour
     private GameObject shield_on_img;
 
     private Rigidbody2D rb;
+    private static AudioSource jump_audio;
     
-
     void Start()
     {
         tilt_coefficient = 100;
@@ -29,6 +30,7 @@ public class Character : MonoBehaviour
         else
         {
             rb = GetComponent<Rigidbody2D>();
+            jump_audio = GetComponent<AudioSource>();
         }
 
 #if UNITY_EDITOR
@@ -79,6 +81,7 @@ public class Character : MonoBehaviour
             Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
+                jump_audio.Play();
                 Vector2 velocity = rb.velocity;
                 velocity.y = jump_power;
                 rb.velocity = velocity;
