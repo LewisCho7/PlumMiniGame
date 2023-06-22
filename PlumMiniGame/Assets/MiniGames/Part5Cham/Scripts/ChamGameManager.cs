@@ -144,6 +144,8 @@ public class ChamGameManager : MonoBehaviour
                 }
             }
 
+
+
             if (life == 0)
             {
                 game_on_process = true;

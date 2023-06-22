@@ -7,10 +7,14 @@ public class OX : MonoBehaviour
 {
     [SerializeField]
     private Sprite[] ox;
+    /*[SerializeField]
+    private AudioClip[] ans_sound;
+    private AudioSource sound;*/
     private SpriteRenderer sr;
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        //sound = GetComponent<AudioSource>();  
         gameObject.SetActive(false);
     }
 
@@ -30,10 +34,12 @@ public class OX : MonoBehaviour
     {
         if (check)
         {
+            //sound.clip = ans_sound[0];
             sr.sprite = ox[0];
         }
         else
         {
+            //sound.clip = ans_sound[1];
             sr.sprite = ox[1];
         }
     }

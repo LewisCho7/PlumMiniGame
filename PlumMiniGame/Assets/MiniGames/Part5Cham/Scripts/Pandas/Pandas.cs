@@ -10,12 +10,14 @@ public class Pandas : MonoBehaviour
     Sprite[] hit_motion;
 
     SpriteRenderer sr;
+    AudioSource clip;
 
     private bool turned = false;
 
     public static int pandas_dir;
     void Start()
     {
+        clip = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>(); 
         sr.sprite = panda_turn[1];
     }
@@ -65,6 +67,7 @@ public class Pandas : MonoBehaviour
             sr.sprite = hit_motion[0];
             yield return new WaitForSeconds(0.5f);
             sr.sprite = hit_motion[1];
+            clip.Play();
             yield return new WaitForSeconds(0.5f);
         }
         else

@@ -21,6 +21,7 @@ public class JumpGameManager : MonoBehaviour
     private GameObject dead_ui;
     [SerializeField]
     private GameObject tutorial;
+    private AudioSource dead_sound;
     void Awake()
     {
         Application.targetFrameRate = 60;
@@ -35,7 +36,8 @@ public class JumpGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dead_ui.SetActive(false);
+        dead_ui.SetActive(false);        
+        dead_sound = GetComponent<AudioSource>();
         StartCoroutine(GameProcess());
     }
 
@@ -77,6 +79,7 @@ public class JumpGameManager : MonoBehaviour
     
     IEnumerator GameOver()
     {
+        dead_sound.Play();
         yield return null;
         yield return new WaitForSecondsRealtime(1);
         dead_ui.SetActive(true);
