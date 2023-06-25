@@ -10,6 +10,9 @@ public class Select_Difficulty : MonoBehaviour
     private SpriteRenderer sp;
     private Select_Manager manager;
 
+    [SerializeField]
+    private AudioClip[] audioClips;
+
     public static bool isHard;
 
     private void Awake()
@@ -24,6 +27,11 @@ public class Select_Difficulty : MonoBehaviour
     public void setNormalMode()
     {
         ButtonSoundManager.instance.sound.Play();
+        if(BGMSoundManager.instance.sound.clip != audioClips[0])
+        {
+            BGMSoundManager.instance.sound.clip = audioClips[0];
+            BGMSoundManager.instance.sound.Play();
+        }
         DataManager.instance.isHardMode = false;
         changeMode();
     }
@@ -31,6 +39,11 @@ public class Select_Difficulty : MonoBehaviour
     public void setHardMode()
     {
         ButtonSoundManager.instance.sound.Play();
+        if (BGMSoundManager.instance.sound.clip != audioClips[1])
+        {
+            BGMSoundManager.instance.sound.clip = audioClips[1];
+            BGMSoundManager.instance.sound.Play();
+        }
         DataManager.instance.isHardMode = true;
         changeMode();
     }

@@ -1895,6 +1895,9 @@ MonoBehaviour:
   - {fileID: 92529613}
   - {fileID: 880945326}
   selectSceneManager: {fileID: 1101277606}
+  audioClips:
+  - {fileID: 8300000, guid: 7d93f0d755ba66145871f886aef2870d, type: 3}
+  - {fileID: 8300000, guid: 26feedc12461a8d439c6c9c788b84fec, type: 3}
 --- !u!1 &1373283714
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,10 @@ public class GameSceneManager : MonoBehaviour
     {
         Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
+        if (!BGMSoundManager.instance.sound.isPlaying)
+        {
+            BGMSoundManager.instance.sound.Play();
+        }
         StartCoroutine(SceneConvertAnimation.instance.LoadScene("GameSelectScene"));
     }
 
