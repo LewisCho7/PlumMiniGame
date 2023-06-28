@@ -7,11 +7,17 @@ public class ComboControl : MonoBehaviour
 {
     public static int combo;
     private AudioSource combo_sound;
+
+    private void Awake()
+    {
+        combo = 0;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         gameObject.SetActive(false);
-        combo = 0;
+        combo_sound = GetComponent<AudioSource>();
     }
 
     public IEnumerator ComboUiPopup(bool check)

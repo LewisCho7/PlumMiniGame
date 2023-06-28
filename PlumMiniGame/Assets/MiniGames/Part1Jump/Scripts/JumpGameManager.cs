@@ -21,6 +21,11 @@ public class JumpGameManager : MonoBehaviour
     private GameObject dead_ui;
     [SerializeField]
     private GameObject tutorial;
+    [SerializeField]
+    private GameObject count_obj;
+    [SerializeField]
+    private Sprite[] count_sprite;
+
     private AudioSource dead_sound;
     void Awake()
     {
@@ -36,6 +41,7 @@ public class JumpGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        count_obj.SetActive(false);
         dead_ui.SetActive(false);        
         dead_sound = GetComponent<AudioSource>();
         StartCoroutine(GameProcess());
@@ -59,7 +65,19 @@ public class JumpGameManager : MonoBehaviour
             yield return null;
         }
 
-        while(game_continue)
+        count_obj.SetActive(true);
+        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[0];
+        yield return new WaitForSecondsRealtime(1);
+        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[1];
+        yield return new WaitForSecondsRealtime(1);
+        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[2];
+        yield return new WaitForSecondsRealtime(1);
+        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[3];
+        yield return new WaitForSecondsRealtime(1);
+        count_obj.SetActive(false);
+        Time.timeScale = 1;
+
+        while (game_continue)
         {
             yield return null;
 
@@ -74,7 +92,6 @@ public class JumpGameManager : MonoBehaviour
     {
         tutorial.SetActive(false);
         DataManager.instance.saveData.isFirstPlay[0] = false;
-        Time.timeScale = 1;
     }
     
     IEnumerator GameOver()
