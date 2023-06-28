@@ -12,6 +12,7 @@ public class ComboControl : MonoBehaviour
     {
         gameObject.SetActive(false);
         combo = 0;
+        combo_sound = GetComponent<AudioSource>();
     }
 
     public IEnumerator ComboUiPopup(bool check)

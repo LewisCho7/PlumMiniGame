@@ -42,6 +42,11 @@ public class ChamGameManager : MonoBehaviour
         dead_ui.SetActive(false);
         reverse.SetActive(false);
 
+        if (!DataManager.instance.saveData.isFirstPlay[4])
+        {
+            tutorial.SetActive(false);
+        }
+
         hard_mode = DataManager.instance.isHardMode;
         is_rest = true;
 
