@@ -10,7 +10,7 @@ public class CameraMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(0, 100);
+        rb.velocity = new Vector2(0, 170);
         StartCoroutine(CameraSpeed());
     }
 
@@ -28,11 +28,11 @@ public class CameraMove : MonoBehaviour
         {
             yield return null;
 
-            int y = 100;
+            int y = 170;
             while ( y < 210)
             {
                 yield return null;
-                y = (((int)JumpGameManager.survived_time + 10) / 5) * 100 / 2;
+                y = (((int)JumpGameManager.survived_time + 10) / 5) * 170 / 2;
                 rb.velocity = new Vector2(0, y);
             }
         }
