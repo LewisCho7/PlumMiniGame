@@ -107,7 +107,7 @@ public class Ski_GameManager : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         while (!isGameOver)
         {
-            Score += 20;
+            Score += 15;
             yield return new WaitForSeconds(1f);
         }
     }
@@ -179,7 +179,7 @@ public class Ski_GameManager : MonoBehaviour
 
     public void rescue()
     {
-        Score += 40;
+        Score += 30;
         Rescuednum++;
     }
     private IEnumerator IE_GameOver()

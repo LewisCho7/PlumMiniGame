@@ -50,7 +50,7 @@ public class Ski_PlayerCollision : MonoBehaviour
             audioSource.clip = audioClips[(int)soundEvent.useItem];
             audioSource.Play();
             StartCoroutine(IE_setBarrierFalse(collision.gameObject));
-            Ski_GameManager.instance.Score += 40;
+            Ski_GameManager.instance.Score += 30;
             Ski_GameManager.instance.hasItem = false;
         }
         else if (collision.gameObject.CompareTag("Barrier"))
