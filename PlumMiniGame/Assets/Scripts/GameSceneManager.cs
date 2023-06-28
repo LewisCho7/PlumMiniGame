@@ -33,6 +33,10 @@ public class GameSceneManager : MonoBehaviour
     {
         Time.timeScale = 1;
         ButtonSoundManager.instance.sound.Play();
+        if (SceneManager.GetActiveScene().name == "GameSelectScene")
+        {
+            DataManager.instance.isHardMode = false;
+        }
         StartCoroutine(SceneConvertAnimation.instance.LoadScene("MYROOM"));
     }
     
