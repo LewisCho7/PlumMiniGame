@@ -108,7 +108,7 @@ public class Panda_UIManager : MonoBehaviour
             img.sprite = basicSprites[(int) Sprites.O];
             yield return new WaitForSeconds(1);
 
-            Panda_GameManager.score += 30;
+            Panda_GameManager.score += 50;
 
             // 휴식시간
             UIpanel.SetActive(false);

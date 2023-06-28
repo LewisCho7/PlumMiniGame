@@ -41,11 +41,18 @@ public class Select_Manager : MonoBehaviour
     {
         // Unlock 버튼을 눌렀을 때 적용
         unlockPanel.SetActive(true);
+        ButtonSoundManager.instance.sound.Play();
+    }
+
+    public void onClickCancel()
+    {
+        unlockPanel.SetActive(false);
+        ButtonSoundManager.instance.sound.Play();
     }
 
     public void onClickUnlockGame()
     {
-
+        ButtonSoundManager.instance.sound.Play();
         if (!DataManager.instance.isHardMode)
         {
             if (DataManager.instance.saveData.unlockedNormalGameNum == 5)
