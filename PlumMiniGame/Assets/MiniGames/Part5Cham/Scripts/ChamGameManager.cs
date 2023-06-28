@@ -37,10 +37,20 @@ public class ChamGameManager : MonoBehaviour
     private GameObject dead_ui;
     [SerializeField]
     private GameObject tutorial;
+    [SerializeField]
+    private GameObject count_obj;
+    [SerializeField]
+    private Sprite[] count_sprite;
     void Start()
     {
         dead_ui.SetActive(false);
         reverse.SetActive(false);
+        count_obj.SetActive(false);
+
+        if (!DataManager.instance.saveData.isFirstPlay[4])
+        {
+            tutorial.SetActive(false);
+        }
 
         hard_mode = DataManager.instance.isHardMode;
         is_rest = true;
@@ -54,6 +64,7 @@ public class ChamGameManager : MonoBehaviour
             round_time = 8;
         }
         round = 0;
+        score = 0;
         rest_time = 0.5f;
         life = 3;
 
@@ -83,6 +94,17 @@ public class ChamGameManager : MonoBehaviour
 
     IEnumerator GameProcess()
     {
+        count_obj.SetActive(true);
+        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[0];
+        yield return new WaitForSecondsRealtime(1);
+        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[1];
+        yield return new WaitForSecondsRealtime(1);
+        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[2];
+        yield return new WaitForSecondsRealtime(1);
+        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[3];
+        yield return new WaitForSecondsRealtime(1);
+        count_obj.SetActive(false);
+
         while (!game_on_process)
         {
             yield return null;
