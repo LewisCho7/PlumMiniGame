@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,7 +139,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_0"
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 810
+        width: 107
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b8fe82b2d6d214d9356005bfe501d3
+      internalID: -2069323325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_1"
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 810
+        width: 109
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef4cf879ac3d1064288766cd85335da5
+      internalID: 1846219774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_2"
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 804
+        width: 108
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efce6642a65e0154696b775d236a2de0
+      internalID: 1134542640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_3"
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 624
+        width: 111
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb429fd0551ff54ca59c7f65bab54ba
+      internalID: 625088694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_4"
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 625
+        width: 108
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8a7074d33dd1242adae43304cfbf16
+      internalID: -846367481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_5"
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 624
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b46cc4bb18fef24fbf9a10d9fe4110c
+      internalID: 440713603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_6"
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 450
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7409a93591e79b548b2cdfc49196c0d8
+      internalID: -1837965021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_7"
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 450
+        width: 109
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83749fe1f7fee934a8a6e8d953d5f2a9
+      internalID: -1671760888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_8"
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 450
+        width: 107
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5b22e6023498c4686442c5b7750cc2
+      internalID: -1293703693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_9"
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 270
+        width: 110
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e511430ce98f2c848990a7972be1d478
+      internalID: 1784258770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_10"
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 270
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71433c5b97f624458d962c1edadb432
+      internalID: 1534780302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uCC3D\uACE04_11"
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 269
+        width: 108
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 528728766281b904981c3c710c6eb355
+      internalID: 945306282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -150,7 +402,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "\uCC3D\uACE04_2": 1134542640
+      "\uCC3D\uACE04_9": 1784258770
+      "\uCC3D\uACE04_10": 1534780302
+      "\uCC3D\uACE04_8": -1293703693
+      "\uCC3D\uACE04_6": -1837965021
+      "\uCC3D\uACE04_7": -1671760888
+      "\uCC3D\uACE04_5": 440713603
+      "\uCC3D\uACE04_0": -2069323325
+      "\uCC3D\uACE04_3": 625088694
+      "\uCC3D\uACE04_1": 1846219774
+      "\uCC3D\uACE04_4": -846367481
+      "\uCC3D\uACE04_11": 945306282
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
