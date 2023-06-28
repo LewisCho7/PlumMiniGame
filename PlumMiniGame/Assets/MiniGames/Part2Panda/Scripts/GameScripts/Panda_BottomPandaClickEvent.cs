@@ -10,6 +10,7 @@ public class Panda_BottomPandaClickEvent : MonoBehaviour
     }
 
     public void PandaOnClick() {
+        Panda_BottomPanda.isCatched = true;
         StartCoroutine(FadeOut());
         Panda_GameManager.score += 10 + Panda_GameManager.mode * 2;
     }
@@ -25,6 +26,13 @@ public class Panda_BottomPandaClickEvent : MonoBehaviour
             transform.GetComponent<Image>().color = c;
 
             yield return new WaitForSeconds(0.02f);
+        }
+
+        string[] names = new string[] {"LeftPanda", "CenterPanda", "RightPanda"};
+        for (int j = 0; j < 3; j++) {
+            if (transform.name == names[j]) {
+                transform.GetComponent<RectTransform>().anchoredPosition = Panda_BottomPanda.bottomPandaPosition[j];
+            }
         }
     }
 }

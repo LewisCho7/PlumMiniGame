@@ -6,16 +6,23 @@ using UnityEngine.UI;
 public class Panda_BottomPanda : MonoBehaviour
 {
     private GameObject[] bottomPanda = new GameObject[3];
+    public static Vector2[] bottomPandaPosition = new Vector2[3];
+    public static bool isCatched = false;
 
     void Awake() {
         bottomPanda[0] = transform.Find("LeftPanda").gameObject;
         bottomPanda[1] = transform.Find("CenterPanda").gameObject;
         bottomPanda[2] = transform.Find("RightPanda").gameObject;
+
+        for (int i = 0; i < 3; i++) {
+            bottomPandaPosition[i] = bottomPanda[i].GetComponent<RectTransform>().anchoredPosition;
+        }
     }
 
     void Update()
     {
         if (Panda_GameManager.isEatingRoundStart) {
+            isCatched = false;
             StartCoroutine(ShowPanda(bottomPanda[Choose(new float[] {33.3f, 33.3f, 33.3f})]));
         }
     }
@@ -53,7 +60,7 @@ public class Panda_BottomPanda : MonoBehaviour
         Vector2 pos = panda.GetComponent<RectTransform>().anchoredPosition;
 
         float time = 0;
-        while (time < seconds) {
+        while (time < seconds && !isCatched) {
             time += Time.deltaTime;
 
             panda.GetComponent<RectTransform>().anchoredPosition
@@ -62,7 +69,7 @@ public class Panda_BottomPanda : MonoBehaviour
             yield return null;
         }
 
-        while (time > 0) {
+        while (time > 0 && !isCatched) {
             time -= Time.deltaTime;
 
             panda.GetComponent<RectTransform>().anchoredPosition
