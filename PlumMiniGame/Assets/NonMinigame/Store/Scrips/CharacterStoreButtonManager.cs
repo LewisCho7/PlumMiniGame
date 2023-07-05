@@ -167,7 +167,7 @@ public class CharacterStoreButtonManager : MonoBehaviour
         ButtonSoundManager.instance.sound.Play();
         DataManager.instance.saveData.currentCoin -= 400;
 
-        int random_variable = Random.Range(0, 1000);
+        int random_variable = Random.Range(700, 1000);
         int id = -1;
         if (random_variable < 700)
         {
