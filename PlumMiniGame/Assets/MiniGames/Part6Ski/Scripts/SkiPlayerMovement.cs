@@ -46,10 +46,7 @@ public class SkiPlayerMovement : MonoBehaviour
         }
         rb.velocity = new Vector2(dx, 0f);
     }
-    private void FixedUpdate()
-    {
-       
-    }   
+ 
     private IEnumerator IE_StartMovement()
     {
         moveSpeed = 0f;

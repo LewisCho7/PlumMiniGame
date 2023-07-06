@@ -11,7 +11,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
     [SerializeField]
     private GameObject[] stand_floor;
     [SerializeField]
-    private GameObject theme_selector;
+    private GameObject[] theme_selector;
     [SerializeField]
     private GameObject warning;
     [SerializeField]
@@ -33,19 +33,9 @@ public class FurnitureStoreButtonManager : MonoBehaviour
 
         stand_floor[1].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
 
-        
-        try
+        for(int i = 0; i < theme_selector.Length; i++) 
         {
-            int i = 0;
-            while (theme_selector.transform.GetChild(i) != null)
-            {
-                theme_selector.transform.GetChild(i).gameObject.SetActive(false);
-                i++;
-            }
-        }
-        catch
-        {
-            
+            theme_selector[i].SetActive(false);
         }
 
         current_floor = 0;
@@ -92,7 +82,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
         stand_floor[(int)id / 12].transform.GetChild(0).
             transform.GetChild(0).gameObject.SetActive(false);
 
-        theme_selector.transform.GetChild(--id).gameObject.SetActive(true);
+        theme_selector[--id].gameObject.SetActive(true);
         floor_move = false;
     }
 
@@ -102,6 +92,9 @@ public class FurnitureStoreButtonManager : MonoBehaviour
         int price = (id % 10 <= 2) ? 100 : 200;
         price = (id % 10 == 4) ? 500 : price;
         string id_string = (id < 1000) ? "0" + id.ToString() : id.ToString();
+
+        if (2000 < id && id < 2100) price = 500;
+        else if (id > 2100) price = 300;
 
         if (DataManager.instance.saveData.currentCoin >= price && !Find(id_string))
         {
@@ -113,7 +106,6 @@ public class FurnitureStoreButtonManager : MonoBehaviour
             warning.SetActive(true);
             warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
                 = "이미 구매했습니다!";
-
         }
         else if (DataManager.instance.saveData.currentCoin < price)
         {
@@ -130,11 +122,9 @@ public class FurnitureStoreButtonManager : MonoBehaviour
         stand_floor[current_floor].transform.GetChild(0).
             transform.GetChild(0).gameObject.SetActive(true);
 
-        int i = 0;
-        while (theme_selector.transform.GetChild(i) != null)
+        for (int i = 0; i < theme_selector.Length; i++)
         {
-            theme_selector.transform.GetChild(i).gameObject.SetActive(false);
-            i++;
+            theme_selector[i].SetActive(false);
         }
     }
     private bool Find(string id)

@@ -12,6 +12,15 @@ public class Ski_GameManager : MonoBehaviour
     [SerializeField]
     private GameObject countDown;
 
+    [SerializeField]
+    private GameObject player;
+
+    [SerializeField]
+    private Sprite[] playerSprites;
+
+    private SpriteRenderer playerSprite;
+
+
     public GameObject[] buttons;
 
     public GameObject gameOverPanel;
@@ -64,6 +73,8 @@ public class Ski_GameManager : MonoBehaviour
         instance = this;
         scoreText = GetComponent<Ski_ScoreText>();
         countDown.SetActive(false);
+        playerSprite = player.GetComponent<SpriteRenderer>();
+        playerSprite.sprite = playerSprites[DataManager.instance.saveData.currentCharacter-1]; ;
     }
 
     private void Update()
