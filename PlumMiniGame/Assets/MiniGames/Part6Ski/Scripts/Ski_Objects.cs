@@ -23,8 +23,13 @@ public class Ski_Objects : MonoBehaviour
     {
         // 대표 캐릭터를 제외한 배열의 모든 캐릭터 sprite
         int i = Random.Range(0, rescueSprites.Length);
-
-        rescueSprite.sprite = rescueSprites[i];
+        if(i+1 == DataManager.instance.saveData.currentCharacter)
+        {
+            rescueSprite.sprite = rescueSprites[(i+1) % rescueSprites.Length];
+        }
+        else
+            rescueSprite.sprite = rescueSprites[i];
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

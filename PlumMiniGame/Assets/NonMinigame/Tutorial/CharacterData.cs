@@ -19,7 +19,10 @@ public class CharacterData : MonoBehaviour
         selectedCharacterNum = id;
         _sceneManager.loadMyRoom();
         DataManager.instance.saveData.currentCharacter = id + 1;
-        DataManager.instance.saveData.rescuedCharacter.Add(id + 1);
+        for(int i = 0; i < 3; i++)
+        {
+            DataManager.instance.saveData.rescuedCharacter.Add(i+1);
+        }
         DataManager.instance.SaveGame();
     }
 

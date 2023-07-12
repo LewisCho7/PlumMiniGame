@@ -24,6 +24,8 @@ public class CharacterStoreButtonManager : MonoBehaviour
     private GameObject char_buy_confirm;
     [SerializeField]
     private Sprite[] rare_portrait;
+    [SerializeField]
+    private Sprite[] rare_result_back;
     
 
     private string[] character_name
@@ -36,31 +38,26 @@ public class CharacterStoreButtonManager : MonoBehaviour
         common.SetActive(false);
         rare_select.SetActive(false);
         char_buy_confirm.SetActive(false);
+        warning[4].SetActive(false);
         foreach(GameObject g in rare_coin) { g.SetActive(false); }
-        foreach (GameObject g in rare_result) { g.SetActive(false); }
-        foreach (GameObject g in warning) { g.SetActive(false); }
     }
 
     private void ButtonsDisappear()
     {
         ButtonSoundManager.instance.sound.Play();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
             buttons[i].SetActive(false);
         }
     }
-    public void BlurClicked()
+    public void BlurClicked(GameObject g)
     {
-        ButtonSoundManager.instance.sound.Play();
-        foreach (GameObject g in rare_result)
+        g.SetActive(false);
+        foreach (GameObject obj in buttons)
         {
-            g.SetActive(false);
+            obj.SetActive(true);
         }
-        foreach (GameObject g in warning)
-        {
-            g.SetActive(false);
-        }
-        char_buy_confirm.SetActive(false);
+
     }
     public void CommonButtonClicked()
     {
@@ -73,13 +70,7 @@ public class CharacterStoreButtonManager : MonoBehaviour
     {
         ButtonSoundManager.instance.sound.Play();
         ButtonsDisappear();
-        foreach (GameObject g in rare_coin) 
-        { 
-            g.SetActive(true); 
-        }
-
-        rare_coin[1].transform.GetChild(0)
-            .transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        rare_coin[0].SetActive(true);
     }
 
     public void RareBuyClicked()
@@ -147,10 +138,7 @@ public class CharacterStoreButtonManager : MonoBehaviour
         if (DataManager.instance.saveData.currentCoin >= 400)
         {
             popping.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 30));
-            foreach (GameObject g in rare_result)
-            {
-                g.SetActive(true);
-            }
+            rare_coin[1].SetActive(true);
             RareResult();
         }
         else
@@ -167,7 +155,7 @@ public class CharacterStoreButtonManager : MonoBehaviour
         ButtonSoundManager.instance.sound.Play();
         DataManager.instance.saveData.currentCoin -= 400;
 
-        int random_variable = Random.Range(0, 1000);
+        int random_variable = Random.Range(700, 1000);
         int id = -1;
         if (random_variable < 700)
         {
@@ -181,20 +169,17 @@ public class CharacterStoreButtonManager : MonoBehaviour
         {
             id = random_variable % 3 + 12;
         }
-
         rare_result[1].GetComponent<Image>().sprite = rare_portrait[id];
         rare_result[2].GetComponent<TextMeshProUGUI>().text = character_name[id];
         
-        if (random_variable < 700)
+        if (random_variable < 900)
         {
-            rare_result[3].GetComponent<TextMeshProUGUI>().text = "Common";
-        }
-        else if (random_variable < 900)
-        {
+            rare_result[0].GetComponent<Image>().sprite = rare_result_back[0];
             rare_result[3].GetComponent<TextMeshProUGUI>().text = "Rare";
         }
         else
         {
+            rare_result[0].GetComponent<Image>().sprite = rare_result_back[1];
             rare_result[3].GetComponent<TextMeshProUGUI>().text = "Unique";
         }
 
@@ -212,15 +197,16 @@ public class CharacterStoreButtonManager : MonoBehaviour
     public void Close()
     {
         ButtonSoundManager.instance.sound.Play();
-        foreach (GameObject g in rare_result)
+
+        foreach (GameObject obj in rare_coin)
         {
-            g.SetActive(false);
-        }
-        foreach (GameObject g in warning)
-        {
-            g.SetActive(false);
+            obj.SetActive(false);
         }
 
+        foreach (GameObject obj in buttons)
+        {
+            obj.SetActive(true);
+        }
     }
 
     private bool Find(int id)
