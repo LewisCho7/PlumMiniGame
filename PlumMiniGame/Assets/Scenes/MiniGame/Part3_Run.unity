@@ -2326,7 +2326,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480d3b9273ce684dbe1c6bea4c7e276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterSkin: {fileID: 21300000, guid: d582f3c919f9b1d47a51058d2990018c, type: 3}
+  CharacterSkinList:
+  - {fileID: 21300000, guid: d582f3c919f9b1d47a51058d2990018c, type: 3}
+  - {fileID: 21300000, guid: a18d9bcdb14ce064097987d33b113c21, type: 3}
+  - {fileID: 21300000, guid: 948fcf5c780821e4594f2d770f09b25a, type: 3}
+  CharacterSlidingSkinList:
+  - {fileID: 21300000, guid: 6b5b36eb04a8dc54082533b1716e6b8b, type: 3}
+  - {fileID: 21300000, guid: d9702e2ef7799014999663ff4990b944, type: 3}
+  - {fileID: 21300000, guid: 886a0bd0e4b254e469d70d9a49846f06, type: 3}
+  animationList:
+  - {fileID: 9100000, guid: 7d8debf9552605d4b9badcea1e3dcc0f, type: 2}
+  - {fileID: 9100000, guid: ca36513f81525fd429740bbad2a91367, type: 2}
+  - {fileID: 9100000, guid: e074a6b9b2bbb7e489d049c101a8a720, type: 2}
 --- !u!212 &1097810490
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2391,8 +2402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a88b41f5ec35c4a83b5807c0bf20f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slidingSprite: {fileID: 21300000, guid: 6b5b36eb04a8dc54082533b1716e6b8b, type: 3}
-  CharacterSkin: {fileID: 21300000, guid: d582f3c919f9b1d47a51058d2990018c, type: 3}
   jumpPower: 1050
   RescueEffect: {fileID: 1930091872}
 --- !u!95 &1097810492
@@ -2405,7 +2414,7 @@ Animator:
   m_GameObject: {fileID: 1097810484}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7d8debf9552605d4b9badcea1e3dcc0f, type: 2}
+  m_Controller: {fileID: 9100000, guid: e074a6b9b2bbb7e489d049c101a8a720, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

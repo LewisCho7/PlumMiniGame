@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class Run_Player : MonoBehaviour
 {
-    // 캐릭터 스킨
-    public Sprite CharacterSkin;
+    // 캐릭터 스킨 리스트
+    public Sprite[] CharacterSkinList = new Sprite[3];
+    public Sprite[] CharacterSlidingSkinList = new Sprite[3];
+
+    // 캐릭터 애니메이션 리스트
+    public RuntimeAnimatorController[] animationList = new RuntimeAnimatorController[3];
+
+    // 현재 캐릭터 스킨
+    static public Sprite CharacterSkin;
+    static public Sprite CharacterSlidingSkin;
 
     // 플레이어의 생존 여부 저장 변수
     static public bool isAlive;
@@ -16,6 +24,13 @@ public class Run_Player : MonoBehaviour
 
     // 기본 설정
     void Awake() {
+
+        int ID = DataManager.instance.saveData.currentCharacter;
+        Debug.Log(ID);
+
+        CharacterSkin = CharacterSkinList[ID - 1];
+        CharacterSlidingSkin = CharacterSlidingSkinList[ID - 1];
+        GetComponent<Animator>().runtimeAnimatorController = animationList[ID - 1];
 
         isAlive = false;
         Life = 100;

@@ -9,7 +9,7 @@ public class JumpGameManager : MonoBehaviour
     public static bool game_continue;
     public static bool first_play;
 
-    public static int rescued_character = 0;
+    public static int rescued_character;
 
     public static float survived_time;
 
@@ -44,6 +44,8 @@ public class JumpGameManager : MonoBehaviour
         count_obj.SetActive(false);
         dead_ui.SetActive(false);        
         dead_sound = GetComponent<AudioSource>();
+        rescued_character = 0;
+
         StartCoroutine(GameProcess());
     }
 
@@ -51,11 +53,6 @@ public class JumpGameManager : MonoBehaviour
     void Update()
     {
         survived_time += Time.deltaTime;
-        if (!game_continue)
-        {
-            StopCoroutine(GameProcess());
-            StartCoroutine(GameOver());
-        }
     }
 
     IEnumerator GameProcess()
@@ -86,6 +83,8 @@ public class JumpGameManager : MonoBehaviour
                 game_continue = false;
             }
         }
+
+        StartCoroutine(GameOver());
     }
 
     public void TutorialDisappear()
@@ -96,9 +95,11 @@ public class JumpGameManager : MonoBehaviour
     
     IEnumerator GameOver()
     {
-        dead_sound.Play();
         yield return null;
-        yield return new WaitForSecondsRealtime(1);
+
+        dead_sound.Play();
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 0;
         dead_ui.SetActive(true);
 
         main_camera.GetComponent<Rigidbody2D>().velocity = Vector3.zero;

@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class ComboNum : MonoBehaviour
 {
-    private SpriteRenderer sr;
+    [SerializeField]
+    private GameObject one;
+    [SerializeField] 
+    private GameObject ten;
     [SerializeField]
     private Sprite[] sprites;
+
+    private SpriteRenderer osr;
+    private SpriteRenderer tsr;
+
     // Start is called before the first frame update
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        osr = one.GetComponent<SpriteRenderer>();
+        tsr = ten.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        sr.sprite = sprites[ComboControl.combo - 1];
+        osr.sprite = sprites[ComboControl.combo % 10];
+        tsr.sprite = sprites[ComboControl.combo / 10];
     }
 }
