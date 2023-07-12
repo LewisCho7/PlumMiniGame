@@ -25,6 +25,7 @@ public class Ski_GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
     public GameObject gameOverImage;
+    public GameObject sound;
     public GameObject tutorial;
 
     private Ski_ScoreText scoreText;
