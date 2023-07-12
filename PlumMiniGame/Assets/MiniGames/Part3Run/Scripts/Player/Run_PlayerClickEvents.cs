@@ -7,10 +7,10 @@ public class Run_PlayerClickEvents : MonoBehaviour
     // 점프 구현을 위한 플레이어의 rigidbody2d 정보
     private Rigidbody2D rigid;
 
-    // 슬라이딩 스킨
-    public Sprite slidingSprite;
-    // 캐릭터 스킨
-    public Sprite CharacterSkin;
+    // // 슬라이딩 스킨
+    // public Sprite slidingSprite;
+    // // 캐릭터 스킨
+    // public Sprite CharacterSkin;
 
     // 점프 파워
     [SerializeField] private float jumpPower = 600f;
@@ -50,7 +50,7 @@ public class Run_PlayerClickEvents : MonoBehaviour
         transform.localScale = new Vector3(1, 1, 1);
 
         // sprite 변경 및 collider 변경
-        GetComponent<SpriteRenderer>().sprite = slidingSprite;
+        GetComponent<SpriteRenderer>().sprite = Run_Player.CharacterSlidingSkin;
         Destroy(GetComponent<PolygonCollider2D>());
         gameObject.AddComponent<PolygonCollider2D>();
 
@@ -68,7 +68,7 @@ public class Run_PlayerClickEvents : MonoBehaviour
         transform.localScale = new Vector3(-1, 1, 1);
 
         // sprite 변경 및 collider 변경
-        GetComponent<SpriteRenderer>().sprite = CharacterSkin;
+        GetComponent<SpriteRenderer>().sprite = Run_Player.CharacterSkin;
         Destroy(GetComponent<PolygonCollider2D>());
         gameObject.AddComponent<PolygonCollider2D>();
     }

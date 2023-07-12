@@ -12,6 +12,7 @@ public class Collection_Screen : MonoBehaviour
     private Image CharacterSprite, GradeSprite;
     private TextMeshProUGUI Name, Characteristic, Ability, Story;
     private GameObject Represent;
+    private GameObject RepresentButton;
 
     [SerializeField] private Sprite[] GradeAssets = new Sprite[3];
 
@@ -21,7 +22,7 @@ public class Collection_Screen : MonoBehaviour
 
     void Awake() {
 
-
+        
         myCharacters = DataManager.instance.saveData.rescuedCharacter;
         CSVData = CSVReader.Read("CharacterData");
 
@@ -32,11 +33,11 @@ public class Collection_Screen : MonoBehaviour
         Story = transform.Find("Story").GetComponent<TextMeshProUGUI>();
         GradeSprite = transform.Find("Grade").GetComponent<Image>();
         Represent = transform.Find("Represent").gameObject;
+        RepresentButton = transform.Find("RepresentButton").gameObject;
 
         sound = GetComponent<AudioSource>();
 
-
-        currentIndex = 0;
+        currentIndex = DataManager.instance.saveData.currentCharacter - 1;
 
         // 데이터 띄우기
         LoadData(myCharacters[currentIndex]);
@@ -69,6 +70,9 @@ public class Collection_Screen : MonoBehaviour
 
         // 대표 캐릭터 UI 띄우기
         Represent.SetActive(DataManager.instance.saveData.currentCharacter == ID);
+
+        // 플레이어블 캐릭터만 대표 버튼 띄우기
+        RepresentButton.SetActive(ID <= 3);
     }
 
 
