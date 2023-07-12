@@ -63,4 +63,30 @@ public class SceneConvertAnimation : MonoBehaviour
 
         canvas.sortingOrder = -1;
     }
+
+    public IEnumerator FadeInOut() {
+
+        canvas.sortingOrder = 1;
+
+        int i = 0;
+        while (i < 25)
+        {
+            i += 1;
+            float f = i / 25.0f;
+            Color c = new Color(0, 0, 0, f);
+            fade.color = c;
+            yield return new WaitForSeconds(0.0001f);
+        }
+
+        while (i > 0)
+        {
+            i -= 1;
+            float f = i / 25.0f;
+            Color c = new Color(0, 0, 0, f);
+            fade.color = c;
+            yield return new WaitForSeconds(0.0001f);
+        }
+
+        canvas.sortingOrder = -1;
+    }
 }
