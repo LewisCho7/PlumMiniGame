@@ -61,7 +61,8 @@ public class FurnitureStoreButtonManager : MonoBehaviour
     public void SecondFloorClicked()
     {
         ButtonSoundManager.instance.sound.Play();
-        if (floor_move)
+        if (floor_move &&
+            DataManager.instance.saveData.rescuedCharacter.Count >= 7)
         {
             stand_floor[0].GetComponent<SpriteRenderer>().sortingOrder = 3;
             stand_floor[0].transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
@@ -73,6 +74,12 @@ public class FurnitureStoreButtonManager : MonoBehaviour
             stand_floor[1].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
 
             current_floor = 1;
+        }
+        else if (DataManager.instance.saveData.rescuedCharacter.Count < 7)
+        {
+            warning.SetActive(true);
+            warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+                = "아직\n잠겨있어요!";
         }
     }
 
