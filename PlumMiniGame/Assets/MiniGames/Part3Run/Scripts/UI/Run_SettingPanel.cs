@@ -26,7 +26,7 @@ public class Run_SettingPanel : MonoBehaviour
 
     public void ExitButtonOnClick() {
         ButtonSoundManager.instance.sound.Play();
-        SceneManager.LoadScene("GameSelectScene");
+        StartCoroutine(SceneConvertAnimation.instance.LoadScene("GameSelectScene"));
     }
 
     public void RestartButtonOnClick() {
