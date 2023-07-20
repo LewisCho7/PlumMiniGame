@@ -163,7 +163,7 @@ public class CharacterStoreButtonManager : MonoBehaviour
         }
         else if (random_variable < 900)
         {
-            id = random_variable & 7 + 6;
+            id = random_variable % 7 + 6;
         }
         else
         {
