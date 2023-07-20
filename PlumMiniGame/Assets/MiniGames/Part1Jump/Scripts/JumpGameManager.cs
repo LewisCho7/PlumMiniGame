@@ -101,7 +101,33 @@ public class JumpGameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 0;
         dead_ui.SetActive(true);
-
+        DataManager.instance.saveData.currentCoin += CoinCalculate();
         main_camera.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+    }
+
+    public static int CoinCalculate()
+    {
+        int score = TextUI.score;
+        if (score < 500)
+        {
+            score /= 10;
+        }
+        else if (500 <= score && score < 1500) 
+        {
+            score = (score / 10) + (score / 100) * 5;
+        }
+        else
+        {
+            score = (score / 10) + (score / 100) * 5 + (score / 1000) * 15;
+        }
+
+        if (JumpGameManager.hard_mode)
+        {
+            return (int)(score * 1.5);
+        }
+        else
+        {
+            return score;
+        }
     }
 }
