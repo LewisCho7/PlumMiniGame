@@ -25,12 +25,9 @@ public class MYROOM_ButtonManager : MonoBehaviour
 
 
     private bool isStretched;
-    private bool isEditMode;
-
     private void Start()
     {
         isStretched = false;
-        isEditMode = false;
     }
 
     public void onClickMore()
@@ -64,7 +61,6 @@ public class MYROOM_ButtonManager : MonoBehaviour
     {
         ButtonSoundManager.instance.sound.Play();
 
-        isEditMode = true;
         mainCanvas.SetActive(false);
         editCanvas.SetActive(true);
         // ��� ���� setInteractable
@@ -78,7 +74,6 @@ public class MYROOM_ButtonManager : MonoBehaviour
     {
         ButtonSoundManager.instance.sound.Play();
 
-        isEditMode = false;
         mainCanvas.SetActive(true);
         editCanvas.SetActive(false);
         editButtons.SetActive(false);

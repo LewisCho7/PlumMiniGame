@@ -131,7 +131,7 @@ public class Panda_UIManager : MonoBehaviour
 
             UIpanel.SetActive(false);
             ScorePanel.SetActive(true);
-            ScorePanel.transform.Find("ScoreBoard").Find("ScoreText").GetComponent<TextMeshProUGUI>().text = Panda_GameManager.score.ToString();
+            // ScorePanel.transform.Find("ScoreBoard").Find("ScoreText").GetComponent<TextMeshProUGUI>().text = Panda_GameManager.score.ToString();
         }
     }
 

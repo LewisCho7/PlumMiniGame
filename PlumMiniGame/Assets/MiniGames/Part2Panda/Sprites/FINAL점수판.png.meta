@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d751937e9c676aa45bb177f5e7cbca28
+guid: f6e4a558276b1244c9ee58e232a93acd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,26 +113,92 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC2DC\uC18C1(2001)_1"
+      name: "FINAL\uC810\uC218\uD310_0"
       rect:
         serializedVersion: 2
-        x: 54
-        y: 312
-        width: 627
-        height: 148
+        x: 151
+        y: 434
+        width: 420
+        height: 519
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 005a868737fddf147814c35c44dbe2b9
-      internalID: -550880556
+      spriteID: 5934fc19b515fc240be05391cce457ba
+      internalID: 1711468806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "FINAL\uC810\uC218\uD310_1"
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 314
+        width: 196
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b41ed9c7ad70d842a32a84a190d4a1a
+      internalID: 1674715863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "FINAL\uC810\uC218\uD310_2"
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 314
+        width: 196
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c0a884d2582354fb8b23a894e6bc7b
+      internalID: 1687085773
       vertices: []
       indices: 
       edges: []
@@ -148,8 +214,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uC2DC\uC18C1(2001)_0": -2848703
-      "\uC2DC\uC18C1(2001)_1": -550880556
+      "FINAL\uC810\uC218\uD310_2": 1687085773
+      "FINAL\uC810\uC218\uD310_1": 1674715863
+      "FINAL\uC810\uC218\uD310_0": 1711468806
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

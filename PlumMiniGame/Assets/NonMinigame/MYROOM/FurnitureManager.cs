@@ -8,6 +8,8 @@ public class FurnitureManager : MonoBehaviour
     private List<string> furnitures = new List<string>();
     public GameObject[] furnitureObjects;
     private Image spriteImage;
+    public bool isSecond = false;
+    private int secondFloorIndex = 12;
 
     /*private enum FurnitureType
     {
@@ -41,11 +43,11 @@ public class FurnitureManager : MonoBehaviour
         {   
             string id1 = id.Substring(0, 2);
             // int i = 1 부터 시작 + 기본 벽지 에셋 saveData에 추가
-            for (int i = 1; i <= 13; i++)
+            for (int i = 1; i <= furnitureObjects.Length; i++)
             {
                 if(id1 == (i < 10 ? "0" : "") + i)
                 {
-                    furnitureObjects[i - 1].SetActive(true);
+                    
                     furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID = id;
 
                     if(id1 == "01" || id1 == "02")
@@ -63,8 +65,14 @@ public class FurnitureManager : MonoBehaviour
                         Debug.Log(id2);
                         spriteImage.sprite = sprites[id2 - 1];
                         spriteImage.SetNativeSize();
+                        if (i >= secondFloorIndex)
+                        {
+                            furnitureObjects[i - 1].SetActive(false);
+                        }
                         break;
                     }
+                    
+
                 }
             }
 
