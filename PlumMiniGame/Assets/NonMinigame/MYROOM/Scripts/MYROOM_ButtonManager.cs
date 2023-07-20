@@ -8,6 +8,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
 {
     public GameObject mainCanvas;
     public GameObject editCanvas;
+    public GameObject characterCanvas;
     public List<GameObject> furnitures;
     public GameObject editButtons;
     private GameObject selectedFurn;
@@ -74,6 +75,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
 
         mainCanvas.SetActive(false);
         editCanvas.SetActive(true);
+        characterCanvas.SetActive(false);
         // ��� ���� setInteractable
         foreach (GameObject furn in furnitures)
         {
@@ -88,6 +90,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
         mainCanvas.SetActive(true);
         editCanvas.SetActive(false);
         editButtons.SetActive(false);
+        characterCanvas.SetActive(true);
         foreach (GameObject furn in furnitures)
         {
             furn.GetComponent<Button>().interactable = false;
@@ -154,7 +157,9 @@ public class MYROOM_ButtonManager : MonoBehaviour
 
     public void onClickSwitchFloor()
     {
-        if(furnitureManager != null)
+        ButtonSoundManager.instance.sound.Play();
+
+        if (furnitureManager != null)
         {
             furnitureManager.isSecond = !furnitureManager.isSecond;
             bool isSecond = furnitureManager.isSecond;
