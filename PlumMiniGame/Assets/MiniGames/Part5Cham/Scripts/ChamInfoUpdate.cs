@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class InfoUpdate : MonoBehaviour
+public class ChamInfoUpdate : MonoBehaviour
 {
     [SerializeField]
     private GameObject bestScore;
@@ -23,10 +23,11 @@ public class InfoUpdate : MonoBehaviour
     void Update()
     {
         if (!ChamGameManager.game_on_process)
-        {           
+        {
+            int final_coin = TextUI.score;
             score.GetComponent<TextMeshProUGUI>().text = TextUI.score.ToString();
-            coinBonus.GetComponent<TextMeshProUGUI>().text = '+' + DataManager.instance.saveData.currentBonus.ToString() + "%";
-            coin.GetComponent<TextMeshProUGUI>().text = ChamGameManager.CoinCalculate().ToString();
+            coinBonus.GetComponent<TextMeshProUGUI>().text = '+' + Bonus() + "%";
+            coin.GetComponent<TextMeshProUGUI>().text = (ChamGameManager.CoinCalculate() * (Bonus() / 100 + 1)).ToString();
 
             if (ChamGameManager.hard_mode)
             {
@@ -45,5 +46,32 @@ public class InfoUpdate : MonoBehaviour
                     = DataManager.instance.saveData.normalHighScore[3].ToString();
             }
         }
+    }
+
+    int Bonus()
+    {
+        int bonus = 0;
+        if (Find(7))
+        {
+            bonus += 10;
+        }
+        if (Find(11))
+        {
+            bonus += 5;
+        }
+        if (Find(14))
+        {
+            bonus += 20;
+        }
+        return bonus;
+    }
+
+    private bool Find(int id)
+    {
+        foreach (int i in DataManager.instance.saveData.rescuedCharacter)
+        {
+            if (i == id) return true;
+        }
+        return false;
     }
 }

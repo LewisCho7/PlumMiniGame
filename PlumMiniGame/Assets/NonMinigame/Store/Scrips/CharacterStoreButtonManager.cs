@@ -167,7 +167,7 @@ public class CharacterStoreButtonManager : MonoBehaviour
         }
         else
         {
-            id = random_variable % 3 + 12;
+            id = random_variable % 3 + 13;
         }
         rare_result[1].GetComponent<Image>().sprite = rare_portrait[id];
         rare_result[2].GetComponent<TextMeshProUGUI>().text = character_name[id];
