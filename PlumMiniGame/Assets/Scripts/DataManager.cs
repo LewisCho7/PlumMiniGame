@@ -13,7 +13,9 @@ public class SaveData
     public int unlockedHardGameNum; // ��� ������ �ϵ� ���̵� ���� ��
 
     public bool[] isFirstPlay; // �� ���Ӻ� ���� ���� ���� (Ʃ�丮��)
-    public int[] highScore;    // �� ���Ӻ� �ְ� ����
+    public int[] normalHighScore;    // �� ���Ӻ� �ְ� ����
+    public int[] hardHighScore;    // �� ���Ӻ� �ְ� ����
+
     public int currentCharacter; // ���� ��ǥ ĳ����
 
     public float currentBonus; // ���� ���� ���ʽ�
@@ -93,7 +95,8 @@ public class DataManager : MonoBehaviour
         saveData.unlockedNormalGameNum = 2;
         saveData.unlockedHardGameNum = 1;
         saveData.isFirstPlay = new bool[] { true, true, true, true, true };
-        saveData.highScore = new int[5] { 0, 0, 0, 0, 0 };
+        saveData.normalHighScore = new int[5] { 0, 0, 0, 0, 0 };
+        saveData.hardHighScore = new int[5] { 0, 0, 0, 0, 0 };
         saveData.currentCharacter = 0;
         saveData.currentBonus = 1.0f;
         saveData.currentCoin = 100000;
