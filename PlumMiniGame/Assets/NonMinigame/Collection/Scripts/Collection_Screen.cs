@@ -69,10 +69,12 @@ public class Collection_Screen : MonoBehaviour
         GradeSprite.sprite = GradeAssets[index];
 
         // 대표 캐릭터 UI 띄우기
-        Represent.SetActive(DataManager.instance.saveData.currentCharacter == ID);
+        bool isRepresent = DataManager.instance.saveData.currentCharacter == ID;
+        Represent.SetActive(isRepresent);
 
         // 플레이어블 캐릭터만 대표 버튼 띄우기
         RepresentButton.SetActive(ID <= 3);
+        RepresentButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = (isRepresent ? "선택됨" : "선택하기!");
     }
 
 
