@@ -26,7 +26,7 @@ public class ChamInfoUpdate : MonoBehaviour
         {
             int final_coin = TextUI.score;
             score.GetComponent<TextMeshProUGUI>().text = TextUI.score.ToString();
-            coinBonus.GetComponent<TextMeshProUGUI>().text = '+' + Bonus() + "%";
+            coinBonus.GetComponent<TextMeshProUGUI>().text = "+" + Bonus() + "%";
             coin.GetComponent<TextMeshProUGUI>().text = "+" + (ChamGameManager.CoinCalculate() * (Bonus() / 100 + 1)).ToString();
 
             if (ChamGameManager.hard_mode)
@@ -62,6 +62,10 @@ public class ChamInfoUpdate : MonoBehaviour
         if (Find(14))
         {
             bonus += 20;
+        }
+        if (ChamGameManager.hard_mode)
+        {
+            bonus += 50;
         }
         return bonus;
     }

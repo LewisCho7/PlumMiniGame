@@ -26,7 +26,7 @@ public class JumpInfoUpdate : MonoBehaviour
         {
             int final_coin = TextUI.score;
             score.GetComponent<TextMeshProUGUI>().text = TextUI.score.ToString();
-            coinBonus.GetComponent<TextMeshProUGUI>().text = '+' + Bonus() + "%";
+            coinBonus.GetComponent<TextMeshProUGUI>().text = "+" + Bonus() + "%";
             coin.GetComponent<TextMeshProUGUI>().text = "+" + (JumpGameManager.CoinCalculate() * (Bonus() / 100 + 1)).ToString();
 
             if (JumpGameManager.hard_mode)
@@ -58,6 +58,10 @@ public class JumpInfoUpdate : MonoBehaviour
         if (Find(13))
         {
             bonus += 20;
+        }
+        if (JumpGameManager.hard_mode)
+        {
+            bonus += 50;
         }
         return bonus;
     }
