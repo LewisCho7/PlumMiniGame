@@ -2037,7 +2037,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1288151769}
         m_TargetAssemblyTypeName: Run_SettingPanel, Assembly-CSharp
         m_MethodName: ExitButtonOnClick
         m_Mode: 1
@@ -2518,7 +2518,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1288151769}
         m_TargetAssemblyTypeName: Run_SettingPanel, Assembly-CSharp
         m_MethodName: RestartButtonOnClick
         m_Mode: 1
