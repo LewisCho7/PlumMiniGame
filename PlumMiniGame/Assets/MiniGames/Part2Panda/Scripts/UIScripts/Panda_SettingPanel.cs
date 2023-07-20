@@ -11,18 +11,24 @@ public class Panda_SettingPanel : MonoBehaviour
     private AudioSource audioSource;
 
     void Awake() {
-        transform.Find("ExitButton").GetComponent<Image>().alphaHitTestMinimumThreshold
-        = transform.Find("RestartButton").GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
-
         audioSource = soundManager.GetComponent<AudioSource>();
     }
 
     public void SettingButtonOnClick() {
-        ButtonSoundManager.instance.sound.Play();
-        Time.timeScale = 0;
-        transform.gameObject.SetActive(true);
 
-        audioSource.Pause();
+        ButtonSoundManager.instance.sound.Play();
+
+        if (Time.timeScale == 0) {
+            Time.timeScale = 1;
+            transform.gameObject.SetActive(false);
+
+            audioSource.UnPause();
+        } else {
+            Time.timeScale = 0;
+            transform.gameObject.SetActive(true);
+
+            audioSource.Pause();
+        }
     }
 
     public void ExitButtonOnClick() {
