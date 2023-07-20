@@ -158,7 +158,13 @@ public class MYROOM_ButtonManager : MonoBehaviour
     public void onClickSwitchFloor()
     {
         ButtonSoundManager.instance.sound.Play();
+        StartCoroutine(SceneConvertAnimation.instance.FadeInOut());
+        Invoke("switchUI", 0.45f);
 
+        
+    }
+    private void switchUI()
+    {
         if (furnitureManager != null)
         {
             furnitureManager.isSecond = !furnitureManager.isSecond;
@@ -166,10 +172,9 @@ public class MYROOM_ButtonManager : MonoBehaviour
             furnitureManager.showSwitchedFurn();
             characters.enableChar(isSecond);
             int i = isSecond ? 0 : 1;
-            
+
             switchButton.gameObject.GetComponent<Image>().sprite = switchButtonSprites[i];
-            
+
         }
     }
-
 }

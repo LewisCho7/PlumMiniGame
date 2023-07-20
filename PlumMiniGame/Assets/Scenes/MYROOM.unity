@@ -4400,6 +4400,7 @@ MonoBehaviour:
   - {fileID: 1655618279}
   - {fileID: 910493355}
   tutorialPanel: {fileID: 1288899969}
+  characterCanvas: {fileID: 837074171}
 --- !u!1 &1115051963
 GameObject:
   m_ObjectHideFlags: 0

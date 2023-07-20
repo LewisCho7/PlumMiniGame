@@ -9,6 +9,7 @@ public class MYROOMTutorial : MonoBehaviour
 
     public List<GameObject> tutorialLists;
     public GameObject tutorialPanel;
+    public GameObject characterCanvas;
 
     private int tutorialIndex = 1;
 
@@ -18,6 +19,7 @@ public class MYROOMTutorial : MonoBehaviour
         if (DataManager.instance.saveData.isFirstExecute)
         {
             startTutorial();
+            characterCanvas.SetActive(false);
         }
         else
         {
@@ -48,6 +50,7 @@ public class MYROOMTutorial : MonoBehaviour
             BGMSoundManager.instance.sound.Play();
 
             tutorialPanel.SetActive(false);
+            characterCanvas.SetActive(true);
             DataManager.instance.saveData.isFirstExecute = false;
             DataManager.instance.SaveGame();
             gameObject.SetActive(false);
