@@ -62,7 +62,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
     {
         ButtonSoundManager.instance.sound.Play();
         if (floor_move &&
-            DataManager.instance.saveData.rescuedCharacter.Count >= 7)
+            DataManager.instance.saveData.secondFloorExtended)
         {
             stand_floor[0].GetComponent<SpriteRenderer>().sortingOrder = 3;
             stand_floor[0].transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
@@ -75,7 +75,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
 
             current_floor = 1;
         }
-        else if (DataManager.instance.saveData.rescuedCharacter.Count < 7)
+        else if (!DataManager.instance.saveData.secondFloorExtended)
         {
             warning.SetActive(true);
             warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
@@ -112,13 +112,46 @@ public class FurnitureStoreButtonManager : MonoBehaviour
         {
             warning.SetActive(true);
             warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
-                = "이미 구매했습니다!";
+                = "이미 구매했어요!";
         }
         else if (DataManager.instance.saveData.currentCoin < price)
         {
             warning.SetActive(true);
             warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
-                = "코인이 부족합니다!";
+                = "코인이 부족해요!";
+        }
+    }
+
+    public void SecondFloorExtension(int id)
+    {
+        ButtonSoundManager.instance.sound.Play();
+
+        if (!DataManager.instance.saveData.secondFloorExtended)
+        {
+            if (DataManager.instance.saveData.rescuedCharacter.Count >= 7
+                 && DataManager.instance.saveData.currentCoin >= 800)
+            {
+                purchase_confirm.SetActive(true);
+                FurnitureWarningManager.current_item_id = id;
+            }
+            else if (DataManager.instance.saveData.rescuedCharacter.Count < 7)
+            {
+                warning.SetActive(true);
+                warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+                    = "아직 구매할 수 없어요";
+            }
+            else if (DataManager.instance.saveData.currentCoin < 800)
+            {
+                warning.SetActive(true);
+                warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+                    = "코인이 부족해요!";
+            }
+        }
+        else
+        {
+            warning.SetActive(true);
+            warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
+                = "이미 구매했어요!";
         }
     }
 

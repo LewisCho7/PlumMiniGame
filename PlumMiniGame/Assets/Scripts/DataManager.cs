@@ -28,7 +28,7 @@ public class SaveData
     public int dupNum;
     // �ﰢ�� ������������ ����
 
-
+    public bool secondFloorExtended;
 }
 
 
@@ -101,7 +101,9 @@ public class DataManager : MonoBehaviour
         saveData.myRoomFurnitures = new List<string>();
         saveData.rescuedCharacter = new List<int>();
         saveData.dupNum = 0;
+        saveData.secondFloorExtended = false;
         string json = JsonUtility.ToJson(saveData);
         File.WriteAllText(path, json);
+        
     }
 }
