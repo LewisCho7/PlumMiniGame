@@ -540,9 +540,11 @@ MonoBehaviour:
   - {fileID: 819539956}
   - {fileID: 2094168963}
   - {fileID: 1500362566}
-  - {fileID: 1589665220}
-  - {fileID: 353012597}
+  - {fileID: 1307097583}
+  - {fileID: 1064105544}
+  - {fileID: 1417262675}
   editButtons: {fileID: 507355978}
+  switchButton: {fileID: 1213153454}
   moreButton: {fileID: 1115051968}
   shopButton: {fileID: 427389536}
   editButton: {fileID: 1758720676}
@@ -1468,7 +1470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   furnNum: 1
-  spriteID: 
+  spriteID: 0101
 --- !u!1 &550675117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,7 +2057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &664190419
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2445,7 +2447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   furnNum: 2
-  spriteID: 
+  spriteID: 0201
 --- !u!1 &902296508
 GameObject:
   m_ObjectHideFlags: 0
@@ -3315,7 +3317,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3329,11 +3331,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1064105547}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 232832591}
+        m_TargetAssemblyTypeName: MYROOM_ButtonManager, Assembly-CSharp
+        m_MethodName: onClickFurniture
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 14
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1064105547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3384,7 +3398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2cf9ab70708acb45b89066cf2b2e2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnNum: 21
+  furnNum: 14
   spriteID: 
 --- !u!1 &1072342832
 GameObject:
@@ -4189,7 +4203,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1213153455}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 232832591}
+        m_TargetAssemblyTypeName: MYROOM_ButtonManager, Assembly-CSharp
+        m_MethodName: onClickSwitchFloor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1213153455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4373,7 +4399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 138.01, y: 567}
+  m_AnchoredPosition: {x: 183, y: 568}
   m_SizeDelta: {x: 320, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1248625272
@@ -4761,7 +4787,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4775,11 +4801,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1307097586}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 232832591}
+        m_TargetAssemblyTypeName: MYROOM_ButtonManager, Assembly-CSharp
+        m_MethodName: onClickFurniture
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 12
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1307097586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4830,7 +4868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2cf9ab70708acb45b89066cf2b2e2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnNum: 20
+  furnNum: 12
   spriteID: 
 --- !u!1 &1328183816
 GameObject:
@@ -5539,7 +5577,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -5553,11 +5591,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1417262678}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 232832591}
+        m_TargetAssemblyTypeName: MYROOM_ButtonManager, Assembly-CSharp
+        m_MethodName: onClickFurniture
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 13
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1417262678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5608,7 +5658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2cf9ab70708acb45b89066cf2b2e2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnNum: 22
+  furnNum: 13
   spriteID: 
 --- !u!1 &1426477767
 GameObject:

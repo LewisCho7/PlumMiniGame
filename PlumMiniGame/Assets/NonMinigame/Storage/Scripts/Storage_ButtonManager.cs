@@ -26,6 +26,7 @@ public class Storage_ButtonManager : MonoBehaviour
     private void Start()
     {
         isList = true;
+        list.SetActive(true);
     }
     public void onClickList(int StorageIndex)
     {

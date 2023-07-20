@@ -47,7 +47,7 @@ public class FurnitureManager : MonoBehaviour
             {
                 if(id1 == (i < 10 ? "0" : "") + i)
                 {
-                    
+                    furnitureObjects[i - 1].SetActive(true);
                     furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID = id;
 
                     if(id1 == "01" || id1 == "02")
@@ -77,6 +77,25 @@ public class FurnitureManager : MonoBehaviour
             }
 
         }
+    }
+
+    public void showSwitchedFurn()
+    {
+        for(int i = 1; i < secondFloorIndex; i++)
+        {
+            if(furnitures.Contains(furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID))
+            {
+                furnitureObjects[i - 1].SetActive(!isSecond);
+            }
+        }
+        for (int i = secondFloorIndex; i <= furnitureObjects.Length; i++)
+        {
+            if (furnitures.Contains(furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID))
+            {
+                furnitureObjects[i - 1].SetActive(isSecond);
+            }
+        }
+
     }
     
   /* private void setSpriteID()

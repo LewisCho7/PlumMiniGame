@@ -400,7 +400,8 @@ MonoBehaviour:
     unlockedNormalGameNum: 0
     unlockedHardGameNum: 0
     isFirstPlay: 
-    highScore: 
+    normalHighScore: 
+    hardHighScore: 
     currentCharacter: 0
     currentBonus: 0
     currentCoin: 0
@@ -408,6 +409,7 @@ MonoBehaviour:
     myRoomFurnitures: []
     rescuedCharacter: 
     dupNum: 0
+    secondFloorExtended: 0
   isHardMode: 0
 --- !u!4 &596978529
 Transform:

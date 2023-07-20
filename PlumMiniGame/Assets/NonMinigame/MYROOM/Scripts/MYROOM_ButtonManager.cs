@@ -12,6 +12,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
     public GameObject editButtons;
     private GameObject selectedFurn;
 
+    public Button switchButton;
     public Button moreButton;
     public Button shopButton;
     public Button editButton;
@@ -22,12 +23,18 @@ public class MYROOM_ButtonManager : MonoBehaviour
     public RectTransform editPos;
     public RectTransform bookPos;
     private RectTransform objectPos;
-
+    private FurnitureManager furnitureManager;
 
     private bool isStretched;
+
+    private void Awake()
+    {
+        furnitureManager = FindObjectOfType<FurnitureManager>();
+    }
     private void Start()
     {
         isStretched = false;
+        //switchButton.gameObject.SetActive(DataManager.instance.saveData.secondFloorExtended);
     }
 
     public void onClickMore()
@@ -139,4 +146,15 @@ public class MYROOM_ButtonManager : MonoBehaviour
         }
 
     }
+
+
+    public void onClickSwitchFloor()
+    {
+        if(furnitureManager != null)
+        {
+            furnitureManager.isSecond = !furnitureManager.isSecond;
+            furnitureManager.showSwitchedFurn();
+        }
+    }
+
 }

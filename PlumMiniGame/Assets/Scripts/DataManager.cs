@@ -102,6 +102,8 @@ public class DataManager : MonoBehaviour
         saveData.currentCoin = 100000;
         saveData.furnatureList = new List<string>();
         saveData.myRoomFurnitures = new List<string>();
+        saveData.furnatureList.AddRange(new string[] { "0101", "0201" });
+        saveData.myRoomFurnitures.AddRange(new string[] { "0101", "0201" });
         saveData.rescuedCharacter = new List<int>();
         saveData.dupNum = 0;
         saveData.secondFloorExtended = false;
