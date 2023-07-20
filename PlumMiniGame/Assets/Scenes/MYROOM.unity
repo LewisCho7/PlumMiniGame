@@ -781,6 +781,9 @@ MonoBehaviour:
   shopPos: {fileID: 427389533}
   editPos: {fileID: 1758720679}
   bookPos: {fileID: 1336872199}
+  switchButtonSprites:
+  - {fileID: 1311802528, guid: 91672458369698f40827799a49de5786, type: 3}
+  - {fileID: -1116006732, guid: 91672458369698f40827799a49de5786, type: 3}
 --- !u!4 &232832592
 Transform:
   m_ObjectHideFlags: 0

@@ -25,12 +25,15 @@ public class MYROOM_ButtonManager : MonoBehaviour
     private RectTransform objectPos;
     private FurnitureManager furnitureManager;
     private MYROOM_Character characters;
+    public Sprite[] switchButtonSprites;
+
 
     private bool isStretched;
 
     private void Awake()
     {
         furnitureManager = FindObjectOfType<FurnitureManager>();
+        characters = FindObjectOfType<MYROOM_Character>();
     }
     private void Start()
     {
@@ -154,8 +157,13 @@ public class MYROOM_ButtonManager : MonoBehaviour
         if(furnitureManager != null)
         {
             furnitureManager.isSecond = !furnitureManager.isSecond;
+            bool isSecond = furnitureManager.isSecond;
             furnitureManager.showSwitchedFurn();
-            characters.enableChar(furnitureManager.isSecond);
+            characters.enableChar(isSecond);
+            int i = isSecond ? 0 : 1;
+            
+            switchButton.gameObject.GetComponent<Image>().sprite = switchButtonSprites[i];
+            
         }
     }
 

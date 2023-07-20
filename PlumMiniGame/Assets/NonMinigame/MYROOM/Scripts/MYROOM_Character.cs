@@ -7,14 +7,8 @@ public class MYROOM_Character : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] characters;
-
-    FurnitureManager furnitureManager;
     private int unlockedChar;
 
-    private void Awake()
-    {
-        furnitureManager = FindObjectOfType<FurnitureManager>();
-    }
     private void Start()
     {
         unlockedChar = DataManager.instance.saveData.rescuedCharacter.Count;
