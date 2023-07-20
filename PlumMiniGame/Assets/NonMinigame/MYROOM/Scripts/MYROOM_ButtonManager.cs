@@ -24,6 +24,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
     public RectTransform bookPos;
     private RectTransform objectPos;
     private FurnitureManager furnitureManager;
+    private MYROOM_Character characters;
 
     private bool isStretched;
 
@@ -154,6 +155,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
         {
             furnitureManager.isSecond = !furnitureManager.isSecond;
             furnitureManager.showSwitchedFurn();
+            characters.enableChar(furnitureManager.isSecond);
         }
     }
 
