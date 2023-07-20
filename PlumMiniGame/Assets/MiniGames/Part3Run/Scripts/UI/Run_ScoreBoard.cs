@@ -20,12 +20,19 @@ public class Run_ScoreBoard : MonoBehaviour
         coin += Mathf.RoundToInt(coin * (bonus / 100f));
 
         // 최고 기록 갱신
-        if (score > DataManager.instance.saveData.highScore[2]) {
-            DataManager.instance.saveData.highScore[2] = score;
-            DataManager.instance.SaveGame();
+        if (Run_GameManager.isEasyMode) {
+            if (score > DataManager.instance.saveData.normalHighScore[2]) {
+                DataManager.instance.saveData.normalHighScore[2] = score;
+                DataManager.instance.SaveGame();
+            }
+            best_score = DataManager.instance.saveData.normalHighScore[2];
+        } else {
+            if (score > DataManager.instance.saveData.hardHighScore[2]) {
+                DataManager.instance.saveData.hardHighScore[2] = score;
+                DataManager.instance.SaveGame();
+            }
+            best_score = DataManager.instance.saveData.hardHighScore[2];
         }
-
-        best_score = DataManager.instance.saveData.highScore[2];
 
         BestScore.GetComponent<TextMeshProUGUI>().text = best_score.ToString();
         Score.GetComponent<TextMeshProUGUI>().text = score.ToString();

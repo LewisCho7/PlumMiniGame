@@ -20,12 +20,19 @@ public class Panda_ScoreBoard : MonoBehaviour
         coin += Mathf.RoundToInt(coin * (bonus / 100f));
 
         // 최고 기록 갱신
-        if (score > DataManager.instance.saveData.highScore[1]) {
-            DataManager.instance.saveData.highScore[1] = score;
-            DataManager.instance.SaveGame();
+        if (Panda_GameManager.mode == 0) {
+            if (score > DataManager.instance.saveData.normalHighScore[1]) {
+                DataManager.instance.saveData.normalHighScore[1] = score;
+                DataManager.instance.SaveGame();
+            }
+            best_score = DataManager.instance.saveData.normalHighScore[1];
+        } else {
+            if (score > DataManager.instance.saveData.hardHighScore[1]) {
+                DataManager.instance.saveData.hardHighScore[1] = score;
+                DataManager.instance.SaveGame();
+            }
+            best_score = DataManager.instance.saveData.hardHighScore[1];
         }
-
-        best_score = DataManager.instance.saveData.highScore[1];
 
         BestScore.GetComponent<TextMeshProUGUI>().text = best_score.ToString();
         Score.GetComponent<TextMeshProUGUI>().text = score.ToString();
