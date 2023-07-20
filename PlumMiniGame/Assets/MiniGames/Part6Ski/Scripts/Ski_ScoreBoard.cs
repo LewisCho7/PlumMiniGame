@@ -3,41 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Run_ScoreBoard : MonoBehaviour
+public class Ski_ScoreBoard : MonoBehaviour
 {
     [SerializeField] private GameObject BestScore;
     [SerializeField] private GameObject Score;
     [SerializeField] private GameObject CoinBonus;
     [SerializeField] private GameObject Coin;
 
-    
+
     void Start()
     {
         int best_score;
-        int score = Run_GameManager.score;
-        int bonus = 50 * (Run_GameManager.isEasyMode ? 0 : 1);
+        int score = Ski_GameManager.instance.Score;
+        int bonus = 50 * (Ski_GameManager.instance.isHardMode ? 1 : 0);
         int coin = score / 10 + (score >= 500 ? (score / 100 * 5) : 0) + (score >= 1500 ? (score / 1000 * 15) : 0);
-        
+
         List<int> rescuedCharacter = DataManager.instance.saveData.rescuedCharacter;
-        foreach (int ID in rescuedCharacter) {
+        foreach (int ID in rescuedCharacter)
+        {
             if (ID == 12) bonus += 5;
-            else if (ID == 6 || ID == 8 || ID == 14) bonus += 10;
+            else if (ID == 14 || ID == 10) bonus += 10;
         }
         coin += Mathf.RoundToInt(coin * (bonus / 100f));
 
-        // ìµœê³  ê¸°ë¡ ê°±ì‹ 
-        if (Run_GameManager.isEasyMode) {
-            if (score > DataManager.instance.saveData.normalHighScore[2]) {
-                DataManager.instance.saveData.normalHighScore[2] = score;
+        // ÃÖ°í ±â·Ï °»½Å
+        if (!Ski_GameManager.instance.isHardMode)
+        {
+            if (score > DataManager.instance.saveData.normalHighScore[4])
+            {
+                DataManager.instance.saveData.normalHighScore[4] = score;
                 DataManager.instance.SaveGame();
             }
-            best_score = DataManager.instance.saveData.normalHighScore[2];
-        } else {
-            if (score > DataManager.instance.saveData.hardHighScore[2]) {
-                DataManager.instance.saveData.hardHighScore[2] = score;
+            best_score = DataManager.instance.saveData.normalHighScore[4];
+        }
+        else
+        {
+            if (score > DataManager.instance.saveData.hardHighScore[4])
+            {
+                DataManager.instance.saveData.hardHighScore[4] = score;
                 DataManager.instance.SaveGame();
             }
-            best_score = DataManager.instance.saveData.hardHighScore[2];
+            best_score = DataManager.instance.saveData.hardHighScore[4];
         }
 
         BestScore.GetComponent<TextMeshProUGUI>().text = best_score.ToString();

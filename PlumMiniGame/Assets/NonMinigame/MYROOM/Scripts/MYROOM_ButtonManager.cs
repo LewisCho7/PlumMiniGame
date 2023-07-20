@@ -34,7 +34,7 @@ public class MYROOM_ButtonManager : MonoBehaviour
     private void Start()
     {
         isStretched = false;
-        //switchButton.gameObject.SetActive(DataManager.instance.saveData.secondFloorExtended);
+        switchButton.gameObject.SetActive(DataManager.instance.saveData.secondFloorExtended);
     }
 
     public void onClickMore()

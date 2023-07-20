@@ -180,7 +180,6 @@ public class Ski_GameManager : MonoBehaviour
     public void pauseGame()
     {
         ButtonSoundManager.instance.sound.Play();
-        Debug.Log("Game Paused");
         for(int i = 0; i  < buttons.Length; i++)
         {
             buttons[i].SetActive(true);
@@ -188,6 +187,11 @@ public class Ski_GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    public void resumeGame()
+    {
+        ButtonSoundManager.instance.sound.Play();
+        Time.timeScale = 1f;
+    }
 
     public void rescue()
     {

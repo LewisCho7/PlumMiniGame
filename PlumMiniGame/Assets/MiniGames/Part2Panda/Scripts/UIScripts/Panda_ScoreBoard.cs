@@ -43,7 +43,7 @@ public class Panda_ScoreBoard : MonoBehaviour
         BestScore.GetComponent<TextMeshProUGUI>().text = best_score.ToString();
         Score.GetComponent<TextMeshProUGUI>().text = score.ToString();
         CoinBonus.GetComponent<TextMeshProUGUI>().text = "+" + bonus.ToString() + "%";
-        Coin.GetComponent<TextMeshProUGUI>().text = coin.ToString();
+        Coin.GetComponent<TextMeshProUGUI>().text = "+" + coin.ToString();
 
         DataManager.instance.saveData.currentCoin += coin;
         DataManager.instance.SaveGame();
