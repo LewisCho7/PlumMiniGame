@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Collection_RepresentBtn : MonoBehaviour
 {
@@ -12,5 +13,6 @@ public class Collection_RepresentBtn : MonoBehaviour
          = DataManager.instance.saveData.rescuedCharacter[Collection_Screen.currentIndex];
         DataManager.instance.SaveGame();
         RepresentImage.SetActive(true);
+        transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "선택됨";
     }
 }

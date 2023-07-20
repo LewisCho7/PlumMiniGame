@@ -10,6 +10,9 @@ public class Panda_BottomPandaClickEvent : MonoBehaviour
     }
 
     public void PandaOnClick() {
+
+        if (Panda_BottomPanda.isCatched) return;
+
         Panda_BottomPanda.isCatched = true;
         StartCoroutine(FadeOut());
         Panda_GameManager.score += 10 + Panda_GameManager.mode * 2;

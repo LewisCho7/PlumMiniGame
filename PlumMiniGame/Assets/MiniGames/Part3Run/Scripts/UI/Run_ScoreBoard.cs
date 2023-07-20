@@ -17,6 +17,12 @@ public class Run_ScoreBoard : MonoBehaviour
         int score = Run_GameManager.score;
         int bonus = 50 * (Run_GameManager.isEasyMode ? 0 : 1);
         int coin = score / 10 + (score >= 500 ? (score / 100 * 5) : 0) + (score >= 1500 ? (score / 1000 * 15) : 0);
+        
+        List<int> rescuedCharacter = DataManager.instance.saveData.rescuedCharacter;
+        foreach (int ID in rescuedCharacter) {
+            if (ID == 12) bonus += 5;
+            else if (ID == 6 || ID == 8 || ID == 14) bonus += 10;
+        }
         coin += Mathf.RoundToInt(coin * (bonus / 100f));
 
         // 최고 기록 갱신

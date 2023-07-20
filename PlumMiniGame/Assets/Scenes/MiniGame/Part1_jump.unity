@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &14895375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1494516235, guid: 695b486ed5b12164ab481da62502835b, type: 3}
+  m_Sprite: {fileID: -1198973219, guid: efcd47b879aefe84fa0365f04bda239b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1575149635, guid: 7fb39d6e4cb92d54bab1225a6a266f37, type: 3}
+  m_Sprite: {fileID: -683593356, guid: efcd47b879aefe84fa0365f04bda239b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1834,13 +1834,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1159882646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf717f488af5efd4bad200b29d5c057a, type: 3}
+  m_Script: {fileID: 11500000, guid: fb413be85152b20438e86d22d6cbd7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bestScore: {fileID: 1405126998}
-  score: {fileID: 595234360}
-  coin: {fileID: 149418359}
-  coinBonus: {fileID: 2083579801}
 --- !u!1 &1202319455
 GameObject:
   m_ObjectHideFlags: 0

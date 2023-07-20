@@ -30,7 +30,7 @@ public class JumpGameManager : MonoBehaviour
     void Awake()
     {
         Application.targetFrameRate = 60;
-        Time.timeScale = 0;
+        
         
         hard_mode = DataManager.instance.isHardMode;
         game_continue = true;
@@ -41,11 +41,12 @@ public class JumpGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 0;
         count_obj.SetActive(false);
         dead_ui.SetActive(false);        
         dead_sound = GetComponent<AudioSource>();
         rescued_character = 0;
-
+        tutorial.SetActive(DataManager.instance.saveData.isFirstPlay[0]);
         StartCoroutine(GameProcess());
     }
 
@@ -103,6 +104,7 @@ public class JumpGameManager : MonoBehaviour
         dead_ui.SetActive(true);
         DataManager.instance.saveData.currentCoin += CoinCalculate();
         main_camera.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        DataManager.instance.SaveGame();
     }
 
     public static int CoinCalculate()
@@ -121,13 +123,6 @@ public class JumpGameManager : MonoBehaviour
             score = (score / 10) + (score / 100) * 5 + (score / 1000) * 15;
         }
 
-        if (JumpGameManager.hard_mode)
-        {
-            return (int)(score * 1.5);
-        }
-        else
-        {
-            return score;
-        }
+        return JumpGameManager.hard_mode ? (int)(score * 1.5) : score;
     }
 }

@@ -250,4 +250,23 @@ public class ChamGameManager : MonoBehaviour
 
         StartCoroutine(GameProcess());
     }
+
+    public static int CoinCalculate()
+    {
+        int score = TextUI.score;
+        if (score < 500)
+        {
+            score /= 10;
+        }
+        else if (500 <= score && score < 1500)
+        {
+            score = (score / 10) + (score / 100) * 5;
+        }
+        else
+        {
+            score = (score / 10) + (score / 100) * 5 + (score / 1000) * 15;
+        }
+
+        return ChamGameManager.hard_mode ? (int)(score * 1.5) : score;
+    }
 }

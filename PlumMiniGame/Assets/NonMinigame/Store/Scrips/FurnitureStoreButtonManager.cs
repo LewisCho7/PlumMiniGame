@@ -79,7 +79,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
         {
             warning.SetActive(true);
             warning.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text
-                = "아직\n잠겨있어요!";
+                = "보유한 캐릭터가 7개가 넘어야\n구매할 수 있어요!";
         }
     }
 
