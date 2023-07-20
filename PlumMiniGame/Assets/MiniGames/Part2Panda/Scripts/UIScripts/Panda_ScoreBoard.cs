@@ -17,6 +17,12 @@ public class Panda_ScoreBoard : MonoBehaviour
         int score = Panda_GameManager.score;
         int bonus = 30 + 50 * Panda_GameManager.mode;
         int coin = score / 10 + (score >= 500 ? (score / 100 * 5) : 0) + (score >= 1500 ? (score / 1000 * 15) : 0);
+        
+        List<int> rescuedCharacter = DataManager.instance.saveData.rescuedCharacter;
+        foreach (int ID in rescuedCharacter) {
+            if (ID == 11) bonus += 5;
+            else if (ID == 9 || ID == 15) bonus += 10;
+        }
         coin += Mathf.RoundToInt(coin * (bonus / 100f));
 
         // 최고 기록 갱신
