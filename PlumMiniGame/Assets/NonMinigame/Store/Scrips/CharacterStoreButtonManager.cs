@@ -169,7 +169,7 @@ public class CharacterStoreButtonManager : MonoBehaviour
         {
             id = random_variable % 3 + 13;
         }
-        rare_result[1].GetComponent<Image>().sprite = rare_portrait[id];
+        rare_result[1].GetComponent<Image>().sprite = rare_portrait[id - 1];
         rare_result[2].GetComponent<TextMeshProUGUI>().text = character_name[id];
         
         if (random_variable < 900)

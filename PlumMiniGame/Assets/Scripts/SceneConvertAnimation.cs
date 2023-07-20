@@ -34,7 +34,7 @@ public class SceneConvertAnimation : MonoBehaviour
 
         targetScene = scene;
 
-        canvas.sortingOrder = 1;
+        canvas.sortingOrder = 10;
 
         int i = 0;
         while (i < 25)
@@ -66,7 +66,7 @@ public class SceneConvertAnimation : MonoBehaviour
 
     public IEnumerator FadeInOut() {
 
-        canvas.sortingOrder = 1;
+        canvas.sortingOrder = 10;
 
         int i = 0;
         while (i < 25)
