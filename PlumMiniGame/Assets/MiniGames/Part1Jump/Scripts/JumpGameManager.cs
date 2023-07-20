@@ -123,6 +123,6 @@ public class JumpGameManager : MonoBehaviour
             score = (score / 10) + (score / 100) * 5 + (score / 1000) * 15;
         }
 
-        return JumpGameManager.hard_mode ? (int)(score * 1.5) : score;
+        return score;
     }
 }

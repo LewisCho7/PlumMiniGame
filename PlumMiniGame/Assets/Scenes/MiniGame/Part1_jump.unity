@@ -1834,9 +1834,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1159882646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb413be85152b20438e86d22d6cbd7c7, type: 3}
+  m_Script: {fileID: 11500000, guid: c2835c0edf7b7e048b9c992e5505fa28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bestScore: {fileID: 1405126998}
+  score: {fileID: 595234360}
+  coin: {fileID: 149418359}
+  coinBonus: {fileID: 2083579801}
 --- !u!1 &1202319455
 GameObject:
   m_ObjectHideFlags: 0
