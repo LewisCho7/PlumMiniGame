@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 6843469876920966522}
   - component: {fileID: 1770026307353421233}
   - component: {fileID: 1866628594582805776}
+  - component: {fileID: 7490584993411393177}
   m_Layer: 6
   m_Name: Throne
   m_TagString: Stepped
@@ -232,3 +233,15 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &7490584993411393177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972381136980805575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1494cf63164b7d440bd8fd4dc49029c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

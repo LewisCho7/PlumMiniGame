@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4819758073908514966}
   - component: {fileID: 6498095947526719542}
   - component: {fileID: 6078166679044017613}
+  - component: {fileID: 778595426638018440}
   m_Layer: 6
   m_Name: brick_1
   m_TagString: Stepped
@@ -250,3 +251,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &778595426638018440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4250977063405611898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1494cf63164b7d440bd8fd4dc49029c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

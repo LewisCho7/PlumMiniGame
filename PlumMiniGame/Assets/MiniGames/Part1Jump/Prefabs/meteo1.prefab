@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6641607390294288383}
   - component: {fileID: 2496348889800062579}
   - component: {fileID: 165685668730505314}
+  - component: {fileID: 2627025476328271574}
   m_Layer: 0
   m_Name: meteo1
   m_TagString: Untagged
@@ -146,4 +147,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c93d580ebf7674e86ff604d958d44c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  main_cam: {fileID: 0}
+--- !u!114 &2627025476328271574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527165796569132460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1494cf63164b7d440bd8fd4dc49029c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

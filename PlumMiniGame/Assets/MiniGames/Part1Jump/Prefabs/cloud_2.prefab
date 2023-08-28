@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 913055662157029419}
   - component: {fileID: 5589670302572632486}
   - component: {fileID: 3943510680643184115}
+  - component: {fileID: 781868827981424048}
   m_Layer: 6
   m_Name: cloud_2
   m_TagString: Stepped
@@ -237,3 +238,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &781868827981424048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904212481201991363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1494cf63164b7d440bd8fd4dc49029c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

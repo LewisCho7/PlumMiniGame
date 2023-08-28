@@ -27,7 +27,7 @@ public class BrickGenerator : MonoBehaviour
     [SerializeField]
     private GameObject rescue;
 
-    private List<GameObject> list = new List<GameObject>();
+    private GameObject last_platform;
 
     // Start is called before the first frame update
     void Start()
@@ -44,23 +44,17 @@ public class BrickGenerator : MonoBehaviour
         {
             StartCoroutine(GenerateThroneBrick());
         }
+
+        last_platform = GameObject.Find("brick_1 (5)");
     }
 
     // Update is called once per frame
     void Update()
     {
         var position = main_camera.transform.position;
-        if (list.Count > 3)
+        if (last_platform.transform.position.y - position.y <= 480 && JumpGameManager.on_going)
         {
-            list.RemoveAt(0);
-        }
-
-        if (list.Count > 0)
-        {
-            if (list[^1].transform.position.y - position.y <= 480)
-            {
-                GenerateBrickForSure();
-            }
+            GenerateBrickForSure();
         }
     }
 
@@ -94,9 +88,6 @@ public class BrickGenerator : MonoBehaviour
             if (Random.Range(1, 101) <= 40)
             {
                 GameObject new_cloud = Instantiate(cloud[0], position, Quaternion.identity);
-                list.Add(new_cloud);
-                Destroy(new_cloud, 10f);
-
                 if (JumpGameManager.hard_mode)
                 {
                     yield return new WaitForSeconds(CoolDown.instance.hard_cloud);
@@ -114,14 +105,13 @@ public class BrickGenerator : MonoBehaviour
         var position
             = new Vector3(Random.Range(-280, 280), main_camera.transform.position.y + 650, 0);
         GameObject new_brick = Instantiate(brick[0], position, Quaternion.identity);
-        list.Add(new_brick);
+        last_platform = new_brick;
 
         //shield
         if (Random.Range(1, 11) <= 1)
         {
             position.y += 60;
             GameObject new_shield = Instantiate(shield, position, Quaternion.identity);
-            Destroy(new_shield, 10);
             position.y -= 60;
         }
 
@@ -139,10 +129,8 @@ public class BrickGenerator : MonoBehaviour
         {
             position.y += 62;
             GameObject new_rescue = Instantiate(rescue, position, Quaternion.identity);
-            Destroy(new_rescue, 10);
             position.y -= 62;
         }
-        Destroy(new_brick, 15f);
     }
 
     IEnumerator GenerateThroneBrick()
@@ -155,10 +143,10 @@ public class BrickGenerator : MonoBehaviour
                 var position
                     = new Vector3(Random.Range(-280, 280), main_camera.transform.position.y + 650, 0);
                 var new_throne_brick = Instantiate(brick[2], position, Quaternion.identity);
-                list.Add(new_throne_brick);
-                Destroy(new_throne_brick, 15f);
+                last_platform = new_throne_brick;
             }
             yield return new WaitForSeconds(CoolDown.instance.hard_throne);
         }
+        
     }
 }

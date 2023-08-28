@@ -140,6 +140,7 @@ public class JumpGameManager : MonoBehaviour
         while (on_going)
         {
             yield return null;
+            Debug.Log("obs");
             if (survived_time >= 20)
             {
                 if (Random.Range(1, 5) < 6)

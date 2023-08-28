@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7277558985434540567}
   - component: {fileID: 3506996949911029283}
   - component: {fileID: 267507141758363929}
+  - component: {fileID: 5155718139563843378}
   m_Layer: 6
   m_Name: cloud_1
   m_TagString: Stepped
@@ -138,5 +139,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a7ecc4545d860e4abd4e6b3fe1e3761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5155718139563843378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4686166800341327499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1494cf63164b7d440bd8fd4dc49029c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

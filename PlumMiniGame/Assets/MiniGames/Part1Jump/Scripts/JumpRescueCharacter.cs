@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class JumpRescueCharacter : MonoBehaviour
 {
-/*    [SerializeField]
-    private GameObject rescueUI;*/
+    [SerializeField]
+    private Sprite[] character_sprite;
+    private SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = character_sprite[Random.Range(0, character_sprite.Length)];
     }
 
     // Update is called once per frame

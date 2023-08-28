@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4130559554650229246}
   - component: {fileID: 7619911120963832295}
   - component: {fileID: 5338578973319679179}
+  - component: {fileID: 1007515467514337752}
   m_Layer: 8
   m_Name: rescue
   m_TagString: Item
@@ -146,4 +147,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ddcf5061a33c740a3fbc27c8d107e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rescueUI: {fileID: 0}
+  character_sprite:
+  - {fileID: 21300000, guid: 931fbe47b2a26c24abb5b774494abdeb, type: 3}
+  - {fileID: 21300000, guid: 48544e471fcfd3149bbbe72d3a91dde2, type: 3}
+  - {fileID: 21300000, guid: 435774a573898044a8a349ec55c49ded, type: 3}
+  - {fileID: 21300000, guid: 26d564697c50fdc49989a2ada3284283, type: 3}
+  - {fileID: 21300000, guid: 7f4bfc727bf53e74abde14497f0324b2, type: 3}
+  - {fileID: 21300000, guid: 6da1774d048e5ff4cbec0470e172489b, type: 3}
+  - {fileID: 21300000, guid: 626b3f7472ad8534380d0c9ac2cae4c6, type: 3}
+  - {fileID: 21300000, guid: 7ba4a169ccabcdf44b2d0158851d72c2, type: 3}
+  - {fileID: 21300000, guid: 0433de11a3df0e64d9dc0b0f0dfa47ef, type: 3}
+  - {fileID: 21300000, guid: 953c224f5f4981648b2c2e341b3ea5e9, type: 3}
+  - {fileID: 21300000, guid: 29390ec631dbdea4194ce57d62443764, type: 3}
+  - {fileID: 21300000, guid: 9a36235a31c080840858d6acd686a516, type: 3}
+  - {fileID: 21300000, guid: bd49314c4e7d3a64fb4f07499afa9b7b, type: 3}
+  - {fileID: 21300000, guid: 697191152ad79b3408cadf6d309d8f96, type: 3}
+  - {fileID: 21300000, guid: 08ee8acd92d17d945aaf65cfffeb52b4, type: 3}
+--- !u!114 &1007515467514337752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7990316636788038083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1494cf63164b7d440bd8fd4dc49029c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

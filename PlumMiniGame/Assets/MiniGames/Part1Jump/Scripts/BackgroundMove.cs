@@ -33,11 +33,12 @@ public class BackgroundMove : MonoBehaviour
     {
         while (true)
         {
-            int time = (int)JumpGameManager.survived_time;
             yield return null;
+  /*          int time = (int)JumpGameManager.survived_time;
+            
             if (time % 20 == 0 && time >= 20)
             {
-                interval.transform.position = new Vector3(0, camera.transform.position.y + 1280, 0);
+                interval.transform.position = new Vector3(0, camera.transform.position.y + 1275, 0);
                 Debug.Log(time);
                 switch (time)
                 {
@@ -50,7 +51,6 @@ public class BackgroundMove : MonoBehaviour
                     case 120:
                         interval_renderer.sprite = interval_sprite[2];
                         break;
-
                 }
 
                 while (camera.transform.position.y - gameObject.transform.position.y < 1280)
@@ -71,7 +71,8 @@ public class BackgroundMove : MonoBehaviour
                         break;
 
                 }
-            }
+                Debug.Log(time);
+            }*/
             gameObject.transform.position = new Vector3(0, camera.transform.position.y, 0);
         }
     }
