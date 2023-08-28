@@ -13,7 +13,7 @@ public class Run_RescueCharacter : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.tag == "Obstacle") {
+        if (collider.gameObject.tag == "Player") {
             Destroy(this);
         }
     }

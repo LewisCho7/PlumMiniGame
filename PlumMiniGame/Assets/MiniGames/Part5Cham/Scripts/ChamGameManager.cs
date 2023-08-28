@@ -41,6 +41,8 @@ public class ChamGameManager : MonoBehaviour
     private GameObject count_obj;
     [SerializeField]
     private Sprite[] count_sprite;
+    [SerializeField]
+    private GameObject soundmanager;
     void Start()
     {
         dead_ui.SetActive(false);
@@ -229,6 +231,7 @@ public class ChamGameManager : MonoBehaviour
     private IEnumerator GameOver()
     {
         yield return new WaitForSeconds(1);
+        soundmanager.GetComponent<AudioSource>().Stop();
         Heart.SetActive(false);
         dead_ui.SetActive(true);
     }
@@ -253,7 +256,7 @@ public class ChamGameManager : MonoBehaviour
 
     public static int CoinCalculate()
     {
-        int score = TextUI.score;
+        int score = ChamGameManager.score;
         if (score < 500)
         {
             score /= 10;
@@ -267,6 +270,6 @@ public class ChamGameManager : MonoBehaviour
             score = (score / 10) + (score / 100) * 5 + (score / 1000) * 15;
         }
 
-        return ChamGameManager.hard_mode ? (int)(score * 1.5) : score;
+        return score;
     }
 }

@@ -86,7 +86,7 @@ public class FurnitureStoreButtonManager : MonoBehaviour
     public void FurnitureSelected(int id)
     {
         ButtonSoundManager.instance.sound.Play();
-        stand_floor[(int)id / 12].transform.GetChild(0).
+        stand_floor[id / 12].transform.GetChild(0).
             transform.GetChild(0).gameObject.SetActive(false);
 
         theme_selector[--id].gameObject.SetActive(true);

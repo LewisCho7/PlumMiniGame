@@ -1,128 +1,169 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class JumpGameManager : MonoBehaviour
 {
-    public static bool hard_mode;
-    public static bool game_continue;
-    public static bool first_play;
-
-    public static int rescued_character;
-
-    public static float survived_time;
-
     [SerializeField]
-    private GameObject character;
+    private GameObject player;
     [SerializeField]
-    private GameObject main_camera;
+    private GameObject camera;
     [SerializeField]
-    private GameObject dead_ui;
+    private GameObject score_ui;
+    private TextMeshProUGUI tmpro_score;
+    [SerializeField]
+    private GameObject rescue_num_ui;
+    private TextMeshProUGUI tmpro_rescue;
+    [SerializeField]
+    private GameObject count_down;
+    [SerializeField]
+    private GameObject scoreboard;
     [SerializeField]
     private GameObject tutorial;
     [SerializeField]
-    private GameObject count_obj;
+    private GameObject bird;
     [SerializeField]
-    private Sprite[] count_sprite;
+    private GameObject[] meteo;
 
-    private AudioSource dead_sound;
-    void Awake()
+    private AudioSource audio;
+    private SpriteRenderer playerSprite;
+    [SerializeField]
+    private Sprite[] playerSprites;
+
+    public static bool hard_mode;
+    public static bool on_going;
+    public static float survived_time;
+    public static int score;
+    public static int rescue_num;
+
+    private void Awake()
     {
-        Application.targetFrameRate = 60;
+        playerSprite = player.GetComponent<SpriteRenderer>();
         
-        
-        hard_mode = DataManager.instance.isHardMode;
-        game_continue = true;
-        
-        survived_time = 0;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0;
-        count_obj.SetActive(false);
-        dead_ui.SetActive(false);        
-        dead_sound = GetComponent<AudioSource>();
-        rescued_character = 0;
-        tutorial.SetActive(DataManager.instance.saveData.isFirstPlay[0]);
-        StartCoroutine(GameProcess());
+        score = 0;
+        rescue_num = 0;
+        survived_time = 0;
+        Time.timeScale = 1;
+        on_going = false;
+        hard_mode = DataManager.instance.isHardMode;
+        tutorial.SetActive(!DataManager.instance.saveData.isFirstPlay[0]);
+
+        player.GetComponent<BoxCollider2D>().enabled = true;
+        tmpro_score = score_ui.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        tmpro_rescue = rescue_num_ui.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        playerSprite.sprite = playerSprites[DataManager.instance.saveData.currentCharacter - 1]; ;
+        audio = GetComponent<AudioSource>();
+
+        StartCoroutine(CountDown());
     }
 
     // Update is called once per frame
     void Update()
     {
-        survived_time += Time.deltaTime;
+        tmpro_score.text = score.ToString();
+        tmpro_rescue.text = rescue_num.ToString();
+        if (camera.transform.position.y - player.transform.position.y > 660)
+            //on_going = false;
+        if (on_going)
+            survived_time += Time.deltaTime;
     }
 
-    IEnumerator GameProcess()
+    public IEnumerator CameraSpeed()
     {
-        while (DataManager.instance.saveData.isFirstPlay[0])
+        float y = 150;
+        Rigidbody2D rb = camera.GetComponent<Rigidbody2D>();
+        while (y < 165 && on_going)
         {
             yield return null;
+            y = ((survived_time + 10) / 10) * 150 / 2;
+            rb.velocity = new Vector2(0, y);
         }
+    }
 
-        count_obj.SetActive(true);
-        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[0];
-        yield return new WaitForSecondsRealtime(1);
-        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[1];
-        yield return new WaitForSecondsRealtime(1);
-        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[2];
-        yield return new WaitForSecondsRealtime(1);
-        count_obj.GetComponent<SpriteRenderer>().sprite = count_sprite[3];
-        yield return new WaitForSecondsRealtime(1);
-        count_obj.SetActive(false);
-        Time.timeScale = 1;
+    public IEnumerator CountDown()
+    {
+        if (DataManager.instance.saveData.isFirstPlay[0])
+        {
+            DataManager.instance.saveData.isFirstPlay[0] = false;
+            tutorial.SetActive(true);
+            yield return new WaitForSecondsRealtime(3);
+        }
+        tutorial.SetActive(false);
+        count_down.SetActive(true);
+        yield return new WaitForSeconds(4);
+        count_down.SetActive(false);
+        StartCoroutine(JumpGame());
+    }
 
-        while (game_continue)
+    public IEnumerator JumpGame()
+    {
+        yield return null;
+        on_going = true;
+        StartCoroutine(CameraSpeed());
+        StartCoroutine(ObstacleGenerate());
+        var cool_down = new WaitForSeconds(1);
+        while (on_going)
         {
             yield return null;
-
-            if (main_camera.transform.position.y - character.transform.position.y > 660)
-            {
-                game_continue = false;
-            }
+            survived_time += Time.deltaTime;
+            score += 10;
+            yield return cool_down;
         }
 
         StartCoroutine(GameOver());
     }
 
-    public void TutorialDisappear()
+    public IEnumerator GameOver()
     {
-        tutorial.SetActive(false);
-        DataManager.instance.saveData.isFirstPlay[0] = false;
-    }
-    
-    IEnumerator GameOver()
-    {
-        yield return null;
-
-        dead_sound.Play();
-        yield return new WaitForSecondsRealtime(0.5f);
-        Time.timeScale = 0;
-        dead_ui.SetActive(true);
-        DataManager.instance.saveData.currentCoin += CoinCalculate();
-        main_camera.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        StopCoroutine(JumpGame());
+        StopCoroutine(CameraSpeed());
+        camera.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        audio.Stop();
+        JumpSoundManager.instance.audio.Play();
+        scoreboard.SetActive(true);
         DataManager.instance.SaveGame();
+        if (camera.transform.position.y - player.transform.position.y > 650)
+            player.SetActive(false);
+        yield return null;
     }
 
-    public static int CoinCalculate()
+    IEnumerator ObstacleGenerate()
     {
-        int score = TextUI.score;
-        if (score < 500)
+        var cool_down = new WaitForSeconds(2);
+        while (on_going)
         {
-            score /= 10;
+            yield return null;
+            if (survived_time >= 20)
+            {
+                if (Random.Range(1, 5) < 6)
+                {
+                    GenerateBird();
+                }
+                yield return cool_down;
+                if (Random.Range(1, 5) < 6)
+                {
+                    GenerateMeteo();
+                }
+                yield return cool_down;
+            }
         }
-        else if (500 <= score && score < 1500) 
-        {
-            score = (score / 10) + (score / 100) * 5;
-        }
-        else
-        {
-            score = (score / 10) + (score / 100) * 5 + (score / 1000) * 15;
-        }
+    }
+    private void GenerateBird()
+    {
+        GameObject new_bird = Instantiate(bird);
+        Debug.Log("bird");
+    }
 
-        return JumpGameManager.hard_mode ? (int)(score * 1.5) : score;
+    private void GenerateMeteo()
+    {
+        GameObject new_meteo = Instantiate(meteo[1]);
+        Debug.Log("meteo");
     }
 }

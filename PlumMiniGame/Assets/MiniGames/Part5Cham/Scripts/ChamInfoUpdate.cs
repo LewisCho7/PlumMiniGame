@@ -24,23 +24,22 @@ public class ChamInfoUpdate : MonoBehaviour
     {
         if (!ChamGameManager.game_on_process)
         {
-            int final_coin = TextUI.score;
-            score.GetComponent<TextMeshProUGUI>().text = TextUI.score.ToString();
+            score.GetComponent<TextMeshProUGUI>().text = ChamGameManager.score.ToString();
             coinBonus.GetComponent<TextMeshProUGUI>().text = '+' + Bonus() + "%";
             coin.GetComponent<TextMeshProUGUI>().text = "+" + (ChamGameManager.CoinCalculate() * (Bonus() / 100 + 1)).ToString();
 
             if (ChamGameManager.hard_mode)
             {
-                if (TextUI.score > DataManager.instance.saveData.hardHighScore[3])
-                    DataManager.instance.saveData.hardHighScore[3] = TextUI.score;
+                if (ChamGameManager.score > DataManager.instance.saveData.hardHighScore[3])
+                    DataManager.instance.saveData.hardHighScore[3] = ChamGameManager.score;
 
                 bestScore.GetComponent<TextMeshProUGUI>().text
                     = DataManager.instance.saveData.hardHighScore[3].ToString();
             }
             else
             {
-                if (TextUI.score > DataManager.instance.saveData.normalHighScore[3])
-                    DataManager.instance.saveData.normalHighScore[3] = TextUI.score;
+                if (ChamGameManager.score > DataManager.instance.saveData.normalHighScore[3])
+                    DataManager.instance.saveData.normalHighScore[3] = ChamGameManager.score;
 
                 bestScore.GetComponent<TextMeshProUGUI>().text
                     = DataManager.instance.saveData.normalHighScore[3].ToString();

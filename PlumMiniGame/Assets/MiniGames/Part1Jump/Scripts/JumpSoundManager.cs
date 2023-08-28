@@ -4,7 +4,24 @@ using UnityEngine;
 
 public class JumpSoundManager : MonoBehaviour
 {
-    private AudioSource audio;
+    public AudioSource audio;
+    public static JumpSoundManager instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +31,6 @@ public class JumpSoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!JumpGameManager.game_continue)
-        {
-            audio.Stop();
-        }
+
     }
 }
