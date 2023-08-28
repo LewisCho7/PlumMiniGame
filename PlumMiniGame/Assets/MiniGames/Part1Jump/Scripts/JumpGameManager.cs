@@ -70,7 +70,7 @@ public class JumpGameManager : MonoBehaviour
         tmpro_score.text = score.ToString();
         tmpro_rescue.text = rescue_num.ToString();
         if (camera.transform.position.y - player.transform.position.y > 660)
-            //on_going = false;
+            on_going = false;
         if (on_going)
             survived_time += Time.deltaTime;
     }
