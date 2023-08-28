@@ -9,7 +9,6 @@ public class FurnitureManager : MonoBehaviour
     public GameObject[] furnitureObjects;
     private Image spriteImage;
     public bool isSecond = false;
-    private int secondFloorIndex = 12;
 
     /*private enum FurnitureType
     {
@@ -45,7 +44,20 @@ public class FurnitureManager : MonoBehaviour
             // int i = 1 부터 시작 + 기본 벽지 에셋 saveData에 추가
             for (int i = 1; i <= furnitureObjects.Length; i++)
             {
-                if(id1 == (i < 10 ? "0" : "") + i)
+                string s;
+                if (i < 10)
+                {
+                    s = "0" + i;
+                }
+                else if (i > 11)
+                {
+                    s = "" + (i + 8);
+                }
+                else
+                {
+                    s = "" + i;
+                }
+                if(id1 == s)
                 {
                     furnitureObjects[i - 1].SetActive(true);
                     furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID = id;
@@ -56,19 +68,23 @@ public class FurnitureManager : MonoBehaviour
                         furnitureObjects[i-1].GetComponent<SpriteRenderer>().sprite = sprite;
                         break;
                     }
+                    else if (id1 == "20" || id1 == "21" || id1 == "22")
+                    {
+                        spriteImage = furnitureObjects[i - 1].GetComponent<Image>();
+                        Sprite sprite = Resources.Load<Sprite>("FurnitureSprites/" + id);
+                        spriteImage.sprite = sprite;
+                        spriteImage.SetNativeSize();
+                        furnitureObjects[i - 1].SetActive(false);
+                        break;
+                    }
                     else
                     {
                         spriteImage = furnitureObjects[i - 1].GetComponent<Image>();
 
                         Sprite[] sprites = Resources.LoadAll<Sprite>("FurnitureSprites/Furn/" + id1);
                         int id2 = int.Parse(id.Substring(2, 2));
-                        Debug.Log(id2);
                         spriteImage.sprite = sprites[id2 - 1];
                         spriteImage.SetNativeSize();
-                        if (i >= secondFloorIndex)
-                        {
-                            furnitureObjects[i - 1].SetActive(false);
-                        }
                         break;
                     }
                     
@@ -81,32 +97,29 @@ public class FurnitureManager : MonoBehaviour
 
     public void showSwitchedFurn()
     {
-        for(int i = 1; i < secondFloorIndex; i++)
+        foreach(GameObject furniture in furnitureObjects)
         {
-            if(furnitures.Contains(furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID))
+           furniture.SetActive(true);
+            string sprite_id = furniture.GetComponent<FurnitureObjects>().spriteID;
+
+            if (isSecond)
             {
-                furnitureObjects[i - 1].SetActive(!isSecond);
+                if (!furnitures.Contains(sprite_id) || int.Parse(sprite_id.Substring(0,2)) < 20)
+                {
+                    furniture.SetActive(false);
+                }
             }
-        }
-        for (int i = secondFloorIndex; i <= furnitureObjects.Length; i++)
-        {
-            if (furnitures.Contains(furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID))
+            else
             {
-                furnitureObjects[i - 1].SetActive(isSecond);
+                if (!furnitures.Contains(sprite_id) || int.Parse(sprite_id.Substring(0, 2)) >= 20)
+                {
+                    furniture.SetActive(false);
+                }
             }
         }
 
+
     }
     
-  /* private void setSpriteID()
-    {
-        for(int i = 0; i < furnitureObjects.Length; i++)
-        {
-            if (furnitureObjects[i].activeSelf)
-            {
-                foreach
-            }
-        }
-    }*/
 
 }

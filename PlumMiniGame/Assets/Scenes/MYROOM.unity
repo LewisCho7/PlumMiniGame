@@ -306,7 +306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -197, y: -338}
+  m_AnchoredPosition: {x: -166.3, y: -338}
   m_SizeDelta: {x: 167, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &56316602
@@ -758,6 +758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCanvas: {fileID: 1227869537}
   editCanvas: {fileID: 1301316491}
+  characterCanvas: {fileID: 837074171}
   furnitures:
   - {fileID: 1426477767}
   - {fileID: 1353626615}
@@ -4399,6 +4400,7 @@ MonoBehaviour:
   - {fileID: 1655618279}
   - {fileID: 910493355}
   tutorialPanel: {fileID: 1288899969}
+  characterCanvas: {fileID: 837074171}
 --- !u!1 &1115051963
 GameObject:
   m_ObjectHideFlags: 0

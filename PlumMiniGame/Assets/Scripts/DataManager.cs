@@ -99,7 +99,7 @@ public class DataManager : MonoBehaviour
         saveData.hardHighScore = new int[5] { 0, 0, 0, 0, 0 };
         saveData.currentCharacter = 0;
         saveData.currentBonus = 1.0f;
-        saveData.currentCoin = 100000;
+        saveData.currentCoin = 0;
         saveData.furnatureList = new List<string>();
         saveData.myRoomFurnitures = new List<string>();
         saveData.furnatureList.AddRange(new string[] { "0101", "0201" });

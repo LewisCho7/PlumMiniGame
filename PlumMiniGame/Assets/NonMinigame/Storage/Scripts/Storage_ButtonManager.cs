@@ -13,8 +13,6 @@ public class Storage_ButtonManager : MonoBehaviour
     public GameObject lockedItemObject;
     public List<GameObject> lockedItems;
 
-
-
     private int int_id;
     private bool isList;
 
@@ -93,7 +91,14 @@ public class Storage_ButtonManager : MonoBehaviour
             i.SetActive(true);
         }
         string string_id;
-        string_id = (int_id < 10) ? ("0" + int_id.ToString()) : int_id.ToString();
+        if(int_id >= 12)
+        {
+            string_id = (int_id + 8).ToString();
+        }
+        else
+        {
+            string_id = (int_id < 10) ? ("0" + int_id.ToString()) : int_id.ToString();
+        }
 
         foreach (string id in DataManager.instance.saveData.furnatureList)
         {
@@ -102,6 +107,5 @@ public class Storage_ButtonManager : MonoBehaviour
                 lockedItems[int.Parse(id.Substring(2, 2)) - 1].SetActive(false);
             }
         }
-    
     }
 }

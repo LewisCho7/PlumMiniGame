@@ -81,7 +81,6 @@ public class Ski_GameManager : MonoBehaviour
     private void Update()
     {
         showItem();
-        Debug.Log(timer);
         if(!isGameOver && timerStart)
         {
             timer += Time.deltaTime;
@@ -153,8 +152,6 @@ public class Ski_GameManager : MonoBehaviour
     {
         isGameOver = true;
         gameSpeed = 0;
-        //gameOverPanel.SetActive(true);
-
         StartCoroutine(IE_GameOver());
     }
 
