@@ -57,7 +57,7 @@ public class FurnitureManager : MonoBehaviour
                 {
                     s = "" + i;
                 }
-                if(id1 == s)
+                if (id1 == s)
                 {
                     furnitureObjects[i - 1].SetActive(true);
                     furnitureObjects[i - 1].GetComponent<FurnitureObjects>().spriteID = id;
